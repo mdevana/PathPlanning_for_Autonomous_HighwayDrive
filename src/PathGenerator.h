@@ -13,7 +13,7 @@ class PathGenerator {
    */
   virtual ~PathGenerator();
   
-  void Init();
+  void Init(double inc);
 
   double get_x_vals();
   double get_y_vals();
