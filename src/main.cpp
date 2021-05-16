@@ -100,14 +100,12 @@ int main() {
            */
 		   
 		  double dist_inc = 0.5;
-		  for (int i = 0; i < 50; ++i) {
-			next_x_vals.push_back(car_x+(dist_inc*i)*cos(deg2rad(car_yaw)));
-			next_y_vals.push_back(car_y+(dist_inc*i)*sin(deg2rad(car_yaw)));
-		 }
+		  PathGenerator current_path(0.5);
+		  current_path.generate_simple_path();
 
 
-          msgJson["next_x"] = next_x_vals;
-          msgJson["next_y"] = next_y_vals;
+          msgJson["next_x"] = current_path.get_x_vals();
+          msgJson["next_y"] = current_path.get_y_vals();
 
           auto msg = "42[\"control\","+ msgJson.dump()+"]";
 

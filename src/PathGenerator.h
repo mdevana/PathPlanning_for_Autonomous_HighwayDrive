@@ -26,6 +26,7 @@ class PathGenerator {
 
   vector<double> next_x_vals;
   vector<double> next_y_vals;
+  double dist_inc;
 
 };
 
