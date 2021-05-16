@@ -15,8 +15,8 @@ class PathGenerator {
   
   void Init(double inc);
 
-  double get_x_vals();
-  double get_y_vals();
+  vector<double> get_x_vals();
+  vector<double> get_y_vals();
   
   void generate_simple_path();
   
