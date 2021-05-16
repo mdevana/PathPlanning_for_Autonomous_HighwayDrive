@@ -2,6 +2,8 @@
 #define PathGenerator_H
 #include <vector>
 
+std::vector
+
 class PathGenerator {
  public:
   /**
