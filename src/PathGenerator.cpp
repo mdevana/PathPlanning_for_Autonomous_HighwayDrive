@@ -3,6 +3,8 @@
 #include <math.h>
 #include "helpers.h"
 
+using std::vector;
+
 PathGenerator::PathGenerator() {}
 
 PathGenerator::~PathGenerator() {}

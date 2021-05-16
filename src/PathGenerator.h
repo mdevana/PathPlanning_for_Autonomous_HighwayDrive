@@ -2,7 +2,7 @@
 #define PathGenerator_H
 #include <vector>
 
-std::vector
+using std::vector;
 
 class PathGenerator {
  public:
