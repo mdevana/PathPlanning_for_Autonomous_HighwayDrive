@@ -7,6 +7,7 @@
 #include "Eigen-3.3/Eigen/QR"
 #include "helpers.h"
 #include "json.hpp"
+#include "PathGenerator.h"
 
 // for convenience
 using nlohmann::json;
