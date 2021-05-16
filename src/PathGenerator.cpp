@@ -23,7 +23,7 @@ void PathGenerator::set_localization_data(double x,double y, double yaw) {
 
 }
 
-void PathGenerator::set_previous_path_data(double<vector> x,double<vector> y) {
+void PathGenerator::set_previous_path_data(vector<double> x,vector<double> y) {
   
   previous_path_x = x;
   previous_path_y = y;

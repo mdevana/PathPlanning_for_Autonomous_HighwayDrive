@@ -22,7 +22,7 @@ class PathGenerator {
   vector<double> get_y_vals();
   
   void set_localization_data(double x,double y, double yaw);
-  void set_previous_path_data(double<vector> x,double<vector> y);
+  void set_previous_path_data(vector<double> x,vector<double> y);
   
   void generate_simple_path();
   void generate_circular_path()
