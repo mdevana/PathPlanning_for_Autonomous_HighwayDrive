@@ -1,7 +1,7 @@
 #include "PathGenerator.h"
 #include <vector>
 #include <math.h>
-#include "helper_functions.h"
+#include "helpers.h"
 
 PathGenerator::PathGenerator() {}
 
