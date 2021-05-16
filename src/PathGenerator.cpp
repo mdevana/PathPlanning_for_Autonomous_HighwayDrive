@@ -10,12 +10,12 @@ void PathGenerator::Init(double inc) {
 
 }
 
-double PathGenerator::get_x_vals() {
+vector<double> PathGenerator::get_x_vals() {
   
   return next_x_vals;  
 }
 
-double PathGenerator::get_y_vals() {
+vector<double> PathGenerator::get_y_vals() {
   
   return next_y_vals;  
 }
