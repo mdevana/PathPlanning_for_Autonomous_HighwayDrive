@@ -1,4 +1,6 @@
 #include "PathGenerator.h"
+#include <vector>
+#include <math>
 
 PathGenerator::PathGenerator() {}
 

@@ -1,5 +1,6 @@
 #ifndef PathGenerator_H
 #define PathGenerator_H
+#include <vector>
 
 class PathGenerator {
  public:
