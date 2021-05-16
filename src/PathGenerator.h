@@ -25,7 +25,7 @@ class PathGenerator {
   void set_previous_path_data(vector<double> x,vector<double> y);
   
   void generate_simple_path();
-  void generate_circular_path()
+  void generate_circular_path();
   
   double car_x;
   double car_y;
