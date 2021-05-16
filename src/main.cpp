@@ -102,6 +102,7 @@ int main() {
 		  double dist_inc = 0.5;
 		  PathGenerator current_path;
 		  current_path.Init(0.5);
+		  current_path.set_localization_data(car_x,car_y,car_yaw);
 		  current_path.generate_simple_path();
 
 

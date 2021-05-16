@@ -1,6 +1,6 @@
 #include "PathGenerator.h"
 #include <vector>
-#include <math>
+#include <math.h>
 
 PathGenerator::PathGenerator() {}
 
@@ -9,6 +9,14 @@ PathGenerator::~PathGenerator() {}
 void PathGenerator::Init(double inc) {
   
   dist_inc = inc;
+
+}
+
+void PathGenerator::set_localization_data(double x,double y, double yaw) {
+  
+  car_x = x;
+  car_y = y;
+  car_yaw = yaw;
 
 }
 
