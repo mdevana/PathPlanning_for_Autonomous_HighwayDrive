@@ -103,7 +103,9 @@ int main() {
 		  PathGenerator current_path;
 		  current_path.Init(0.5);
 		  current_path.set_localization_data(car_x,car_y,car_yaw);
-		  current_path.generate_simple_path();
+		  current_path.set_previous_path_data(previous_path_x, previous_path_y);
+		  //current_path.generate_simple_path();
+		  current_path.generate_circular_path();
 
 
           msgJson["next_x"] = current_path.get_x_vals();
