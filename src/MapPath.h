@@ -1,7 +1,7 @@
 #ifndef MapPath_H
 #define MapPath_H
 #include <vector>
-
+#include "WayPoint.h"
 
 using std::vector;
 
