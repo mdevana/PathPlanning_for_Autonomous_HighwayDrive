@@ -34,6 +34,8 @@ void MapPath::set_map_path_data(vector<double> x,vector<double> y,vector<double>
 	  map_highway.push_back(w_p);
 	  
   }
+}
+
  
 vector<waypoint> MapPath::get_map_path_s(int ind) {
 	 
