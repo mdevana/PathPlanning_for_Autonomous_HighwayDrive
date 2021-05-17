@@ -3,6 +3,7 @@
 #include <math.h>
 #include "helpers_planning.h"
 #include <string>
+#include "MapPath.h"
 
 using std::vector;
 using std::string;
