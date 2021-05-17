@@ -1,6 +1,7 @@
 #ifndef MapPath_H
 #define MapPath_H
 #include <vector>
+#include "helpers_planning.h"
 
 using std::vector;
 
