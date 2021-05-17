@@ -8,7 +8,6 @@
 #include "helpers.h"
 #include "json.hpp"
 #include "PathGenerator.h"
-#include "MapPath.h"
 #include "helpers_planning.h"
 
 // for convenience
