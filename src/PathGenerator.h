@@ -23,9 +23,11 @@ class PathGenerator {
   
   void set_localization_data(double x,double y, double yaw);
   void set_previous_path_data(vector<double> x,vector<double> y);
+
   
   void generate_simple_path();
   void generate_circular_path();
+  void generate_map_path();
   
   double car_x;
   double car_y;
@@ -33,6 +35,8 @@ class PathGenerator {
   
   vector<double> previous_path_x;
   vector<double> previous_path_y;
+  
+  MapPath Map_Highway:
   
   
 

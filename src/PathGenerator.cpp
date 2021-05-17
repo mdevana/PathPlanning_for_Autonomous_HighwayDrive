@@ -2,16 +2,19 @@
 #include <vector>
 #include <math.h>
 #include "helpers_planning.h"
+#include <string>
 
 using std::vector;
+using std::string;
 
 PathGenerator::PathGenerator() {}
 
 PathGenerator::~PathGenerator() {}
 
-void PathGenerator::Init(double inc) {
+void PathGenerator::Init(double inc, MapPath mp) {
   
   dist_inc = inc;
+  map_highway=mp;
 
 }
 
@@ -29,6 +32,8 @@ void PathGenerator::set_previous_path_data(vector<double> x,vector<double> y) {
   previous_path_y = y;
 
 }
+
+
 
 vector<double> PathGenerator::get_x_vals() {
   
@@ -83,3 +88,45 @@ void PathGenerator::generate_circular_path(){
 
 		
 }
+
+
+void PathGenerator::generate_map_path(){
+	
+	double pos_x;
+	double pos_y;
+	double angle;
+	int path_size = previous_path_x.size();
+
+	for (int i = 0; i < path_size; ++i) {
+		next_x_vals.push_back(previous_path_x[i]);
+		next_y_vals.push_back(previous_path_y[i]);
+	}
+
+	if (path_size == 0) {
+		pos_x = car_x;
+		pos_y = car_y;
+		angle = deg2rad(car_yaw);
+	} else {
+		pos_x = car_x;
+		pos_y = car_y;
+		angle = deg2rad(car_yaw);
+		
+	}
+
+	//double dist_inc = 0.5;
+	vector<waypoint> way_pts= Map_Highway.get_map_path_s();
+	
+	for (int i = 0; i < 50-path_size; ++i) {    
+	    
+		waypoint pt = way_pts[i];
+		
+		next_x_vals.push_back(pt.x_co);
+		next_y_vals.push_back(pt.y_co);
+		
+		//pos_x += (dist_inc)*cos(angle+(i+1)*(pi()/100));
+		//pos_y += (dist_inc)*sin(angle+(i+1)*(pi()/100));
+	}
+	
+}
+
+
