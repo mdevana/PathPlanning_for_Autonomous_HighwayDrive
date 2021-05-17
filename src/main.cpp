@@ -30,7 +30,7 @@ int main() {
   // The max s value before wrapping around the track back to 0
   double max_s = 6945.554;
   //MapPath highway;
-  waypoint wp:
+  waypoint wp{}:
 
   std::ifstream in_map_(map_file_.c_str(), std::ifstream::in);
 
