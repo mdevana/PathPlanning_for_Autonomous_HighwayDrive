@@ -1,7 +1,7 @@
 #ifndef PathGenerator_H
 #define PathGenerator_H
 #include <vector>
-#include "MapPath.h"
+
 
 using std::vector;
 
