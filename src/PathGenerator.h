@@ -37,7 +37,7 @@ class PathGenerator {
   vector<double> previous_path_x;
   vector<double> previous_path_y;
   
-  MapPath Map_Highway:
+  MapPath Map_Highway;
   
   
 
