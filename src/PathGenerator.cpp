@@ -15,7 +15,7 @@ PathGenerator::~PathGenerator() {}
 void PathGenerator::Init(double inc, MapPath mp) {
   
   dist_inc = inc;
-  map_highway=mp;
+  Map_Highway=mp;
 
 }
 
