@@ -45,6 +45,7 @@ class PathGenerator {
   vector<double> next_y_vals;
   double dist_inc;
   double current_path_length;
+  
 
 };
 
