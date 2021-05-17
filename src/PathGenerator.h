@@ -1,7 +1,7 @@
 #ifndef PathGenerator_H
 #define PathGenerator_H
 #include <vector>
-
+#include "WayPoint.h"
 
 using std::vector;
 
@@ -45,7 +45,7 @@ class PathGenerator {
   vector<double> next_y_vals;
   double dist_inc;
   double current_path_length;
-  
+  WayPoint map_of_highway;
 
 };
 
