@@ -3,7 +3,7 @@
 #include <math.h>
 #include "helpers_planning.h"
 #include <string>
-#include "MapPath.h"
+
 
 using std::vector;
 using std::string;
@@ -12,10 +12,10 @@ PathGenerator::PathGenerator() {}
 
 PathGenerator::~PathGenerator() {}
 
-void PathGenerator::Init(double inc, MapPath mp) {
+void PathGenerator::Init(double inc) {
   
   dist_inc = inc;
-  Map_Highway=mp;
+  //Map_Highway=mp;
 
 }
 
@@ -115,14 +115,14 @@ void PathGenerator::generate_map_path(){
 	}
 
 	//double dist_inc = 0.5;
-	vector<waypoint> way_pts= Map_Highway.get_map_path_s(50-path_size);
+	
 	
 	for (int i = 0; i < 50-path_size; ++i) {    
 	    
-		waypoint pt = way_pts[i];
+		//waypoint pt = way_pts[i];
 		
-		next_x_vals.push_back(pt.x_co);
-		next_y_vals.push_back(pt.y_co);
+		//next_x_vals.push_back(pt.x_co);
+		//next_y_vals.push_back(pt.y_co);
 		
 		//pos_x += (dist_inc)*cos(angle+(i+1)*(pi()/100));
 		//pos_y += (dist_inc)*sin(angle+(i+1)*(pi()/100));
