@@ -15,14 +15,6 @@ using std::vector;
 //   or vice versa
 //
 
-struct waypoint {
-  double  x_co;
-  double  y_co;
-  double  s_co;
-  double  dx_co;
-  double  dy_co;
-  
-};
 
 // For converting back and forth between radians and degrees.
 constexpr double pi() { return M_PI; }

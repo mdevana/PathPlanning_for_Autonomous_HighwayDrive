@@ -10,7 +10,7 @@ set(CMAKE_CXX_FLAGS, "${CXX_FLAGS}")
 file(GLOB HEADERS src/*.h)
 file(GLOB HEADERS_HPP src/*.hpp)
 
-set(sources src/PathGenerator.cpp src/main.cpp ${HEADERS} ${HEADERS_HPP})
+set(sources src/WayPoint.cpp src/PathGenerator.cpp src/main.cpp ${HEADERS} ${HEADERS_HPP})
 
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin") 
