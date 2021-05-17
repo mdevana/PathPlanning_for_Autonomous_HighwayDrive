@@ -17,7 +17,7 @@ class PathGenerator {
    */
   virtual ~PathGenerator();
   
-  void Init(double inc);
+  void Init(double inc, MapPath mp);
 
   vector<double> get_x_vals();
   vector<double> get_y_vals();
