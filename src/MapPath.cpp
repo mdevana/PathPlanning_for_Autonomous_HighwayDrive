@@ -41,12 +41,12 @@ vector<waypoint> MapPath::get_map_path_s(int ind) {
 	 
 	 path_discretised.clear();
 	 
-	 for(i = 0 ; i < ind ; i++) {
+	 for(int i = 0 ; i < ind ; i++) {
 		 path_discretised.push_back(map_highway[i]);
 		 
 	 }
 	 
-  
+     return (path_discretised);
 
 }
 
