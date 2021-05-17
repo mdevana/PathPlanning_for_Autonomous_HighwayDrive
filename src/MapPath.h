@@ -1,7 +1,7 @@
 #ifndef MapPath_H
 #define MapPath_H
 #include <vector>
-//#include "helpers_planning.h"
+#include "helpers_planning.h"
 
 using std::vector;
 
@@ -20,11 +20,6 @@ class MapPath {
   void Init();
   void set_map_path_data(vector<double> x,vector<double> y,vector<double> s,vector<double> dx, vector<double> dy);
   vector<waypoint> get_map_path_s(int ind);
-  
-
-  
-  
-  
 
  private:
 

@@ -38,14 +38,13 @@ class PathGenerator {
   vector<double> previous_path_y;
   
   MapPath Map_Highway;
-  
-  
 
  private:
 
   vector<double> next_x_vals;
   vector<double> next_y_vals;
   double dist_inc;
+  double current_path_length;
 
 };
 

@@ -22,7 +22,7 @@ struct waypoint {
   double  dx_co;
   double  dy_co;
   
-} ;
+};
 
 // For converting back and forth between radians and degrees.
 constexpr double pi() { return M_PI; }
