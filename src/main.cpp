@@ -8,7 +8,9 @@
 #include "helpers.h"
 #include "json.hpp"
 #include "PathGenerator.h"
+#include "WayPoint.h"
 #include "helpers_planning.h"
+
 
 // for convenience
 using nlohmann::json;
