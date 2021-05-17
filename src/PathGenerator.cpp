@@ -3,7 +3,7 @@
 #include <math.h>
 #include "helpers_planning.h"
 #include <string>
-
+#include "WayPoint.h"
 
 using std::vector;
 using std::string;
@@ -16,6 +16,7 @@ void PathGenerator::Init(double inc) {
   
   dist_inc = inc;
   //Map_Highway=mp;
+  WayPoint map_of_highway;
 
 }
 
