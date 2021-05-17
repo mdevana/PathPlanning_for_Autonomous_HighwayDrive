@@ -115,7 +115,7 @@ void PathGenerator::generate_map_path(){
 	}
 
 	//double dist_inc = 0.5;
-	vector<waypoint> way_pts= Map_Highway.get_map_path_s();
+	vector<waypoint> way_pts= Map_Highway.get_map_path_s(50-path_size);
 	
 	for (int i = 0; i < 50-path_size; ++i) {    
 	    
