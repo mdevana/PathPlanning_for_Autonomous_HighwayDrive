@@ -33,6 +33,7 @@ int main() {
   double max_s = 6945.554;
   //MapPath highway;
   WayPoint wp;
+  vector<WayPoint> wp2;
 
   std::ifstream in_map_(map_file_.c_str(), std::ifstream::in);
 

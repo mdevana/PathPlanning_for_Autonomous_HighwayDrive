@@ -18,7 +18,7 @@ void MapPath::Init() {
 
 
 
-void MapPath::set_map_path_data(vector<double> x,vector<double> y,vector<double> s,vector<double> dx, vector<double> dy ) {
+/*void MapPath::set_map_path_data(vector<double> x,vector<double> y,vector<double> s,vector<double> dx, vector<double> dy ) {
   
   int path_size = x.size();
   WayPoint w_p;
@@ -42,7 +42,7 @@ vector<WayPoint> MapPath::get_map_path_s(int ind) {
      return (map_of_highway);
 
 }
-
+*/
 
 
 
