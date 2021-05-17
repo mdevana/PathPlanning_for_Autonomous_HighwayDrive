@@ -24,7 +24,7 @@ class MapPath {
  private:
 
   //vector<WayPoint> map_of_highway;
-  WayPoint map_of_highway;
+  //WayPoint map_of_highway;
   
 
 };
