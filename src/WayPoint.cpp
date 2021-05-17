@@ -7,7 +7,7 @@
 
 WayPoint::WayPoint() {}
 
-WayPoint(double x, double y, double z,double s,double dx, double dy){
+WayPoint::WayPoint(double x, double y, double z,double s,double dx, double dy){
   
     x_co = x;
     y_co = y;
