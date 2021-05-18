@@ -18,8 +18,8 @@ class MapPath {
   virtual ~MapPath();
   
   //void Init();
-  //void set_map_path_data(vector<double> x,vector<double> y,vector<double> s,vector<double> dx, vector<double> dy);
-  //vector<WayPoint> get_map_path_s(int ind);
+  void set_map_path_data(vector<double> x,vector<double> y,vector<double> s,vector<double> dx, vector<double> dy);
+  vector<WayPoint> get_map_path_s(int ind);
 	
 	
  private:
