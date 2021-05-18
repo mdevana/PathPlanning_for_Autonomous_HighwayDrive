@@ -1,5 +1,5 @@
-#ifndef MapPath_H
-#define MapPath_H
+#ifndef WayPoint_H
+#define WayPoint_H
 #include <vector>
 
 
@@ -31,4 +31,4 @@ class WayPoint {
 
 };
 
-#endif  // MapPath_H
+#endif  // WayPoint_H
