@@ -12,7 +12,7 @@ class WayPoint {
    */
   WayPoint();
   
-  WayPoint(double x, double y, double z,double s,double dx, double dy);
+  WayPoint(double x, double y,double s,double dx, double dy);
 
   /**
    * Destructor.
