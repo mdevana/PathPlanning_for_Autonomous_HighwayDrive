@@ -10,11 +10,11 @@ MapPath::MapPath() {}
 
 MapPath::~MapPath() {}
 
-void MapPath::Init() {
+/*void MapPath::Init() {
   
   
 
-}
+}*/
 
 
 
