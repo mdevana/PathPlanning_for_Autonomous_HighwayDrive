@@ -81,7 +81,7 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val) {
 	 
 	 
 	 
-	 WayPoint wp( XY[0], XY[1], s_val, d_x,d_y);
+	 WayPoint wp( XY[0]+2 * d_x, XY[1]+ 2 * dy, s_val, d_x,d_y);
 	 return(wp);
 
 }
