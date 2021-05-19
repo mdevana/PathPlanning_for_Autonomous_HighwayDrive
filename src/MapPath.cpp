@@ -56,7 +56,7 @@ WayPoint MapPath::get_map_convertedXY_for_s(int s_val) {
 	 vector<double> y_vect;
 	 vector<double> s_vect;
 	 
-	 std::cout <<"vector created : size of highway points " <<points_group.size()<< std::endl;
+	
 	 
 	 for (WayPoint wp:points_group) {
 	  
@@ -67,19 +67,19 @@ WayPoint MapPath::get_map_convertedXY_for_s(int s_val) {
 	  
 	 }
 	 
-	 std::cout <<"vector populated" << std::endl;
+	 
 	 
 	 double d_x= dx_spline(s_val);
 	 double d_y= dy_spline(s_val);
 	 
-	 std::cout <<"dx dy spline calculated" << std::endl;
+	 
 	 
      vector<double>  XY = getXY(s_val, sqrt(d_x * d_x + d_y * d_y),s_vect, x_vect, y_vect);
 	 //vector<double>  XY;
 	 //XY[0] = x_spline(s_val);
 	 //XY[1] = y_spline(s_val);
 	 
-	 std::cout <<"x y spline calculated" << std::endl;
+	 
 	 
 	 WayPoint wp( XY[0], XY[1], s_val, d_x,d_y);
 	 return(wp);
