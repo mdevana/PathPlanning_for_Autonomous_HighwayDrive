@@ -42,7 +42,7 @@ void MapPath::set_map_path_data(vector<double> x,vector<double> y,vector<double>
   for (int i = 0; i < path_size; ++i) {
 	  
 	  WayPoint w_p(x[i],y[i],s[i],dx[i],dy[i]);
-	  map_of_highway.push_back(w_p);
+	  points_group.push_back(w_p);
 	  
   }
 }
@@ -51,7 +51,7 @@ void MapPath::set_map_path_data(vector<double> x,vector<double> y,vector<double>
 vector<WayPoint> MapPath::get_map_path_s(int ind) {
 	 
 	 
-     return (map_of_highway);
+     return (points_group);
 
 }
 
