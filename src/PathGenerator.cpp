@@ -181,7 +181,7 @@ vector<double> PathGenerator::JMT(vector<double> &start, vector<double> &end, do
     VectorXd initial_C(3);
     initial_C<<end[0] - ( start[0] + start[1] * T + 0.5 * start[2] * pow(T,2) ),
                 end[1] -( start[1] + start[2] * T),
-                end[2] - start[2];*/
+                end[2] - start[2];
     VectorXd Coeff_456(3);
     Coeff_456 = TimeMat_inv * initial_C;
     
