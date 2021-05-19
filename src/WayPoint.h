@@ -19,6 +19,7 @@ class WayPoint {
   double get_s_co();
   double get_dx_co();
   double get_dy_co();
+  double get_d_co(); 
 
   /**
    * Destructor.

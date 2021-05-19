@@ -20,6 +20,7 @@ double WayPoint::get_y_co() { return y_co;}
 double WayPoint::get_s_co() { return s_co;}
 double WayPoint::get_dx_co() { return dx_co;}
 double WayPoint::get_dy_co() { return dy_co;}
+double WayPoint::get_d_co() { return sqrt(dy_co * dy_co + dx_co * dx_co );}
 
 
 WayPoint::~WayPoint() {}
