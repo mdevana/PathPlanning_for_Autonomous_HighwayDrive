@@ -3,6 +3,7 @@
 #include "MapPath.h"
 #include <string>
 #include "helpers_planning.h"
+#include <iostream>
 
 
 using std::vector;
@@ -54,6 +55,9 @@ WayPoint MapPath::get_map_convertedXY_for_s(int s_val) {
 	 vector<double> x_vect;
 	 vector<double> y_vect;
 	 vector<double> s_vect;
+	 
+	 std::cout <<"vector created" << std::endl;
+	 
 	 for (int i = 0; i < points_group.size(); ++i) {
 	  
 	  x_vect[i] = points_group[i].get_x_co();
