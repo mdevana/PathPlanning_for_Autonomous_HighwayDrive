@@ -22,6 +22,7 @@ class MapPath {
   void Init_from_cloudpoints(MapPath map_points);
   void set_map_path_data(vector<double> x,vector<double> y,vector<double> s,vector<double> dx, vector<double> dy);
   WayPoint get_map_point_for_s(int s_val);
+  WayPoint get_map_convertedXY_for_s(int s_val);
 	
 	
  private:
