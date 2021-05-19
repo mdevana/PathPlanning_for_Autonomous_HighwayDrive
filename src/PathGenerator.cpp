@@ -176,7 +176,7 @@ vector<double> PathGenerator::JMT(vector<double> &start, vector<double> &end, do
              6*T, 12*pow(T,2), 20*pow(T,3);
     
     MatrixXd TimeMat_inv(3,3);
-    TimeMat_inv = TimeMat.inverse();
+    //TimeMat_inv = TimeMat.inverse();
     
     VectorXd initial_C(3);
     initial_C<<end[0] - ( start[0] + start[1] * T + 0.5 * start[2] * pow(T,2) ),
