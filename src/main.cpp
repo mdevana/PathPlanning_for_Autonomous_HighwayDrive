@@ -34,7 +34,7 @@ int main() {
   // The max s value before wrapping around the track back to 0
   double max_s = 6945.554;
   
-  MapPath highway;
+  
 
 
   std::ifstream in_map_(map_file_.c_str(), std::ifstream::in);
@@ -60,7 +60,7 @@ int main() {
   }
   
   
-  highway.set_map_path_data(map_waypoints_x,map_waypoints_y,map_waypoints_s,map_waypoints_dx,map_waypoints_dy);
+  
 
   h.onMessage([&map_waypoints_x,&map_waypoints_y,&map_waypoints_s,
                &map_waypoints_dx,&map_waypoints_dy]
@@ -109,6 +109,9 @@ int main() {
            * TODO: define a path made up of (x,y) points that the car will visit
            *   sequentially every .02 seconds
            */
+		   
+		   MapPath highway;
+		   highway.set_map_path_data(map_waypoints_x,map_waypoints_y,map_waypoints_s,map_waypoints_dx,map_waypoints_dy);
 		   
 		  double dist_inc = 0.5;
 		  PathGenerator current_path;
