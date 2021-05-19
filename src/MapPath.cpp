@@ -60,9 +60,10 @@ WayPoint MapPath::get_map_convertedXY_for_s(int s_val) {
 	 
 	 for (int i = 0; i < points_group.size(); ++i) {
 	  
-	  x_vect[i] = points_group[i].get_x_co();
+	  std::cout <<"First X " <<points_group[i].get_x_co()<< std::endl;
+	  /*x_vect[i] = points_group[i].get_x_co();
 	  y_vect[i] = points_group[i].get_y_co();
-	  s_vect[i] = points_group[i].get_s_co();
+	  s_vect[i] = points_group[i].get_s_co();*/
 	  
 	 }
 	 
