@@ -2,6 +2,7 @@
 #define PathGenerator_H
 #include <vector>
 #include "WayPoint.h"
+#include "MapPath.h"
 
 using std::vector;
 
