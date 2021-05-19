@@ -136,6 +136,7 @@ void PathGenerator::generate_map_path(){
 	    
 		current_wp = highway_map.get_map_point_for_s( end_s + dist_inc * i  );
 		//waypoint pt = way_pts[i];
+		std::cout << current_wp.get_x_co() << std::endl;
 		
 		next_x_vals.push_back(current_wp.get_x_co());
 		next_y_vals.push_back(current_wp.get_y_co());
