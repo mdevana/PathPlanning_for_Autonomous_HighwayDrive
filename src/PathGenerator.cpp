@@ -162,6 +162,9 @@ vector<double> PathGenerator::JMT(vector<double> &start, vector<double> &end, do
    *   > JMT([0, 10, 0], [10, 10, 0], 1)
    *     [0.0, 10.0, 0.0, 0.0, 0.0, 0.0]
    */
+   
+   
+   /*
    MatrixXd TimeMat(3,3);
    TimeMat <<pow(T,3.0), pow(T,4.0), pow(T,5),
              3*pow(T,2), 4*pow(T,3), 5*pow(T,4),
@@ -173,9 +176,9 @@ vector<double> PathGenerator::JMT(vector<double> &start, vector<double> &end, do
     VectorXd initial_C(3);
     initial_C<<end[0] - ( start[0] + start[1] * T + 0.5 * start[2] * pow(T,2) ),
                 end[1] -( start[1] + start[2] * T),
-                end[2] - start[2];
+                end[2] - start[2];*/
     VectorXd Coeff_456(3);
-    Coeff_456 = TimeMat_inv * initial_C;
+    //Coeff_456 = TimeMat_inv * initial_C;
     
   //vector<double> coeff{start[0],start[1],0.5 * start[2],Coeff_456[3],Coeff_456[4],Coeff_456[5]};
   return {start[0], start[1], 0.5 * start[2], Coeff_456[0], Coeff_456[1], Coeff_456[2]};
