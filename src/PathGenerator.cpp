@@ -1,7 +1,7 @@
 #include "PathGenerator.h"
 #include <vector>
 #include <math.h>
-#include "helpers_planning.h"
+//#include "helpers_planning.h"
 #include <string>
 #include "Eigen-3.3/Eigen/Core"
 #include "Eigen-3.3/Eigen/QR"
@@ -62,8 +62,8 @@ vector<double> PathGenerator::get_y_vals() {
 void PathGenerator::generate_simple_path(){
 	
 		for (int i = 0; i < 50; ++i) {
-			next_x_vals.push_back(car_x+(dist_inc*i)*cos(deg2rad(car_yaw)));
-			next_y_vals.push_back(car_y+(dist_inc*i)*sin(deg2rad(car_yaw)));
+			//next_x_vals.push_back(car_x+(dist_inc*i)*cos(deg2rad(car_yaw)));
+			//next_y_vals.push_back(car_y+(dist_inc*i)*sin(deg2rad(car_yaw)));
 		}
 }
 
