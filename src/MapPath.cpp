@@ -74,10 +74,10 @@ WayPoint MapPath::get_map_convertedXY_for_s(int s_val) {
 	 
 	 std::cout <<"dx dy spline calculated" << std::endl;
 	 
-     //vector<double>  XY = getXY(s_val, sqrt(d_x * d_x + d_y * d_y),s_vect, x_vect, y_vect);
-	 vector<double>  XY;
-	 XY[0] = x_spline(s_val);
-	 XY[1] = y_spline(s_val);
+     vector<double>  XY = getXY(s_val, sqrt(d_x * d_x + d_y * d_y),s_vect, x_vect, y_vect);
+	 //vector<double>  XY;
+	 //XY[0] = x_spline(s_val);
+	 //XY[1] = y_spline(s_val);
 	 
 	 std::cout <<"x y spline calculated" << std::endl;
 	 
