@@ -38,7 +38,7 @@ void PathGenerator::set_localization_data(double x,double y, double s, double d,
 
 }
 
-void PathGenerator::set_previous_path_data(vector<double> &x,vector<double> &y, double &prev_s, double &prev_d) {
+void PathGenerator::set_previous_path_data(const vector<double> &x,const vector<double> &y, double prev_s, double prev_d) {
   
   previous_path_x = x;
   previous_path_y = y;
