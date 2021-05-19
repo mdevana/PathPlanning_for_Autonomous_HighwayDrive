@@ -65,7 +65,7 @@ WayPoint MapPath::get_map_convertedXY_for_s(int s_val) {
 	 double d_x= dx_spline(s_val);
 	 double d_y= dy_spline(s_val);
 	 
-     vector<double>  XY = getXY(s_val, sqrt(d_x * d_x + d_y * dy),s_vect, x_vect, y_vect);
+     vector<double>  XY = getXY(s_val, sqrt(d_x * d_x + d_y * d_y),s_vect, x_vect, y_vect);
 	 
 	 WayPoint wp( XY[0], XY[1], s_val, d_x,d_y);
 	 return(wp);
