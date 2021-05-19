@@ -2,6 +2,7 @@
 #include <math.h>
 #include "MapPath.h"
 #include <string>
+#include "helpers_planning.h"
 
 
 using std::vector;
