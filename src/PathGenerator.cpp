@@ -128,7 +128,7 @@ void PathGenerator::generate_map_path(){
 		
 	}
 
-	//double dist_inc = 5.5;
+	double dist_inc = 5.5;
 	std::cout << "dist increment = "<<dist_inc << std::endl;
 	double next_end_s = dist_inc * (50-path_size);
 	std::cout << "end S = "<<end_s << std::endl;
@@ -138,7 +138,7 @@ void PathGenerator::generate_map_path(){
 	
 	for (int i = 0; i < 50-path_size; ++i) {    
 	    
-		double new_s = end_s + dist_inc * i * 5;
+		double new_s = end_s + dist_inc * i ;
 		std::cout << "new S = "<<new_s << std::endl;
 		
 		current_wp = highway_map.get_map_point_for_s(new_s);
