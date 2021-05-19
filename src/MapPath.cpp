@@ -72,7 +72,7 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val) {
 	 double d_x= dx_spline(s_val);
 	 double d_y= dy_spline(s_val);
 	 
-	 
+	 std::cout <<"Current d vector calculated :" <<sqrt(d_x * d_x + d_y * d_y) << std::endl;
 	 
      vector<double>  XY = getXY(s_val, sqrt(d_x * d_x + d_y * d_y),s_vect, x_vect, y_vect);
 	 //vector<double>  XY;
