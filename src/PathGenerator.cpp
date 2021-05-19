@@ -139,11 +139,11 @@ void PathGenerator::generate_map_path(){
 	for (int i = 0; i < 50-path_size; ++i) {    
 	    
 		double new_s = end_s + dist_inc * i;
-		std::cout << "new S = "<<current_wp.get_x_co() << std::endl;
+		std::cout << "new S = "<<new_s << std::endl;
 		
 		current_wp = highway_map.get_map_point_for_s(new_s);
 		//waypoint pt = way_pts[i];
-		std::cout <<"Current S =" <<current_wp.get_x_co() << std::endl;
+		std::cout <<"Current S =" <<current_wp.get_s_co() << std::endl;
 		
 		next_x_vals.push_back(current_wp.get_x_co());
 		next_y_vals.push_back(current_wp.get_y_co());
