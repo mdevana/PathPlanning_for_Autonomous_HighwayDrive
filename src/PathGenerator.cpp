@@ -128,7 +128,7 @@ void PathGenerator::generate_map_path(){
 		
 	}
 
-	//double dist_inc = 0.5;
+	double dist_inc = 5.5;
 	double next_end_s = dist_inc * (50-path_size);
 	WayPoint current_wp;
 	
