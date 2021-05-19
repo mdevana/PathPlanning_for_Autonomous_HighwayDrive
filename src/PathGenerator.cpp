@@ -127,7 +127,16 @@ void PathGenerator::generate_map_path(){
 	
 	std::cout << path_size<< std::endl;
 	
-	for (int i = 1; i <= (50-path_size); ++i) {    
+	if (path_size == 0){
+		double s_start = 50 * 0.5;
+		double T = s_start / max_velocity  ;
+		vector<double> start = {0,0,0};
+		vector<double> end = {s_start,max_velocity,10};
+		vector<double> coeff = JMT(start,end,T);
+		std::cout << "new S = "<<coeff[3]<< std::endl;
+	}
+	
+	/*for (int i = 1; i <= (50-path_size); ++i) {    
 	    
 		double new_s = end_s + dist_inc * i ;
 		std::cout << "new S = "<<new_s << std::endl;
@@ -145,7 +154,7 @@ void PathGenerator::generate_map_path(){
 		
 		//pos_x += (dist_inc)*cos(angle+(i+1)*(pi()/100));
 		//pos_y += (dist_inc)*sin(angle+(i+1)*(pi()/100));
-	}
+	}*/
 	
 }
 

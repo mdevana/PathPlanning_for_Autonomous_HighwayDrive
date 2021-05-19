@@ -53,6 +53,7 @@ class PathGenerator {
   vector<double> next_y_vals;
   double dist_inc;
   double current_path_length;
+  double max_velocity = 25.0;
   
   MapPath highway_map;
   
