@@ -56,7 +56,7 @@ WayPoint MapPath::get_map_convertedXY_for_s(int s_val) {
 	 vector<double> y_vect;
 	 vector<double> s_vect;
 	 
-	
+	 std::cout <<"Current S passed in conversion module :" <<s_val << std::endl;
 	 
 	 for (WayPoint wp:points_group) {
 	  
