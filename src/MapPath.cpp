@@ -2,7 +2,7 @@
 #include <math.h>
 #include "MapPath.h"
 #include <string>
-#include "spline.h"
+
 
 using std::vector;
 using std::string;
@@ -13,22 +13,9 @@ MapPath::~MapPath() {}
 
 void MapPath::Init_from_cloudpoints(MapPath map_points) {
   
-  vector<double> s_vector; 
-  vector<double> x_vector; 
-  vector<double> y_vector; 
-  vector<double> dx_vector; 
-  vector<double> dy_vector; 
+
   
-  for(int i=0;i<map_points.points_group.size();i++){
-	  s_vector[i] = map_points.points_group[i].get_s_co();
-	  x_vector[i] = map_points.points_group[i].get_x_co();
-	  y_vector[i] = map_points.points_group[i].get_y_co();
-	  dx_vector[i] = map_points.points_group[i].get_dx_co();
-	  dy_vector[i] = map_points.points_group[i].get_dy_co();
-	  
-  }
-  
-  //tk::spline s(map_points.points_group,Y,tk::spline::cspline); 
+
 
 }
 
@@ -45,6 +32,12 @@ void MapPath::set_map_path_data(vector<double> x,vector<double> y,vector<double>
 	  points_group.push_back(w_p);
 	  
   }
+  
+  x_spline.set_points(s_vector,x_vector,spline::cspline);
+  y_spline.set_points(s_vector,y_vector,spline::cspline);
+  dx_spline.set_points(s_vector,dx_vector,spline::cspline);
+  dy_spline.set_points(s_vector,dy_vector,spline::cspline);
+  
 }
 
  

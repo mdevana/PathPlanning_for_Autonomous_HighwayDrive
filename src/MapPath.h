@@ -2,8 +2,10 @@
 #define MapPath_H
 #include <vector>
 #include "WayPoint.h"
+#include "spline.h"
 
 using std::vector;
+using tk::spline;
 
 class MapPath {
  public:
@@ -25,6 +27,11 @@ class MapPath {
  private:
 
   vector<WayPoint> points_group;
+  
+  spline x_spline;
+  spline y_spline;
+  spline dx_spline;
+  spline dy_spline;
   
   
 

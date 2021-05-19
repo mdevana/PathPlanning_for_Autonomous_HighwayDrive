@@ -55,7 +55,7 @@ class PathGenerator {
   double current_path_length;
   
   MapPath highway_map;
-  MapPath highway_map_as_spline;
+  
   
   vector<double> JMT(vector<double> &start, vector<double> &end, double T);
 
