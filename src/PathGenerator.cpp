@@ -68,7 +68,7 @@ void PathGenerator::generate_simple_path(){
 }
 
 void PathGenerator::generate_circular_path(){
-	
+	/*
 	double pos_x;
 	double pos_y;
 	double angle;
@@ -99,7 +99,7 @@ void PathGenerator::generate_circular_path(){
 		pos_x += (dist_inc)*cos(angle+(i+1)*(pi()/100));
 		pos_y += (dist_inc)*sin(angle+(i+1)*(pi()/100));
 	}
-
+	*/
 		
 }
 
