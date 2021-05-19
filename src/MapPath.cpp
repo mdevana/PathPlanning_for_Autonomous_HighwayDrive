@@ -58,12 +58,12 @@ WayPoint MapPath::get_map_convertedXY_for_s(int s_val) {
 	 
 	 std::cout <<"vector created : size of highway points " <<points_group.size()<< std::endl;
 	 
-	 for (int i = 0; i < points_group.size(); ++i) {
+	 for (WayPoint wp:points_group) {
 	  
-	  std::cout <<"First X " <<points_group[i].get_x_co()<< std::endl;
-	  /*x_vect[i] = points_group[i].get_x_co();
-	  y_vect[i] = points_group[i].get_y_co();
-	  s_vect[i] = points_group[i].get_s_co();*/
+	  
+	  x_vect.push_back(wp.get_x_co());
+	  y_vect.push_back(wp.get_y_co());
+	  s_vect.push_back(wp.get_s_co());
 	  
 	 }
 	 
