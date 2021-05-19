@@ -5,7 +5,7 @@
 #include <string>
 #include "Eigen-3.3/Eigen/Core"
 #include "Eigen-3.3/Eigen/QR"
-
+#include <iostream>
 
 
 
@@ -110,6 +110,7 @@ void PathGenerator::generate_map_path(){
 	double pos_y;
 	double angle;
 	int path_size = previous_path_x.size();
+	std::cout << path_size<< std::endl;
 
 	for (int i = 0; i < path_size; ++i) {
 		next_x_vals.push_back(previous_path_x[i]);
