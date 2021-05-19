@@ -3,35 +3,46 @@
 #include <math.h>
 #include "helpers_planning.h"
 #include <string>
+#include "MapPath.h"
+#include "Dense"
+
 
 
 using std::vector;
 using std::string;
+using std::vector;
+using Eigen::MatrixXd;
+using Eigen::VectorXd;
 
 PathGenerator::PathGenerator() {}
 
 PathGenerator::~PathGenerator() {}
 
-void PathGenerator::Init(double inc) {
+void PathGenerator::Init(double inc, MapPath mp) {
   
   dist_inc = inc;
-  //Map_Highway=mp;
+  highway_map=mp;
   
 
 }
 
-void PathGenerator::set_localization_data(double x,double y, double yaw) {
+void PathGenerator::set_localization_data(double x,double y, double s, double d,double yaw,double speed) {
   
   car_x = x;
   car_y = y;
+  car_s = s;
+  car_d = d;
   car_yaw = yaw;
+  car_speed = speed;
 
 }
 
-void PathGenerator::set_previous_path_data(vector<double> x,vector<double> y) {
+void PathGenerator::set_previous_path_data(vector<double> x,vector<double> y, double prev_s, double prev_d) {
   
   previous_path_x = x;
   previous_path_y = y;
+  end_s = prev_s; 
+  end_d = prev_d;
 
 }
 
@@ -131,4 +142,41 @@ void PathGenerator::generate_map_path(){
 	
 }
 
+vector<double> JMT(vector<double> &start, vector<double> &end, double T) {
+  /**
+   * Calculate the Jerk Minimizing Trajectory that connects the initial state
+   * to the final state in time T.
+   *
+   * @param start - the vehicles start location given as a length three array
+   *   corresponding to initial values of [s, s_dot, s_double_dot]
+   * @param end - the desired end state for vehicle. Like "start" this is a
+   *   length three array.
+   * @param T - The duration, in seconds, over which this maneuver should occur.
+   *
+   * @output an array of length 6, each value corresponding to a coefficent in 
+   *   the polynomial:
+   *   s(t) = a_0 + a_1 * t + a_2 * t**2 + a_3 * t**3 + a_4 * t**4 + a_5 * t**5
+   *
+   * EXAMPLE
+   *   > JMT([0, 10, 0], [10, 10, 0], 1)
+   *     [0.0, 10.0, 0.0, 0.0, 0.0, 0.0]
+   */
+   MatrixXd TimeMat(3,3);
+   TimeMat <<pow(T,3.0), pow(T,4.0), pow(T,5),
+             3*pow(T,2), 4*pow(T,3), 5*pow(T,4),
+             6*T, 12*pow(T,2), 20*pow(T,3);
+    
+    MatrixXd TimeMat_inv(3,3);
+    TimeMat_inv = TimeMat.inverse();
+    
+    VectorXd initial_C(3);
+    initial_C<<end[0] - ( start[0] + start[1] * T + 0.5 * start[2] * pow(T,2) ),
+                end[1] -( start[1] + start[2] * T),
+                end[2] - start[2];
+    VectorXd Coeff_456(3);
+    Coeff_456 = TimeMat_inv * initial_C;
+    
+  //vector<double> coeff{start[0],start[1],0.5 * start[2],Coeff_456[3],Coeff_456[4],Coeff_456[5]};
+  return {start[0], start[1], 0.5 * start[2], Coeff_456[0], Coeff_456[1], Coeff_456[2]};
+}
 

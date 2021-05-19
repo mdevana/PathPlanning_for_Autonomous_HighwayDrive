@@ -9,6 +9,8 @@
 #include "json.hpp"
 #include "PathGenerator.h"
 #include "WayPoint.h"
+#include "spline.h"
+
 //#include "helpers_planning.h"
 
 
@@ -31,9 +33,9 @@ int main() {
   string map_file_ = "../data/highway_map.csv";
   // The max s value before wrapping around the track back to 0
   double max_s = 6945.554;
-  //MapPath highway;
-  WayPoint wp;
-  vector<WayPoint> wp2;
+  
+  MapPath highway;
+
 
   std::ifstream in_map_(map_file_.c_str(), std::ifstream::in);
 
@@ -58,7 +60,7 @@ int main() {
   }
   
   
-  //highway.set_map_path_data(map_waypoints_x,map_waypoints_y,map_waypoints_s,map_waypoints_dx,map_waypoints_dy);
+  highway.set_map_path_data(map_waypoints_x,map_waypoints_y,map_waypoints_s,map_waypoints_dx,map_waypoints_dy);
 
   h.onMessage([&map_waypoints_x,&map_waypoints_y,&map_waypoints_s,
                &map_waypoints_dx,&map_waypoints_dy]
@@ -111,8 +113,8 @@ int main() {
 		  double dist_inc = 0.5;
 		  PathGenerator current_path;
 		  current_path.Init(0.5);
-		  current_path.set_localization_data(car_x,car_y,car_yaw);
-		  current_path.set_previous_path_data(previous_path_x, previous_path_y);
+		  current_path.set_localization_data(car_x,car_y,car_s,car_d,car_yaw,car_speed);
+		  current_path.set_previous_path_data(previous_path_x, previous_path_y,end_path_s,end_path_d);
 		  //current_path.generate_simple_path();
 		  //current_path.generate_circular_path();
 		  current_path.generate_map_path();

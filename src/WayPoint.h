@@ -13,6 +13,12 @@ class WayPoint {
   WayPoint();
   
   WayPoint(double x, double y,double s,double dx, double dy);
+  
+  double get_x_co();
+  double get_y_co();
+  double get_s_co();
+  double get_dx_co();
+  double get_dy_co();
 
   /**
    * Destructor.

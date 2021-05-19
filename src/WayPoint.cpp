@@ -15,6 +15,12 @@ WayPoint::WayPoint(double x, double y,double s,double dx, double dy){
     dy_co = dy;
 }
 
+double WayPoint::get_x_co() { return x_co;}
+double WayPoint::get_y_co() { return y_co;}
+double WayPoint::get_s_co() { return s_co;}
+double WayPoint::get_dx_co() { return dx_co;}
+double WayPoint::get_dy_co() { return dy_co;}
+
 
 WayPoint::~WayPoint() {}
 
