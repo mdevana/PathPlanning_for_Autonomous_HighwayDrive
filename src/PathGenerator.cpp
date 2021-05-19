@@ -128,14 +128,16 @@ void PathGenerator::generate_map_path(){
 	}
 
 	//double dist_inc = 0.5;
-	
+	double next_end_s = dist_inc * (50-path_size);
+	WayPoint current_wp;
 	
 	for (int i = 0; i < 50-path_size; ++i) {    
 	    
+		current_wp = highway_map.get_map_point_for_s( end_s + dist_inc * i  );
 		//waypoint pt = way_pts[i];
 		
-		//next_x_vals.push_back(pt.x_co);
-		//next_y_vals.push_back(pt.y_co);
+		next_x_vals.push_back(current_wp.get_x_co());
+		next_y_vals.push_back(current_wp.get_y_co());
 		
 		//pos_x += (dist_inc)*cos(angle+(i+1)*(pi()/100));
 		//pos_y += (dist_inc)*sin(angle+(i+1)*(pi()/100));
