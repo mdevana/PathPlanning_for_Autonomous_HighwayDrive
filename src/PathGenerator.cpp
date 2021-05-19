@@ -117,16 +117,6 @@ void PathGenerator::generate_map_path(){
 		next_y_vals.push_back(previous_path_y[i]);
 	}
 
-	if (path_size == 0) {
-		pos_x = car_x;
-		pos_y = car_y;
-		angle = deg2rad(car_yaw);
-	} else {
-		pos_x = car_x;
-		pos_y = car_y;
-		angle = deg2rad(car_yaw);
-		
-	}
 
 	double dist_inc = 3;
 	std::cout << "dist increment = "<<dist_inc << std::endl;
