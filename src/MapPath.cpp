@@ -20,11 +20,11 @@ void MapPath::Init_from_cloudpoints(MapPath map_points) {
   vector<double> dy_vector; 
   
   for(int i=0;i<map_points.points_group.size();i++){
-	  s_vector = map_points.points_group[i].get_s_co();
-	  x_vector = map_points.points_group[i].get_x_co();
-	  y_vector = map_points.points_group[i].get_y_co();
-	  dx_vector = map_points.points_group[i].get_dx_co();
-	  dy_vector = map_points.points_group[i].get_dy_co();
+	  s_vector[i] = map_points.points_group[i].get_s_co();
+	  x_vector[i] = map_points.points_group[i].get_x_co();
+	  y_vector[i] = map_points.points_group[i].get_y_co();
+	  dx_vector[i] = map_points.points_group[i].get_dx_co();
+	  dy_vector[i] = map_points.points_group[i].get_dy_co();
 	  
   }
   
