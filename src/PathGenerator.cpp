@@ -126,7 +126,7 @@ void PathGenerator::generate_map_path(){
 	
 	std::cout << path_size<< std::endl;
 	
-	for (int i = 0; i < 50-path_size; ++i) {    
+	for (int i = 1; i <= (50-path_size); ++i) {    
 	    
 		double new_s = end_s + dist_inc * i ;
 		std::cout << "new S = "<<new_s << std::endl;
