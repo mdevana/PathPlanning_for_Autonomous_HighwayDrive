@@ -143,7 +143,7 @@ void PathGenerator::generate_map_path(){
 	
 }
 
-vector<double> JMT(vector<double> &start, vector<double> &end, double T) {
+vector<double> PathGenerator::JMT(vector<double> &start, vector<double> &end, double T) {
   /**
    * Calculate the Jerk Minimizing Trajectory that connects the initial state
    * to the final state in time T.
