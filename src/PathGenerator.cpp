@@ -38,7 +38,7 @@ void PathGenerator::set_localization_data(double x,double y, double s, double d,
 
 }
 
-void PathGenerator::set_previous_path_data(vector<double> x,vector<double> y, double prev_s, double prev_d) {
+void PathGenerator::set_previous_path_data(vector<double> &x,vector<double> &y, double &prev_s, double &prev_d) {
   
   previous_path_x = x;
   previous_path_y = y;
@@ -128,7 +128,7 @@ void PathGenerator::generate_map_path(){
 		
 	}
 
-	double dist_inc = 1.5;
+	double dist_inc = 3;
 	std::cout << "dist increment = "<<dist_inc << std::endl;
 	double next_end_s = dist_inc * (50-path_size);
 	std::cout << "end S = "<<end_s << std::endl;

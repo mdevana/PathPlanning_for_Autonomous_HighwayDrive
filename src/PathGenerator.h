@@ -24,7 +24,7 @@ class PathGenerator {
   vector<double> get_y_vals();
   
   void set_localization_data(double x,double y, double s, double d,double yaw,double speed);
-  void set_previous_path_data(vector<double> x,vector<double> y, double prev_s, double prev_d);
+  void set_previous_path_data(vector<double> &x,vector<double> &y, double &prev_s, double &prev_d);
 
   
   void generate_simple_path();
