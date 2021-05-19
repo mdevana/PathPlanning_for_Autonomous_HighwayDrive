@@ -128,8 +128,9 @@ void PathGenerator::generate_map_path(){
 		
 	}
 
-	double dist_inc = 5.5;
+	//double dist_inc = 5.5;
 	double next_end_s = dist_inc * (50-path_size);
+	std::cout << "end S = "<<end_s << std::endl;
 	WayPoint current_wp;
 	
 	std::cout << path_size<< std::endl;
