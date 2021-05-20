@@ -135,6 +135,8 @@ void PathGenerator::generate_map_path(){
 		
 		double angle = (car_yaw) * M_PI / 180;
 		start_iter = 5;
+		double end_x_coor;
+		double end_y_coor;
 		
 		for (int i = 1; i <= start_iter; ++i) {    
 			
