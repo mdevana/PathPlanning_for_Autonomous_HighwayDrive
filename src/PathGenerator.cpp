@@ -137,8 +137,8 @@ void PathGenerator::generate_map_path(){
 		start_iter = 5;
 		
 		for (int i = 1; i <= start_iter; ++i) {    
-			next_x_vals.push_back(car_x+(dist_inc*i)*cos(deg2rad(angle)));
-			next_y_vals.push_back(car_y+(dist_inc*i)*sin(deg2rad(angle)));
+			next_x_vals.push_back(car_x+(dist_inc*i)*cos(angle));
+			next_y_vals.push_back(car_y+(dist_inc*i)*sin(angle));
 		}
 		
 		
