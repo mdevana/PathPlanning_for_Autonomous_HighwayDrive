@@ -23,6 +23,7 @@ class MapPath {
   void set_map_path_data(vector<double> x,vector<double> y,vector<double> s,vector<double> dx, vector<double> dy);
   WayPoint get_map_point_for_s(double s_val);
   WayPoint get_map_convertedXY_for_s(double s_val);
+  WayPoint get_map_convertedS_for_XY(double x_val, double y_val, double theta);
   
 	
 	
