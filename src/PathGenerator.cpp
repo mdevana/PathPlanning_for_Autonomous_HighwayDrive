@@ -146,7 +146,7 @@ void PathGenerator::generate_map_path(){
 			next_y_vals.push_back(end_y_coor);
 		}
 		
-		end_s = highway_map.get_map_convertedS_for_XY(end_x_coor,end_y_coor,angle);
+		end_s = (highway_map.get_map_convertedS_for_XY(end_x_coor,end_y_coor,angle)).get_d_val();
 		
 	}
 	
