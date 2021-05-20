@@ -13,6 +13,7 @@ class WayPoint {
   WayPoint();
   
   WayPoint(double x, double y,double s,double dx, double dy);
+  WayPoint(double x, double y,double s,double d);
   
   double get_x_co();
   double get_y_co();
@@ -35,6 +36,7 @@ class WayPoint {
   double  s_co;
   double  dx_co;
   double  dy_co;
+  double  d_co;
 
 };
 

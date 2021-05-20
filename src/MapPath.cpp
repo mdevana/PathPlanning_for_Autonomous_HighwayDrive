@@ -83,6 +83,25 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val) {
 
 }
 
+WayPoint MapPath::get_map_convertedS_for_XY(double x_val, double y_val, double theta) {
+	 
+	 vector<double> x_vect;
+	 vector<double> y_vect;
+
+	 for (WayPoint wp:points_group) {
+
+	  x_vect.push_back(wp.get_x_co());
+	  y_vect.push_back(wp.get_y_co());
+
+	 }
+
+     vector<double>  SD = getFrenet(x_val,y_val,theta,x_vect,y_vect);
+
+	 WayPoint wp( x_val, y_val, SD[0], SD[1]);
+	 return(wp);
+
+}
+
 vector<double> MapPath::JMT(vector<double> &start, vector<double> &end, double T) {
   /**
    * Calculate the Jerk Minimizing Trajectory that connects the initial state

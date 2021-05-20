@@ -137,11 +137,14 @@ void PathGenerator::generate_map_path(){
 		start_iter = 5;
 		
 		for (int i = 1; i <= start_iter; ++i) {    
-			next_x_vals.push_back(car_x+(dist_inc*i)*cos(angle));
-			next_y_vals.push_back(car_y+(dist_inc*i)*sin(angle));
+			
+			end_x_coor = car_x+(dist_inc*i)*cos(angle);
+			end_y_coor = car_y+(dist_inc*i)*sin(angle);
+			next_x_vals.push_back(end_x_coor);
+			next_y_vals.push_back(end_y_coor);
 		}
 		
-		
+		end_s = get_map_convertedS_for_XY(end_x_coor,end_y_coor,angle);
 		
 	}
 	
