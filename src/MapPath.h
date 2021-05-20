@@ -23,6 +23,7 @@ class MapPath {
   void set_map_path_data(vector<double> x,vector<double> y,vector<double> s,vector<double> dx, vector<double> dy);
   WayPoint get_map_point_for_s(double s_val);
   WayPoint get_map_convertedXY_for_s(double s_val);
+  
 	
 	
  private:
@@ -34,6 +35,7 @@ class MapPath {
   spline dx_spline;
   spline dy_spline;
   
+  vector<double> JMT(vector<double> &start, vector<double> &end, double T);
   
 
 };

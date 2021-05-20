@@ -3,9 +3,6 @@
 #include <math.h>
 //#include "helpers_planning.h"
 #include <string>
-#include "Eigen-3.3/Eigen/Core"
-#include "Eigen-3.3/Eigen/QR"
-#include "Eigen-3.3/Eigen/LU"
 #include <iostream>
 
 
@@ -13,8 +10,7 @@
 using std::vector;
 using std::string;
 using std::vector;
-using Eigen::MatrixXd;
-using Eigen::VectorXd;
+
 
 PathGenerator::PathGenerator() {}
 
@@ -119,7 +115,7 @@ void PathGenerator::generate_map_path(){
 	}
 
 
-	double dist_inc = 2.5 ;
+	double dist_inc = 0.5 ;
 	std::cout << "dist increment = "<<dist_inc << std::endl;
 	double next_end_s = dist_inc * (50-path_size);
 	std::cout << "end S = "<<end_s << std::endl;
@@ -127,18 +123,31 @@ void PathGenerator::generate_map_path(){
 	
 	std::cout << path_size<< std::endl;
 	
+	int start_iter = 0;
+	
 	if (path_size == 0){
-		double s_start = 50 * 0.5;
+		/*double s_start = 50 * 0.5;
 		double T = s_start / max_velocity  ;
 		vector<double> start = {0,0,0};
 		vector<double> end = {s_start,max_velocity,10};
 		vector<double> coeff = JMT(start,end,T);
-		std::cout << "new S = "<<coeff[3]<< std::endl;
+		std::cout << "new S = "<<coeff[3]<< std::endl;*/
+		
+		double angle = (car_yaw) * M_PI / 180;
+		start_iter = 5;
+		
+		for (int i = 1; i <= start_iter; ++i) {    
+			next_x_vals.push_back(car_x+(dist_inc*i)*cos(deg2rad(angle)));
+			next_y_vals.push_back(car_y+(dist_inc*i)*sin(deg2rad(angle)));
+		}
+		
+		
+		
 	}
 	
-	/*for (int i = 1; i <= (50-path_size); ++i) {    
+	for (int j = 1; j <= (50-path_size-start_iter); ++j) {    
 	    
-		double new_s = end_s + dist_inc * i ;
+		double new_s = end_s + dist_inc * j ;
 		std::cout << "new S = "<<new_s << std::endl;
 		
 		current_wp = highway_map.get_map_convertedXY_for_s(new_s);
@@ -154,48 +163,9 @@ void PathGenerator::generate_map_path(){
 		
 		//pos_x += (dist_inc)*cos(angle+(i+1)*(pi()/100));
 		//pos_y += (dist_inc)*sin(angle+(i+1)*(pi()/100));
-	}*/
+	}
 	
 }
 
-vector<double> PathGenerator::JMT(vector<double> &start, vector<double> &end, double T) {
-  /**
-   * Calculate the Jerk Minimizing Trajectory that connects the initial state
-   * to the final state in time T.
-   *
-   * @param start - the vehicles start location given as a length three array
-   *   corresponding to initial values of [s, s_dot, s_double_dot]
-   * @param end - the desired end state for vehicle. Like "start" this is a
-   *   length three array.
-   * @param T - The duration, in seconds, over which this maneuver should occur.
-   *
-   * @output an array of length 6, each value corresponding to a coefficent in 
-   *   the polynomial:
-   *   s(t) = a_0 + a_1 * t + a_2 * t**2 + a_3 * t**3 + a_4 * t**4 + a_5 * t**5
-   *
-   * EXAMPLE
-   *   > JMT([0, 10, 0], [10, 10, 0], 1)
-   *     [0.0, 10.0, 0.0, 0.0, 0.0, 0.0]
-   */
-   
-   
-   
-   MatrixXd TimeMat(3,3);
-   TimeMat <<pow(T,3.0), pow(T,4.0), pow(T,5),
-             3*pow(T,2), 4*pow(T,3), 5*pow(T,4),
-             6*T, 12*pow(T,2), 20*pow(T,3);
-    
-    MatrixXd TimeMat_inv(3,3);
-    TimeMat_inv = TimeMat.inverse();
-    
-    VectorXd initial_C(3);
-    initial_C<<end[0] - ( start[0] + start[1] * T + 0.5 * start[2] * pow(T,2) ),
-                end[1] -( start[1] + start[2] * T),
-                end[2] - start[2];
-    VectorXd Coeff_456(3);
-    Coeff_456 = TimeMat_inv * initial_C;
-    
-  //vector<double> coeff{start[0],start[1],0.5 * start[2],Coeff_456[3],Coeff_456[4],Coeff_456[5]};
-  return {start[0], start[1], 0.5 * start[2], Coeff_456[0], Coeff_456[1], Coeff_456[2]};
-}
+
 
