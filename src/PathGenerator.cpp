@@ -115,7 +115,7 @@ void PathGenerator::generate_map_path(){
 	}
 
 
-	double dist_inc = 0.5 ;
+	double dist_inc = 0.2 ;
 	std::cout << "dist increment = "<<dist_inc << std::endl;
 	double next_end_s = dist_inc * (50-path_size);
 	std::cout << "end S = "<<end_s << std::endl;
