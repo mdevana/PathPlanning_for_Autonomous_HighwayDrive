@@ -139,8 +139,8 @@ void PathGenerator::generate_map_path(){
 		
 		while (end_x_coor < 909.5) {    
 			
-			end_x_coor = car_x+(dist_inc*i)*cos(angle);
-			end_y_coor = car_y+(dist_inc*i)*sin(angle);
+			end_x_coor = car_x+(dist_inc * cnt_start_path_pts)*cos(angle);
+			end_y_coor = car_y+(dist_inc * cnt_start_path_pts)*sin(angle);
 			
 			std::cout <<"Car X =" <<end_x_coor << std::endl;
 			std::cout <<"Car y =" <<end_y_coor << std::endl;
