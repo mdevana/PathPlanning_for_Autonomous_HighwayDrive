@@ -134,7 +134,6 @@ void PathGenerator::generate_map_path(){
 		std::cout << "new S = "<<coeff[3]<< std::endl;*/
 		
 		double angle = (car_yaw) * M_PI / 180;
-		start_iter = 0;
 		double end_x_coor;
 		double end_y_coor;
 		
