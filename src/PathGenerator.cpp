@@ -123,7 +123,7 @@ void PathGenerator::generate_map_path(){
 	
 	std::cout << path_size<< std::endl;
 	
-	int start_iter = 0;
+	int cnt_start_path_pts = 0;
 	
 	if (path_size == 0){
 		/*double s_start = 50 * 0.5;
@@ -134,11 +134,11 @@ void PathGenerator::generate_map_path(){
 		std::cout << "new S = "<<coeff[3]<< std::endl;*/
 		
 		double angle = (car_yaw) * M_PI / 180;
-		start_iter = 5;
+		start_iter = 0;
 		double end_x_coor;
 		double end_y_coor;
 		
-		for (int i = 0; i < start_iter; ++i) {    
+		while (end_x_coor < 909.5) {    
 			
 			end_x_coor = car_x+(dist_inc*i)*cos(angle);
 			end_y_coor = car_y+(dist_inc*i)*sin(angle);
@@ -148,10 +148,12 @@ void PathGenerator::generate_map_path(){
 			
 			next_x_vals.push_back(end_x_coor);
 			next_y_vals.push_back(end_y_coor);
+			cnt_start_path_pts++;
 		}
 		
-		//end_s = (highway_map.get_map_convertedS_for_XY(end_x_coor,end_y_coor,angle)).get_d_val();
-		
+		end_s = (highway_map.get_map_convertedS_for_XY(end_x_coor,end_y_coor,angle)).get_d_val();
+		std::cout <<"End S  =" <<end_s << std::endl;
+		// S needs to be above 121 to merge into the path
 	}
 	
 	for (int j = 0; j < (50-path_size-start_iter); ++j) {    
