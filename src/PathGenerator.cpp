@@ -122,7 +122,7 @@ void PathGenerator::generate_map_path(){
 	WayPoint current_wp;
 	
 	std::cout << path_size<< std::endl;
-	double dist_inc = 0.4 ;
+	double dist_inc = 0.45 ;
 	
 	int cnt_start_path_pts = 0;
 	
@@ -134,7 +134,7 @@ void PathGenerator::generate_map_path(){
 		vector<double> coeff = JMT(start,end,T);
 		std::cout << "new S = "<<coeff[3]<< std::endl;*/
 		
-		double dist_inc = 0.4 ;
+		dist_inc = 0.4 ;
 		double angle = (car_yaw) * M_PI / 180;
 		double end_x_coor;
 		double end_y_coor;
