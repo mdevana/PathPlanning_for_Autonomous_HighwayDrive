@@ -122,6 +122,7 @@ void PathGenerator::generate_map_path(){
 	WayPoint current_wp;
 	
 	std::cout << path_size<< std::endl;
+	double dist_inc = 0.4 ;
 	
 	int cnt_start_path_pts = 0;
 	
