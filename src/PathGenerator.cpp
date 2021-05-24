@@ -137,7 +137,7 @@ void PathGenerator::generate_map_path(){
 	
 	
 	
-	int cnt_start_path_pts = 1;
+	int cnt_start_path_pts = 0;
 	
 	if (path_size == 0){
 		
