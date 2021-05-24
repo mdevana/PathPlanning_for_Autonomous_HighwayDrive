@@ -126,6 +126,7 @@ void PathGenerator::generate_map_path(){
 	
 	double prev_x_coor = car_x;
 	double prev_y_coor = car_y;
+	double angle = (car_yaw) * M_PI / 180;
 	
 	int cnt_start_path_pts = 0;
 	
@@ -133,7 +134,7 @@ void PathGenerator::generate_map_path(){
 		
 		
 		
-		double angle = (car_yaw) * M_PI / 180;
+		
 		double end_x_coor;
 		double end_y_coor;
 		
@@ -164,11 +165,7 @@ void PathGenerator::generate_map_path(){
 
 		// S needs to be above 121 to merge into the path
 	}
-	else {
-		//update end S value
-		end_s = (highway_map.get_map_convertedS_for_XY(previous_path_x[i-1],previous_path_y[i-1])).get_s_co();
-		
-	}
+
 
 	for (int j = 0; j < (50-path_size-cnt_start_path_pts); ++j) {    
 	    
