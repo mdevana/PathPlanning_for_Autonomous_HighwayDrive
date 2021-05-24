@@ -39,6 +39,8 @@ class MapPath {
   spline dx_spline;
   spline dy_spline;
   
+  spline s_spline;
+  
   vector<double> JMT(vector<double> &start, vector<double> &end, double T);
   
 
