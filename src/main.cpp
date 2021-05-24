@@ -121,7 +121,7 @@ int main() {
 		  //current_path.generate_simple_path();
 		  //current_path.generate_circular_path();
 		  //current_path.generate_map_path();
-		  current_paath.generate_map_path_JMT();
+		  current_path.generate_map_path_JMT();
 
           msgJson["next_x"] = current_path.get_x_vals();
           msgJson["next_y"] = current_path.get_y_vals();
