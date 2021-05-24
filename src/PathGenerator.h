@@ -58,6 +58,7 @@ class PathGenerator {
   
   MapPath highway_map;
   
+  enum lanecode = { left = 1, middle = 4, right = 8 }; 
   
   vector<double> JMT(vector<double> &start, vector<double> &end, double T);
 
