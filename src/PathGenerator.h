@@ -30,6 +30,7 @@ class PathGenerator {
   void generate_simple_path();
   void generate_circular_path();
   void generate_map_path();
+  void generate_map_path_JMT();
   
   double car_x;
   double car_y;

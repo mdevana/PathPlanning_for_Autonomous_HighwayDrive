@@ -117,7 +117,6 @@ void PathGenerator::generate_map_path(){
 
 	
 	std::cout << "dist increment = "<<dist_inc << std::endl;
-	double next_end_s = dist_inc * (50-path_size);
 	std::cout << "end S = "<<end_s << std::endl;
 	WayPoint current_wp;
 	
@@ -127,12 +126,7 @@ void PathGenerator::generate_map_path(){
 	int cnt_start_path_pts = 0;
 	
 	if (path_size == 0){
-		/*double s_start = 50 * 0.5;
-		double T = s_start / max_velocity  ;
-		vector<double> start = {0,0,0};
-		vector<double> end = {s_start,max_velocity,10};
-		vector<double> coeff = JMT(start,end,T);
-		std::cout << "new S = "<<coeff[3]<< std::endl;*/
+		
 		
 		dist_inc = 0.4 ;
 		double angle = (car_yaw) * M_PI / 180;
@@ -177,9 +171,101 @@ void PathGenerator::generate_map_path(){
 		next_x_vals.push_back(current_wp.get_x_co());
 		next_y_vals.push_back(current_wp.get_y_co());
 		
-		//pos_x += (dist_inc)*cos(angle+(i+1)*(pi()/100));
-		//pos_y += (dist_inc)*sin(angle+(i+1)*(pi()/100));
+		
 	}
+	
+}
+
+void PathGenerator::generate_map_path_JMT(){
+	
+	double pos_x;
+	double pos_y;
+	double angle;
+	int path_size = previous_path_x.size();
+	std::cout <<"Previous Path size :" <<path_size<< std::endl;
+
+	for (int i = 0; i < path_size; ++i) {
+		next_x_vals.push_back(previous_path_x[i]);
+		next_y_vals.push_back(previous_path_y[i]);
+	}
+
+
+	
+	std::cout << "dist increment = "<<dist_inc << std::endl;
+	std::cout << "end S = "<<end_s << std::endl;
+	WayPoint current_wp;
+	
+	std::cout << path_size<< std::endl;
+	double dist_inc = 0.45 ;
+	
+	int cnt_start_path_pts = 0;
+	
+	if (path_size == 0){
+		
+		
+		dist_inc = 0.4 ;
+		double angle = (car_yaw) * M_PI / 180;
+		double end_x_coor;
+		double end_y_coor;
+		
+		end_s = 0;
+		end_d = 0;
+		
+		while (end_s < 121) {    
+			
+			end_x_coor = car_x+(dist_inc * cnt_start_path_pts)*cos(angle);
+			end_y_coor = car_y+(dist_inc * cnt_start_path_pts)*sin(angle);
+			
+			std::cout <<"Car X =" <<end_x_coor << std::endl;
+			std::cout <<"Car y =" <<end_y_coor << std::endl;
+			
+			next_x_vals.push_back(end_x_coor);
+			next_y_vals.push_back(end_y_coor);
+			cnt_start_path_pts++;
+			
+			WayPoint wp = highway_map.get_map_convertedS_for_XY(end_x_coor,end_y_coor,angle);
+			
+			end_s = wp.get_s_co();
+			end_d = wp.get_d_co();
+			
+			std::cout <<"End S  =" <<end_s << std::endl;
+		}
+		
+		
+		// S needs to be above 121 to merge into the path
+	}
+	
+ 
+	    
+		double final_s = end_s + dist_inc * (50-path_size-cnt_start_path_pts) ;
+		
+		double final_d = end_d;
+		
+		vector<double> s_start{end_s,max_velocity,10};
+		vector<double> s_end{final_s,max_velocity,10};
+		
+		vector<double> d_start{end_s,max_velocity,10};
+		vector<double> d_end{final_s,max_velocity,10};
+		
+		
+		std::cout << "new S = "<<new_s << std::endl;
+		
+		vector<WayPoint> current_wp_points = get_map_convertedSD_for_XY_jerk_optimised(s_start, s_end, d_start, d_end, start_time, end_time, inc);
+		//vector<double> &s_start,vector<double> &s_end, vector<double> &d_start, vector<double> &d_end, double start_time, double start_time, double end_time, double inc
+		//waypoint pt = way_pts[i];
+		
+		for(WayPoint wp : current_wp_points){
+			
+			std::cout <<"Current S =" <<current_wp.get_s_co() << std::endl;
+		
+			std::cout <<"Current X =" <<current_wp.get_x_co() << std::endl;
+			std::cout <<"Current Y =" <<current_wp.get_y_co() << std::endl;
+		
+		
+			next_x_vals.push_back(current_wp.get_x_co());
+			next_y_vals.push_back(current_wp.get_y_co());
+		}
+
 	
 }
 
