@@ -75,6 +75,7 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val) {
 	 double d_x= sin(acos(d_y));
 	 
 	 std::cout <<"Current d vector calculated :" <<sqrt(d_x * d_x + d_y * d_y) << std::endl;
+	 std::cout <<"Current dx,dy vector :" <<dx<<","<<dy<<std::endl;
 	 
      vector<double>  XY = getXY(s_val, sqrt(d_x * d_x + d_y * d_y),s_vect, x_vect, y_vect);
 
