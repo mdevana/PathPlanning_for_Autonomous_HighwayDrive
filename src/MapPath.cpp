@@ -78,7 +78,7 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val) {
 	 
      vector<double>  XY = getXY(s_val, sqrt(d_x * d_x + d_y * d_y),s_vect, x_vect, y_vect);
 
-	 WayPoint wp( XY[0]+6 * d_x, XY[1]+ 6 * d_y, s_val, d_x,d_y);
+	 WayPoint wp( XY[0]+6 * d_x, XY[1]+ 6 * d_y, s_val, d_x, d_y);    
 	 return(wp);
 
 }
@@ -99,6 +99,46 @@ WayPoint MapPath::get_map_convertedS_for_XY(double x_val, double y_val, double t
 
 	 WayPoint wp( x_val, y_val, SD[0], SD[1]);
 	 return(wp);
+
+}
+
+vector<WayPoint> MapPath::get_map_convertedSD_for_XY_jerk_optimised(vector<double> &s_start,vector<double> &s_end, vector<double> &d_start, vector<double> &d_end, double start_time, double end_time, double inc) {
+	 
+	 vector<double> x_vect;
+	 vector<double> y_vect;
+	 vector<double> s_vect;
+
+	 for (WayPoint wp:points_group) {
+
+	  x_vect.push_back(wp.get_x_co());
+	  y_vect.push_back(wp.get_y_co());
+	  s_vect.push_back(wp.get_s_co());
+
+	 }
+
+	 vector<double> coeff_s=JMT(s_start, s_end, end_time - start_time);
+	 vector<double> coeff_d=JMT(d_start, d_end, end_time - start_time) ;
+	 
+	 double running_time = start_time;
+	 vector<double>  XY;
+	 vector<WayPoint>  pts_jerk_optimised;
+	 
+	 while(running_time < (start_time + end_time) ){
+		 
+		 
+		
+		s_val=Poly_eval_JMT(coeff_s,running_time);
+		d_val=Poly_eval_JMT(coeff_d,running_time);
+		
+		XY = getXY(s_val, d_val,s_vect, x_vect, y_vect);
+
+	    pts_jerk_optimised.push_back( XY[0]+6 * d_x, XY[1]+ 6 * d_y, s_val, d_x, d_y); 
+		
+		running_time + = inc;
+		 
+	 }
+
+	 return(pts_jerk_optimised);
 
 }
 
@@ -143,5 +183,9 @@ vector<double> MapPath::JMT(vector<double> &start, vector<double> &end, double T
   return {start[0], start[1], 0.5 * start[2], Coeff_456[0], Coeff_456[1], Coeff_456[2]};
 }
 
-
+double MapPath::Poly_eval_JMT(vector<double> coeff, double t){
+	
+	return (coeff[0] + coeff[1] * t + coeff[2] * t**2 + coeff[3] * t**3 + coeff[4] * t**4 + coeff[5] * t**5);
+	
+}
 
