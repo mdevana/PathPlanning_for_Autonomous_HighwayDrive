@@ -25,7 +25,7 @@ class MapPath {
   WayPoint get_map_convertedXY_for_s(double s_val);
   WayPoint get_map_convertedS_for_XY(double x_val, double y_val, double theta);
   vector<WayPoint> get_map_convertedSD_for_XY_jerk_optimised(vector<double> &s_start,vector<double> &s_end, vector<double> &d_start, vector<double> &d_end, double start_time, double end_time, double inc);
-  double Poly_eval_JMT(vector<double>);
+  double Poly_eval_JMT(vector<double> coeff, double t);
   
 	
 	
