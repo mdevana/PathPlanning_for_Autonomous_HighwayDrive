@@ -123,6 +123,9 @@ void PathGenerator::generate_map_path(){
 	std::cout << path_size<< std::endl;
 	double dist_inc = 0.45 ;
 	
+	double prev_x_coor = car_x;
+	double prev_y_coor = car_y;
+	
 	int cnt_start_path_pts = 0;
 	
 	if (path_size == 0){
@@ -135,7 +138,10 @@ void PathGenerator::generate_map_path(){
 		
 		end_s = 0;
 		
+				
 		while (end_s < 121) {    
+			
+			
 			
 			end_x_coor = car_x+(dist_inc * cnt_start_path_pts)*cos(angle);
 			end_y_coor = car_y+(dist_inc * cnt_start_path_pts)*sin(angle);
@@ -149,11 +155,20 @@ void PathGenerator::generate_map_path(){
 			
 			end_s = (highway_map.get_map_convertedS_for_XY(end_x_coor,end_y_coor,angle)).get_s_co();
 			std::cout <<"End S  =" <<end_s << std::endl;
+			std::cout <<"distance to previous point  =" <<sqrt((end_x_coor-prev_x_coor)*(end_x_coor-prev_x_coor)+(end_y_coor-prev_y_coor)*(end_y_coor-prev_y_coor))<< std::endl;
+			
+			prev_x_coor = end_x_coor;
+			prev_y_coor = end_y_coor;
 		}
+		
+		
 		
 		
 		// S needs to be above 121 to merge into the path
 	}
+	
+	
+	
 	
 	for (int j = 0; j < (50-path_size-cnt_start_path_pts); ++j) {    
 	    
@@ -162,14 +177,23 @@ void PathGenerator::generate_map_path(){
 		
 		current_wp = highway_map.get_map_convertedXY_for_s(new_s);
 		//waypoint pt = way_pts[i];
+		
+		double current_x = current_wp.get_x_co();
+		double current_y = current_wp.get_y_co();
+		
 		std::cout <<"Current S =" <<current_wp.get_s_co() << std::endl;
 		
-		std::cout <<"Current X =" <<current_wp.get_x_co() << std::endl;
-		std::cout <<"Current Y =" <<current_wp.get_y_co() << std::endl;
+		std::cout <<"Current X =" <<current_x << std::endl;
+		std::cout <<"Current Y =" <<current_y<< std::endl;
+		
+		std::cout <<"distance to previous point  =" <<sqrt((current_x-prev_x_coor)*(current_x-prev_x_coor)+(current_y-prev_y_coor)*(current_y-prev_y_coor))<< std::endl;
 		
 		
 		next_x_vals.push_back(current_wp.get_x_co());
 		next_y_vals.push_back(current_wp.get_y_co());
+		
+		prev_x_coor = current_x;
+		prev_y_coor = current_y;
 		
 		
 	}
