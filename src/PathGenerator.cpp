@@ -129,7 +129,7 @@ void PathGenerator::generate_map_path(){
 	double prev_y_coor = car_y;
 	
 	
-	int cnt_start_path_pts = 0;
+	int cnt_start_path_pts = 1;
 	
 	if (path_size == 0){
 		
@@ -170,6 +170,7 @@ void PathGenerator::generate_map_path(){
 
 	for (int j = 0; j < (50-path_size-cnt_start_path_pts); ++j) {    
 	    
+		std::cout << "dist increment = "<<dist_inc << std::endl;
 		double new_s = end_s + dist_inc * j ;
 		std::cout << "new S = "<<new_s << std::endl;
 		
