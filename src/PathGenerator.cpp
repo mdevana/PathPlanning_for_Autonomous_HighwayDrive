@@ -121,13 +121,13 @@ void PathGenerator::generate_map_path(){
 	
 	WayPoint w1=highway_map.get_map_point_for_s(end_s);
 	WayPoint w2=highway_map.get_map_convertedS_for_XY(prev_x_coor,prev_y_coor,angle);
-	WayPoint w3=highway_map.get_map_point_for_x(prev_x_coor);
+	
 
 	
 	std::cout << "dist increment = "<<dist_inc << std::endl;
 	std::cout << "Previous X = "<<prev_x_coor << std::endl;
 	std::cout << "Previous Y = "<<prev_y_coor << std::endl;
-	std::cout << "calculated S = "<<w3.get_s_co()<< std::endl;
+	std::cout << "calculated S = "<<w2.get_s_co()<< std::endl;
 	
 	std::cout << "end S = "<<end_s << std::endl;
 	std::cout << " X from end s = "<<w1.get_x_co()<< std::endl;
