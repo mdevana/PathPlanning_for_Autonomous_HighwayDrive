@@ -117,7 +117,7 @@ vector<WayPoint> MapPath::get_map_convertedSD_for_XY_jerk_optimised(vector<doubl
 	 }
 
 	 vector<double> coeff_s=JMT(s_start, s_end, end_time - start_time);
-	 vector<double> coeff_d=JMT(d_start, d_end, end_time - start_time) ;
+	 vector<double> coeff_d=JMT(d_start, d_end, end_time - start_time);
 	 
 	 double running_time = start_time;
 	 vector<double>  XY;

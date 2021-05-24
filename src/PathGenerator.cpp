@@ -247,6 +247,10 @@ void PathGenerator::generate_map_path_JMT(){
 		vector<double> d_start{end_s,max_velocity,10};
 		vector<double> d_end{final_s,max_velocity,10};
 		
+		double start_time;
+		double end_time;
+		double inc;
+		
 		
 		std::cout << "new S = "<<new_s << std::endl;
 		
