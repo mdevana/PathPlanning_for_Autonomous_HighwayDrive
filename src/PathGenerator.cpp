@@ -109,8 +109,8 @@ void PathGenerator::generate_map_path(){
 	double angle;
 	int path_size = previous_path_x.size();
 	std::cout <<"Previous Path size :" <<path_size<< std::endl;
-
-	for (int i = 0; i < path_size; ++i) {
+	int i;
+	for (i = 0; i < path_size; ++i) {
 		next_x_vals.push_back(previous_path_x[i]);
 		next_y_vals.push_back(previous_path_y[i]);
 	}
