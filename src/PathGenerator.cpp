@@ -106,7 +106,8 @@ void PathGenerator::generate_map_path(){
 	lanecode followlane=right;
 	double pos_x;
 	double pos_y;
-	double angle;
+	double angle = (car_yaw) * M_PI / 180;
+	
 	int path_size = previous_path_x.size();
 	std::cout <<"Previous Path size :" <<path_size<< std::endl;
 	int i;
@@ -126,7 +127,7 @@ void PathGenerator::generate_map_path(){
 	
 	double prev_x_coor = car_x;
 	double prev_y_coor = car_y;
-	double angle = (car_yaw) * M_PI / 180;
+	
 	
 	int cnt_start_path_pts = 0;
 	
