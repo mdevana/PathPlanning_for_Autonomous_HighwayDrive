@@ -55,7 +55,7 @@ WayPoint MapPath::get_map_point_for_s(double s_val) {
 
 }
 
-WayPoint MapPath::get_map_convertedXY_for_s(double s_val) {
+WayPoint MapPath::get_map_convertedXY_for_s(double s_val, int lane) {
 	 
 	 vector<double> x_vect;
 	 vector<double> y_vect;
@@ -81,7 +81,7 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val) {
 	 
      vector<double>  XY = getXY(s_val, sqrt(d_x * d_x + d_y * d_y),s_vect, x_vect, y_vect);
 
-	 WayPoint wp( XY[0]+ (1) * d_x, XY[1]+ (1) * d_y, s_val, d_x, d_y);    
+	 WayPoint wp( XY[0]+ (1 + lane) * d_x, XY[1]+ (1 + lane) * d_y, s_val, d_x, d_y);    
 	 return(wp);
 
 }
