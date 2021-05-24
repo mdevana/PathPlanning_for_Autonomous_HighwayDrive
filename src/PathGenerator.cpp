@@ -254,7 +254,7 @@ void PathGenerator::generate_map_path_JMT(){
 		
 		
 		
-		vector<WayPoint> current_wp_points = get_map_convertedSD_for_XY_jerk_optimised(s_start, s_end, d_start, d_end, start_time, end_time, inc);
+		vector<WayPoint> current_wp_points = highway_map.get_map_convertedSD_for_XY_jerk_optimised(s_start, s_end, d_start, d_end, start_time, end_time, inc);
 		//vector<double> &s_start,vector<double> &s_end, vector<double> &d_start, vector<double> &d_end, double start_time, double start_time, double end_time, double inc
 		
 		
