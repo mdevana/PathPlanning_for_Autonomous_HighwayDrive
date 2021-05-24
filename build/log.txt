@@ -1,0 +1,996 @@
+Listening to port 4567
+Connected!!!
+Previous Path size :0
+dist increment = 0.5
+end S = 0
+0
+Car X =909.48
+Car y =1128.67
+Car X =909.98
+Car y =1128.67
+Car X =910.48
+Car y =1128.67
+Car X =910.98
+Car y =1128.67
+Car X =911.48
+Car y =1128.67
+new S = 0
+Current S passed in conversion module :0
+Current d vector calculated :1
+Current S =0
+Current X =0.681132
+Current Y =-6.56677
+new S = 0.5
+Current S passed in conversion module :0.5
+Current d vector calculated :0.999999
+Current S =0.5
+Current X =784.939
+Current Y =1128.56
+new S = 1
+Current S passed in conversion module :1
+Current d vector calculated :0.999999
+Current S =1
+Current X =785.44
+Current Y =1128.55
+new S = 1.5
+Current S passed in conversion module :1.5
+Current d vector calculated :0.999998
+Current S =1.5
+Current X =785.941
+Current Y =1128.54
+new S = 2
+Current S passed in conversion module :2
+Current d vector calculated :0.999997
+Current S =2
+Current X =786.442
+Current Y =1128.53
+new S = 2.5
+Current S passed in conversion module :2.5
+Current d vector calculated :0.999997
+Current S =2.5
+Current X =786.943
+Current Y =1128.52
+new S = 3
+Current S passed in conversion module :3
+Current d vector calculated :0.999996
+Current S =3
+Current X =787.445
+Current Y =1128.51
+new S = 3.5
+Current S passed in conversion module :3.5
+Current d vector calculated :0.999995
+Current S =3.5
+Current X =787.946
+Current Y =1128.5
+new S = 4
+Current S passed in conversion module :4
+Current d vector calculated :0.999995
+Current S =4
+Current X =788.447
+Current Y =1128.49
+new S = 4.5
+Current S passed in conversion module :4.5
+Current d vector calculated :0.999994
+Current S =4.5
+Current X =788.948
+Current Y =1128.48
+new S = 5
+Current S passed in conversion module :5
+Current d vector calculated :0.999994
+Current S =5
+Current X =789.449
+Current Y =1128.47
+new S = 5.5
+Current S passed in conversion module :5.5
+Current d vector calculated :0.999994
+Current S =5.5
+Current X =789.95
+Current Y =1128.46
+new S = 6
+Current S passed in conversion module :6
+Current d vector calculated :0.999993
+Current S =6
+Current X =790.451
+Current Y =1128.45
+new S = 6.5
+Current S passed in conversion module :6.5
+Current d vector calculated :0.999993
+Current S =6.5
+Current X =790.953
+Current Y =1128.44
+new S = 7
+Current S passed in conversion module :7
+Current d vector calculated :0.999993
+Current S =7
+Current X =791.454
+Current Y =1128.43
+new S = 7.5
+Current S passed in conversion module :7.5
+Current d vector calculated :0.999992
+Current S =7.5
+Current X =791.955
+Current Y =1128.42
+new S = 8
+Current S passed in conversion module :8
+Current d vector calculated :0.999992
+Current S =8
+Current X =792.456
+Current Y =1128.41
+new S = 8.5
+Current S passed in conversion module :8.5
+Current d vector calculated :0.999992
+Current S =8.5
+Current X =792.957
+Current Y =1128.39
+new S = 9
+Current S passed in conversion module :9
+Current d vector calculated :0.999992
+Current S =9
+Current X =793.458
+Current Y =1128.38
+new S = 9.5
+Current S passed in conversion module :9.5
+Current d vector calculated :0.999992
+Current S =9.5
+Current X =793.959
+Current Y =1128.37
+new S = 10
+Current S passed in conversion module :10
+Current d vector calculated :0.999991
+Current S =10
+Current X =794.461
+Current Y =1128.36
+new S = 10.5
+Current S passed in conversion module :10.5
+Current d vector calculated :0.999991
+Current S =10.5
+Current X =794.962
+Current Y =1128.35
+new S = 11
+Current S passed in conversion module :11
+Current d vector calculated :0.999991
+Current S =11
+Current X =795.463
+Current Y =1128.34
+new S = 11.5
+Current S passed in conversion module :11.5
+Current d vector calculated :0.999991
+Current S =11.5
+Current X =795.964
+Current Y =1128.33
+new S = 12
+Current S passed in conversion module :12
+Current d vector calculated :0.999991
+Current S =12
+Current X =796.465
+Current Y =1128.32
+new S = 12.5
+Current S passed in conversion module :12.5
+Current d vector calculated :0.999991
+Current S =12.5
+Current X =796.966
+Current Y =1128.31
+new S = 13
+Current S passed in conversion module :13
+Current d vector calculated :0.999991
+Current S =13
+Current X =797.467
+Current Y =1128.3
+new S = 13.5
+Current S passed in conversion module :13.5
+Current d vector calculated :0.999991
+Current S =13.5
+Current X =797.969
+Current Y =1128.29
+new S = 14
+Current S passed in conversion module :14
+Current d vector calculated :0.999992
+Current S =14
+Current X =798.47
+Current Y =1128.28
+new S = 14.5
+Current S passed in conversion module :14.5
+Current d vector calculated :0.999992
+Current S =14.5
+Current X =798.971
+Current Y =1128.27
+new S = 15
+Current S passed in conversion module :15
+Current d vector calculated :0.999992
+Current S =15
+Current X =799.472
+Current Y =1128.26
+new S = 15.5
+Current S passed in conversion module :15.5
+Current d vector calculated :0.999992
+Current S =15.5
+Current X =799.973
+Current Y =1128.25
+new S = 16
+Current S passed in conversion module :16
+Current d vector calculated :0.999992
+Current S =16
+Current X =800.474
+Current Y =1128.24
+new S = 16.5
+Current S passed in conversion module :16.5
+Current d vector calculated :0.999992
+Current S =16.5
+Current X =800.975
+Current Y =1128.23
+new S = 17
+Current S passed in conversion module :17
+Current d vector calculated :0.999992
+Current S =17
+Current X =801.477
+Current Y =1128.22
+new S = 17.5
+Current S passed in conversion module :17.5
+Current d vector calculated :0.999993
+Current S =17.5
+Current X =801.978
+Current Y =1128.21
+new S = 18
+Current S passed in conversion module :18
+Current d vector calculated :0.999993
+Current S =18
+Current X =802.479
+Current Y =1128.2
+new S = 18.5
+Current S passed in conversion module :18.5
+Current d vector calculated :0.999993
+Current S =18.5
+Current X =802.98
+Current Y =1128.19
+new S = 19
+Current S passed in conversion module :19
+Current d vector calculated :0.999993
+Current S =19
+Current X =803.481
+Current Y =1128.17
+new S = 19.5
+Current S passed in conversion module :19.5
+Current d vector calculated :0.999994
+Current S =19.5
+Current X =803.982
+Current Y =1128.16
+new S = 20
+Current S passed in conversion module :20
+Current d vector calculated :0.999994
+Current S =20
+Current X =804.483
+Current Y =1128.15
+new S = 20.5
+Current S passed in conversion module :20.5
+Current d vector calculated :0.999994
+Current S =20.5
+Current X =804.984
+Current Y =1128.14
+new S = 21
+Current S passed in conversion module :21
+Current d vector calculated :0.999995
+Current S =21
+Current X =805.486
+Current Y =1128.13
+new S = 21.5
+Current S passed in conversion module :21.5
+Current d vector calculated :0.999995
+Current S =21.5
+Current X =805.987
+Current Y =1128.12
+new S = 22
+Current S passed in conversion module :22
+Current d vector calculated :0.999995
+Current S =22
+Current X =806.488
+Current Y =1128.11
+Previous Path size :45
+dist increment = 0.5
+end S = 159.004
+45
+new S = 159.004
+Current S passed in conversion module :159.004
+Current d vector calculated :1.00015
+Current S =159.004
+Current X =944.165
+Current Y =1129.02
+new S = 159.504
+Current S passed in conversion module :159.504
+Current d vector calculated :1.00016
+Current S =159.504
+Current X =944.672
+Current Y =1129.08
+new S = 160.004
+Current S passed in conversion module :160.004
+Current d vector calculated :1.00017
+Current S =160.004
+Current X =945.179
+Current Y =1129.13
+new S = 160.504
+Current S passed in conversion module :160.504
+Current d vector calculated :1.00018
+Current S =160.504
+Current X =945.686
+Current Y =1129.19
+new S = 161.004
+Current S passed in conversion module :161.004
+Current d vector calculated :1.00018
+Current S =161.004
+Current X =946.193
+Current Y =1129.24
+Previous Path size :45
+dist increment = 0.5
+end S = 161.69
+45
+new S = 161.69
+Current S passed in conversion module :161.69
+Current d vector calculated :1.0002
+Current S =161.69
+Current X =946.889
+Current Y =1129.32
+new S = 162.19
+Current S passed in conversion module :162.19
+Current d vector calculated :1.0002
+Current S =162.19
+Current X =947.397
+Current Y =1129.37
+new S = 162.69
+Current S passed in conversion module :162.69
+Current d vector calculated :1.00021
+Current S =162.69
+Current X =947.904
+Current Y =1129.43
+new S = 163.19
+Current S passed in conversion module :163.19
+Current d vector calculated :1.00022
+Current S =163.19
+Current X =948.412
+Current Y =1129.48
+new S = 163.69
+Current S passed in conversion module :163.69
+Current d vector calculated :1.00022
+Current S =163.69
+Current X =948.919
+Current Y =1129.54
+Previous Path size :45
+dist increment = 0.5
+end S = 164.409
+45
+new S = 164.409
+Current S passed in conversion module :164.409
+Current d vector calculated :1.00023
+Current S =164.409
+Current X =949.649
+Current Y =1129.62
+new S = 164.909
+Current S passed in conversion module :164.909
+Current d vector calculated :1.00024
+Current S =164.909
+Current X =950.157
+Current Y =1129.67
+new S = 165.409
+Current S passed in conversion module :165.409
+Current d vector calculated :1.00024
+Current S =165.409
+Current X =950.665
+Current Y =1129.73
+new S = 165.909
+Current S passed in conversion module :165.909
+Current d vector calculated :1.00025
+Current S =165.909
+Current X =951.173
+Current Y =1129.79
+new S = 166.409
+Current S passed in conversion module :166.409
+Current d vector calculated :1.00025
+Current S =166.409
+Current X =951.681
+Current Y =1129.84
+Previous Path size :46
+dist increment = 0.5
+end S = 167.164
+46
+new S = 167.164
+Current S passed in conversion module :167.164
+Current d vector calculated :1.00025
+Current S =167.164
+Current X =952.449
+Current Y =1129.93
+new S = 167.664
+Current S passed in conversion module :167.664
+Current d vector calculated :1.00026
+Current S =167.664
+Current X =952.957
+Current Y =1129.98
+new S = 168.164
+Current S passed in conversion module :168.164
+Current d vector calculated :1.00026
+Current S =168.164
+Current X =953.465
+Current Y =1130.04
+new S = 168.664
+Current S passed in conversion module :168.664
+Current d vector calculated :1.00026
+Current S =168.664
+Current X =953.974
+Current Y =1130.09
+Previous Path size :46
+dist increment = 0.5
+end S = 169.451
+46
+new S = 169.451
+Current S passed in conversion module :169.451
+Current d vector calculated :1.00026
+Current S =169.451
+Current X =954.774
+Current Y =1130.18
+new S = 169.951
+Current S passed in conversion module :169.951
+Current d vector calculated :1.00025
+Current S =169.951
+Current X =955.282
+Current Y =1130.24
+new S = 170.451
+Current S passed in conversion module :170.451
+Current d vector calculated :1.00025
+Current S =170.451
+Current X =955.791
+Current Y =1130.29
+new S = 170.951
+Current S passed in conversion module :170.951
+Current d vector calculated :1.00025
+Current S =170.951
+Current X =956.3
+Current Y =1130.35
+Previous Path size :45
+dist increment = 0.5
+end S = 171.772
+45
+new S = 171.772
+Current S passed in conversion module :171.772
+Current d vector calculated :1.00024
+Current S =171.772
+Current X =957.135
+Current Y =1130.44
+new S = 172.272
+Current S passed in conversion module :172.272
+Current d vector calculated :1.00024
+Current S =172.272
+Current X =957.644
+Current Y =1130.5
+new S = 172.772
+Current S passed in conversion module :172.772
+Current d vector calculated :1.00023
+Current S =172.772
+Current X =958.153
+Current Y =1130.55
+new S = 173.272
+Current S passed in conversion module :173.272
+Current d vector calculated :1.00022
+Current S =173.272
+Current X =958.662
+Current Y =1130.61
+new S = 173.772
+Current S passed in conversion module :173.772
+Current d vector calculated :1.00021
+Current S =173.772
+Current X =959.172
+Current Y =1130.66
+Previous Path size :44
+dist increment = 0.5
+end S = 174.636
+44
+new S = 174.636
+Current S passed in conversion module :174.636
+Current d vector calculated :1.0002
+Current S =174.636
+Current X =960.052
+Current Y =1130.76
+new S = 175.136
+Current S passed in conversion module :175.136
+Current d vector calculated :1.00018
+Current S =175.136
+Current X =960.562
+Current Y =1130.82
+new S = 175.636
+Current S passed in conversion module :175.636
+Current d vector calculated :1.00017
+Current S =175.636
+Current X =961.071
+Current Y =1130.87
+new S = 176.136
+Current S passed in conversion module :176.136
+Current d vector calculated :1.00016
+Current S =176.136
+Current X =961.581
+Current Y =1130.93
+new S = 176.636
+Current S passed in conversion module :176.636
+Current d vector calculated :1.00014
+Current S =176.636
+Current X =962.091
+Current Y =1130.99
+new S = 177.136
+Current S passed in conversion module :177.136
+Current d vector calculated :1.00013
+Current S =177.136
+Current X =962.6
+Current Y =1131.04
+Previous Path size :44
+dist increment = 0.5
+end S = 178.01
+44
+new S = 178.01
+Current S passed in conversion module :178.01
+Current d vector calculated :1.0001
+Current S =178.01
+Current X =963.491
+Current Y =1131.14
+new S = 178.51
+Current S passed in conversion module :178.51
+Current d vector calculated :1.00008
+Current S =178.51
+Current X =964.001
+Current Y =1131.2
+new S = 179.01
+Current S passed in conversion module :179.01
+Current d vector calculated :1.00006
+Current S =179.01
+Current X =964.511
+Current Y =1131.26
+new S = 179.51
+Current S passed in conversion module :179.51
+Current d vector calculated :1.00004
+Current S =179.51
+Current X =965.022
+Current Y =1131.31
+new S = 180.01
+Current S passed in conversion module :180.01
+Current d vector calculated :1.00002
+Current S =180.01
+Current X =965.532
+Current Y =1131.37
+new S = 180.51
+Current S passed in conversion module :180.51
+Current d vector calculated :0.999993
+Current S =180.51
+Current X =966.154
+Current Y =1131.46
+Previous Path size :45
+dist increment = 0.5
+end S = 181.563
+45
+new S = 181.563
+Current S passed in conversion module :181.563
+Current d vector calculated :0.99994
+Current S =181.563
+Current X =967.209
+Current Y =1131.7
+new S = 182.063
+Current S passed in conversion module :182.063
+Current d vector calculated :0.999913
+Current S =182.063
+Current X =967.71
+Current Y =1131.82
+new S = 182.563
+Current S passed in conversion module :182.563
+Current d vector calculated :0.999886
+Current S =182.563
+Current X =968.211
+Current Y =1131.93
+new S = 183.063
+Current S passed in conversion module :183.063
+Current d vector calculated :0.999858
+Current S =183.063
+Current X =968.712
+Current Y =1132.05
+new S = 183.563
+Current S passed in conversion module :183.563
+Current d vector calculated :0.99983
+Current S =183.563
+Current X =969.213
+Current Y =1132.16
+Previous Path size :44
+dist increment = 0.5
+end S = 184.103
+44
+new S = 184.103
+Current S passed in conversion module :184.103
+Current d vector calculated :0.9998
+Current S =184.103
+Current X =969.754
+Current Y =1132.29
+new S = 184.603
+Current S passed in conversion module :184.603
+Current d vector calculated :0.999771
+Current S =184.603
+Current X =970.255
+Current Y =1132.4
+new S = 185.103
+Current S passed in conversion module :185.103
+Current d vector calculated :0.999743
+Current S =185.103
+Current X =970.756
+Current Y =1132.51
+new S = 185.603
+Current S passed in conversion module :185.603
+Current d vector calculated :0.999715
+Current S =185.603
+Current X =971.257
+Current Y =1132.63
+new S = 186.103
+Current S passed in conversion module :186.103
+Current d vector calculated :0.999688
+Current S =186.103
+Current X =971.759
+Current Y =1132.74
+new S = 186.603
+Current S passed in conversion module :186.603
+Current d vector calculated :0.999661
+Current S =186.603
+Current X =972.26
+Current Y =1132.86
+Previous Path size :43
+dist increment = 0.5
+end S = 187.208
+43
+new S = 187.208
+Current S passed in conversion module :187.208
+Current d vector calculated :0.999629
+Current S =187.208
+Current X =972.866
+Current Y =1133
+new S = 187.708
+Current S passed in conversion module :187.708
+Current d vector calculated :0.999604
+Current S =187.708
+Current X =973.368
+Current Y =1133.11
+new S = 188.208
+Current S passed in conversion module :188.208
+Current d vector calculated :0.999579
+Current S =188.208
+Current X =973.869
+Current Y =1133.23
+new S = 188.708
+Current S passed in conversion module :188.708
+Current d vector calculated :0.999555
+Current S =188.708
+Current X =974.37
+Current Y =1133.34
+new S = 189.208
+Current S passed in conversion module :189.208
+Current d vector calculated :0.999533
+Current S =189.208
+Current X =974.872
+Current Y =1133.46
+new S = 189.708
+Current S passed in conversion module :189.708
+Current d vector calculated :0.999511
+Current S =189.708
+Current X =975.373
+Current Y =1133.57
+new S = 190.208
+Current S passed in conversion module :190.208
+Current d vector calculated :0.999491
+Current S =190.208
+Current X =975.875
+Current Y =1133.69
+Previous Path size :46
+dist increment = 0.5
+end S = 190.891
+46
+new S = 190.891
+Current S passed in conversion module :190.891
+Current d vector calculated :0.999466
+Current S =190.891
+Current X =976.56
+Current Y =1133.85
+new S = 191.391
+Current S passed in conversion module :191.391
+Current d vector calculated :0.999449
+Current S =191.391
+Current X =977.062
+Current Y =1133.96
+new S = 191.891
+Current S passed in conversion module :191.891
+Current d vector calculated :0.999433
+Current S =191.891
+Current X =977.563
+Current Y =1134.08
+new S = 192.391
+Current S passed in conversion module :192.391
+Current d vector calculated :0.999419
+Current S =192.391
+Current X =978.065
+Current Y =1134.19
+Previous Path size :44
+dist increment = 0.5
+end S = 192.391
+44
+new S = 192.391
+Current S passed in conversion module :192.391
+Current d vector calculated :0.999419
+Current S =192.391
+Current X =978.064
+Current Y =1134.19
+new S = 192.891
+Current S passed in conversion module :192.891
+Current d vector calculated :0.999407
+Current S =192.891
+Current X =978.566
+Current Y =1134.31
+new S = 193.391
+Current S passed in conversion module :193.391
+Current d vector calculated :0.999396
+Current S =193.391
+Current X =979.067
+Current Y =1134.42
+new S = 193.891
+Current S passed in conversion module :193.891
+Current d vector calculated :0.999387
+Current S =193.891
+Current X =979.569
+Current Y =1134.54
+new S = 194.391
+Current S passed in conversion module :194.391
+Current d vector calculated :0.999379
+Current S =194.391
+Current X =980.07
+Current Y =1134.65
+new S = 194.891
+Current S passed in conversion module :194.891
+Current d vector calculated :0.999373
+Current S =194.891
+Current X =980.572
+Current Y =1134.77
+Previous Path size :45
+dist increment = 0.5
+end S = 194.963
+45
+new S = 194.963
+Current S passed in conversion module :194.963
+Current d vector calculated :0.999373
+Current S =194.963
+Current X =980.644
+Current Y =1134.78
+new S = 195.463
+Current S passed in conversion module :195.463
+Current d vector calculated :0.999369
+Current S =195.463
+Current X =981.145
+Current Y =1134.9
+new S = 195.963
+Current S passed in conversion module :195.963
+Current d vector calculated :0.999367
+Current S =195.963
+Current X =981.646
+Current Y =1135.01
+new S = 196.463
+Current S passed in conversion module :196.463
+Current d vector calculated :0.999366
+Current S =196.463
+Current X =982.148
+Current Y =1135.13
+new S = 196.963
+Current S passed in conversion module :196.963
+Current d vector calculated :0.999368
+Current S =196.963
+Current X =982.649
+Current Y =1135.25
+Previous Path size :44
+dist increment = 0.5
+end S = 197.094
+44
+new S = 197.094
+Current S passed in conversion module :197.094
+Current d vector calculated :0.999369
+Current S =197.094
+Current X =982.781
+Current Y =1135.28
+new S = 197.594
+Current S passed in conversion module :197.594
+Current d vector calculated :0.999372
+Current S =197.594
+Current X =983.282
+Current Y =1135.39
+new S = 198.094
+Current S passed in conversion module :198.094
+Current d vector calculated :0.999378
+Current S =198.094
+Current X =983.783
+Current Y =1135.51
+new S = 198.594
+Current S passed in conversion module :198.594
+Current d vector calculated :0.999385
+Current S =198.594
+Current X =984.285
+Current Y =1135.62
+new S = 199.094
+Current S passed in conversion module :199.094
+Current d vector calculated :0.999394
+Current S =199.094
+Current X =984.786
+Current Y =1135.74
+new S = 199.594
+Current S passed in conversion module :199.594
+Current d vector calculated :0.999404
+Current S =199.594
+Current X =985.287
+Current Y =1135.85
+Previous Path size :45
+dist increment = 0.5
+end S = 199.801
+45
+new S = 199.801
+Current S passed in conversion module :199.801
+Current d vector calculated :0.999409
+Current S =199.801
+Current X =985.494
+Current Y =1135.9
+new S = 200.301
+Current S passed in conversion module :200.301
+Current d vector calculated :0.999422
+Current S =200.301
+Current X =985.995
+Current Y =1136.02
+new S = 200.801
+Current S passed in conversion module :200.801
+Current d vector calculated :0.999436
+Current S =200.801
+Current X =986.496
+Current Y =1136.13
+new S = 201.301
+Current S passed in conversion module :201.301
+Current d vector calculated :0.999452
+Current S =201.301
+Current X =986.996
+Current Y =1136.25
+new S = 201.801
+Current S passed in conversion module :201.801
+Current d vector calculated :0.99947
+Current S =201.801
+Current X =987.497
+Current Y =1136.36
+Previous Path size :45
+dist increment = 0.5
+end S = 202.069
+45
+new S = 202.069
+Current S passed in conversion module :202.069
+Current d vector calculated :0.999479
+Current S =202.069
+Current X =987.766
+Current Y =1136.42
+new S = 202.569
+Current S passed in conversion module :202.569
+Current d vector calculated :0.999499
+Current S =202.569
+Current X =988.267
+Current Y =1136.54
+new S = 203.069
+Current S passed in conversion module :203.069
+Current d vector calculated :0.99952
+Current S =203.069
+Current X =988.767
+Current Y =1136.65
+new S = 203.569
+Current S passed in conversion module :203.569
+Current d vector calculated :0.999542
+Current S =203.569
+Current X =989.268
+Current Y =1136.77
+new S = 204.069
+Current S passed in conversion module :204.069
+Current d vector calculated :0.999566
+Current S =204.069
+Current X =989.768
+Current Y =1136.89
+Previous Path size :44
+dist increment = 0.5
+end S = 204.4
+44
+new S = 204.4
+Current S passed in conversion module :204.4
+Current d vector calculated :0.999582
+Current S =204.4
+Current X =990.099
+Current Y =1136.96
+new S = 204.9
+Current S passed in conversion module :204.9
+Current d vector calculated :0.999607
+Current S =204.9
+Current X =990.599
+Current Y =1137.08
+new S = 205.4
+Current S passed in conversion module :205.4
+Current d vector calculated :0.999633
+Current S =205.4
+Current X =991.099
+Current Y =1137.19
+new S = 205.9
+Current S passed in conversion module :205.9
+Current d vector calculated :0.99966
+Current S =205.9
+Current X =991.599
+Current Y =1137.31
+new S = 206.4
+Current S passed in conversion module :206.4
+Current d vector calculated :0.999688
+Current S =206.4
+Current X =992.099
+Current Y =1137.42
+new S = 206.9
+Current S passed in conversion module :206.9
+Current d vector calculated :0.999717
+Current S =206.9
+Current X =992.599
+Current Y =1137.54
+Previous Path size :45
+dist increment = 0.5
+end S = 207.305
+45
+new S = 207.305
+Current S passed in conversion module :207.305
+Current d vector calculated :0.99974
+Current S =207.305
+Current X =993.004
+Current Y =1137.63
+new S = 207.805
+Current S passed in conversion module :207.805
+Current d vector calculated :0.99977
+Current S =207.805
+Current X =993.504
+Current Y =1137.75
+new S = 208.305
+Current S passed in conversion module :208.305
+Current d vector calculated :0.9998
+Current S =208.305
+Current X =994.003
+Current Y =1137.86
+new S = 208.805
+Current S passed in conversion module :208.805
+Current d vector calculated :0.99983
+Current S =208.805
+Current X =994.503
+Current Y =1137.98
+new S = 209.305
+Current S passed in conversion module :209.305
+Current d vector calculated :0.99986
+Current S =209.305
+Current X =995.002
+Current Y =1138.09
+Previous Path size :45
+dist increment = 0.5
+end S = 209.771
+45
+new S = 209.771
+Current S passed in conversion module :209.771
+Current d vector calculated :0.999888
+Current S =209.771
+Current X =995.467
+Current Y =1138.2
+new S = 210.271
+Current S passed in conversion module :210.271
+Current d vector calculated :0.999919
+Current S =210.271
+Current X =995.966
+Current Y =1138.32
+new S = 210.771
+Current S passed in conversion module :210.771
+Current d vector calculated :0.999948
+Current S =210.771
+Current X =996.465
+Current Y =1138.43
+new S = 211.271
+Current S passed in conversion module :211.271
+Current d vector calculated :0.999978
+Current S =211.271
+Current X =996.964
+Current Y =1138.55
+new S = 211.771
+Current S passed in conversion module :211.771
+Current d vector calculated :1.00001
+Current S =211.771
+Current X =997.619
+Current Y =1138.74
