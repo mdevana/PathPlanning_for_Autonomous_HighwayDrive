@@ -104,6 +104,7 @@ void PathGenerator::generate_circular_path(){
 void PathGenerator::generate_map_path(){
 	
 	lanecode followlane=middle;
+	
 	double prev_x_coor = car_x;
 	double prev_y_coor = car_y;
 	double angle = (car_yaw) * M_PI / 180;
@@ -188,7 +189,7 @@ void PathGenerator::generate_map_path(){
 		double new_s = end_s + dist_inc * j ;
 		std::cout << "new S = "<<new_s << std::endl;
 		
-		current_wp = highway_map.get_map_convertedXY_for_s(new_s,followlane);
+		current_wp = highway_map.get_map_convertedXY_for_s(new_s,-1);
 		//waypoint pt = way_pts[i];
 		
 		double current_x = current_wp.get_x_co();
