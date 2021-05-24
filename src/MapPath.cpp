@@ -76,8 +76,8 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, int lane) {
 		d_y = round(d_y);
 	 double d_x= sin(acos(d_y));
 	 
-	 std::cout <<"Current d vector calculated :" <<sqrt(d_x * d_x + d_y * d_y) << std::endl;
-	 std::cout <<"Current dx,dy vector :" <<d_x<<","<<d_y<<std::endl;
+	 //std::cout <<"Current d vector calculated :" <<sqrt(d_x * d_x + d_y * d_y) << std::endl;
+	 //std::cout <<"Current dx,dy vector :" <<d_x<<","<<d_y<<std::endl;
 	 std::cout <<"Lane Code :" <<lane<<std::endl;
 	 
      vector<double>  XY = getXY(s_val, sqrt(d_x * d_x + d_y * d_y),s_vect, x_vect, y_vect);

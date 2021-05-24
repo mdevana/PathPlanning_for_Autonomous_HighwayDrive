@@ -113,15 +113,15 @@ int main() {
 		   MapPath highway;
 		   highway.set_map_path_data(map_waypoints_x,map_waypoints_y,map_waypoints_s,map_waypoints_dx,map_waypoints_dy);
 		   
-		  double dist_inc = 0.5;
+		  double dist_inc = 0.44;
 		  PathGenerator current_path;
-		  current_path.Init(0.5,highway);
+		  current_path.Init(0.44,highway);
 		  current_path.set_localization_data(car_x,car_y,car_s,car_d,car_yaw,car_speed);
 		  current_path.set_previous_path_data(previous_path_x, previous_path_y,end_path_s,end_path_d);
 		  //current_path.generate_simple_path();
 		  //current_path.generate_circular_path();
-		  current_path.generate_map_path();
-		  //current_path.generate_map_path_JMT();
+		  //current_path.generate_map_path();
+		  current_path.generate_map_path_JMT();
 
           msgJson["next_x"] = current_path.get_x_vals();
           msgJson["next_y"] = current_path.get_y_vals();
