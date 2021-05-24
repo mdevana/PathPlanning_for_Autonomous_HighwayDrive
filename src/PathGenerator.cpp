@@ -116,11 +116,14 @@ void PathGenerator::generate_map_path(){
 		next_y_vals.push_back(previous_path_y[i]);
 		prev_x_coor = previous_path_x[i];
 		prev_y_coor = previous_path_y[i];
+		
 	}
 
 
 	
 	std::cout << "dist increment = "<<dist_inc << std::endl;
+	std::cout << "Previous X = "<<prev_x_coor << std::endl;
+	std::cout << "Previous Y = "<<prev_y_coor << std::endl;
 	std::cout << "end S = "<<end_s << std::endl;
 	WayPoint current_wp;
 	
