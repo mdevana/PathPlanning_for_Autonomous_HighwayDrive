@@ -125,8 +125,7 @@ void PathGenerator::generate_map_path(){
 
 	double prev_x_coor = car_x;
 	double prev_y_coor = car_y;
-	double calc_end_s = (highway_map.get_map_convertedS_for_XY(car_x,car_y,angle)).get_s_co();
-	std::cout << "calculated end S = "<<calc_end_s<< std::endl;
+	
 	
 	
 	int cnt_start_path_pts = 1;
@@ -165,6 +164,10 @@ void PathGenerator::generate_map_path(){
 		}
 
 		// S needs to be above 121 to merge into the path
+	}
+	else{
+		end_s = (highway_map.get_map_convertedS_for_XY(car_x,car_y,angle)).get_s_co();
+		std::cout << "calculated end S = "<<calc_end_s<< std::endl;
 	}
 
 
