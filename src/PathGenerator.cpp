@@ -122,9 +122,7 @@ void PathGenerator::generate_map_path(){
 	std::cout << "end S = "<<end_s << std::endl;
 	WayPoint current_wp;
 	
-	std::cout << path_size<< std::endl;
-	
-	
+
 	double prev_x_coor = car_x;
 	double prev_y_coor = car_y;
 	
@@ -168,7 +166,7 @@ void PathGenerator::generate_map_path(){
 	}
 
 
-	for (int j = 0; j < (50-path_size-cnt_start_path_pts); ++j) {    
+	for (int j = 1; j <= (50-path_size-cnt_start_path_pts); ++j) {    
 	    
 		std::cout << "dist increment = "<<dist_inc << std::endl;
 		double new_s = end_s + dist_inc * j ;
