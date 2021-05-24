@@ -209,7 +209,7 @@ void PathGenerator::generate_map_path_JMT(){
 		double end_y_coor;
 		
 		double prev_x_coor = 0;
-		double prev_x_coor = 0;
+		double prev_y_coor = 0;
 		
 		end_s = 0;
 		end_d = 0;
@@ -235,7 +235,7 @@ void PathGenerator::generate_map_path_JMT(){
 			end_d = wp.get_d_co();
 			
 			std::cout <<"End S  =" <<end_s << std::endl;
-			std::cout <<"distance to previous point  =" <<distance(prev_x_coor, prev_y_coor, end_x_coor, end_y_coor)<< std::endl;
+			std::cout <<"distance to previous point  =" <<sqrt((end_x_coor-prev_x_coor)*(end_x_coor-prev_x_coor)+(end_y_coor-prev_y_coor)*(end_y_coor-prev_y_coor))<< std::endl;
 		}
 		
 		
