@@ -72,7 +72,7 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val) {
 	 }
 
 	 double d_x= dx_spline(s_val);
-	 double d_y= dy_spline(s_val);
+	 double d_y= cos(d_x);
 	 
 	 std::cout <<"Current d vector calculated :" <<sqrt(d_x * d_x + d_y * d_y) << std::endl;
 	 
