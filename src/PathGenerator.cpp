@@ -127,10 +127,12 @@ void PathGenerator::generate_map_path(){
 	std::cout << "dist increment = "<<dist_inc << std::endl;
 	std::cout << "Previous X = "<<prev_x_coor << std::endl;
 	std::cout << "Previous Y = "<<prev_y_coor << std::endl;
+	std::cout << "calculated S = "<<w2.get_s_co()<< std::endl;
 	
-	std::cout << " X from end s = "<<w.get_x_co()<< std::endl;
-	std::cout << " Y from end_s = "<<w.get_y_co()<< std::endl;	
 	std::cout << "end S = "<<end_s << std::endl;
+	std::cout << " X from end s = "<<w1.get_x_co()<< std::endl;
+	std::cout << " Y from end_s = "<<w1.get_y_co()<< std::endl;	
+	
 	WayPoint current_wp;
 	
 
