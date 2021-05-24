@@ -119,8 +119,8 @@ void PathGenerator::generate_map_path(){
 		
 	}
 	
-	double x_ends=get_map_convertedXY_for_s(end_s,-1);
-	double y_ends=get_map_convertedXY_for_s(end_s,-1);
+	double x_ends=highway_map.get_map_convertedXY_for_s(end_s,-1);
+	double y_ends=highway_map.get_map_convertedXY_for_s(end_s,-1);
 
 	
 	std::cout << "dist increment = "<<dist_inc << std::endl;
