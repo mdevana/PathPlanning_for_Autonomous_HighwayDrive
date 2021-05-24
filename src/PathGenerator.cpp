@@ -229,7 +229,7 @@ void PathGenerator::generate_map_path_JMT(){
 	if (path_size == 0){
 		
 		
-		dist_inc = 0.4 ;
+		dist_inc = 0.45 ;
 		double angle = (car_yaw) * M_PI / 180;
 		double end_x_coor;
 		double end_y_coor;
