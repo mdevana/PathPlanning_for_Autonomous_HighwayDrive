@@ -104,8 +104,8 @@ void PathGenerator::generate_circular_path(){
 void PathGenerator::generate_map_path(){
 	
 	lanecode followlane=middle;
-	double pos_x;
-	double pos_y;
+	double prev_x_coor = car_x;
+	double prev_y_coor = car_y;
 	double angle = (car_yaw) * M_PI / 180;
 	
 	int path_size = previous_path_x.size();
@@ -114,6 +114,8 @@ void PathGenerator::generate_map_path(){
 	for (i = 0; i < path_size; ++i) {
 		next_x_vals.push_back(previous_path_x[i]);
 		next_y_vals.push_back(previous_path_y[i]);
+		prev_x_coor = previous_path_x[i];
+		prev_y_coor = previous_path_y[i];
 	}
 
 
@@ -123,8 +125,7 @@ void PathGenerator::generate_map_path(){
 	WayPoint current_wp;
 	
 
-	double prev_x_coor = car_x;
-	double prev_y_coor = car_y;
+	
 	
 	
 	
