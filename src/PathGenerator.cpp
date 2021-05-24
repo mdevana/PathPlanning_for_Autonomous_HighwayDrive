@@ -170,7 +170,7 @@ void PathGenerator::generate_map_path(){
 
 	std::cout << "-------------------------------------------------" << std::endl;
 
-	for (int j = 1; j <= (50-path_size-cnt_start_path_pts); ++j) {    
+	for (int j = 0; j < (50-path_size-cnt_start_path_pts); ++j) {    
 	    
 		
 		std::cout << "dist increment = "<<dist_inc << std::endl;
