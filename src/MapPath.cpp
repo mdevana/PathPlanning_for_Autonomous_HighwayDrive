@@ -44,6 +44,8 @@ void MapPath::set_map_path_data(vector<double> x,vector<double> y,vector<double>
   dx_spline.set_points(s,dx,spline::cspline);
   dy_spline.set_points(s,dy,spline::cspline);
   
+  s_spline.set_points(x,s,spline::cspline);
+  
 }
 
  
@@ -57,8 +59,7 @@ WayPoint MapPath::get_map_point_for_s(double s_val) {
 
 WayPoint MapPath::get_map_point_for_x(double x_val) {
 	 
-	 spline s_spline;
-	 s_spline.set_points(x,s,spline::cspline);
+	 
      WayPoint wp_interpolated(x_val, 0,s_spline(x_val),1,0);
 	 return(wp_interpolated);
 
