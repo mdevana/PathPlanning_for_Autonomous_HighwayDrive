@@ -103,7 +103,7 @@ void PathGenerator::generate_circular_path(){
 
 void PathGenerator::generate_map_path(){
 	
-	lanecode followlane=left;
+	lanecode followlane=middle;
 	
 	double prev_x_coor = car_x;
 	double prev_y_coor = car_y;
