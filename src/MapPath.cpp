@@ -136,7 +136,7 @@ vector<WayPoint> MapPath::get_map_convertedSD_for_XY_jerk_optimised(vector<doubl
 		
 		// define dx, dy
 
-	    pts_jerk_optimised.push_back(WayPoint( XY[0], XY[1], s_val, d_x, d_y)); 
+	    pts_jerk_optimised.push_back(WayPoint( XY[0], XY[1], s_val, dx_spline(s_val), dy_spline(s_val))); 
 		
 		running_time += inc;
 		 

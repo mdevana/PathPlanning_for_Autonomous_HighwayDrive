@@ -191,12 +191,14 @@ void PathGenerator::generate_map_path_JMT(){
 
 
 	
-	std::cout << "dist increment = "<<dist_inc << std::endl;
-	std::cout << "end S = "<<end_s << std::endl;
+	
 	WayPoint current_wp;
 	
 	std::cout << path_size<< std::endl;
 	double dist_inc = 0.45 ;
+	
+	std::cout << "dist increment = "<<dist_inc << std::endl;
+	std::cout << "end S = "<<end_s << std::endl;
 	
 	int cnt_start_path_pts = 1;
 	
