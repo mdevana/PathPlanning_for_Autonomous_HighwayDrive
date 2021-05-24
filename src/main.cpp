@@ -115,7 +115,7 @@ int main() {
 		   
 		  double dist_inc = 0.44;
 		  PathGenerator current_path;
-		  current_path.Init(0.44,highway);
+		  current_path.Init(dist_inc,highway);
 		  current_path.set_localization_data(car_x,car_y,car_s,car_d,car_yaw,car_speed);
 		  current_path.set_previous_path_data(previous_path_x, previous_path_y,end_path_s,end_path_d);
 		  //current_path.generate_simple_path();
