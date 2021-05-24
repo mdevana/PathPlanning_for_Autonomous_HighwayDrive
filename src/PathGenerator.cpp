@@ -164,10 +164,7 @@ void PathGenerator::generate_map_path(){
 
 		// S needs to be above 121 to merge into the path
 	}
-	
-	
-	
-	
+
 	for (int j = 0; j < (50-path_size-cnt_start_path_pts); ++j) {    
 	    
 		double new_s = end_s + dist_inc * j ;
