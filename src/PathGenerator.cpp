@@ -160,10 +160,7 @@ void PathGenerator::generate_map_path(){
 			prev_x_coor = end_x_coor;
 			prev_y_coor = end_y_coor;
 		}
-		
-		
-		
-		
+
 		// S needs to be above 121 to merge into the path
 	}
 	
@@ -213,13 +210,10 @@ void PathGenerator::generate_map_path_JMT(){
 		next_y_vals.push_back(previous_path_y[i]);
 	}
 
-
-	
-	
 	WayPoint current_wp;
 	
 	std::cout << path_size<< std::endl;
-	double dist_inc = 0.45 ;
+	double dist_inc = 0.44 ;
 	
 	std::cout << "dist increment = "<<dist_inc << std::endl;
 	std::cout << "end S = "<<end_s << std::endl;
@@ -229,7 +223,7 @@ void PathGenerator::generate_map_path_JMT(){
 	if (path_size == 0){
 		
 		
-		dist_inc = 0.45 ;
+		dist_inc = 0.44 ;
 		double angle = (car_yaw) * M_PI / 180;
 		double end_x_coor;
 		double end_y_coor;

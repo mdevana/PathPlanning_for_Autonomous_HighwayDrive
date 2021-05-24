@@ -105,7 +105,7 @@ WayPoint MapPath::get_map_convertedS_for_XY(double x_val, double y_val, double t
 
 }
 
-vector<WayPoint> MapPath::get_map_convertedSD_for_XY_jerk_optimised(vector<double> &s_start,vector<double> &s_end, vector<double> &d_start, vector<double> &d_end, double start_time, double end_time, double inc) {
+vector<WayPoint> MapPath::get_map_convertedSD_for_XY_jerk_optimised(vector<double> &s_start,vector<double> &s_end, vector<double> &d_start, vector<double> &d_end, double start_time, double end_time, double inc, int lane) {
 	 
 	 vector<double> x_vect;
 	 vector<double> y_vect;
@@ -138,8 +138,12 @@ vector<WayPoint> MapPath::get_map_convertedSD_for_XY_jerk_optimised(vector<doubl
 		XY = getXY(s_val, d_val,s_vect, x_vect, y_vect);
 		
 		// define dx, dy
+		double d_y= dy_spline(s_val);
+		if (abs(d_y) > 1)
+			d_y = round(d_y);
+		double d_x= sin(acos(d_y));
 
-	    pts_jerk_optimised.push_back(WayPoint( XY[0], XY[1], s_val, dx_spline(s_val), dy_spline(s_val))); 
+	    pts_jerk_optimised.push_back(WayPoint( XY[0]+ (1+lane) * d_x, XY[1] + (l+lane) * d_y, s_val, d_x, d_y)); 
 		
 		running_time += inc;
 		 
