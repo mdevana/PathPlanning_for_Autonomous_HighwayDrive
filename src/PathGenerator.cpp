@@ -216,8 +216,8 @@ void PathGenerator::generate_map_path_JMT(){
 		
 		while (end_s < 121) {    
 			
-			prev_x_coor = end_x_coor;
-			prev_y_coor = end_y_coor;
+			prev_x_coor = car_x;
+			prev_y_coor = car_y;
 			
 			end_x_coor = car_x+(dist_inc * cnt_start_path_pts)*cos(angle);
 			end_y_coor = car_y+(dist_inc * cnt_start_path_pts)*sin(angle);
