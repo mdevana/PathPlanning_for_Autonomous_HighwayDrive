@@ -55,6 +55,16 @@ WayPoint MapPath::get_map_point_for_s(double s_val) {
 
 }
 
+WayPoint MapPath::get_map_point_for_x(double x_val) {
+	 
+	 spline s_spline;
+	 s_spline.set_points(x,s,spline::cspline);
+     WayPoint wp_interpolated(x_val, 0,s_spline(x_val),1,0);
+	 return(wp_interpolated);
+
+}
+
+
 WayPoint MapPath::get_map_convertedXY_for_s(double s_val, int lane) {
 	 
 	 vector<double> x_vect;
