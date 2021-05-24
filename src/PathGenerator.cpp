@@ -198,7 +198,7 @@ void PathGenerator::generate_map_path_JMT(){
 	std::cout << path_size<< std::endl;
 	double dist_inc = 0.45 ;
 	
-	int cnt_start_path_pts = 0;
+	int cnt_start_path_pts = 1;
 	
 	if (path_size == 0){
 		
