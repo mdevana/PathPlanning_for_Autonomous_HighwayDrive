@@ -244,17 +244,18 @@ void PathGenerator::generate_map_path_JMT(){
 	
  
 	    
-		/*double final_s = end_s + dist_inc * (50-path_size-cnt_start_path_pts);
+		double final_s = end_s + dist_inc * (50-path_size-cnt_start_path_pts);
 		
-		std::cout <<"Current S =" <<current_wp.get_s_co() << std::endl;
+		std::cout <<"Distance to Predict to next set: " <<dist_inc * (50-path_size-cnt_start_path_pts)<< std::endl;
+		std::cout <<"Predict to next path: Final S =" <<final_s<< std::endl;
 		
 		double final_d = end_d;
 		
 		vector<double> s_start{end_s,max_velocity,10};
 		vector<double> s_end{final_s,max_velocity,10};
 		
-		vector<double> d_start{end_s,max_velocity,10};
-		vector<double> d_end{final_s,max_velocity,10};
+		vector<double> d_start{end_d,max_velocity,10};
+		vector<double> d_end{final_d,max_velocity,10};
 		
 		double start_time;
 		double end_time;
@@ -274,7 +275,7 @@ void PathGenerator::generate_map_path_JMT(){
 		
 			next_x_vals.push_back(wp.get_x_co());
 			next_y_vals.push_back(wp.get_y_co());
-		}*/
+		}
 
 	
 }
