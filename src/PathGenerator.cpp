@@ -208,10 +208,16 @@ void PathGenerator::generate_map_path_JMT(){
 		double end_x_coor;
 		double end_y_coor;
 		
+		double prev_x_coor = 0;
+		double prev_x_coor = 0;
+		
 		end_s = 0;
 		end_d = 0;
 		
 		while (end_s < 121) {    
+			
+			prev_x_coor = end_x_coor;
+			prev_y_coor = end_y_coor;
 			
 			end_x_coor = car_x+(dist_inc * cnt_start_path_pts)*cos(angle);
 			end_y_coor = car_y+(dist_inc * cnt_start_path_pts)*sin(angle);
@@ -229,6 +235,7 @@ void PathGenerator::generate_map_path_JMT(){
 			end_d = wp.get_d_co();
 			
 			std::cout <<"End S  =" <<end_s << std::endl;
+			std::cout <<"distance to previous point  =" <<distance(prev_x_coor, prev_y_coor, end_x_coor, end_y_coor)<< std::endl;
 		}
 		
 		
@@ -237,7 +244,9 @@ void PathGenerator::generate_map_path_JMT(){
 	
  
 	    
-		double final_s = end_s + dist_inc * (50-path_size-cnt_start_path_pts) ;
+		/*double final_s = end_s + dist_inc * (50-path_size-cnt_start_path_pts);
+		
+		std::cout <<"Current S =" <<current_wp.get_s_co() << std::endl;
 		
 		double final_d = end_d;
 		
@@ -250,25 +259,22 @@ void PathGenerator::generate_map_path_JMT(){
 		double start_time;
 		double end_time;
 		double inc;
-		
-		
-		
-		
+
 		vector<WayPoint> current_wp_points = highway_map.get_map_convertedSD_for_XY_jerk_optimised(s_start, s_end, d_start, d_end, start_time, end_time, inc);
 		//vector<double> &s_start,vector<double> &s_end, vector<double> &d_start, vector<double> &d_end, double start_time, double start_time, double end_time, double inc
 		
 		
 		for(WayPoint wp : current_wp_points){
 			
-			std::cout <<"Current S =" <<current_wp.get_s_co() << std::endl;
+			std::cout <<"Current S =" <<wp.get_s_co() << std::endl;
 		
-			std::cout <<"Current X =" <<current_wp.get_x_co() << std::endl;
-			std::cout <<"Current Y =" <<current_wp.get_y_co() << std::endl;
+			std::cout <<"Current X =" <<wp.get_x_co() << std::endl;
+			std::cout <<"Current Y =" <<wp.get_y_co() << std::endl;
 		
 		
-			next_x_vals.push_back(current_wp.get_x_co());
-			next_y_vals.push_back(current_wp.get_y_co());
-		}
+			next_x_vals.push_back(wp.get_x_co());
+			next_y_vals.push_back(wp.get_y_co());
+		}*/
 
 	
 }
