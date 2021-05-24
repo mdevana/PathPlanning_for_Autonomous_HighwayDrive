@@ -118,12 +118,17 @@ void PathGenerator::generate_map_path(){
 		prev_y_coor = previous_path_y[i];
 		
 	}
-
+	
+	double x_ends=get_map_convertedXY_for_s(end_s,-1);
+	double y_ends=get_map_convertedXY_for_s(end_s,-1);
 
 	
 	std::cout << "dist increment = "<<dist_inc << std::endl;
 	std::cout << "Previous X = "<<prev_x_coor << std::endl;
 	std::cout << "Previous Y = "<<prev_y_coor << std::endl;
+	
+	std::cout << " X from end s = "<<x_ends << std::endl;
+	std::cout << " Y from end_s = "<<y_ends<< std::endl;	
 	std::cout << "end S = "<<end_s << std::endl;
 	WayPoint current_wp;
 	
