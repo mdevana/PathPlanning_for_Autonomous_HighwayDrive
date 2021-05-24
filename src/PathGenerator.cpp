@@ -119,7 +119,7 @@ void PathGenerator::generate_map_path(){
 		
 	}
 	
-	WayPoint w1=get_map_point_for_s(end_s);
+	WayPoint w1=highway_map.get_map_point_for_s(end_s);
 	WayPoint w2=highway_map.get_map_convertedS_for_XY(prev_x_coor,prev_y_coor,angle);
 	
 
