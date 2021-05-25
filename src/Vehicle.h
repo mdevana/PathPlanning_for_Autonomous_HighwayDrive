@@ -61,7 +61,7 @@ class Vehicle {
   };*/
   //object functions
   
-  VehicleParamDisplay();
+  void VehicleParamDisplay();
   
   map<string, int> lane_direction = {{"PLCL", 1}, {"LCL", 1}, 
                                      {"LCR", -1}, {"PLCR", -1}};
