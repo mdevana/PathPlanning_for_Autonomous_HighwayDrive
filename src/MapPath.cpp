@@ -66,7 +66,7 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	 vector<double> s_vect;
 	 
 	 std::cout <<"Current S passed in conversion module :" <<s_val << std::endl;
-	 std::cout <<"Current S passed in conversion module :" <<d_val << std::endl;
+	 std::cout <<"Current d passed in conversion module :" <<d_val << std::endl;
 	 
 	 for (WayPoint wp:points_group) {
 
@@ -86,10 +86,12 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	 //std::cout <<"Lane Code :" <<lane<<std::endl;
 	 
      vector<double>  XY = getXY(s_val, round(d_val), s_vect, x_vect, y_vect);
-	 //XY[0] = x_spline(s_val);
-	 //XY[1] = y_spline(s_val);
+	 XY[0] = x_spline(s_val);
+	 XY[1] = y_spline(s_val);
+	 
+	 d_val = round(d_val);
 
-	 WayPoint wp( XY[0], XY[1], s_val, d_x, d_y);    
+	 WayPoint wp( XY[0] + d_val * d_x , XY[1] + d_val * d_y , s_val, d_x, d_y);    
 	 return(wp);
 
 }
