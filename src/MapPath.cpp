@@ -86,8 +86,8 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	 //std::cout <<"Lane Code :" <<lane<<std::endl;
 	 
      vector<double>  XY = getXY(s_val, round(d_val), s_vect, x_vect, y_vect);
-	 XY[0] = x_spline(s_val);
-	 XY[1] = y_spline(s_val);
+	 //XY[0] = x_spline(s_val);
+	 //XY[1] = y_spline(s_val);
 	 
 	 d_val = round(d_val);
 
