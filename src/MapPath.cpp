@@ -90,7 +90,7 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	 XY[0] = x_spline(s_val);
 	 XY[1] = y_spline(s_val);
 	 
-	 d_val = 6.0;
+	 //d_val = 6.0;
 
 	 WayPoint wp( XY[0] + d_val * d_x , XY[1] + d_val * d_y , s_val, d_x, d_y);    
 	 return(wp);
@@ -146,7 +146,8 @@ vector<WayPoint> MapPath::get_map_convertedSD_for_XY_jerk_optimised(vector<doubl
 		s_val=Poly_eval_JMT(coeff_s,running_time);
 		d_val=Poly_eval_JMT(coeff_d,running_time);
 		
-		XY = getXY(s_val, d_val,s_vect, x_vect, y_vect);
+		XY.push_back(x_spline(s_val));
+	    XY.push_back(y_spline(s_val));
 		
 		// define dx, dy
 		double d_y= dy_spline(s_val);

@@ -119,10 +119,6 @@ void PathGenerator::generate_map_path(){
 		prev_y_coor = previous_path_y[i];
 		
 	}
-	
-	WayPoint w1=highway_map.get_map_point_for_s(end_s);
-	WayPoint w2=highway_map.get_map_convertedS_for_XY(prev_x_coor,prev_y_coor,angle);
-	
 
 	
 	//std::cout << "dist increment = "<<dist_inc << std::endl;
@@ -191,7 +187,7 @@ void PathGenerator::generate_map_path(){
 		//std::cout <<"Current X =" <<current_x << std::endl;
 		//std::cout <<"Current Y =" <<current_y<< std::endl;
 		
-		//std::cout <<"distance to previous point  =" <<sqrt((current_x-prev_x_coor)*(current_x-prev_x_coor)+(current_y-prev_y_coor)*(current_y-prev_y_coor))<< std::endl;
+		std::cout <<"distance to previous point  =" <<sqrt((current_x-prev_x_coor)*(current_x-prev_x_coor)+(current_y-prev_y_coor)*(current_y-prev_y_coor))<< std::endl;
 		
 		
 		next_x_vals.push_back(current_wp.get_x_co());
@@ -207,46 +203,46 @@ void PathGenerator::generate_map_path(){
 
 void PathGenerator::generate_map_path_JMT(){
 	
-	lanecode followlane=left;
-	double pos_x;
-	double pos_y;
-	double angle;
+	lanecode followlane = middle;
+	
+	double prev_x_coor = car_x;
+	double prev_y_coor = car_y;
+	double angle = (car_yaw) * M_PI / 180;
+	
 	int path_size = previous_path_x.size();
 	std::cout <<"Previous Path size :" <<path_size<< std::endl;
-
-	for (int i = 0; i < path_size; ++i) {
+	int i;
+	for (i = 0; i < path_size; ++i) {
 		next_x_vals.push_back(previous_path_x[i]);
 		next_y_vals.push_back(previous_path_y[i]);
+		prev_x_coor = previous_path_x[i];
+		prev_y_coor = previous_path_y[i];
+		
 	}
 
+	
+	//std::cout << "dist increment = "<<dist_inc << std::endl;
+	std::cout << "car speed  = "<<car_speed << std::endl;
+	std::cout << "Distance Covered= "<<end_s << std::endl;
+	
 	WayPoint current_wp;
-	
-	std::cout << path_size<< std::endl;
-	double dist_inc = 0.44 ;
-	
-	std::cout << "dist increment = "<<dist_inc << std::endl;
-	std::cout << "end S = "<<end_s << std::endl;
-	
-	int cnt_start_path_pts = 1;
+
+	int cnt_start_path_pts = 0;
 	
 	if (path_size == 0){
 		
 		
-		dist_inc = 0.44 ;
-		double angle = (car_yaw) * M_PI / 180;
+		
+		
 		double end_x_coor;
 		double end_y_coor;
 		
-		double prev_x_coor = 0;
-		double prev_y_coor = 0;
-		
 		end_s = 0;
-		end_d = 0;
 		
+				
 		while (end_s < 121) {    
 			
-			prev_x_coor = car_x;
-			prev_y_coor = car_y;
+			
 			
 			end_x_coor = car_x+(dist_inc * cnt_start_path_pts)*cos(angle);
 			end_y_coor = car_y+(dist_inc * cnt_start_path_pts)*sin(angle);
@@ -258,33 +254,29 @@ void PathGenerator::generate_map_path_JMT(){
 			next_y_vals.push_back(end_y_coor);
 			cnt_start_path_pts++;
 			
-			WayPoint wp = highway_map.get_map_convertedS_for_XY(end_x_coor,end_y_coor,angle);
-			
-			end_s = wp.get_s_co();
-			end_d = wp.get_d_co();
-			
+			end_s = (highway_map.get_map_convertedS_for_XY(end_x_coor,end_y_coor,angle)).get_s_co();
 			std::cout <<"End S  =" <<end_s << std::endl;
 			std::cout <<"distance to previous point  =" <<sqrt((end_x_coor-prev_x_coor)*(end_x_coor-prev_x_coor)+(end_y_coor-prev_y_coor)*(end_y_coor-prev_y_coor))<< std::endl;
+			
+			prev_x_coor = end_x_coor;
+			prev_y_coor = end_y_coor;
 		}
-		
-		
+
 		// S needs to be above 121 to merge into the path
 	}
 	
- 
-	    
 		double final_s = end_s + dist_inc * (50-path_size-cnt_start_path_pts);
 		
 		std::cout <<"Distance to Predict to next set: " <<dist_inc * (50-path_size-cnt_start_path_pts)<< std::endl;
 		std::cout <<"Predict to next path: Final S =" <<final_s<< std::endl;
 		
-		double final_d = end_d;
+		double final_d = 2;
 		
-		vector<double> s_start{end_s,max_velocity,10};
+		vector<double> s_start{end_s,car_speed,10};
 		vector<double> s_end{final_s,max_velocity,10};
 		
-		vector<double> d_start{end_d,max_velocity,10};
-		vector<double> d_end{final_d,max_velocity,10};
+		vector<double> d_start{6,max_velocity,10};
+		vector<double> d_end{6,max_velocity,10};
 		
 		double start_time=0;
 		double end_time= (final_s - end_s) / max_velocity;
