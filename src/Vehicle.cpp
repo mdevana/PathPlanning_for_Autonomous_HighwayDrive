@@ -14,7 +14,7 @@ using std::cout;
 // Initializes Vehicle
 Vehicle::Vehicle(){}
 
-Vehicle::Vehicle(int id, double x, double y,double s, double d, double vx, double vy, string state) {
+Vehicle::Vehicle(int id, double x, double y,double s, double d, double vx, double vy) {
   this->ID = id;
   this->x = x;
   this->y = y;

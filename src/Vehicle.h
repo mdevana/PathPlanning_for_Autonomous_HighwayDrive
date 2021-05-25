@@ -13,7 +13,7 @@ class Vehicle {
  public:
   // Constructors
   Vehicle();
-  Vehicle(int ID,int lane, float s, float v, float a, string state="CS");
+  Vehicle(int id, double x, double y,double s, double d, double vx, double vy);
 
   // Destructor
   virtual ~Vehicle();
