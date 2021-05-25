@@ -318,10 +318,10 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	std::cout <<"Size =" <<sensor_fusion.size() << std::endl;
 	vector<Vehicle> Vehicle_around;
 	
-	for(int i = 0 ; i <sensor_fusion.size(); i++)
+	for(int i = 0 ; i <sensor_fusion.size(); i++){
 	    Vehicle v(sensor_fusion[i][0],sensor_fusion[i][1],sensor_fusion[i][2],sensor_fusion[i][3],sensor_fusion[i][4],sensor_fusion[i][5],sensor_fusion[i][6]);
 		Vehicle_around.push_back(v);
-	
+	}
 	for(Vehicle V:Vehicle_around){
 		V.VehicleParamDisplay();//ggg
 	}
