@@ -27,7 +27,7 @@ Vehicle::Vehicle(int id, double x, double y,double s, double d, double vx, doubl
 
 Vehicle::~Vehicle() {}
 
-Vehicle::VehicleParamDisplay(){
+void Vehicle::VehicleParamDisplay(){
 	std::cout <<"Vehicle ID =" <<this->ID << std::endl;
 	std::cout <<"X_Pos =" <<this->x << std::endl;
 	std::cout <<"Y_Pos =" <<this->y << std::endl;
