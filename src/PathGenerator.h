@@ -3,6 +3,7 @@
 #include <vector>
 #include "WayPoint.h"
 #include "MapPath.h"
+#include <string>
 
 using std::vector;
 
