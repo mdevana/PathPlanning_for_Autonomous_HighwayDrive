@@ -121,7 +121,7 @@ int main() {
 		  //current_path.generate_simple_path();
 		  //current_path.generate_circular_path();
 		  //current_path.generate_map_path();
-		  current_path.generate_map_path_with_traffic(sensor_fusion);
+		  current_path.generate_map_path_with_traffic(sensor_fusion);// jk
 		  //current_path.generate_map_path_JMT();
 
           msgJson["next_x"] = current_path.get_x_vals();
