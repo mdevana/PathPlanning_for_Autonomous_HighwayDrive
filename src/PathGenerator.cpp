@@ -180,7 +180,7 @@ void PathGenerator::generate_map_path(){
 		double new_s = end_s + dist_inc * j ;
 		std::cout << "new S = "<<new_s << std::endl;
 		
-		current_wp = highway_map.get_map_convertedXY_for_s(new_s,0);
+		current_wp = highway_map.get_map_convertedXY_for_s(new_s,end_d);
 		//waypoint pt = way_pts[i];
 		
 		double current_x = current_wp.get_x_co();
