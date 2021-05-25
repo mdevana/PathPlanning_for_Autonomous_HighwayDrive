@@ -134,7 +134,7 @@ vector<WayPoint> MapPath::get_map_convertedSD_for_XY_jerk_optimised(vector<doubl
 	 vector<double> coeff_d=JMT(d_start, d_end, end_time - start_time);
 	 
 	 double running_time = start_time;
-	 vector<double>  XY;
+	 vector<double>  XY{0,0};
 	 vector<WayPoint>  pts_jerk_optimised;
 	 double s_val,d_val;
 	 double d_x, d_y;
@@ -146,8 +146,8 @@ vector<WayPoint> MapPath::get_map_convertedSD_for_XY_jerk_optimised(vector<doubl
 		s_val=Poly_eval_JMT(coeff_s,running_time);
 		d_val=Poly_eval_JMT(coeff_d,running_time);
 		
-		XY.push_back(x_spline(s_val));
-	    XY.push_back(y_spline(s_val));
+		XY[0] = x_spline(s_val);
+	    XY[1] = y_spline(s_val);
 		
 		// define dx, dy
 		double d_y= dy_spline(s_val);
