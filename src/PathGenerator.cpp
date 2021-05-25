@@ -291,14 +291,21 @@ void PathGenerator::generate_map_path_JMT(){
 		
 		for(WayPoint wp : current_wp_points){
 			
+			double current_x = wp.get_x_co();
+		    double current_y = wp.get_y_co();
+			
 			std::cout <<"Current S =" <<wp.get_s_co() << std::endl;
 		
 			std::cout <<"Current X =" <<wp.get_x_co() << std::endl;
 			std::cout <<"Current Y =" <<wp.get_y_co() << std::endl;
-		
+			
+			std::cout <<"distance to previous point  =" <<sqrt((current_x-prev_x_coor)*(current_x-prev_x_coor)+(current_y-prev_y_coor)*(current_y-prev_y_coor))<< std::endl;		
 		
 			next_x_vals.push_back(wp.get_x_co());
 			next_y_vals.push_back(wp.get_y_co());
+			
+			prev_x_coor = current_x;
+		    prev_y_coor = current_y;
 		}
 
 	
