@@ -4,6 +4,7 @@
 #include "WayPoint.h"
 #include "MapPath.h"
 #include <string>
+#include "Vehicle.h"
 
 using std::vector;
 
