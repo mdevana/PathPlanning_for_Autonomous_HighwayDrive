@@ -59,7 +59,10 @@ class Vehicle {
     bool collision; // is there a collision?
     int  time; // time collision happens
   };*/
-
+  //object functions
+  
+  VehicleParamDisplay();
+  
   map<string, int> lane_direction = {{"PLCL", 1}, {"LCL", 1}, 
                                      {"LCR", -1}, {"PLCR", -1}};
 
