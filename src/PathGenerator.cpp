@@ -125,7 +125,7 @@ void PathGenerator::generate_map_path(){
 	
 
 	
-	std::cout << "dist increment = "<<dist_inc << std::endl;
+	//std::cout << "dist increment = "<<dist_inc << std::endl;
 	std::cout << "car speed  = "<<car_speed << std::endl;
 	std::cout << "end S = "<<end_s << std::endl;
 		
@@ -186,12 +186,12 @@ void PathGenerator::generate_map_path(){
 		double current_x = current_wp.get_x_co();
 		double current_y = current_wp.get_y_co();
 		
-		std::cout <<"Current S =" <<current_wp.get_s_co() << std::endl;
+		//std::cout <<"Current S =" <<current_wp.get_s_co() << std::endl;
 		
-		std::cout <<"Current X =" <<current_x << std::endl;
-		std::cout <<"Current Y =" <<current_y<< std::endl;
+		//std::cout <<"Current X =" <<current_x << std::endl;
+		//std::cout <<"Current Y =" <<current_y<< std::endl;
 		
-		std::cout <<"distance to previous point  =" <<sqrt((current_x-prev_x_coor)*(current_x-prev_x_coor)+(current_y-prev_y_coor)*(current_y-prev_y_coor))<< std::endl;
+		//std::cout <<"distance to previous point  =" <<sqrt((current_x-prev_x_coor)*(current_x-prev_x_coor)+(current_y-prev_y_coor)*(current_y-prev_y_coor))<< std::endl;
 		
 		
 		next_x_vals.push_back(current_wp.get_x_co());
