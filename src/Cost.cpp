@@ -5,7 +5,7 @@
 #include <map>
 #include <string>
 #include <vector>
-#include "vehicle.h"
+
 
 using std::string;
 using std::vector;
@@ -77,7 +77,7 @@ float lane_speed(const map<int, vector<Vehicle>> &predictions, int lane) {
     int key = it->first;
     Vehicle vehicle = it->second[0];
     if (vehicle.lane == lane && key != -1) {
-      return vehicle.v;
+      return vehicle.vx;
     }
   }
   // Found no vehicle in the lane
