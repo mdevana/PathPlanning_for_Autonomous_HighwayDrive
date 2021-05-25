@@ -32,7 +32,7 @@ class PathGenerator {
   void generate_circular_path();
   void generate_map_path();
   void generate_map_path_JMT();
-  void generate_map_path_with_traffic(vector<string> sensor_fusion);
+  void generate_map_path_with_traffic(vector<vector<double>> sensor_fusion);
   
   double car_x;
   double car_y;

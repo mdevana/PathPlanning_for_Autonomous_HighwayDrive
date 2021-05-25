@@ -311,7 +311,7 @@ void PathGenerator::generate_map_path_JMT(){
 	
 }
 
-void PathGenerator::generate_map_path_with_traffic(vector<string> sensor_fusion){
+void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor_fusion){
 	
 	
 	
