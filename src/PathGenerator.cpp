@@ -323,7 +323,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 		Vehicle_around.push_back(v);
 	
 	for(Vehicle V:Vehicle_around){
-		V.VehicleParamDisplay();
+		V.VehicleParamDisplay();//ggg
 	}
 	
 	
