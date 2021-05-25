@@ -273,7 +273,7 @@ void PathGenerator::generate_map_path_JMT(){
 		double final_d = 2;
 		
 		vector<double> s_start{end_s,car_speed,0};
-		vector<double> s_end{final_s,max_velocity,10};
+		vector<double> s_end{final_s,max_velocity,0};
 		
 		vector<double> d_start{6,max_velocity,10};
 		vector<double> d_end{6,max_velocity,10};
