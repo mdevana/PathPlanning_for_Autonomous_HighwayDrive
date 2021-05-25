@@ -89,6 +89,8 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
      
 	 XY[0] = x_spline(s_val);
 	 XY[1] = y_spline(s_val);
+	 
+	 d_val = 6.0;
 
 	 WayPoint wp( XY[0] + d_val * d_x , XY[1] + d_val * d_y , s_val, d_x, d_y);    
 	 return(wp);
