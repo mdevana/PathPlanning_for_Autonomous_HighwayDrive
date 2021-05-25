@@ -14,12 +14,14 @@ using std::cout;
 // Initializes Vehicle
 Vehicle::Vehicle(){}
 
-Vehicle::Vehicle(int lane, float s, float v, float a, string state) {
-  this->lane = lane;
+Vehicle::Vehicle(int id, double x, double y,double s, double d, double vx, double vy, string state) {
+  this->ID = id;
+  this->x = x;
+  this->y = y;
   this->s = s;
-  this->v = v;
-  this->a = a;
-  this->state = state;
+  this->d = d;
+  this->vx = vx;
+  this->vy = vy;
   max_acceleration = -1;
 }
 

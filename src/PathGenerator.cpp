@@ -311,5 +311,17 @@ void PathGenerator::generate_map_path_JMT(){
 	
 }
 
-
+void PathGenerator::generate_map_path_with_traffic(vector<double> sensor_fusion){
+	
+	
+	
+	std::cout <<"Size =" <<sensor_fusion.size() << std::endl;
+	
+	
+	
+	
+	
+	
+	
+}
 
