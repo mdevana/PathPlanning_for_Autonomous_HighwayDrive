@@ -104,6 +104,7 @@ void PathGenerator::generate_circular_path(){
 void PathGenerator::generate_map_path(){
 	
 	lanecode followlane = middle;
+	int lane_change = 0;
 	
 	double prev_x_coor = car_x;
 	double prev_y_coor = car_y;
@@ -112,13 +113,7 @@ void PathGenerator::generate_map_path(){
 	int path_size = previous_path_x.size();
 	std::cout <<"Previous Path size :" <<path_size<< std::endl;
 	int i;
-	for (i = 0; i < path_size; ++i) {
-		next_x_vals.push_back(previous_path_x[i]);
-		next_y_vals.push_back(previous_path_y[i]);
-		prev_x_coor = previous_path_x[i];
-		prev_y_coor = previous_path_y[i];
-		
-	}
+	
 
 	
 	//std::cout << "dist increment = "<<dist_inc << std::endl;
@@ -127,24 +122,16 @@ void PathGenerator::generate_map_path(){
 		
 	
 	WayPoint current_wp;
-
 	int cnt_start_path_pts = 0;
 	
 	if (path_size == 0){
-		
-		
-		
-		
+
 		double end_x_coor;
-		double end_y_coor;
-		
+		double end_y_coor;		
 		end_s = 0;
-		
-				
+
 		while (end_s < 121) {    
-			
-			
-			
+
 			end_x_coor = car_x+(dist_inc * cnt_start_path_pts)*cos(angle);
 			end_y_coor = car_y+(dist_inc * cnt_start_path_pts)*sin(angle);
 			
@@ -165,38 +152,75 @@ void PathGenerator::generate_map_path(){
 
 		// S needs to be above 121 to merge into the path
 	}
+	
+	if (lane_change){
+		
+		double final_s = end_s + dist_inc * (50-path_size-cnt_start_path_pts);
+		
+		std::cout <<"Distance to Predict to next set: " <<dist_inc * (50-path_size-cnt_start_path_pts)<< std::endl;
+		std::cout <<"Predict to next path: Final S =" <<final_s<< std::endl;
+		
+		double final_d = 2;
+		
+		vector<double> s_start{end_s,car_speed,0};
+		vector<double> s_end{final_s,max_velocity,0};
+		
+		vector<double> d_start{6,0,0};
+		vector<double> d_end{2,0,0};
+		
+		double start_time=0;
+		double end_time= (final_s - end_s) / max_velocity;
+		double time_inc = dist_inc/max_velocity;
+		
+		std::cout <<"End time: " <<end_time<< std::endl;
+		std::cout <<"time increments =" <<time_inc<< std::endl;
 
-
+		vector<WayPoint> current_wp_points = highway_map.get_map_convertedSD_for_XY_jerk_optimised(s_start, s_end, d_start, d_end, start_time, end_time, time_inc);
+		
+		
+	}
+	else {
+		
+		for (i = 0; i < path_size; ++i) {
+		next_x_vals.push_back(previous_path_x[i]);
+		next_y_vals.push_back(previous_path_y[i]);
+		prev_x_coor = previous_path_x[i];
+		prev_y_coor = previous_path_y[i];
+		
+	}
+			
+	
 	std::cout << "-------------------------------------------------" << std::endl;
 
-	for (int j = 1; j <= (50-path_size-cnt_start_path_pts); ++j) {    
-	    
-		
-		//std::cout << "dist increment = "<<dist_inc << std::endl;
-		double new_s = end_s + dist_inc * j ;
-		//std::cout << "new S = "<<new_s << std::endl;
-		
-		current_wp = highway_map.get_map_convertedXY_for_s(new_s,followlane);
-		//waypoint pt = way_pts[i];
-		
-		double current_x = current_wp.get_x_co();
-		double current_y = current_wp.get_y_co();
-		
-		//std::cout <<"Current S =" <<current_wp.get_s_co() << std::endl;
-		
-		//std::cout <<"Current X =" <<current_x << std::endl;
-		//std::cout <<"Current Y =" <<current_y<< std::endl;
-		
-		std::cout <<"distance to previous point  =" <<sqrt((current_x-prev_x_coor)*(current_x-prev_x_coor)+(current_y-prev_y_coor)*(current_y-prev_y_coor))<< std::endl;
-		
-		
-		next_x_vals.push_back(current_wp.get_x_co());
-		next_y_vals.push_back(current_wp.get_y_co());
-		
-		prev_x_coor = current_x;
-		prev_y_coor = current_y;
-		
-		
+		for (int j = 1; j <= (50-path_size-cnt_start_path_pts); ++j) {    
+			
+			
+			//std::cout << "dist increment = "<<dist_inc << std::endl;
+			double new_s = end_s + dist_inc * j;
+			//std::cout << "new S = "<<new_s << std::endl;
+			
+			current_wp = highway_map.get_map_convertedXY_for_s(new_s,followlane);
+			//waypoint pt = way_pts[i];
+			
+			double current_x = current_wp.get_x_co();
+			double current_y = current_wp.get_y_co();
+			
+			//std::cout <<"Current S =" <<current_wp.get_s_co() << std::endl;
+			
+			//std::cout <<"Current X =" <<current_x << std::endl;
+			//std::cout <<"Current Y =" <<current_y<< std::endl;
+			
+			std::cout <<"distance to previous point  =" <<sqrt((current_x-prev_x_coor)*(current_x-prev_x_coor)+(current_y-prev_y_coor)*(current_y-prev_y_coor))<< std::endl;
+			
+			
+			next_x_vals.push_back(current_wp.get_x_co());
+			next_y_vals.push_back(current_wp.get_y_co());
+			
+			prev_x_coor = current_x;
+			prev_y_coor = current_y;
+			
+			
+		}
 	}
 	
 }
@@ -285,7 +309,7 @@ void PathGenerator::generate_map_path_JMT(){
 		std::cout <<"End time: " <<end_time<< std::endl;
 		std::cout <<"time increments =" <<time_inc<< std::endl;
 
-		vector<WayPoint> current_wp_points = highway_map.get_map_convertedSD_for_XY_jerk_optimised(s_start, s_end, d_start, d_end, start_time, end_time, time_inc, 0);
+		vector<WayPoint> current_wp_points = highway_map.get_map_convertedSD_for_XY_jerk_optimised(s_start, s_end, d_start, d_end, start_time, end_time, time_inc);
 		//vector<double> &s_start,vector<double> &s_end, vector<double> &d_start, vector<double> &d_end, double start_time, double start_time, double end_time, double inc
 		
 		
