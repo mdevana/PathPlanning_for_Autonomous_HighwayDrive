@@ -220,6 +220,7 @@ void PathGenerator::generate_map_path(){
 			
 			//std::cout << "dist increment = "<<dist_inc << std::endl;
 			double new_s = end_s + dist_inc * j;
+			std::cout << "End S = "<<end_s << std::endl;
 			std::cout << "new S = "<<new_s << std::endl;
 			
 			current_wp = highway_map.get_map_convertedXY_for_s(new_s,0);
