@@ -155,7 +155,7 @@ vector<WayPoint> MapPath::get_map_convertedSD_for_XY_jerk_optimised(vector<doubl
 			d_y = round(d_y);
 		double d_x= sin(acos(d_y));
 
-	    pts_jerk_optimised.push_back(WayPoint( XY[0]+ (lane) * d_x, XY[1] + (lane) * d_y, s_val, d_x, d_y)); 
+	    pts_jerk_optimised.push_back(WayPoint( XY[0]+ (d_val) * d_x, XY[1] + (d_val) * d_y, s_val, d_x * d_val, d_y * d_val)); 
 		
 		running_time += inc;
 		 

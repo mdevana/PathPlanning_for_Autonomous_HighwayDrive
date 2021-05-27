@@ -285,7 +285,7 @@ void PathGenerator::generate_map_path_JMT(){
 		std::cout <<"End time: " <<end_time<< std::endl;
 		std::cout <<"time increments =" <<time_inc<< std::endl;
 
-		vector<WayPoint> current_wp_points = highway_map.get_map_convertedSD_for_XY_jerk_optimised(s_start, s_end, d_start, d_end, start_time, end_time, time_inc, followlane);
+		vector<WayPoint> current_wp_points = highway_map.get_map_convertedSD_for_XY_jerk_optimised(s_start, s_end, d_start, d_end, start_time, end_time, time_inc, 0);
 		//vector<double> &s_start,vector<double> &s_end, vector<double> &d_start, vector<double> &d_end, double start_time, double start_time, double end_time, double inc
 		
 		
