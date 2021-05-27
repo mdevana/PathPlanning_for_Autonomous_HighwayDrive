@@ -113,7 +113,7 @@ int main() {
 		   MapPath highway;
 		   highway.set_map_path_data(map_waypoints_x,map_waypoints_y,map_waypoints_s,map_waypoints_dx,map_waypoints_dy);
 		   
-		  double dist_inc = 0.44;
+		  double dist_inc = 0.42;
 		  PathGenerator current_path;
 		  current_path.Init(dist_inc,highway);
 		  current_path.set_localization_data(car_x,car_y,car_s,car_d,car_yaw,car_speed);
