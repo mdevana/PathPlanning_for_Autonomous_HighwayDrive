@@ -176,6 +176,28 @@ void PathGenerator::generate_map_path(){
 		std::cout <<"time increments =" <<time_inc<< std::endl;
 
 		vector<WayPoint> current_wp_points = highway_map.get_map_convertedSD_for_XY_jerk_optimised(s_start, s_end, d_start, d_end, start_time, end_time, time_inc);
+		
+		for(WayPoint wp : current_wp_points){
+			
+			double current_x = wp.get_x_co();
+		    double current_y = wp.get_y_co();
+			
+			std::cout <<"Current S =" <<wp.get_s_co() << std::endl;
+		
+			std::cout <<"Current X =" <<wp.get_x_co() << std::endl;
+			std::cout <<"Current Y =" <<wp.get_y_co() << std::endl;
+			
+			std::cout <<"distance to previous point  =" <<sqrt((current_x-prev_x_coor)*(current_x-prev_x_coor)+(current_y-prev_y_coor)*(current_y-prev_y_coor))<< std::endl;		
+		
+			next_x_vals.push_back(wp.get_x_co());
+			next_y_vals.push_back(wp.get_y_co());
+			
+			prev_x_coor = current_x;
+		    prev_y_coor = current_y;
+		}
+		
+		
+		
 		lane_change=0;
 		
 		
