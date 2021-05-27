@@ -104,7 +104,7 @@ void PathGenerator::generate_circular_path(){
 void PathGenerator::generate_map_path(){
 	
 	lanecode followlane = middle;
-	int lane_change = 0;
+	int lane_change = 1;
 	
 	double prev_x_coor = car_x;
 	double prev_y_coor = car_y;
@@ -176,6 +176,7 @@ void PathGenerator::generate_map_path(){
 		std::cout <<"time increments =" <<time_inc<< std::endl;
 
 		vector<WayPoint> current_wp_points = highway_map.get_map_convertedSD_for_XY_jerk_optimised(s_start, s_end, d_start, d_end, start_time, end_time, time_inc);
+		lane_change=0;
 		
 		
 	}
