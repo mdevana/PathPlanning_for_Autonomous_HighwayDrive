@@ -84,6 +84,9 @@ void MapPath::calculate_map_XYspline_for_s(double s_val, double d_val,vector<dou
 	 
 	 std::cout<< " pts_prev_x 0 ["<<prev_pts_x[0]<<std::endl;
 	 std::cout<< " pts_prev_x 1 ["<<prev_pts_x[1]<<std::endl;
+	 std::cout<< " pts_prev_XY_1 0 ["<<XY_1[0]<<std::endl;
+	 std::cout<< " pts_prev_XY_1 0 ["<<XY_1[1]<<std::endl;
+	 std::cout<< " pts_prev_XY_1 0 ["<<XY_1[2]<<std::endl;
 	 
 	 vector<double> pts_x;
 	 vector<double> pts_y;
