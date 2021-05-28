@@ -76,8 +76,10 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	 }
 	 
 	 vector<double>  XY_1 = getXY(s_val, round(d_val), s_vect, x_vect, y_vect);
-	 vector<double>  XY_2 = getXY(s_val+30, round(d_val), s_vect, x_vect, y_vect);
-	 vector<double>  XY_3 = getXY(s_val+60, round(d_val), s_vect, x_vect, y_vect);
+	 vector<double>  XY_2 = getXY(s_val+15, round(d_val), s_vect, x_vect, y_vect);
+	 vector<double>  XY_3 = getXY(s_val+30, round(d_val), s_vect, x_vect, y_vect);
+	 vector<double>  XY_4 = getXY(s_val+45, round(d_val), s_vect, x_vect, y_vect);
+	 vector<double>  XY_5 = getXY(s_val+60, round(d_val), s_vect, x_vect, y_vect);
 	 
 	 std::cout <<"Current X vector calculated :" <<XY_1[0] <<" s = "<<s_val<< std::endl;
 	 std::cout <<"Current X vector calculated :" <<XY_2[0] <<" s = "<<(s_val+30)<< std::endl;
@@ -92,16 +94,22 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	 vector<double> pts_s;
 	 
 	 pts_s.push_back(s_val);
+	 pts_s.push_back(s_val+15);
 	 pts_s.push_back(s_val+30);
+	 pts_s.push_back(s_val+45);
 	 pts_s.push_back(s_val+60);
 	 
 	 pts_x.push_back(XY_1[0]);
 	 pts_x.push_back(XY_2[0]);
 	 pts_x.push_back(XY_3[0]);
+	 pts_x.push_back(XY_4[0]);
+	 pts_x.push_back(XY_5[0]);
 	 
 	 pts_y.push_back(XY_1[1]);
 	 pts_y.push_back(XY_2[1]);
 	 pts_y.push_back(XY_3[1]);
+	 pts_y.push_back(XY_4[1]);
+	 pts_y.push_back(XY_5[1]);
 	 
 	 std::cout <<"pts_size :" <<pts_x.size() << std::endl;
 	 
