@@ -89,10 +89,12 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	 std::cout <<"Current Y vector calculated :" <<XY_2[1] <<" s = "<<(s_val+30)<< std::endl;
 	 std::cout <<"Current Y vector calculated :" <<XY_3[1] <<" s = "<<(s_val+60)<< std::endl;
 	 
-
+	 vector<double> pts_x;
+	 vector<double> pts_y;
+	 vector<double> pts_s;
 	 
 	 
-	 /*
+	 
 	 pts_s.push_back(s_val);
 	 pts_s.push_back(s_val+15);
 	 pts_s.push_back(s_val+30);
@@ -109,7 +111,7 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	 pts_y.push_back(XY_2[1]);
 	 pts_y.push_back(XY_3[1]);
 	 pts_y.push_back(XY_4[1]);
-	 pts_y.push_back(XY_5[1]);*/
+	 pts_y.push_back(XY_5[1]);
 	 
 	 std::cout <<"pts_size :" <<pts_x.size() << std::endl;
 	 
