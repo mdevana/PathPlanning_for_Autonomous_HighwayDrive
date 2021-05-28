@@ -427,7 +427,7 @@ void PathGenerator::generate_map_path_with_transform(){
 		double ref_x_1 = previous_path_x[path_size -2];
 		double ref_y_1 = previous_path_y[path_size -2];
 		
-		ref_yaw = atan2( ref_y - ref_y_1 , ref_x - ref_x_1);
+		ref_yaw = atan2( ref_y - ref_y_1, ref_x - ref_x_1);
 		
 		pts_x.push_back(ref_x_1);
 		pts_y.push_back(ref_x);
@@ -442,7 +442,7 @@ void PathGenerator::generate_map_path_with_transform(){
 	
 	
 	double x_estimate = 30;
-	y_estimate = xy_spline(x_estimate);
+	double y_estimate = xy_spline(x_estimate);
 	double dist_estimate = sqrt(x_estimate * x_estimate + y_estimate * y_estimate);
 	
 	double n_dist_inc = dist_estimate / (0.02*max_velocity);
@@ -456,8 +456,8 @@ void PathGenerator::generate_map_path_with_transform(){
 		y_pt = xy_spline(x_pt);
 
 		
-		next_x_vals = ref_x + ( x_pt * cos(ref_yaw)  - y_pt * sin(ref_yaw) );
-		next_y_vals = ref_y + ( x_pt * sin(ref_yaw)  + y_pt * cos(ref_yaw) );
+		next_x_vals = ref_x + (x_pt * cos(ref_yaw)  - y_pt * sin(ref_yaw));
+		next_y_vals = ref_y + (x_pt * sin(ref_yaw)  + y_pt * cos(ref_yaw));
 
 		
 	}
