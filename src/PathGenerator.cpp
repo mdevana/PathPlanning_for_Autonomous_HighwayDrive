@@ -222,6 +222,7 @@ void PathGenerator::generate_map_path(){
 			double new_s = end_s + dist_inc * j;
 			std::cout << "End S = "<<end_s << std::endl;
 			std::cout << "new S = "<<new_s << std::endl;
+			std::cout << "End D = "<<end_d << std::endl;
 			
 			current_wp = highway_map.get_map_convertedXY_for_s(new_s,end_d);
 			//waypoint pt = way_pts[i];
