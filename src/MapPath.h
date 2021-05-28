@@ -29,7 +29,7 @@ class MapPath {
   
   WayPoint get_map_point_for_x(double x_val);
   
-  spline get_map_XYspline_for_s(double s_val, double d_val,vector<double> &prev_pts_x, vector<double> &prev_pts_y, double ref_yaw);
+  spline get_map_XYspline_for_s(double s_val, double d_val,vector<double> prev_pts_x, vector<double> sprev_pts_y, double ref_yaw);
 	
 	
  private:
