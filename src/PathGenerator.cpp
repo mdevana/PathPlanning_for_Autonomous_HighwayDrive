@@ -276,6 +276,50 @@ void PathGenerator::generate_map_path_with_transform(){
 	std::cout<< " car X "<<ref_x<<std::endl;
 	std::cout<< " car Y "<<ref_y<<std::endl;
 	
+	
+	if (path_size ==0){
+		
+
+		
+		
+		
+		
+		double end_x_coor;
+		double end_y_coor;
+		
+		end_s = 0;
+		
+		cnt_start_path_pts=0;
+				
+		while (end_s < 121) {    
+			
+			
+			
+			double end_x_coor = car_x+(dist_inc * cnt_start_path_pts)*cos(ref_yaw);
+			double end_y_coor = car_y+(dist_inc * cnt_start_path_pts)*sin(ref_yaw);
+			
+			std::cout <<"Car X =" <<end_x_coor << std::endl;
+			std::cout <<"Car y =" <<end_y_coor << std::endl;
+			
+			next_x_vals.push_back(end_x_coor);
+			next_y_vals.push_back(end_y_coor);
+			cnt_start_path_pts++;
+			
+			//end_s = (highway_map.get_map_convertedS_for_XY(end_x_coor,end_y_coor,angle)).get_s_co();
+			std::cout <<"End S  =" <<end_s << std::endl;
+			std::cout <<"distance to previous point  =" <<sqrt((end_x_coor-prev_x_coor)*(end_x_coor-prev_x_coor)+(end_y_coor-prev_y_coor)*(end_y_coor-prev_y_coor))<< std::endl;
+			
+			prev_x_coor = end_x_coor;
+			prev_y_coor = end_y_coor;
+		}
+
+		// S needs to be above 121 to merge into the path
+
+		
+	}
+	
+	
+	
 	if ( path_size < 2){
 		
 		// 2 points that makes path tangent to the car
@@ -284,7 +328,6 @@ void PathGenerator::generate_map_path_with_transform(){
 		
 		pts_x.push_back(car_x);
 		pts_y.push_back(car_y);
-		
 		
 	}
 	else {
@@ -314,7 +357,9 @@ void PathGenerator::generate_map_path_with_transform(){
 		 
 	 }
 	
-	highway_map.calculate_map_XYspline_for_s(end_s + 150, 6, pts_x, pts_y,ref_yaw);
+	if (end_s > 125)
+		highway_map.calculate_map_XYspline_for_s(end_s, 6, pts_x, pts_y,ref_yaw);
+		
 	
 	
 	double x_estimate = 30;
