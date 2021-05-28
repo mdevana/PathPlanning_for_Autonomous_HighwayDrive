@@ -211,6 +211,8 @@ void PathGenerator::generate_map_path(){
 		prev_y_coor = previous_path_y[i];
 		
 	}
+	
+	end_d=6.0;
 			
 	
 	std::cout << "-------------------------------------------------" << std::endl;
