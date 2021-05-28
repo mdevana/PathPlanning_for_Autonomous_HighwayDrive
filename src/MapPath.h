@@ -29,7 +29,9 @@ class MapPath {
   
   WayPoint get_map_point_for_x(double x_val);
   
-  double get_map_XYspline_for_s(double s_val, double d_val,vector<double> prev_pts_x, vector<double> prev_pts_y, double ref_yaw);
+  void calculate_map_XYspline_for_s(double s_val, double d_val,vector<double> &prev_pts_x, vector<double> &prev_pts_y, double ref_yaw);
+  
+  double get_y_from_curve(double x);
 	
 	
  private:
@@ -40,6 +42,8 @@ class MapPath {
   spline y_spline;
   spline dx_spline;
   spline dy_spline;
+  
+  spline xy_curve;
   
   
   vector<double> JMT(vector<double> &start, vector<double> &end, double T);
