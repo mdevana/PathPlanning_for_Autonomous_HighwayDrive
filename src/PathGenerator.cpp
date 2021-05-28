@@ -292,7 +292,7 @@ void PathGenerator::generate_map_path_with_transform(){
 		
 		end_s = 0;
 		
-		int cnt_start_path_pts=0;
+		int cnt_start_path_pts=1;
 				
 		while (end_s < 121) {    
 			
@@ -360,8 +360,8 @@ void PathGenerator::generate_map_path_with_transform(){
 		 
 	 }
 	
-	if (end_s > 125)
-		highway_map.calculate_map_XYspline_for_s(end_s, 6, pts_x, pts_y,ref_yaw);
+	
+	highway_map.calculate_map_XYspline_for_s(end_s, 6, pts_x, pts_y,ref_yaw);
 		
 	
 	
