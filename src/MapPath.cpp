@@ -79,9 +79,9 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	 vector<double>  XY_2 = getXY(s_val+30, round(d_val), s_vect, x_vect, y_vect);
 	 vector<double>  XY_3 = getXY(s_val+60, round(d_val), s_vect, x_vect, y_vect);
 	 
-	 double pts_x;
-	 double pts_y;
-	 double pts_s;
+	 vector<double> pts_x;
+	 vector<double> pts_y;
+	 vector<double> pts_s;
 	 
 	 pts_s.push_back(s_val);
 	 pts_s.push_back(s_val+30);
@@ -96,9 +96,10 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	 pts_y.push_back(XY_3[1]);
 	 
 	  
-	 spline xy_curve;
+	 spline xs_curve,ys_curve;
      
-	 xs_curve.set_points(pts_x,pts_x,spline::cspline);
+	 xs_curve.set_points(pts_x,pts_s,spline::cspline);
+	 ys_curve.set_points(pts_y,pts_s,spline::cspline);
 	 
      
 
