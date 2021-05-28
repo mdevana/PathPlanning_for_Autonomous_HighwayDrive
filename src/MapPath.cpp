@@ -103,6 +103,15 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	 pts_y.push_back(XY_2[1]);
 	 pts_y.push_back(XY_3[1]);
 	 
+	 
+	 std::cout <<"Current X vector calculated :" <<pts_x[0] <<" s = "<<pts_s[0]<< std::endl;
+	 std::cout <<"Current X vector calculated :" <<pts_x[1]<<" s = "<<pts_s[1]<< std::endl;
+	 std::cout <<"Current X vector calculated :" <<pts_x[2]<<" s = "<<pts_s[2]<< std::endl;
+	 
+	 std::cout <<"Current X vector calculated :" <<pts_y[0] <<" s = "<<pts_s[0]<< std::endl;
+	 std::cout <<"Current X vector calculated :" <<pts_y[1]<<" s = "<<pts_s[1]<< std::endl;
+	 std::cout <<"Current X vector calculated :" <<pts_y[2]<<" s = "<<pts_s[2]<< std::endl;
+	 
 	  
 	 spline xs_curve,ys_curve;
      
