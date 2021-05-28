@@ -62,7 +62,7 @@ WayPoint MapPath::get_map_point_for_s(double s_val) {
 
 
 
-spline MapPath::get_map_XYspline_for_s(double s_val, double d_val,vector<double> prev_pts_x, vector<double> prev_pts_y, double ref_yaw){
+double MapPath::get_map_XYspline_for_s(double s_val, double d_val,vector<double> prev_pts_x, vector<double> prev_pts_y, double ref_yaw){
 	 
 	 vector<double> x_vect;
 	 vector<double> y_vect;
@@ -118,7 +118,7 @@ spline MapPath::get_map_XYspline_for_s(double s_val, double d_val,vector<double>
 	 
 	 spline xy_curve(pts_x,pts_y,spline::cspline);
 	 
-	 return (xy_curve);
+	 return (ref_x);
 
 
 }

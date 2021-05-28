@@ -295,7 +295,7 @@ void PathGenerator::generate_map_path_with_transform(){
 		
 	}
 	
-	spline xy_spline = highway_map.get_map_XYspline_for_s(end_s, end_d,pts_x, pts_y,ref_yaw);
+	spline xy_spline = highway_map.get_map_XYspline_for_s(end_s, end_d, pts_x, pts_y,ref_yaw);
 	
 	
 	double x_estimate = 30;
