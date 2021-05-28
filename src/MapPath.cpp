@@ -106,7 +106,7 @@ void MapPath::calculate_map_XYspline_for_s(double s_val, double d_val,vector<dou
 	 
 	 for(int j=0; j< pts_x.size(); j++){
 		 std::cout<< " pts_x ["<<j<<"] = "<<pts_x[j]<<std::endl;
-		 std::cout<< " pts_y ["<<j<<"] = "<<pts_y[j]<<<std::endl;
+		 std::cout<< " pts_y ["<<j<<"] = "<<pts_y[j]<<std::endl;
 		 
 	 }
 	 
@@ -122,7 +122,7 @@ void MapPath::calculate_map_XYspline_for_s(double s_val, double d_val,vector<dou
 		 shift_y = pts_y[i]-ref_y;
 		 
 		 std::cout<< " shift_x ["<<j<<"] = "<<shift_x<<std::endl;
-		 std::cout<< " shift_y ["<<j<<"] = "<<shift_y<<<std::endl;
+		 std::cout<< " shift_y ["<<j<<"] = "<<shift_y<<std::endl;
 		 
 		 pts_x[i] = ( shift_x * cos(0-ref_yaw) - shift_y * sin(0-ref_yaw) );
 		 pts_y[i] = ( shift_x * sin(0-ref_yaw) + shift_y * cos(0-ref_yaw) );
