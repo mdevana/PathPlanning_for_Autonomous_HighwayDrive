@@ -131,7 +131,7 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	 //std::cout <<"Current dx,dy vector :" <<d_x<<","<<d_y<<std::endl;
 	 //std::cout <<"Lane Code :" <<d_val<<std::endl;
 	 
-     double XY;
+     vector<double> XY;
 	 
 	 XY[0] = xs_curve(s_val+10);
 	 XY[1] = ys_curve(s_val+10);
