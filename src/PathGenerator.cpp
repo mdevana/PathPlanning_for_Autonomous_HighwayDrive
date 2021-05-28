@@ -276,6 +276,9 @@ void PathGenerator::generate_map_path_with_transform(){
 	std::cout<< " car X "<<ref_x<<std::endl;
 	std::cout<< " car Y "<<ref_y<<std::endl;
 	
+	double prev_x_coor = car_x;
+	double prev_y_coor = car_y;
+	
 	
 	if (path_size ==0){
 		
@@ -289,7 +292,7 @@ void PathGenerator::generate_map_path_with_transform(){
 		
 		end_s = 0;
 		
-		cnt_start_path_pts=0;
+		int cnt_start_path_pts=0;
 				
 		while (end_s < 121) {    
 			
@@ -305,9 +308,9 @@ void PathGenerator::generate_map_path_with_transform(){
 			next_y_vals.push_back(end_y_coor);
 			cnt_start_path_pts++;
 			
-			//end_s = (highway_map.get_map_convertedS_for_XY(end_x_coor,end_y_coor,angle)).get_s_co();
+			end_s = (highway_map.get_map_convertedS_for_XY(end_x_coor,end_y_coor,angle)).get_s_co();
 			std::cout <<"End S  =" <<end_s << std::endl;
-			std::cout <<"distance to previous point  =" <<sqrt((end_x_coor-prev_x_coor)*(end_x_coor-prev_x_coor)+(end_y_coor-prev_y_coor)*(end_y_coor-prev_y_coor))<< std::endl;
+			//std::cout <<"distance to previous point  =" <<sqrt((end_x_coor-prev_x_coor)*(end_x_coor-prev_x_coor)+(end_y_coor-prev_y_coor)*(end_y_coor-prev_y_coor))<< std::endl;
 			
 			prev_x_coor = end_x_coor;
 			prev_y_coor = end_y_coor;
