@@ -299,7 +299,7 @@ void PathGenerator::generate_map_path_with_transform(){
 	
 	
 	double x_estimate = 30;
-	double y_estimate = xy_spline(x_estimate);
+	//double y_estimate = xy_spline(x_estimate);
 	double dist_estimate = sqrt(x_estimate * x_estimate + y_estimate * y_estimate);
 	
 	double n_dist_inc = dist_estimate / (0.02*max_velocity);
@@ -310,7 +310,7 @@ void PathGenerator::generate_map_path_with_transform(){
 	for(int i = 1; i<= 50 - path_size;i++){
 		
 		x_pt += dist_inc_x;
-		y_pt = xy_spline(x_pt);
+		//y_pt = xy_spline(x_pt);
 
 		
 		next_x_vals.push_back(ref_x + (x_pt * cos(ref_yaw)  - y_pt * sin(ref_yaw)));
