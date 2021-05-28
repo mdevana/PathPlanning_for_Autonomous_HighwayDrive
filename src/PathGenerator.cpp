@@ -272,6 +272,8 @@ void PathGenerator::generate_map_path_with_transform(){
 	double ref_y = car_y;
 	double ref_yaw = (car_yaw) * M_PI / 180;
 	
+	std::cout<< " car yaw "<<ref_yaw<<std::endl;
+	
 	if ( path_size < 2){
 		
 		// 2 points that makes path tangent to the car
