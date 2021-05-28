@@ -116,9 +116,9 @@ void PathGenerator::generate_map_path(){
 void PathGenerator::Execute_lane_change_with_JMT(){
 	
 	
-		double final_s = end_s + dist_inc * (50-path_size-cnt_start_path_pts);
+		double final_s = end_s + dist_inc * (50);
 		
-		std::cout <<"Distance to Predict to next set: " <<dist_inc * (50-path_size-cnt_start_path_pts)<< std::endl;
+		std::cout <<"Distance to Predict to next set: " <<dist_inc * (50)<< std::endl;
 		std::cout <<"Predict to next path: Final S =" <<final_s<< std::endl;
 		
 		double final_d = 2;
@@ -150,13 +150,13 @@ void PathGenerator::Execute_lane_change_with_JMT(){
 			std::cout <<"Current X =" <<wp.get_x_co() << std::endl;
 			std::cout <<"Current Y =" <<wp.get_y_co() << std::endl;
 			
-			std::cout <<"distance to previous point  =" <<sqrt((current_x-prev_x_coor)*(current_x-prev_x_coor)+(current_y-prev_y_coor)*(current_y-prev_y_coor))<< std::endl;		
+			//std::cout <<"distance to previous point  =" <<sqrt((current_x-prev_x_coor)*(current_x-prev_x_coor)+(current_y-prev_y_coor)*(current_y-prev_y_coor))<< std::endl;		
 		
 			next_x_vals.push_back(wp.get_x_co());
 			next_y_vals.push_back(wp.get_y_co());
 			
-			prev_x_coor = current_x;
-		    prev_y_coor = current_y;
+			//prev_x_coor = current_x;
+		    //prev_y_coor = current_y;
 		}
 
 	
