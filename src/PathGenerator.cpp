@@ -116,9 +116,9 @@ void PathGenerator::generate_map_path(){
 void PathGenerator::Execute_lane_change_with_JMT(){
 	
 	
-		double final_s = end_s + dist_inc * (100);
+		double final_s = end_s + dist_inc * (200);
 		
-		std::cout <<"Distance to Predict to next set: " <<dist_inc * (100)<< std::endl;
+		std::cout <<"Distance to Predict to next set: " <<dist_inc * (200)<< std::endl;
 		std::cout <<"Predict to next path: Final S =" <<final_s<< std::endl;
 		
 		double final_d = 2;
