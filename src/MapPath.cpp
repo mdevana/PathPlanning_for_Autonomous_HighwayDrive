@@ -114,11 +114,11 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	 
      
 	 XY[0] = xs_curve(s_val);
-	 XY[1] = xs_curve(s_val);
+	 XY[1] = ys_curve(s_val);
 	 
 	 //d_val = 6.0;
 
-	 WayPoint wp( XY[0], XY[1], s_val, d_x, d_y);    
+	 WayPoint wp( xs_curve(s_val), ys_curve(s_val), s_val, d_x, d_y);    
 	 return(wp);
 
 }
