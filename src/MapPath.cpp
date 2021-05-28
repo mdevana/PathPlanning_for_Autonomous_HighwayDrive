@@ -59,7 +59,7 @@ WayPoint MapPath::get_map_point_for_s(double s_val) {
 
 
 
-WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
+spline MapPath::get_map_XYspline_for_s(double s_val, double d_val,vector<double> &prev_pts_x, vector<double> &prev_pts_y,double ref_yaw) {
 	 
 	 vector<double> x_vect;
 	 vector<double> y_vect;
@@ -75,83 +75,52 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	  
 	 }
 	 
-	 vector<double>  XY_1 = getXY(s_val, round(d_val), s_vect, x_vect, y_vect);
-	 vector<double>  XY_2 = getXY(s_val+15, round(d_val), s_vect, x_vect, y_vect);
-	 vector<double>  XY_3 = getXY(s_val+30, round(d_val), s_vect, x_vect, y_vect);
-	 vector<double>  XY_4 = getXY(s_val+45, round(d_val), s_vect, x_vect, y_vect);
-	 vector<double>  XY_5 = getXY(s_val+60, round(d_val), s_vect, x_vect, y_vect);
+	 vector<double>  XY_1 = getXY(s_val+30, round(d_val), s_vect, x_vect, y_vect);
+	 vector<double>  XY_2 = getXY(s_val+60, round(d_val), s_vect, x_vect, y_vect);
+	 vector<double>  XY_3 = getXY(s_val+90, round(d_val), s_vect, x_vect, y_vect);
 	 
 	 
 	 vector<double> pts_x;
 	 vector<double> pts_y;
-	 vector<double> pts_s;
-	 
-	 
-	 
-	 pts_s.push_back(s_val);
-	 pts_s.push_back(s_val+15);
-	 pts_s.push_back(s_val+30);
-	 pts_s.push_back(s_val+45);
-	 pts_s.push_back(s_val+60);
-	 
+	
+	 pts_x.push_back(prev_pts_x[0]);
+	 pts_x.push_back(prev_pts_x[1]);
 	 pts_x.push_back(XY_1[0]);
 	 pts_x.push_back(XY_2[0]);
 	 pts_x.push_back(XY_3[0]);
-	 pts_x.push_back(XY_4[0]);
-	 pts_x.push_back(XY_5[0]);
 	 
+	 
+	 pts_y.push_back(prev_pts_y[0]);
+	 pts_y.push_back(prev_pts_y[1]);
 	 pts_y.push_back(XY_1[1]);
 	 pts_y.push_back(XY_2[1]);
 	 pts_y.push_back(XY_3[1]);
-	 pts_y.push_back(XY_4[1]);
-	 pts_y.push_back(XY_5[1]);
 	 
+	 ref_x = prev_pts_x[1];
+	 ref_y = prev_pts_y[1];
 	 
+	 double shift_x;
+	 double shift_y;
 	 
-	  
-	 spline xsd_curve(pts_s,pts_x,spline::cspline);
-	 spline ysd_curve(pts_s,pts_y,spline::cspline);
-     
+	 for(int i = 0;i< pts_x.size();i++){
+		 
+		 shift_x = pts_x[i]-ref_x;
+		 shift_y = pts_y[i]-ref_y;
+		 
+		 pts_x[i] = ( shift_x * cos(0-ref_yaw) - shift_y * sin(0-ref_yaw) );
+		 pts_y[i] = ( shift_x * sin(0-ref_yaw) + shift_y * cos(0-ref_yaw) );
+		 
+		 
+	 }
 	 
+	 spline xy_curve(pts_x,pts_y,spline::cspline);
 	 
-     
+	 return (spline(pts_x,pts_y,spline::cspline));
 
-	 double d_y= dy_spline(s_val);
-	 if (abs(d_y) > 1)
-		d_y = round(d_y);
-	 double d_x= sin(acos(d_y));
-	 
-	 //std::cout <<"Current d vector calculated :" <<sqrt(d_x * d_x + d_y * d_y) << std::endl;
-	 //std::cout <<"Current dx,dy vector :" <<d_x<<","<<d_y<<std::endl;
-	 //std::cout <<"Lane Code :" <<d_val<<std::endl;
-	 
-     vector<double> XY;
-
-
-	 WayPoint wp( xsd_curve(s_val), ysd_curve(s_val), s_val, d_x, d_y);    
-	 return(wp);
 
 }
 
-vector<double> MapPath::spline_function(double s){
-	
-	vector<double> pts_x{10,20,30,40,50};
-	vector<double> pts_y{100,200,300,400,500};
-	vector<double> pts_s{0.0,1.0,2.0,3.0,4.0};
-	
-	spline xsd_curve(pts_s,pts_x,spline::cspline);
-	spline ysd_curve(pts_s,pts_y,spline::cspline);
-	
-	
-	vector<double> XY;
-	
-	 XY.push_back(xsd_curve(2));
-	 XY.push_back(ysd_curve(2));
-	 
-	 return(XY);
-	
-	
-}
+
 
 WayPoint MapPath::get_map_convertedS_for_XY(double x_val, double y_val, double theta) {
 	 
