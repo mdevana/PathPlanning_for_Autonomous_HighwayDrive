@@ -75,7 +75,32 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	  
 	 }
 	 
-	 vector<double>  XY = getXY(s_val, round(d_val), s_vect, x_vect, y_vect);
+	 vector<double>  XY_1 = getXY(s_val, round(d_val), s_vect, x_vect, y_vect);
+	 vector<double>  XY_2 = getXY(s_val+30, round(d_val), s_vect, x_vect, y_vect);
+	 vector<double>  XY_3 = getXY(s_val+60, round(d_val), s_vect, x_vect, y_vect);
+	 
+	 double pts_x;
+	 double pts_y;
+	 double pts_s;
+	 
+	 pts_s.push_back(s_val);
+	 pts_s.push_back(s_val+30);
+	 pts_s.push_back(s_val+60);
+	 
+	 pts_x.push_back(XY_1[0]);
+	 pts_x.push_back(XY_2[0]);
+	 pts_x.push_back(XY_3[0]);
+	 
+	 pts_y.push_back(XY_1[1]);
+	 pts_y.push_back(XY_2[1]);
+	 pts_y.push_back(XY_3[1]);
+	 
+	  
+	 spline xy_curve;
+     
+	 xs_curve.set_points(pts_x,pts_x,spline::cspline);
+	 
+     
 
 	 double d_y= dy_spline(s_val);
 	 if (abs(d_y) > 1)
@@ -87,12 +112,12 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	 //std::cout <<"Lane Code :" <<d_val<<std::endl;
 	 
      
-	 XY[0] = x_spline(s_val);
-	 XY[1] = y_spline(s_val);
+	 XY[0] = xs_curve(s_val);
+	 XY[1] = xs_curve(s_val);
 	 
 	 //d_val = 6.0;
 
-	 WayPoint wp( XY[0] + d_val * d_x , XY[1] + d_val * d_y , s_val, d_x, d_y);    
+	 WayPoint wp( XY[0], XY[1], s_val, d_x, d_y);    
 	 return(wp);
 
 }
