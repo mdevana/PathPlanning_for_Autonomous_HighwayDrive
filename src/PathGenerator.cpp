@@ -256,7 +256,7 @@ void PathGenerator::generate_map_path_with_transform(){
 	
 	std::cout<< " size of path "<<path_size;
 	
-	generate_simple_path();
+	//generate_simple_path();
 	
 	/*for(i=0;i< path_size;i++){
 		
