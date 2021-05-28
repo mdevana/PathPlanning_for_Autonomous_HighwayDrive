@@ -13,6 +13,9 @@ using std::vector;
 using std::string;
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
+using tk::spline;
+
+
 
 MapPath::MapPath() {}
 
