@@ -142,7 +142,7 @@ void PathGenerator::generate_map_path(){
 			next_y_vals.push_back(end_y_coor);
 			cnt_start_path_pts++;
 			
-			end_s = (highway_map.get_map_convertedS_for_XY(end_x_coor,end_y_coor,angle)).get_s_co();
+			//end_s = (highway_map.get_map_convertedS_for_XY(end_x_coor,end_y_coor,angle)).get_s_co();
 			std::cout <<"End S  =" <<end_s << std::endl;
 			std::cout <<"distance to previous point  =" <<sqrt((end_x_coor-prev_x_coor)*(end_x_coor-prev_x_coor)+(end_y_coor-prev_y_coor)*(end_y_coor-prev_y_coor))<< std::endl;
 			
