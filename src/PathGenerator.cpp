@@ -113,69 +113,8 @@ void PathGenerator::generate_map_path(){
 	
 }
 
-void PathGenerator::generate_map_path_JMT(){
+void PathGenerator::Execute_lane_change_with_JMT(){
 	
-	lanecode followlane = middle;
-	
-	double prev_x_coor = car_x;
-	double prev_y_coor = car_y;
-	double angle = (car_yaw) * M_PI / 180;
-	
-	int path_size = previous_path_x.size();
-	std::cout <<"Previous Path size :" <<path_size<< std::endl;
-	int i;
-	for (i = 0; i < path_size; ++i) {
-		next_x_vals.push_back(previous_path_x[i]);
-		next_y_vals.push_back(previous_path_y[i]);
-		prev_x_coor = previous_path_x[i];
-		prev_y_coor = previous_path_y[i];
-		
-	}
-
-	
-	//std::cout << "dist increment = "<<dist_inc << std::endl;
-	std::cout << "car speed  = "<<car_speed << std::endl;
-	std::cout << "Distance Covered= "<<end_s << std::endl;
-	
-	WayPoint current_wp;
-
-	int cnt_start_path_pts = 0;
-	
-	if (path_size == 0){
-		
-		
-		
-		
-		double end_x_coor;
-		double end_y_coor;
-		
-		end_s = 0;
-		
-				
-		while (end_s < 121) {    
-			
-			
-			
-			end_x_coor = car_x+(dist_inc * cnt_start_path_pts)*cos(angle);
-			end_y_coor = car_y+(dist_inc * cnt_start_path_pts)*sin(angle);
-			
-			std::cout <<"Car X =" <<end_x_coor << std::endl;
-			std::cout <<"Car y =" <<end_y_coor << std::endl;
-			
-			next_x_vals.push_back(end_x_coor);
-			next_y_vals.push_back(end_y_coor);
-			cnt_start_path_pts++;
-			
-			//end_s = (highway_map.get_map_convertedS_for_XY(end_x_coor,end_y_coor,angle)).get_s_co();
-			std::cout <<"End S  =" <<end_s << std::endl;
-			std::cout <<"distance to previous point  =" <<sqrt((end_x_coor-prev_x_coor)*(end_x_coor-prev_x_coor)+(end_y_coor-prev_y_coor)*(end_y_coor-prev_y_coor))<< std::endl;
-			
-			prev_x_coor = end_x_coor;
-			prev_y_coor = end_y_coor;
-		}
-
-		// S needs to be above 121 to merge into the path
-	}
 	
 		double final_s = end_s + dist_inc * (50-path_size-cnt_start_path_pts);
 		
@@ -334,6 +273,10 @@ void PathGenerator::generate_map_path_with_transform(){
 		
 	}
 	else {
+		
+		if (end_s > 500) {
+			Execute_lane_change_with_JMT();
+		}
 		
 		// Reference pt is two last point in the Q
 		ref_x = previous_path_x[path_size -1];
