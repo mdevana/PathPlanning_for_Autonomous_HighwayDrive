@@ -8,6 +8,7 @@
 #include "spline.h"
 
 using std::vector;
+using tk::spline;
 
 class PathGenerator {
  public:
