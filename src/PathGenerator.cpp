@@ -360,7 +360,7 @@ void PathGenerator::generate_map_path_with_transform(){
 		 
 	 }
 	
-	
+	std::cout <<"End S  =" <<end_s << std::endl;
 	highway_map.calculate_map_XYspline_for_s(end_s, 6, pts_x, pts_y,ref_yaw);
 		
 	
