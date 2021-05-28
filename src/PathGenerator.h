@@ -35,6 +35,7 @@ class PathGenerator {
   void generate_map_path();
   void generate_map_path_JMT();
   void generate_map_path_with_traffic(vector<vector<double>> sensor_fusion);
+  void generate_map_path_with_transform();
   
   double car_x;
   double car_y;
