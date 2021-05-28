@@ -118,7 +118,7 @@ spline MapPath::get_map_XYspline_for_s(double s_val, double d_val,vector<double>
 	 
 	 spline xy_curve(pts_x,pts_y,spline::cspline);
 	 
-	 return (spline(pts_x,pts_y,spline::cspline));
+	 return (xy_curve);
 
 
 }
