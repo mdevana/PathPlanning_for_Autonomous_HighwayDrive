@@ -105,6 +105,10 @@ void PathGenerator::generate_circular_path(){
 
 void PathGenerator::generate_map_path(){
 	
+	int path_size = previous_path_x.size();
+	int i;
+	
+	std::cout<< " size of path "<<path_size;
 	
 	
 }
