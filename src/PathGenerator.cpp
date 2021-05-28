@@ -4,6 +4,7 @@
 //#include "helpers_planning.h"
 #include <string>
 #include <iostream>
+#include "spline.h"
 
 
 
