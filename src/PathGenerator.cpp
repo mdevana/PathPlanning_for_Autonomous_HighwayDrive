@@ -273,6 +273,8 @@ void PathGenerator::generate_map_path_with_transform(){
 	double ref_yaw = (car_yaw) * M_PI / 180;
 	
 	std::cout<< " car yaw "<<ref_yaw<<std::endl;
+	std::cout<< " car X "<<ref_x<<std::endl;
+	std::cout<< " car Y "<<ref_y<<std::endl;
 	
 	if ( path_size < 2){
 		
@@ -306,7 +308,8 @@ void PathGenerator::generate_map_path_with_transform(){
 	}
 	
 	for(int j=0; j< pts_x.size(); j++){
-		 std::cout<< " pts_x ["<<j<<"] = "<<pts_x[0]<<std::endl;
+		 std::cout<< " pts_x ["<<j<<"] = "<<pts_x[j]<<std::endl;
+		 std::cout<< " pts_x ["<<j<<"] = "<<pts_y[j]<<std::endl;
 		 //std::cout<< " pts_y ["<<j<<"] = "<<pts_x[0];
 		 
 	 }
