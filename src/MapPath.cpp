@@ -96,8 +96,8 @@ spline MapPath::get_map_XYspline_for_s(double s_val, double d_val,vector<double>
 	 pts_y.push_back(XY_2[1]);
 	 pts_y.push_back(XY_3[1]);
 	 
-	 ref_x = prev_pts_x[1];
-	 ref_y = prev_pts_y[1];
+	 double ref_x = prev_pts_x[1];
+	 double ref_y = prev_pts_y[1];
 	 
 	 double shift_x;
 	 double shift_y;
