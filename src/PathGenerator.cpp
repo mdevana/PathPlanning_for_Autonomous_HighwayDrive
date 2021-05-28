@@ -250,6 +250,8 @@ void PathGenerator::generate_map_path_with_transform(){
 	int path_size = previous_path_x.size();
 	int i;
 	
+	std::cout<< " size of path "<<j<<"] = "<<path_size;
+	
 	for(i=0;i< path_size;i++){
 		
 		next_x_vals.push_back(previous_path_x[i]);
@@ -324,14 +326,6 @@ void PathGenerator::generate_map_path_with_transform(){
 
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
 
