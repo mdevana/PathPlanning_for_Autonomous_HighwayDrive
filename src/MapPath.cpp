@@ -91,7 +91,7 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	 
 	 vector<double> pts_x{10,20,30,40,50};
 	 vector<double> pts_y{100,200,300,400,500};
-	 vector<double> pts_s{0,1,2,3,4};
+	 vector<double> pts_s{0.0,1.0,2.0,3.0,4.0};
 	 
 	 
 	 /*
@@ -143,8 +143,10 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	 
      vector<double> XY;
 	 
-	 XY.push_back(xsd_curve(2));
-	 XY.push_back(ysd_curve(2));
+	 XY=spline_function(2)
+	 
+	 //XY.push_back(xsd_curve(2));
+	 //XY.push_back(ysd_curve(2));
 	 
 	 //d_val = 6.0;
 	 
@@ -154,6 +156,24 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	 WayPoint wp( xsd_curve(s_val), ysd_curve(s_val), s_val, d_x, d_y);    
 	 return(wp);
 
+}
+
+vector<double> MapPath::spline_function(double s){
+	
+	vector<double> pts_x{10,20,30,40,50};
+	vector<double> pts_y{100,200,300,400,500};
+	vector<double> pts_s{0.0,1.0,2.0,3.0,4.0};
+	
+	spline xsd_curve(pts_x,pts_s,spline::cspline);
+	spline ysd_curve(pts_y,pts_s,spline::cspline);
+	
+	
+	vector<double> XY;
+	
+	 XY.push_back(xsd_curve(2));
+	 XY.push_back(ysd_curve(2));
+	
+	
 }
 
 WayPoint MapPath::get_map_convertedS_for_XY(double x_val, double y_val, double theta) {

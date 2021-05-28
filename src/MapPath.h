@@ -28,6 +28,8 @@ class MapPath {
   double Poly_eval_JMT(vector<double> coeff, double t);
   
   WayPoint get_map_point_for_x(double x_val);
+  
+  vector<double> spline_function(double s);
 	
 	
  private:
