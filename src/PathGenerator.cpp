@@ -298,8 +298,8 @@ void PathGenerator::generate_map_path_with_transform(){
 			
 			
 			
-			double end_x_coor = car_x+(dist_inc * cnt_start_path_pts)*cos(ref_yaw);
-			double end_y_coor = car_y+(dist_inc * cnt_start_path_pts)*sin(ref_yaw);
+			double end_x_coor = car_x+(0.02 * max_velocity * cnt_start_path_pts)*cos(ref_yaw);
+			double end_y_coor = car_y+(0.02 * max_velocity * cnt_start_path_pts)*sin(ref_yaw);
 			
 			std::cout <<"Car X =" <<end_x_coor << std::endl;
 			std::cout <<"Car y =" <<end_y_coor << std::endl;
