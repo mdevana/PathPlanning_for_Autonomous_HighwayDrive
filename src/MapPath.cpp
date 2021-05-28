@@ -172,6 +172,8 @@ vector<double> MapPath::spline_function(double s){
 	
 	 XY.push_back(xsd_curve(2));
 	 XY.push_back(ysd_curve(2));
+	 
+	 return(XY);
 	
 	
 }
