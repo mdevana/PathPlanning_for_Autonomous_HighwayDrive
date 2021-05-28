@@ -391,8 +391,9 @@ void PathGenerator::generate_map_path_with_transform(){
 	int lane_change = 0;
 	
 	int path_size = previous_path_x.size();
+	int i;
 	
-	for( i=0;i< path_size;i++){
+	for(i=0;i< path_size;i++){
 		
 		next_x_vals.push_back(previous_path_x[i]);
 		next_y_vals.push_back(previous_path_y[i]);
@@ -423,8 +424,8 @@ void PathGenerator::generate_map_path_with_transform(){
 		ref_x = previous_path_x[path_size -1]
 		ref_y = previous_path_y[path_size -1]
 		
-		double ref_x_1 = previous_path_x[path_size -2]
-		double ref_y_1 = previous_path_y[path_size -2]
+		double ref_x_1 = previous_path_x[path_size -2];
+		double ref_y_1 = previous_path_y[path_size -2];
 		
 		ref_yaw = atan2( ref_y - ref_y_1 , ref_x - ref_x_1);
 		
@@ -437,7 +438,8 @@ void PathGenerator::generate_map_path_with_transform(){
 		
 	}
 	
-	spline xy_spline = get_map_XYspline_for_s(end_s, end_d,pts_x, pts_y,ref_yaw);
+	spline xy_spline = highway_map.get_map_XYspline_for_s(end_s, end_d,pts_x, pts_y,ref_yaw);
+	
 	
 	double x_estimate = 30;
 	y_estimate = xy_spline(x_estimate);
