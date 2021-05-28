@@ -34,7 +34,7 @@ class PathGenerator {
   void generate_simple_path();
   void generate_circular_path();
   void generate_map_path();
-  void generate_map_path_JMT();
+  void Execute_lane_change_with_JMT();
   void generate_map_path_with_traffic(vector<vector<double>> sensor_fusion);
   void generate_map_path_with_transform();
   
