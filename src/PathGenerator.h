@@ -5,6 +5,7 @@
 #include "MapPath.h"
 #include <string>
 #include "Vehicle.h"
+#include "spline.h"
 
 using std::vector;
 
