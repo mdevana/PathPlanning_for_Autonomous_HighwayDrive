@@ -61,8 +61,8 @@ vector<double> PathGenerator::get_y_vals() {
 void PathGenerator::generate_simple_path(){
 	
 		for (int i = 0; i < 50; ++i) {
-			//next_x_vals.push_back(car_x+(dist_inc*i)*cos(deg2rad(car_yaw)));
-			//next_y_vals.push_back(car_y+(dist_inc*i)*sin(deg2rad(car_yaw)));
+			next_x_vals.push_back(car_x+(dist_inc*i)*cos(car_yaw * M_PI / 180));
+			next_y_vals.push_back(car_y+(dist_inc*i)*sin(car_yaw * M_PI / 180));
 		}
 }
 
@@ -252,7 +252,9 @@ void PathGenerator::generate_map_path_with_transform(){
 	
 	std::cout<< " size of path "<<path_size;
 	
-	for(i=0;i< path_size;i++){
+	generate_simple_path();
+	
+	/*for(i=0;i< path_size;i++){
 		
 		next_x_vals.push_back(previous_path_x[i]);
 		next_y_vals.push_back(previous_path_y[i]);
@@ -325,7 +327,7 @@ void PathGenerator::generate_map_path_with_transform(){
 		next_y_vals.push_back(ref_y + (x_pt * sin(ref_yaw)  + y_pt * cos(ref_yaw)));
 
 		
-	}
+	}*/
 
 }
 
