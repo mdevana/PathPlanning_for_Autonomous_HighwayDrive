@@ -310,7 +310,7 @@ void PathGenerator::generate_map_path_with_transform(){
 	for(int i = 1; i<= 50 - path_size;i++){
 		
 		x_pt += dist_inc_x;
-		y_pt = get_y_from_curve(x_pt);
+		y_pt = highway_map.get_y_from_curve(x_pt);
 
 		
 		next_x_vals.push_back(ref_x + (x_pt * cos(ref_yaw)  - y_pt * sin(ref_yaw)));
