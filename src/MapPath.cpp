@@ -164,8 +164,8 @@ vector<double> MapPath::spline_function(double s){
 	vector<double> pts_y{100,200,300,400,500};
 	vector<double> pts_s{0.0,1.0,2.0,3.0,4.0};
 	
-	spline xsd_curve(pts_x,pts_s,spline::cspline);
-	spline ysd_curve(pts_y,pts_s,spline::cspline);
+	spline xsd_curve(pts_s,pts_x,spline::cspline);
+	spline ysd_curve(pts_s,pts_y,spline::cspline);
 	
 	
 	vector<double> XY;
