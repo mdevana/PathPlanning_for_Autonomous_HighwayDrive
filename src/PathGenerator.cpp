@@ -234,8 +234,8 @@ void PathGenerator::generate_map_path(){
 			
 			std::cout <<"Current S =" <<current_wp.get_s_co() << std::endl;
 			
-			//std::cout <<"Current X =" <<current_x << std::endl;
-			//std::cout <<"Current Y =" <<current_y<< std::endl;
+			std::cout <<"Current X =" <<current_x << std::endl;
+			std::cout <<"Current Y =" <<current_y<< std::endl;
 			
 			std::cout <<"distance to previous point  =" <<sqrt((current_x-prev_x_coor)*(current_x-prev_x_coor)+(current_y-prev_y_coor)*(current_y-prev_y_coor))<< std::endl;
 			
