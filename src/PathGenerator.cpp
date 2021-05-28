@@ -258,7 +258,7 @@ void PathGenerator::generate_map_path_with_transform(){
 	
 	//generate_simple_path();
 	
-	/*for(i=0;i< path_size;i++){
+	for(i=0;i< path_size;i++){
 		
 		next_x_vals.push_back(previous_path_x[i]);
 		next_y_vals.push_back(previous_path_y[i]);
@@ -308,7 +308,7 @@ void PathGenerator::generate_map_path_with_transform(){
 		 //std::cout<< " pts_y ["<<j<<"] = "<<pts_x[0];
 		 
 	 }
-	
+	/*
 	highway_map.calculate_map_XYspline_for_s(end_s, end_d, pts_x, pts_y,ref_yaw);
 	
 	
