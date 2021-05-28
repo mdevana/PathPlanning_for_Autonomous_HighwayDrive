@@ -81,13 +81,6 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	 vector<double>  XY_4 = getXY(s_val+45, round(d_val), s_vect, x_vect, y_vect);
 	 vector<double>  XY_5 = getXY(s_val+60, round(d_val), s_vect, x_vect, y_vect);
 	 
-	 std::cout <<"Current X vector calculated :" <<XY_1[0] <<" s = "<<s_val<< std::endl;
-	 std::cout <<"Current X vector calculated :" <<XY_2[0] <<" s = "<<(s_val+30)<< std::endl;
-	 std::cout <<"Current X vector calculated :" <<XY_3[0] <<" s = "<<(s_val+60)<< std::endl;
-	 
-	 std::cout <<"Current Y vector calculated :" <<XY_1[1] <<" s = "<<s_val<< std::endl;
-	 std::cout <<"Current Y vector calculated :" <<XY_2[1] <<" s = "<<(s_val+30)<< std::endl;
-	 std::cout <<"Current Y vector calculated :" <<XY_3[1] <<" s = "<<(s_val+60)<< std::endl;
 	 
 	 vector<double> pts_x;
 	 vector<double> pts_y;
@@ -113,22 +106,13 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	 pts_y.push_back(XY_4[1]);
 	 pts_y.push_back(XY_5[1]);
 	 
-	 std::cout <<"pts_size :" <<pts_x.size() << std::endl;
 	 
-	 std::cout <<"Current X vector calculated :" <<pts_x[0] <<" s = "<<pts_s[0]<< std::endl;
-	 std::cout <<"Current X vector calculated :" <<pts_x[1]<<" s = "<<pts_s[1]<< std::endl;
-	 std::cout <<"Current X vector calculated :" <<pts_x[2]<<" s = "<<pts_s[2]<< std::endl;
-	 
-	 std::cout <<"Current Y vector calculated :" <<pts_y[0] <<" s = "<<pts_s[0]<< std::endl;
-	 std::cout <<"Current Y vector calculated :" <<pts_y[1]<<" s = "<<pts_s[1]<< std::endl;
-	 std::cout <<"Current Y vector calculated :" <<pts_y[2]<<" s = "<<pts_s[2]<< std::endl;
 	 
 	  
 	 spline xsd_curve(pts_s,pts_x,spline::cspline);
 	 spline ysd_curve(pts_s,pts_y,spline::cspline);
      
-	 //xsd_curve.set_points(pts_x,pts_s,spline::cspline);
-	 //ysd_curve.set_points(pts_y,pts_s,spline::cspline);
+	 
 	 
      
 
@@ -142,16 +126,7 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	 //std::cout <<"Lane Code :" <<d_val<<std::endl;
 	 
      vector<double> XY;
-	 
-	 
-	 
-	 XY.push_back(xsd_curve(2));
-	 XY.push_back(ysd_curve(2));
-	 
-	 //d_val = 6.0;
-	 
-	 std::cout <<"Current X vector calculated :" <<XY[0] <<" s = "<<(s_val+10)<< std::endl;
-	 std::cout <<"Current Y vector calculated :" <<XY[1] <<" s = "<<(s_val+10)<< std::endl;
+
 
 	 WayPoint wp( xsd_curve(s_val), ysd_curve(s_val), s_val, d_x, d_y);    
 	 return(wp);
