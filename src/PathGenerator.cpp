@@ -314,7 +314,7 @@ void PathGenerator::generate_map_path_with_transform(){
 		 
 	 }
 	
-	highway_map.calculate_map_XYspline_for_s(end_s + 125, 6, pts_x, pts_y,ref_yaw);
+	highway_map.calculate_map_XYspline_for_s(end_s + 150, 6, pts_x, pts_y,ref_yaw);
 	
 	
 	double x_estimate = 30;
