@@ -345,9 +345,9 @@ void PathGenerator::generate_map_path_with_transform(){
 		ref_yaw = atan2( ref_y - ref_y_1, ref_x - ref_x_1);
 		
 		pts_x.push_back(ref_x_1);
-		pts_y.push_back(ref_x);
+		pts_x.push_back(ref_x);
 		
-		pts_x.push_back(ref_y_1);
+		pts_y.push_back(ref_y_1);
 		pts_y.push_back(ref_y);
 
 		
@@ -355,7 +355,7 @@ void PathGenerator::generate_map_path_with_transform(){
 	
 	for(int j=0; j< pts_x.size(); j++){
 		 std::cout<< " pts_x ["<<j<<"] = "<<pts_x[j]<<std::endl;
-		 std::cout<< " pts_x ["<<j<<"] = "<<pts_y[j]<<std::endl;
+		 std::cout<< " pts_y ["<<j<<"] = "<<pts_y[j]<<std::endl;
 		 //std::cout<< " pts_y ["<<j<<"] = "<<pts_x[0];
 		 
 	 }
