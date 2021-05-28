@@ -125,6 +125,9 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	 //XY[1] = ys_curve(s_val);
 	 
 	 //d_val = 6.0;
+	 
+	 std::cout <<"Current X vector calculated :" <<xs_curve(s_val) <<" s = "<<s_val<< std::endl;
+	 std::cout <<"Current Y vector calculated :" <<ys_curve(s_val) <<" s = "<<s_val<< std::endl;
 
 	 WayPoint wp( xs_curve(s_val), ys_curve(s_val), s_val, d_x, d_y);    
 	 return(wp);
