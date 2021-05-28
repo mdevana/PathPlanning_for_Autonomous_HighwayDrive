@@ -82,6 +82,8 @@ void MapPath::calculate_map_XYspline_for_s(double s_val, double d_val,vector<dou
 	 vector<double>  XY_2 = getXY(s_val+60, round(d_val), s_vect, x_vect, y_vect);
 	 vector<double>  XY_3 = getXY(s_val+90, round(d_val), s_vect, x_vect, y_vect);
 	 
+	 std::cout<< " pts_prev_x 0 ["<<prev_pts_x[0]<<std::endl;
+	 std::cout<< " pts_prev_x 1 ["<<prev_pts_x[1]<<std::endl;
 	 
 	 vector<double> pts_x;
 	 vector<double> pts_y;
@@ -123,7 +125,7 @@ void MapPath::calculate_map_XYspline_for_s(double s_val, double d_val,vector<dou
 	 }
 	 
 	 for(int j=0; j< pts_x.size(); j++){
-		 std::cout<< "transformed pts_x ["<<j<<"] = "<<pts_x[0];
+		 std::cout<< "transformed pts_x ["<<j<<"] = "<<pts_x[0]<<std::endl;
 		 //std::cout<< " pts_y ["<<j<<"] = "<<pts_x[0];
 		 
 	 }
