@@ -137,7 +137,7 @@ void MapPath::calculate_map_XYspline_for_s(double s_val, double d_val,vector<dou
 		 
 	 }
 	 
-	 //xy_curve.set_points(pts_x,pts_y);
+	 xy_curve.set_points(pts_x,pts_y);
 	 
 	 
 
