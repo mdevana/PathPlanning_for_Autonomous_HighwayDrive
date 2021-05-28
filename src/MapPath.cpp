@@ -133,12 +133,12 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	 
      vector<double> XY;
 	 
-	 XY[0] = xs_curve(s_val+10);
-	 XY[1] = ys_curve(s_val+10);
+	 XY.push_back(xs_curve(s_val+10));
+	 XY.push_back(ys_curve(s_val+10));
 	 
 	 //d_val = 6.0;
 	 
-	 std::cout <<"Current X vector calculated :" <XY[0] <<" s = "<<(s_val+10)<< std::endl;
+	 std::cout <<"Current X vector calculated :" <<XY[0] <<" s = "<<(s_val+10)<< std::endl;
 	 std::cout <<"Current Y vector calculated :" <<XY[1] <<" s = "<<(s_val+10)<< std::endl;
 
 	 WayPoint wp( xs_curve(s_val), ys_curve(s_val), s_val, d_x, d_y);    
