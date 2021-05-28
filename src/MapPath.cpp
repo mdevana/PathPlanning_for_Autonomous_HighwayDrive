@@ -143,8 +143,8 @@ WayPoint MapPath::get_map_convertedXY_for_s(double s_val, double d_val) {
 	 
      vector<double> XY;
 	 
-	 XY.push_back(xsd_curve(s_val+10));
-	 XY.push_back(ysd_curve(s_val+10));
+	 XY.push_back(xsd_curve(2));
+	 XY.push_back(ysd_curve(2));
 	 
 	 //d_val = 6.0;
 	 
