@@ -289,7 +289,7 @@ void PathGenerator::generate_map_path_with_transform(){
 		
 		end_s = 0;
 		
-		cnt_start_path_pts=0;
+		int cnt_start_path_pts=0;
 				
 		while (end_s < 121) {    
 			
