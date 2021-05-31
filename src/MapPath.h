@@ -21,7 +21,6 @@ class MapPath {
   
   void Init_from_cloudpoints(MapPath map_points);
   void set_map_path_data(vector<double> x,vector<double> y,vector<double> s,vector<double> dx, vector<double> dy);
-  WayPoint get_map_point_for_s(double s_val);
   WayPoint get_map_convertedXY_for_s(double s_val, double d_val);
   WayPoint get_map_convertedS_for_XY(double x_val, double y_val, double theta);
   vector<WayPoint> get_map_convertedSD_for_XY_jerk_optimised(vector<double> &s_start,vector<double> &s_end, vector<double> &d_start, vector<double> &d_end, double start_time, double end_time, double inc);

@@ -46,13 +46,7 @@ void MapPath::set_map_path_data(vector<double> x,vector<double> y,vector<double>
 }
 
  
-WayPoint MapPath::get_map_point_for_s(double s_val) {
-	 
-	 
-     WayPoint wp_interpolated(x_spline(s_val), y_spline(s_val),s_val,dx_spline(s_val),dy_spline(s_val));
-	 return(wp_interpolated);
 
-}
 
 
 
