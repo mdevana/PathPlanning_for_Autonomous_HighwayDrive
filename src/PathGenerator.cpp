@@ -187,7 +187,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 		int v_id = it->first;
 		std::cout<< " reading out vehicles on road id : " << v_id<<std::endl;
 		it->second.VehicleParamDisplay();
-		
+		++it;
 	}
 
 }
