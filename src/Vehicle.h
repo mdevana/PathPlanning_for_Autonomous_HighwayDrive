@@ -70,6 +70,7 @@ class Vehicle {
   double x, y;
   double vx,vy;
   double s,d;
+  string state;
   
   int L = 1;
 
