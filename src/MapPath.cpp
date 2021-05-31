@@ -41,12 +41,7 @@ void MapPath::set_map_path_data(vector<double> x,vector<double> y,vector<double>
 	  points_group.push_back(w_p);
 	  
   }
-  
-  //x_spline.set_points(s,x,spline::cspline);
-  //y_spline.set_points(s,y,spline::cspline);
-  //dx_spline.set_points(s,dx,spline::cspline);
-  //dy_spline.set_points(s,dy,spline::cspline);
-  
+
   
 }
 
