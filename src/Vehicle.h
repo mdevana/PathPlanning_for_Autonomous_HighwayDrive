@@ -13,7 +13,7 @@ class Vehicle {
  public:
   // Constructors
   Vehicle();
-  Vehicle(int id, double x, double y,double s, double d, double vx, double vy);
+  Vehicle(int id, double x, double y,double s, double d, double vx, double vy,string state);
 
   // Destructor
   virtual ~Vehicle();
@@ -80,7 +80,7 @@ class Vehicle {
 
   float target_speed, max_acceleration;
 
-  string state;
+  
 };
 
 #endif  // VEHICLE_H
