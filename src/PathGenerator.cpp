@@ -174,7 +174,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	for(int i = 0 ; i <sensor_fusion.size(); i++){
 		//int id, double x, double y,double s, double d, double vx, double vy, string state
 		int id = sensor_fusion[i][0];
-		std::cout<< " inserting vehicles on road id at : "<<i <<" : " <id<<std::endl;
+		std::cout<< " inserting vehicles on road id at : "<<i<<" : " <<id<<std::endl;
 	    Vehicle v(id,sensor_fusion[i][1],sensor_fusion[i][2],sensor_fusion[i][3],sensor_fusion[i][4],sensor_fusion[i][5],sensor_fusion[i][6],"CS");
 		v.VehicleParamDisplay();		
 		vehicles_in_road.insert(std::pair<int,Vehicle>(id,v));
