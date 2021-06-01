@@ -169,7 +169,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	std::cout <<"Size =" <<sensor_fusion.size() << std::endl;
 	
 	
-	std::map<int, Vehicle> vehicles_in_road;
+	
 	
 	for(int i = 0 ; i <sensor_fusion.size(); i++){
 		//int id, double x, double y,double s, double d, double vx, double vy, string state

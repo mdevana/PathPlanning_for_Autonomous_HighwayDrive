@@ -19,38 +19,35 @@ class Vehicle {
   virtual ~Vehicle();
 
   // Vehicle functions
-  //vector<Vehicle> choose_next_state(map<int, vector<Vehicle>> &predictions);
+  vector<Vehicle> choose_next_state(map<int, vector<Vehicle>> &predictions);
 
-  //vector<string> successor_states();
+  
 
-  //vector<Vehicle> generate_trajectory(string state, 
-  //                                    map<int, vector<Vehicle>> &predictions);
+  vector<Vehicle> generate_trajectory(string state, map<int, vector<Vehicle>> &predictions);
 
-  //vector<float> get_kinematics(map<int, vector<Vehicle>> &predictions, int lane);
+  vector<float> get_kinematics(map<int, vector<Vehicle>> &predictions, int lane);
 
-  //vector<Vehicle> constant_speed_trajectory();
+  vector<Vehicle> constant_speed_trajectory();
 
-  //vector<Vehicle> keep_lane_trajectory(map<int, vector<Vehicle>> &predictions);
+  vector<Vehicle> keep_lane_trajectory(map<int, vector<Vehicle>> &predictions);
 
-  //vector<Vehicle> lane_change_trajectory(string state, 
-  //                                       map<int, vector<Vehicle>> &predictions);
+  vector<Vehicle> lane_change_trajectory(string state, map<int, vector<Vehicle>> &predictions);
 
-  //vector<Vehicle> prep_lane_change_trajectory(string state, 
-  //                                            map<int, vector<Vehicle>> &predictions);
+  vector<Vehicle> prep_lane_change_trajectory(string state, map<int, vector<Vehicle>> &predictions);
 
   //void increment(int dt);
 
   //float position_at(int t);
 
-  //bool get_vehicle_behind(map<int, vector<Vehicle>> &predictions, int lane, 
-  //                        Vehicle &rVehicle);
+  bool get_vehicle_behind(map<int, vector<Vehicle>> &predictions, int lane, 
+                          Vehicle &rVehicle);
 
-  //bool get_vehicle_ahead(map<int, vector<Vehicle>> &predictions, int lane, 
-  //                       Vehicle &rVehicle);
+  bool get_vehicle_ahead(map<int, vector<Vehicle>> &predictions, int lane, 
+                         Vehicle &rVehicle);
 
   //vector<Vehicle> generate_predictions(int horizon=2);
 
-  //void realize_next_state(vector<Vehicle> &trajectory);
+  void realize_next_state(vector<Vehicle> &trajectory);
 
   //void configure(vector<int> &road_data);
 
@@ -60,8 +57,12 @@ class Vehicle {
     int  time; // time collision happens
   };*/
   //object functions
+  vector<string> successor_states();
   
   void VehicleParamDisplay();
+  
+  
+  
   
   map<string, int> lane_direction = {{"PLCL", 1}, {"LCL", 1}, 
                                      {"LCR", -1}, {"PLCR", -1}};
