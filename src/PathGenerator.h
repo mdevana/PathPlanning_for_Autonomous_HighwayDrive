@@ -72,6 +72,7 @@ class PathGenerator {
   enum lanecode { left = 2, middle = 6, right = 10 }; 
   
   vector<double> JMT(vector<double> &start, vector<double> &end, double T);
+  void copy_unexecuted_path();
 
 };
 

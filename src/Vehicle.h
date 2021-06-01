@@ -13,8 +13,9 @@ class Vehicle {
  public:
   // Constructors
   Vehicle();
-  Vehicle(int id, double x, double y,double s, double d, double vx, double vy,string state);
-  Vehicle(int lane, float s, float v, float a, string state="CS");
+  Vehicle(int id, double x, double y,double s, double d, double vx, double vy,string state); // constructor for initialise Vehicles from Sensor Fusion 
+  Vehicle(int lane, float s, float v, float a, string state="CS"); // 
+  Vehicle(int id,int lane, double car_x, double car_y, double car_s, double car_d, double car_speed, double car_yaw, string state="CS");// constructor for initialise Vehicles Ego Vehicle 
 
   // Destructor
   virtual ~Vehicle();
@@ -70,9 +71,11 @@ class Vehicle {
 
   int ID;
   double x, y;
+  double yaw;
   double vx,vy,v;
   double s,d;
   double a;
+  
   string state;
   
   int L = 1;
@@ -81,7 +84,7 @@ class Vehicle {
 
   int lane, goal_lane, goal_s, lanes_available;
 
-  float target_speed, max_acceleration;
+  float target_speed, max_acceleration = 9;
 
   
 };
