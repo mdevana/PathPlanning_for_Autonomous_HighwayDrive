@@ -62,10 +62,10 @@ Vehicle::Vehicle(int id,int lane, double car_x, double car_y, double car_s, doub
 
 Vehicle::~Vehicle() {}
 
-vector<double> Vehicle::cold_start(double time_step) {
+vector<double> Vehicle::cold_start(int n, double time_step) {
 	
-	double dist = v * time_step + 0.5 * max_acceleration *  time_step * time_step;
-	v = v + max_acceleration * time_step;
+	double dist = v * time_step * n  + n * 0.5 * max_acceleration *  time_step * time_step;
+	v = v + max_acceleration * time_step * n;
 	x = x + (dist) * cos(yaw);
 	y = y + (dist) * sin(yaw);
 	

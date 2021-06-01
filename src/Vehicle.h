@@ -22,7 +22,7 @@ class Vehicle {
 
   // Vehicle functions
   
-  vector<double> cold_start(double time_step);
+  vector<double> cold_start(int n,double time_step);
   
   vector<Vehicle> choose_next_state(map<int, vector<Vehicle>> &predictions);
 
