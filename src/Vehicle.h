@@ -35,9 +35,9 @@ class Vehicle {
 
   vector<Vehicle> prep_lane_change_trajectory(string state, map<int, vector<Vehicle>> &predictions);
 
-  //void increment(int dt);
+  void increment(int dt);
 
-  //float position_at(int t);
+  float position_at(int t);
 
   bool get_vehicle_behind(map<int, vector<Vehicle>> &predictions, int lane, 
                           Vehicle &rVehicle);
@@ -45,7 +45,7 @@ class Vehicle {
   bool get_vehicle_ahead(map<int, vector<Vehicle>> &predictions, int lane, 
                          Vehicle &rVehicle);
 
-  //vector<Vehicle> generate_predictions(int horizon=2);
+  Vehicle generate_predictions(int horizon=2);
 
   void realize_next_state(vector<Vehicle> &trajectory);
 
@@ -69,8 +69,9 @@ class Vehicle {
 
   int ID;
   double x, y;
-  double vx,vy;
+  double vx,vy,v;
   double s,d;
+  double a;
   string state;
   
   int L = 1;
