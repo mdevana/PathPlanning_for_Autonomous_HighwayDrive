@@ -73,6 +73,7 @@ class PathGenerator {
   
   vector<double> JMT(vector<double> &start, vector<double> &end, double T);
   void copy_unexecuted_path();
+  void make_traffic_predictions();
 
 };
 
