@@ -298,7 +298,7 @@ void PathGenerator::make_traffic_predictions(vector<vector<double>> sensor_fusio
 		//int id, double x, double y,double s, double d, double vx, double vy, string state
 		int id = sensor_fusion[i][0];
 		//std::cout<< " inserting vehicles on road id at : "<<i<<" : " <<id<<std::endl;
-		double d = sensor_fusion[i][4];
+		double d = sensor_fusion[i][6];
 		 
 		if (d>0) {
 			Vehicle v(id,sensor_fusion[i][1],sensor_fusion[i][2],sensor_fusion[i][5],sensor_fusion[i][6],sensor_fusion[i][3],sensor_fusion[i][4],"CS");
