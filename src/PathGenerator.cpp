@@ -273,7 +273,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 		
 		double x_pt = 0;
 		double y_pt;
-		double ref_vel = ego_vehicle.v + 6.0 * simulator_time_step; 
+		double ref_vel = ego_vehicle.v + 4.5 * simulator_time_step; 
 		
 		for(int i = 1; i<= 50 - path_size;i++){
 		
@@ -283,7 +283,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 			next_x_vals.push_back(ref_x + (x_pt * cos(ref_yaw)  - y_pt * sin(ref_yaw)));
 			next_y_vals.push_back(ref_y + (x_pt * sin(ref_yaw)  + y_pt * cos(ref_yaw)));
 
-			ref_vel += 9.0 * simulator_time_step;
+			ref_vel += 4.5 * simulator_time_step;
 		}
 		
 	}
