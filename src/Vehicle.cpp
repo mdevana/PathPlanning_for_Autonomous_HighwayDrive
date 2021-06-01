@@ -179,7 +179,7 @@ vector<Vehicle> Vehicle::lane_change_trajectory(string state,
 
 
 vector<Vehicle> Vehicle::prep_lane_change_trajectory(string state, 
-                                                     map<int, vector<Vehicle>> &predictions) {
+                                                     map<int, Vehicle> &predictions) {
   // Generate a trajectory preparing for a lane change.
   float new_s;
   float new_v;
