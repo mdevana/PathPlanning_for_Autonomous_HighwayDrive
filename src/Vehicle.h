@@ -14,6 +14,7 @@ class Vehicle {
   // Constructors
   Vehicle();
   Vehicle(int id, double x, double y,double s, double d, double vx, double vy,string state);
+  Vehicle::Vehicle(int lane, float s, float v, float a, string state="CS");
 
   // Destructor
   virtual ~Vehicle();

@@ -6,6 +6,7 @@
 #include <vector>
 #include "cost.h"
 #include <iostream>
+#include <math.h>
 
 using std::string;
 using std::vector;
@@ -27,7 +28,7 @@ Vehicle::Vehicle(int id, double x, double y,double s, double d, double vx, doubl
   max_acceleration = -1;
 }
 
-Vehicle::Vehicle(int lane, float s, float v, float a) {
+Vehicle::Vehicle(int lane, float s, float v, float a, string state) {
   // constructor to initisalise predicted vehicles
   this->lane = lane;
   this->s = s;
