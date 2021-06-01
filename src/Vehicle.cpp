@@ -132,7 +132,7 @@ bool Vehicle::get_vehicle_ahead(map<int, Vehicle> &predictions,
   return found_vehicle;
 }
 
-bool Vehicle::get_vehicle_behind(map<int, vector<Vehicle>> &predictions, 
+bool Vehicle::get_vehicle_behind(map<int, Vehicle> &predictions, 
                                  int lane, Vehicle &rVehicle) {
   // Returns a true if a vehicle is found behind the current vehicle, false 
   //   otherwise. The passed reference rVehicle is updated if a vehicle is found.
@@ -141,7 +141,7 @@ bool Vehicle::get_vehicle_behind(map<int, vector<Vehicle>> &predictions,
   Vehicle temp_vehicle;
   for (map<int, vector<Vehicle>>::iterator it = predictions.begin(); 
        it != predictions.end(); ++it) {
-    temp_vehicle = it->second[0];
+    temp_vehicle = it->second;
     if (temp_vehicle.lane == this->lane && temp_vehicle.s < this->s 
         && temp_vehicle.s > max_s) {
       max_s = temp_vehicle.s;
@@ -234,7 +234,7 @@ vector<Vehicle> Vehicle::keep_lane_trajectory(map<int, vector<Vehicle>> &predict
   return trajectory;
 }
 
-vector<float> Vehicle::get_kinematics(map<int, vector<Vehicle>> &predictions, 
+vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions, 
                                       int lane) {
   // Gets next timestep kinematics (position, velocity, acceleration) 
   //   for a given lane. Tries to choose the maximum velocity and acceleration, 
