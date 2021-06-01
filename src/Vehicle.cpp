@@ -318,7 +318,7 @@ float Vehicle::position_at(int t) {
 Vehicle Vehicle::generate_predictions(int time_horizon, double simulator_time_step) {
   // Generates predictions for non-ego vehicles to be used in trajectory 
   //   generation for the ego vehicle.
-  estimated_s = this.s + ((double)time_horizon * simulator_time_step * this->v);
+  double estimated_s = this->s + ((double)time_horizon * simulator_time_step * this->v);
   
-  return Vehicle(this->lane, estimated_s, this.v, 0);
+  return Vehicle(this->lane, estimated_s, this->v, 0);
 }
