@@ -185,8 +185,8 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	make_traffic_predictions(sensor_fusion); 
 	
 	Vehicle v_ahead;
-	boolean v_ah = ego_vehicle.get_vehicle_ahead(vehicles_in_road,6,v_ahead);
-	if (v_ah ==true){
+	bool v_ah = ego_vehicle.get_vehicle_ahead(vehicles_in_road,6,v_ahead);
+	if (v_ah == true){
 		std::cout <<"Vehicle ahead" <<v_ahead.s<< std::endl;
 	}
 	
