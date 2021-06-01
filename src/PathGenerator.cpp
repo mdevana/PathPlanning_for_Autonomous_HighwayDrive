@@ -271,7 +271,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	
 	if( car_speed < max_velocity ){
 		
-		ref_velocity = car_speed + 9 * simulator_time_step * (50 - path_size);
+		ref_velocity = car_speed + 4.5 * simulator_time_step * (50 - path_size);
 
 	}
 	else 
