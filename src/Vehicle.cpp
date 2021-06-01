@@ -54,9 +54,9 @@ Vehicle::Vehicle(int id,int lane, double car_x, double car_y, double car_s, doub
     
   this->state = state;
   
-  std::cout<< " car yaw "<<this->yaw<<std::endl;
-  std::cout<< " car X "<<this->x<<std::endl;
-  std::cout<< " car Y "<<this->y<<std::endl;
+  //std::cout<< " car yaw "<<this->yaw<<std::endl;
+  //std::cout<< " car X "<<this->x<<std::endl;
+  //std::cout<< " car Y "<<this->y<<std::endl;
 	
 }
 
