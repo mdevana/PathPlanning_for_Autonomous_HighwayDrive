@@ -53,6 +53,8 @@ class Vehicle {
   void generate_predictions(int time_horizon, double simulator_time_step);
 
   void realize_next_state(vector<Vehicle> &trajectory);
+  
+  int getlanefrom_d(double d);
 
   //void configure(vector<int> &road_data);
 
