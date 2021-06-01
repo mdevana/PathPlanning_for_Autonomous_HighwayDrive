@@ -38,9 +38,9 @@ Vehicle::Vehicle(int lane, float s, float v, float a, string state) {
   //max_acceleration = -1;
 }
 
-Vehicle::Vehicle(int id, double car_x, double car_y, double car_s, double car_d, double car_speed, double car_yaw, string state){
+Vehicle::Vehicle(double car_x, double car_y, double car_s, double car_d, double car_speed, double car_yaw, string state){
 	
-  this->ID = id;
+  this->ID = 1000;
   
   this->lane = getlanefrom_d(d);
   this->d = car_d;
