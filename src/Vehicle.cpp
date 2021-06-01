@@ -78,13 +78,13 @@ vector<double> Vehicle::cold_start(double time_step) {
 
 void Vehicle::VehicleParamDisplay(){
 	std::cout <<"Vehicle ID =" <<this->ID << std::endl;
-	std::cout <<"X_Pos =" <<this->x << std::endl;
-	std::cout <<"Y_Pos =" <<this->y << std::endl;
-	std::cout <<"s =" <<this->s << std::endl;
+	//std::cout <<"X_Pos =" <<this->x << std::endl;
+	//std::cout <<"Y_Pos =" <<this->y << std::endl;
+	//std::cout <<"s =" <<this->s << std::endl;
 	std::cout <<"d =" <<this->d << std::endl;
-	std::cout <<"vx =" <<this->vx << std::endl;
-	std::cout <<"vy =" <<this->vy << std::endl;
-	std::cout <<"v =" <<this->v << std::endl;
+	//std::cout <<"vx =" <<this->vx << std::endl;
+	//std::cout <<"vy =" <<this->vy << std::endl;
+	//std::cout <<"v =" <<this->v << std::endl;
 }
 
 vector<string> Vehicle::successor_states() {
@@ -123,8 +123,8 @@ bool Vehicle::get_vehicle_ahead(map<int, Vehicle> &predictions,
   for (map<int, Vehicle>::iterator it = predictions.begin(); 
        it != predictions.end(); ++it) {
     temp_vehicle = it->second;
-	std::cout <<"vehicle ahead s  =" <<temp_vehicle.s<< std::endl;
-	std::cout <<"vehicle ahead lane =" <<temp_vehicle.lane<< std::endl;
+	//std::cout <<"vehicle ahead s  =" <<temp_vehicle.s<< std::endl;
+	//std::cout <<"vehicle ahead lane =" <<temp_vehicle.lane<< std::endl;
     if (temp_vehicle.lane == this->lane && temp_vehicle.s > this->s ) {
       min_s = temp_vehicle.s;
       rVehicle = temp_vehicle;
