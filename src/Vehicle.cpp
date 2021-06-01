@@ -92,6 +92,7 @@ void Vehicle::VehicleParamDisplay(){
 	//std::cout <<"Y_Pos =" <<this->y << std::endl;
 	//std::cout <<"s =" <<this->s << std::endl;
 	std::cout <<"d =" <<this->d << std::endl;
+	std::cout <<"lane =" <<this->lane << std::endl;
 	//std::cout <<"vx =" <<this->vx << std::endl;
 	//std::cout <<"vy =" <<this->vy << std::endl;
 	//std::cout <<"v =" <<this->v << std::endl;
