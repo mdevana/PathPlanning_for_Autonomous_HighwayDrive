@@ -23,8 +23,19 @@ Vehicle::Vehicle(int id, double x, double y,double s, double d, double vx, doubl
   this->vx = vx;
   this->vy = vy;
   this->state = state;
+  this->v = sqrt(vx*vx+vy*vy);
   max_acceleration = -1;
 }
+
+Vehicle::Vehicle(int lane, float s, float v, float a) {
+  // constructor to initisalise predicted vehicles
+  this->lane = lane;
+  this->s = s;
+  this->v = v;
+  this->a = a;
+  max_acceleration = -1;
+}
+
 
 Vehicle::~Vehicle() {}
 
@@ -301,4 +312,12 @@ void Vehicle::increment(int dt = 1) {
 
 float Vehicle::position_at(int t) {
   return this->s + this->v*t + this->a*t*t/2.0;
+}
+
+Vehicle Vehicle::generate_predictions(int time_horizon, double simulator_time_step) {
+  // Generates predictions for non-ego vehicles to be used in trajectory 
+  //   generation for the ego vehicle.
+  estimated_s = this.s + ((double)time_horizon * simulator_time_step * this->v);
+  
+  return Vehicle(this->lane, estimated_s, this.v, 0);
 }

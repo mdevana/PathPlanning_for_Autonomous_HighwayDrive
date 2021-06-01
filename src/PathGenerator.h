@@ -60,7 +60,10 @@ class PathGenerator {
   vector<double> next_y_vals;
   double dist_inc;
   double current_path_length;
-  double max_velocity = 22.22;
+  
+  double simulator_time_step = 0.02;// in seconds
+  double max_velocity = 50 * 1.6 * 1000 / 3600; // 50 miles / hr to m/s 
+  double ref_velocity = max_velocity;
   
   MapPath highway_map;
   
