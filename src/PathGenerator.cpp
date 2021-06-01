@@ -267,7 +267,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	double y_estimate = highway_map.get_y_from_curve(x_estimate);
 	double dist_estimate = sqrt(x_estimate * x_estimate + y_estimate * y_estimate);
 	
-	
+	std::cout <<"Ego Velocity = " <<ego_vehicle.v<< std::endl;
 	
 	if( ego_vehicle.v < max_velocity ){
 		
