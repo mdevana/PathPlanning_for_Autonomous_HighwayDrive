@@ -69,7 +69,7 @@ vector<double> Vehicle::cold_start(double time_step) {
 	x = x + (dist) * cos(yaw);
 	y = y + (dist) * sin(yaw);
 	
-	return {x,y};
+	return vector{x,y};
 	
 }
 
