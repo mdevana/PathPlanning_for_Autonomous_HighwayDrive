@@ -47,7 +47,7 @@ class Vehicle {
   bool get_vehicle_behind(map<int, vector<Vehicle>> &predictions, int lane, 
                           Vehicle &rVehicle);
 
-  bool get_vehicle_ahead(map<int, vector<Vehicle>> &predictions, int lane, 
+  bool get_vehicle_ahead(map<int, Vehicle> &predictions, int lane, 
                          Vehicle &rVehicle);
 
   void generate_predictions(int time_horizon, double simulator_time_step);
