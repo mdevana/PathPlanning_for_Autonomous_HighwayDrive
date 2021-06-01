@@ -48,6 +48,7 @@ void Vehicle::VehicleParamDisplay(){
 	std::cout <<"d =" <<this->d << std::endl;
 	std::cout <<"vx =" <<this->vx << std::endl;
 	std::cout <<"vy =" <<this->vy << std::endl;
+	std::cout <<"v =" <<this->v << std::endl;
 }
 
 vector<string> Vehicle::successor_states() {
@@ -315,10 +316,11 @@ float Vehicle::position_at(int t) {
   return this->s + this->v*t + this->a*t*t/2.0;
 }
 
-Vehicle Vehicle::generate_predictions(int time_horizon, double simulator_time_step) {
+void Vehicle::generate_predictions(int time_horizon, double simulator_time_step) {
   // Generates predictions for non-ego vehicles to be used in trajectory 
   //   generation for the ego vehicle.
-  double estimated_s = this->s + ((double)time_horizon * simulator_time_step * this->v);
+  this->s = this->s + ((double)time_horizon * simulator_time_step * this->v);
   
-  return Vehicle(this->lane, estimated_s, this->v, 0);
+  
+  
 }
