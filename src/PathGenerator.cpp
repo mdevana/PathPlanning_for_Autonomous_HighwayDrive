@@ -182,7 +182,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	Vehicle ego_vehicle(1000,car_x,car_y,car_s,car_d,car_speed,car_yaw,"CS");
 	
 	// step 3 : Make traffic Predictions
-	make_traffic_predictions(vector<vector<double>> sensor_fusion); 
+	make_traffic_predictions(sensor_fusion); 
 	
 	
 	if (path_size ==0){
@@ -197,7 +197,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 		while (end_s < 121) {    
 			
 			
-			double end_coor = ego_vehicle.cold_start(simulator_time_step);
+			vector<double> end_coor = ego_vehicle.cold_start(simulator_time_step);
 			//double end_x_coor = car_x+(0.02 * max_velocity * cnt_start_path_pts)*cos(ref_yaw);
 			//double end_y_coor = car_y+(0.02 * max_velocity * cnt_start_path_pts)*sin(ref_yaw);
 			
@@ -210,10 +210,10 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 			
 			end_s = (highway_map.get_map_convertedS_for_XY(end_coor,end_coor,ref_yaw)).get_s_co();
 			std::cout <<"End S  =" <<end_s << std::endl;
-			//std::cout <<"distance to previous point  =" <<sqrt((end_x_coor-prev_x_coor)*(end_x_coor-prev_x_coor)+(end_y_coor-prev_y_coor)*(end_y_coor-prev_y_coor))<< std::endl;
+			std::cout <<"distance to previous point  =" <<sqrt((end_x_coor-prev_x_coor)*(end_x_coor-prev_x_coor)+(end_y_coor-prev_y_coor)*(end_y_coor-prev_y_coor))<< std::endl;
 			
-			prev_x_coor = end_x_coor;
-			prev_y_coor = end_y_coor;
+			prev_x_coor = end_coor[0];
+			prev_y_coor = end_coor[1];
 		}
 
 		// S needs to be above 121 to merge into the path
