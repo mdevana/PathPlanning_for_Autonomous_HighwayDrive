@@ -231,7 +231,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 		
 	}
 	
-	std::cout <<"End S  =" <<end_s << std::endl;
+	//std::cout <<"End S  =" <<end_s << std::endl;
 	highway_map.calculate_map_XYspline_for_s(end_s, 6, pts_x, pts_y,ref_yaw);
 		
 	
@@ -251,7 +251,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	else 
 		ref_velocity = max_velocity;
 		
-	std::cout <<"Ref velocity= " <<ref_velocity<< std::endl;
+	//std::cout <<"Ref velocity= " <<ref_velocity<< std::endl;
 		
 	double n_dist_inc = dist_estimate / (0.02*ref_velocity);
 	double dist_inc_x = x_estimate / n_dist_inc;
