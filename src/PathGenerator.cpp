@@ -165,7 +165,9 @@ void PathGenerator::Execute_lane_change_with_JMT(){
 void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor_fusion){
 	
 	
+	int path_size = previous_path_x.size();
 	
+	std::cout<< " size of path "<<path_size;
 	std::cout <<"Size =" <<sensor_fusion.size() << std::endl;
 	
 	
@@ -176,8 +178,9 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 		int id = sensor_fusion[i][0];
 		std::cout<< " inserting vehicles on road id at : "<<i<<" : " <<id<<std::endl;
 	    Vehicle v(id,sensor_fusion[i][1],sensor_fusion[i][2],sensor_fusion[i][3],sensor_fusion[i][4],sensor_fusion[i][5],sensor_fusion[i][6],"CS");
-		v.VehicleParamDisplay();		
-		vehicles_in_road.insert(std::pair<int,Vehicle>(id,v));
+		v.VehicleParamDisplay();
+		Vehicle v1.generate_predictions(path_size, simulation_time_step);	
+		vehicles_in_road.insert(std::pair<int,Vehicle>(id,v1));
 	}
 	
 	map<int, Vehicle>::iterator it = vehicles_in_road.begin();
