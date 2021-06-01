@@ -14,7 +14,7 @@ class Vehicle {
   // Constructors
   Vehicle();
   Vehicle(int id, double x, double y,double s, double d, double vx, double vy,string state);
-  Vehicle::Vehicle(int lane, float s, float v, float a, string state="CS");
+  Vehicle(int lane, float s, float v, float a, string state="CS");
 
   // Destructor
   virtual ~Vehicle();
@@ -46,7 +46,7 @@ class Vehicle {
   bool get_vehicle_ahead(map<int, vector<Vehicle>> &predictions, int lane, 
                          Vehicle &rVehicle);
 
-  Vehicle generate_predictions(int horizon=2);
+  Vehicle generate_predictions(int time_horizon, double simulator_time_step);
 
   void realize_next_state(vector<Vehicle> &trajectory);
 
