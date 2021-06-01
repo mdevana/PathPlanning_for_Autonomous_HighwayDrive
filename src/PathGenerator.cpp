@@ -230,7 +230,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 
 void PathGenerator::copy_unexecuted_path(){
 	
-	for(i=0;i< previous_path_x.size();i++){
+	for(int i=0;i< previous_path_x.size();i++){
 		
 		next_x_vals.push_back(previous_path_x[i]);
 		next_y_vals.push_back(previous_path_y[i]);
