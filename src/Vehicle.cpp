@@ -25,7 +25,7 @@ Vehicle::Vehicle(int id, double x, double y,double s, double d, double vx, doubl
   this->vy = vy;
   this->state = state;
   this->v = sqrt(vx*vx+vy*vy);
-  this->lane = (int)d;
+  this->lane = getlanefrom_d(d);
   //max_acceleration = -1;
 }
 
@@ -73,6 +73,16 @@ vector<double> Vehicle::cold_start(double time_step) {
 	vector<double> xy{x,y};
 	
 	return (xy);
+	
+}
+
+int Vehicle::getlanefrom_d(double d){
+	if (d>0 && d<=4)
+		return (1);
+	else if (d > 4 && d<=8)
+		return (2);
+	else if ( d > 8 && d<=12)
+		return (3);
 	
 }
 
