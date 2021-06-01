@@ -24,13 +24,13 @@ class Vehicle {
   
   vector<double> cold_start(double time_step);
   
-  vector<Vehicle> choose_next_state(map<int, vector<Vehicle>> &predictions);
+  vector<Vehicle> choose_next_state(map<int, Vehicle> &predictions);
 
   
 
-  vector<Vehicle> generate_trajectory(string state, map<int, vector<Vehicle>> &predictions);
+  vector<Vehicle> generate_trajectory(string state, map<int, Vehicle> &predictions);
 
-  vector<float> get_kinematics(map<int, vector<Vehicle>> &predictions, int lane);
+  vector<float> get_kinematics(map<int, Vehicle> &predictions, int lane);
 
   vector<Vehicle> constant_speed_trajectory();
 
