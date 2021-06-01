@@ -141,7 +141,7 @@ bool Vehicle::get_vehicle_behind(map<int, Vehicle> &predictions,
   Vehicle temp_vehicle;
   for (map<int, vector<Vehicle>>::iterator it = predictions.begin(); 
        it != predictions.end(); ++it) {
-    temp_vehicle = it->second[0];
+    temp_vehicle = it->second;
     if (temp_vehicle.lane == this->lane && temp_vehicle.s < this->s 
         && temp_vehicle.s > max_s) {
       max_s = temp_vehicle.s;
