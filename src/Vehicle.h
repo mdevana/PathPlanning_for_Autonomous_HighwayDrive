@@ -44,7 +44,7 @@ class Vehicle {
 
   float position_at(int t);
 
-  bool get_vehicle_behind(map<int, vector<Vehicle>> &predictions, int lane, 
+  bool get_vehicle_behind(map<int, Vehicle> &predictions, int lane, 
                           Vehicle &rVehicle);
 
   bool get_vehicle_ahead(map<int, Vehicle> &predictions, int lane, 
