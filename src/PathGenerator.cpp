@@ -166,6 +166,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	
 	
 	int path_size = previous_path_x.size();
+	path_size=10;
 	
 	std::cout<< " size of path "<<path_size;
 	std::cout <<"Size =" <<sensor_fusion.size() << std::endl;
