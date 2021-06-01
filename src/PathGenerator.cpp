@@ -242,6 +242,8 @@ void PathGenerator::make_traffic_predictions(vector<vector<double>> sensor_fusio
 	
 	std::cout <<"Size =" <<sensor_fusion.size() << std::endl;
 	
+	int path_size = previous_path_x.size();
+	
 	for(int i = 0 ; i <sensor_fusion.size(); i++){
 		//int id, double x, double y,double s, double d, double vx, double vy, string state
 		int id = sensor_fusion[i][0];
