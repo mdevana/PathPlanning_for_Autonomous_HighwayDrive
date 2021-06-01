@@ -89,7 +89,7 @@ class Vehicle {
 
   int lane, goal_lane, goal_s, lanes_available;
 
-  float target_speed, max_acceleration = 9;
+  float target_speed = 22.22, max_acceleration = 9;
 
   
 };

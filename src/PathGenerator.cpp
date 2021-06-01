@@ -189,6 +189,12 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	if (v_ah == true){
 		std::cout <<"Vehicle ahead" <<v_ahead.s<< std::endl;
 	}
+	Vehicle v_behind;
+	bool v_behind = ego_vehicle.get_vehicle_behind(vehicles_in_road,2,v_ahead);
+	if (v_behind == true){
+		std::cout <<"Vehicle behind" <<v_behind.s<< std::endl;
+	}
+	
 	
 	
 	if (path_size ==0){
