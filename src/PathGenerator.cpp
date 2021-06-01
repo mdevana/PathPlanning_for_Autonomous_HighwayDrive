@@ -269,46 +269,31 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	
 	std::cout <<"Ego Velocity = " <<ego_vehicle.v<< std::endl;
 	
-	if( ego_vehicle.v < max_velocity ){
+	if( car_speed < max_velocity ){
 		
-		double x_pt = 0;
-		double y_pt;
-		double ref_vel = ego_vehicle.v + 4.5 * simulator_time_step; 
-		
-		for(int i = 1; i<= 50 - path_size;i++){
-		
-			x_pt += (ref_vel * simulator_time_step);
-			y_pt = highway_map.get_y_from_curve(x_pt);
-		
-			next_x_vals.push_back(ref_x + (x_pt * cos(ref_yaw)  - y_pt * sin(ref_yaw)));
-			next_y_vals.push_back(ref_y + (x_pt * sin(ref_yaw)  + y_pt * cos(ref_yaw)));
+		ref_vel = car_speed + 9 * simulator_time_step * (50 - path_size);
 
-			ref_vel += 4.5 * simulator_time_step;
-		}
-		
-		std::cout <<"Ref Velocity = " <<ref_vel << std::endl;
-		
 	}
-	
-	else  {
-	
-	double n_dist_inc = dist_estimate / (0.02*max_velocity);
+	else 
+		ref_vel = max_velocity;
+		
+	double n_dist_inc = dist_estimate / (0.02*ref_vel);
 	double dist_inc_x = x_estimate / n_dist_inc;
 	double x_pt = 0;
 	double y_pt;
 	
-	for(int i = 1; i<= 50 - path_size;i++){
-		
-		x_pt += dist_inc_x;
-		y_pt = highway_map.get_y_from_curve(x_pt);
+		for(int i = 1; i<= 50 - path_size;i++){
+			
+			x_pt += dist_inc_x;
+			y_pt = highway_map.get_y_from_curve(x_pt);
 
-		
-		next_x_vals.push_back(ref_x + (x_pt * cos(ref_yaw)  - y_pt * sin(ref_yaw)));
-		next_y_vals.push_back(ref_y + (x_pt * sin(ref_yaw)  + y_pt * cos(ref_yaw)));
+			
+			next_x_vals.push_back(ref_x + (x_pt * cos(ref_yaw)  - y_pt * sin(ref_yaw)));
+			next_y_vals.push_back(ref_y + (x_pt * sin(ref_yaw)  + y_pt * cos(ref_yaw)));
 
-		
-	}
-	}
+			
+		}
+	
 	
 		
 	
