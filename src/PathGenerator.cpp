@@ -180,7 +180,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	    Vehicle v(id,sensor_fusion[i][1],sensor_fusion[i][2],sensor_fusion[i][3],sensor_fusion[i][4],sensor_fusion[i][5],sensor_fusion[i][6],"CS");
 		v.VehicleParamDisplay();
 		v.generate_predictions(path_size, simulator_time_step);	
-		vehicles_in_road.insert(std::pair<int,Vehicle>(id,v1));
+		vehicles_in_road.insert(std::pair<int,Vehicle>(id,v));
 	}
 	
 	map<int, Vehicle>::iterator it = vehicles_in_road.begin();
