@@ -210,7 +210,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 			
 			end_s = (highway_map.get_map_convertedS_for_XY(end_coor,end_coor,ref_yaw)).get_s_co();
 			std::cout <<"End S  =" <<end_s << std::endl;
-			std::cout <<"distance to previous point  =" <<sqrt((end_x_coor-prev_x_coor)*(end_x_coor-prev_x_coor)+(end_y_coor-prev_y_coor)*(end_y_coor-prev_y_coor))<< std::endl;
+			std::cout <<"distance to previous point  =" <<sqrt((end_coor[0]-prev_x_coor)*(end_coor[0]-prev_x_coor)+(end_coor[1]-prev_y_coor)*(end_coor[1]-prev_y_coor))<< std::endl;
 			
 			prev_x_coor = end_coor[0];
 			prev_y_coor = end_coor[1];
