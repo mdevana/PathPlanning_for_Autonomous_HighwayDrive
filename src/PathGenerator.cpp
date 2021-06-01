@@ -185,7 +185,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	make_traffic_predictions(sensor_fusion); 
 	
 	
-	if (path_size ==0){
+	/*if (path_size ==0){
 
 		double prev_x_coor = car_x;
 		double prev_y_coor = car_y;
@@ -219,7 +219,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 		// S needs to be above 121 to merge into the path
 
 		
-	}
+	}*/
 	
 	vector<double> pts_x;
 	vector<double> pts_y;
