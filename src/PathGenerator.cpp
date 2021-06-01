@@ -261,9 +261,33 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 		
 	
 	
+	
 	double x_estimate = 30;
 	double y_estimate = highway_map.get_y_from_curve(x_estimate);
 	double dist_estimate = sqrt(x_estimate * x_estimate + y_estimate * y_estimate);
+	
+	
+	
+	if( ego_vehicle.v < max_velocity ){
+		
+		double x_pt = 0;
+		double y_pt;
+		double ref_vel = ego_vehicle.v + 9.0 * simulator_time_step; 
+		
+		for(int i = 1; i<= 50 - path_size;i++){
+		
+			x_pt += (ref_vel * simulator_time_step);
+			y_pt = highway_map.get_y_from_curve(x_pt);
+		
+			next_x_vals.push_back(ref_x + (x_pt * cos(ref_yaw)  - y_pt * sin(ref_yaw)));
+			next_y_vals.push_back(ref_y + (x_pt * sin(ref_yaw)  + y_pt * cos(ref_yaw)));
+
+		
+		}
+		
+	}
+	
+	else  {
 	
 	double n_dist_inc = dist_estimate / (0.02*max_velocity);
 	double dist_inc_x = x_estimate / n_dist_inc;
@@ -280,6 +304,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 		next_y_vals.push_back(ref_y + (x_pt * sin(ref_yaw)  + y_pt * cos(ref_yaw)));
 
 		
+	}
 	}
 	
 		
