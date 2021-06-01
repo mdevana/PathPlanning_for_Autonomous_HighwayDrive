@@ -64,12 +64,12 @@ Vehicle::~Vehicle() {}
 
 vector<double> Vehicle::cold_start(double time_step) {
 	
-	double dist = car_speed * time_step + 0,5 * max_acceleration *  time_step * time_step;
-	car_speed = car_speed + max_acceleration * time_step;
-	car_x = car_x + (dist) * cos(car_yaw);
-	car_y = car_y + (dist) * sin(car_yaw);
+	double dist = v * time_step + 0,5 * max_acceleration *  time_step * time_step;
+	v = v + max_acceleration * time_step;
+	x = x + (dist) * cos(car_yaw);
+	y = y + (dist) * sin(car_yaw);
 	
-	return {car_x,car_y};
+	return {x,y};
 	
 }
 
