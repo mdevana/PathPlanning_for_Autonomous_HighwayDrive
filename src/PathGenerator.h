@@ -67,7 +67,7 @@ class PathGenerator {
   
   MapPath highway_map;
   
-  std::map<int, Vehicle> vehicles_in_road;
+  std::map<int, vector<Vehicle>> vehicles_in_road;
   
   enum lanecode { left = 2, middle = 6, right = 10 }; 
   
