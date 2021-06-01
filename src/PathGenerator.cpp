@@ -179,7 +179,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	double ref_yaw = (car_yaw) * M_PI / 180;
 	double ref_velocity = car_speed;
 		
-	Vehicle ego_vehicle(1000,int(car_d),car_x,car_y,car_s,car_d,car_speed,car_yaw,"CS");
+	Vehicle ego_vehicle(1000,car_x,car_y,car_s,car_d,car_speed,car_yaw,"CS");
 	
 	// step 3 : Make traffic Predictions
 	make_traffic_predictions(sensor_fusion); 
