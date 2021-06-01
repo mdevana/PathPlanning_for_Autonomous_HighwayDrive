@@ -286,6 +286,8 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 			ref_vel += 4.5 * simulator_time_step;
 		}
 		
+		std::cout <<"Ref Velocity = " <<ref_vel << std::endl;
+		
 	}
 	
 	else  {
