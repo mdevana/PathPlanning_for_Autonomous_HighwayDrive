@@ -34,9 +34,9 @@ class Vehicle {
 
   vector<Vehicle> constant_speed_trajectory();
 
-  vector<Vehicle> keep_lane_trajectory(map<int, vector<Vehicle>> &predictions);
+  vector<Vehicle> keep_lane_trajectory(map<int, Vehicle> &predictions);
 
-  vector<Vehicle> lane_change_trajectory(string state, map<int, vector<Vehicle>> &predictions);
+  vector<Vehicle> lane_change_trajectory(string state, map<int, Vehicle> &predictions);
 
   vector<Vehicle> prep_lane_change_trajectory(string state, map<int, Vehicle> &predictions);
 
