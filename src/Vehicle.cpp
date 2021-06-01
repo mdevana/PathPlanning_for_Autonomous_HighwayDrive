@@ -25,7 +25,7 @@ Vehicle::Vehicle(int id, double x, double y,double s, double d, double vx, doubl
   this->vy = vy;
   this->state = state;
   this->v = sqrt(vx*vx+vy*vy);
-  max_acceleration = -1;
+  //max_acceleration = -1;
 }
 
 Vehicle::Vehicle(int lane, float s, float v, float a, string state) {
@@ -34,7 +34,7 @@ Vehicle::Vehicle(int lane, float s, float v, float a, string state) {
   this->s = s;
   this->v = v;
   this->a = a;
-  max_acceleration = -1;
+  //max_acceleration = -1;
 }
 
 Vehicle::Vehicle(int id,int lane, double car_x, double car_y, double car_s, double car_d, double car_speed, double car_yaw, string state){
