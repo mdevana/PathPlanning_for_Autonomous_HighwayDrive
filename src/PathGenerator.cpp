@@ -166,13 +166,81 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	
 	
 	int path_size = previous_path_x.size();
-	path_size=10;
-	
 	std::cout<< " size of path "<<path_size;
+	
+	
+	// step 1 : copy unexecuted Path
+	copy_unexecuted_path(); 
+
+	// step 2 : initialise Ego Vehicle
+	//int id, double x, double y,double s, double d, double v, double yaw, string state
+	double ref_x = car_x;
+	double ref_y = car_y;
+	double ref_yaw = (car_yaw) * M_PI / 180;
+	double ref_velocity = car_speed;
+		
+	Vehicle ego_vehicle(1000,car_x,car_y,car_s,car_d,car_speed,car_yaw,"CS");
+	
+	// step 3 : Make traffic Predictions
+	make_traffic_predictions(vector<vector<double>> sensor_fusion); 
+	
+	
+	if (path_size ==0){
+
+		double end_x_coor;
+		double end_y_coor;
+		
+		end_s = 0;
+		
+		int cnt_start_path_pts=1;
+				
+		while (end_s < 121) {    
+			
+			
+			double end_coor = ego_vehicle.cold_start(simulator_time_step);
+			//double end_x_coor = car_x+(0.02 * max_velocity * cnt_start_path_pts)*cos(ref_yaw);
+			//double end_y_coor = car_y+(0.02 * max_velocity * cnt_start_path_pts)*sin(ref_yaw);
+			
+			std::cout <<"Car X =" <<end_coor[0]<< std::endl;
+			std::cout <<"Car y =" <<end_coor[1] << std::endl;
+			
+			next_x_vals.push_back(end_coor[0]);
+			next_y_vals.push_back(end_coor[1]);
+			cnt_start_path_pts++;
+			
+			end_s = (highway_map.get_map_convertedS_for_XY(end_coor,end_coor,ref_yaw)).get_s_co();
+			std::cout <<"End S  =" <<end_s << std::endl;
+			//std::cout <<"distance to previous point  =" <<sqrt((end_x_coor-prev_x_coor)*(end_x_coor-prev_x_coor)+(end_y_coor-prev_y_coor)*(end_y_coor-prev_y_coor))<< std::endl;
+			
+			prev_x_coor = end_x_coor;
+			prev_y_coor = end_y_coor;
+		}
+
+		// S needs to be above 121 to merge into the path
+
+		
+	}
+	
+		
+	
+	
+	
+
+}
+
+void PathGenerator::copy_unexecuted_path(){
+	
+	for(i=0;i< previous_path_x.size();i++){
+		
+		next_x_vals.push_back(previous_path_x[i]);
+		next_y_vals.push_back(previous_path_y[i]);
+	}
+	
+}
+
+void PathGenerator::make_traffic_predictions(vector<vector<double>> sensor_fusion){
+	
 	std::cout <<"Size =" <<sensor_fusion.size() << std::endl;
-	
-	
-	
 	
 	for(int i = 0 ; i <sensor_fusion.size(); i++){
 		//int id, double x, double y,double s, double d, double vx, double vy, string state
@@ -184,6 +252,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 		vehicles_in_road.insert(std::pair<int,Vehicle>(id,v));
 	}
 	
+	/*Debugging CODE
 	map<int, Vehicle>::iterator it = vehicles_in_road.begin();
 	Vehicle vh;
 	
@@ -192,8 +261,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 		std::cout<< " reading out vehicles on road id : " << v_id<<std::endl;
 		it->second.VehicleParamDisplay();
 		++it;
-	}
-
+	}*/
 }
 
 void PathGenerator::generate_map_path_with_transform(){
