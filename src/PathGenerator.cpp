@@ -221,6 +221,9 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 		
 	}
 	
+	vector<double> pts_x;
+	vector<double> pts_y;
+	
 	if ( path_size < 2){
 		
 		// 2 points that makes path tangent to the car
