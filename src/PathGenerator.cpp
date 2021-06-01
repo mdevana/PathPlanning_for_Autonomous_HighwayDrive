@@ -301,7 +301,7 @@ void PathGenerator::make_traffic_predictions(vector<vector<double>> sensor_fusio
 		double d = sensor_fusion[i][4];
 		 
 		if (d>0) {
-			Vehicle v(id,sensor_fusion[i][1],sensor_fusion[i][2],sensor_fusion[i][3],sensor_fusion[i][4],sensor_fusion[i][5],sensor_fusion[i][6],"CS");
+			Vehicle v(id,sensor_fusion[i][1],sensor_fusion[i][2],sensor_fusion[i][5],sensor_fusion[i][6],sensor_fusion[i][3],sensor_fusion[i][4],"CS");
 			v.VehicleParamDisplay();
 			v.generate_predictions(path_size, simulator_time_step);	
 			vehicles_in_road.insert(std::pair<int,Vehicle>(id,v));
