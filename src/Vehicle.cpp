@@ -154,16 +154,16 @@ bool Vehicle::get_vehicle_behind(map<int, Vehicle> &predictions,
 }
 
 vector<Vehicle> Vehicle::lane_change_trajectory(string state, 
-                                                map<int, vector<Vehicle>> &predictions) {
+                                                map<int, Vehicle> &predictions) {
   // Generate a lane change trajectory.
   int new_lane = this->lane + lane_direction[state];
   vector<Vehicle> trajectory;
   Vehicle next_lane_vehicle;
   // Check if a lane change is possible (check if another vehicle occupies 
   //   that spot).
-  for (map<int, vector<Vehicle>>::iterator it = predictions.begin(); 
+  for (map<int, Vehicle>::iterator it = predictions.begin(); 
        it != predictions.end(); ++it) {
-    next_lane_vehicle = it->second[0];
+    next_lane_vehicle = it->second;
     if (next_lane_vehicle.s == this->s && next_lane_vehicle.lane == new_lane) {
       // If lane change is not possible, return empty trajectory.
       return trajectory;
@@ -222,7 +222,7 @@ vector<Vehicle> Vehicle::constant_speed_trajectory() {
   return trajectory;
 }
 
-vector<Vehicle> Vehicle::keep_lane_trajectory(map<int, vector<Vehicle>> &predictions) {
+vector<Vehicle> Vehicle::keep_lane_trajectory(map<int, Vehicle> &predictions) {
   // Generate a keep lane trajectory.
   vector<Vehicle> trajectory = {Vehicle(lane, this->s, this->v, this->a, state)};
   vector<float> kinematics = get_kinematics(predictions, this->lane);
@@ -269,7 +269,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 }
 
 vector<Vehicle> Vehicle::generate_trajectory(string state, 
-                                             map<int, vector<Vehicle>> &predictions) {
+                                             map<int, Vehicle> &predictions) {
   // Given a possible next state, generate the appropriate trajectory to realize
   //   the next state.
   vector<Vehicle> trajectory;
@@ -286,7 +286,7 @@ vector<Vehicle> Vehicle::generate_trajectory(string state,
   return trajectory;
 }
 
-vector<Vehicle> Vehicle::choose_next_state(map<int, vector<Vehicle>> &predictions) {
+vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions) {
   /**
    * Here you can implement the transition_function code from the Behavior 
    *   Planning Pseudocode classroom concept.
@@ -320,8 +320,8 @@ vector<Vehicle> Vehicle::choose_next_state(map<int, vector<Vehicle>> &prediction
        
        trajectory_for_state=generate_trajectory(*t,predictions);
        
-       cost_for_trajectory.push_back(calculate_cost(*this,predictions,trajectory_for_state));
-       final_trajectories.push_back(trajectory_for_state);
+       //cost_for_trajectory.push_back(calculate_cost(*this,predictions,trajectory_for_state));
+       //final_trajectories.push_back(trajectory_for_state);
        
    }
    
