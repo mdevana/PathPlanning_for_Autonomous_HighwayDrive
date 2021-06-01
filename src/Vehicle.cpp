@@ -134,8 +134,8 @@ bool Vehicle::get_vehicle_ahead(map<int, Vehicle> &predictions,
   for (map<int, Vehicle>::iterator it = predictions.begin(); 
        it != predictions.end(); ++it) {
     temp_vehicle = it->second;
-	//std::cout <<"vehicle ahead s  =" <<temp_vehicle.s<< std::endl;
-	//std::cout <<"vehicle ahead lane =" <<temp_vehicle.lane<< std::endl;
+	std::cout <<"vehicle ahead s  =" <<temp_vehicle.s<< std::endl;
+	std::cout <<"vehicle ahead lane =" <<temp_vehicle.lane<< std::endl;
     if (temp_vehicle.lane == this->lane && temp_vehicle.s > this->s ) {
       min_s = temp_vehicle.s;
       rVehicle = temp_vehicle;
