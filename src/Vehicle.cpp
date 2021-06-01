@@ -25,6 +25,7 @@ Vehicle::Vehicle(int id, double x, double y,double s, double d, double vx, doubl
   this->vy = vy;
   this->state = state;
   this->v = sqrt(vx*vx+vy*vy);
+  this->lane = (int)d;
   //max_acceleration = -1;
 }
 
