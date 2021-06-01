@@ -197,7 +197,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 		while (end_s < 125) {    
 			
 			
-			vector<double> end_coor = ego_vehicle.cold_start(simulator_time_step);
+			vector<double> end_coor = ego_vehicle.cold_start(cnt_start_path_pts,simulator_time_step);
 			//double end_x_coor = car_x+(0.02 * max_velocity * cnt_start_path_pts)*cos(ref_yaw);
 			//double end_y_coor = car_y+(0.02 * max_velocity * cnt_start_path_pts)*sin(ref_yaw);
 			
