@@ -187,8 +187,8 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	
 	if (path_size ==0){
 
-		double end_x_coor;
-		double end_y_coor;
+		prev_x_coor = car_x;
+		prev_y_coor = car_y;
 		
 		end_s = 0;
 		
