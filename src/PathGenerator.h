@@ -64,6 +64,8 @@ class PathGenerator {
   
   MapPath highway_map;
   
+  std::map<int, Vehicle> vehicles_in_road;
+  
   enum lanecode { left = 2, middle = 6, right = 10 }; 
   
   vector<double> JMT(vector<double> &start, vector<double> &end, double T);
