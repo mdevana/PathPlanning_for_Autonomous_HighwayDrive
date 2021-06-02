@@ -143,6 +143,8 @@ bool Vehicle::get_vehicle_ahead(map<int, Vehicle> &predictions,
     }
   }
   
+  std::cout <<"vehicle found =" <<found_vehicle<< std::endl;
+  
   return found_vehicle;
 }
 
