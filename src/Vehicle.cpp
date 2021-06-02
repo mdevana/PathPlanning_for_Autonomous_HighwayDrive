@@ -138,14 +138,15 @@ bool Vehicle::get_vehicle_ahead(map<int, Vehicle> &predictions,
     temp_vehicle = it->second;
 //    if (temp_vehicle.lane == this->lane && temp_vehicle.s > this->s ) {
 	  
-	  if (temp_vehicle.lane == this->lane && (temp_vehicle.s > this->s ) &&(temp_vehicle.s - this->s < 50) ) {
-      min_s = temp_vehicle.s;
-      rVehicle = temp_vehicle;
-      found_vehicle = true;
-    }
+	  if (temp_vehicle.lane == this->lane)
+	  if ( (temp_vehicle.s > this->s ) && (temp_vehicle.s - this->s < 50) ) {
+		min_s = temp_vehicle.s;
+		rVehicle = temp_vehicle;
+		found_vehicle = true;
+	}
   }
   
-  std::cout <<"vehicle found =" <<found_vehicle<< std::endl;
+  
   
   return found_vehicle;
 }
