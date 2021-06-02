@@ -42,7 +42,7 @@ Vehicle::Vehicle(double car_x, double car_y, double car_s, double car_d, double 
 	
   this->ID = 1000;
   
-  this->lane = getlanefrom_d(d);
+  this->lane = getlanefrom_d(car_d);
   this->d = car_d;
   this->s = car_s;
   
@@ -57,8 +57,8 @@ Vehicle::Vehicle(double car_x, double car_y, double car_s, double car_d, double 
   //std::cout<< " car yaw "<<this->yaw<<std::endl;
   //std::cout<< " car X "<<this->x<<std::endl;
   //std::cout<< " car Y "<<this->y<<std::endl;
-  std::cout<< " car d "<<car_d<<std::endl;
-  std::cout<< " Lane "<<this->lane<<std::endl;
+  //std::cout<< " car d "<<car_d<<std::endl;
+  //std::cout<< " Lane "<<this->lane<<std::endl;
 	
 }
 
@@ -136,10 +136,10 @@ bool Vehicle::get_vehicle_ahead(map<int, Vehicle> &predictions,
   for (map<int, Vehicle>::iterator it = predictions.begin(); 
        it != predictions.end(); ++it) {
     temp_vehicle = it->second;
-	std::cout <<"vehicle ahead s  =" <<temp_vehicle.s<< std::endl;
+	/*std::cout <<"vehicle ahead s  =" <<temp_vehicle.s<< std::endl;
 	std::cout <<"vehicle ahead lane =" <<temp_vehicle.lane<< std::endl;
 	std::cout <<"ego vehicle s  =" <<this->s<< std::endl;
-	std::cout <<"ego vehicle lane =" <<this->lane<< std::endl;
+	std::cout <<"ego vehicle lane =" <<this->lane<< std::endl;*/
     if (temp_vehicle.lane == this->lane && temp_vehicle.s > this->s ) {
       min_s = temp_vehicle.s;
       rVehicle = temp_vehicle;
