@@ -239,6 +239,8 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 		
 	}
 	
+	ref_velocity = ((pts_x[1]-pts_x[0] ) * (pts_x[1]-pts_x[0]) +  (pts_y[1]-pts_y[0]) * (pts_y[1]-pts_y[0])) / simulator_time_step;
+	std::cout <<"Ref Velocity  =" <<ref_velocity<< std::endl;
 	//std::cout <<"End S  =" <<end_s << std::endl;
 	highway_map.calculate_map_XYspline_for_s(end_s, 6, pts_x, pts_y,ref_yaw,ego_vehicle.lane);
 		
@@ -253,7 +255,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	
 	if( car_speed < max_velocity ){
 		
-		ref_velocity = car_speed + 2.5 * simulator_time_step * (50 - path_size);
+		ref_velocity += 2.5 * simulator_time_step * (50 - path_size);
 
 	}
 	else 
