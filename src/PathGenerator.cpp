@@ -188,6 +188,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	bool v_ah = ego_vehicle.get_vehicle_ahead(vehicles_in_road,2,v_ahead);
 	if (v_ah == true){
 		std::cout <<"Vehicle ahead" <<v_ahead.s<< std::endl;
+		ego_vehicle.lane=1;
 	}
 	Vehicle v_behind;
 	bool v_bh = ego_vehicle.get_vehicle_behind(vehicles_in_road,2,v_behind);
@@ -238,7 +239,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	}
 	
 	//std::cout <<"End S  =" <<end_s << std::endl;
-	highway_map.calculate_map_XYspline_for_s(end_s, 6, pts_x, pts_y,ref_yaw);
+	highway_map.calculate_map_XYspline_for_s(end_s, 6, pts_x, pts_y,ref_yaw,ego_vehicle.lane);
 		
 	
 	
