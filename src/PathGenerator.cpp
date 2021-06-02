@@ -176,31 +176,21 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	//int id, double x, double y,double s, double d, double v, double yaw, string state
 	double ref_x = car_x;
 	double ref_y = car_y;
-	double ref_yaw = (car_yaw) * M_PI / 180;
-	double ref_velocity = car_speed;
+	double ref_yaw; 
+	double ref_velocity;
 		
-	Vehicle ego_vehicle(car_x,car_y,car_s,car_d,car_speed,car_yaw,"CS");
 	
-	// step 3 : Make traffic Predictions
-	make_traffic_predictions(sensor_fusion); 
-	
-	Vehicle v_ahead;
-	bool v_ah = ego_vehicle.get_vehicle_ahead(vehicles_in_road,2,v_ahead);
-	if (v_ah == true){
-		std::cout <<"Vehicle ahead in " <<v_ahead.s - ego_vehicle.s << std::endl;
-		
-		ego_vehicle.lane=1;
-	}
-	Vehicle v_behind;
-	bool v_bh = ego_vehicle.get_vehicle_behind(vehicles_in_road,2,v_behind);
-	if (v_bh == true){
-		std::cout <<"Vehicle behind" <<v_behind.s<< std::endl;
-	}
 	
 	
 	
 	if (path_size ==0){
+		
+		ref_x = car_x;
+	    ref_y = car_y;
 		end_s = car_s;
+		end_d = car_d;
+		ref_yaw = (car_yaw) * M_PI / 180;
+		
 
 	}
 	
@@ -243,6 +233,9 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	}
 	
 	
+	Vehicle ego_vehicle(ref_x,ref_y,end_s,end_d,ref_velocity,ref_yaw,"CS");
+	
+	
 	std::cout <<"Ref Velocity  =" <<ref_velocity<< std::endl;
 	//std::cout <<"End S  =" <<end_s << std::endl;
 	highway_map.calculate_map_XYspline_for_s(end_s, 6, pts_x, pts_y,ref_yaw,ego_vehicle.lane);
@@ -282,6 +275,24 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 
 			
 		}
+	
+	
+	
+	// step 3 : Make traffic Predictions
+	make_traffic_predictions(sensor_fusion); 
+	
+	Vehicle v_ahead;
+	bool v_ah = ego_vehicle.get_vehicle_ahead(vehicles_in_road,2,v_ahead);
+	if (v_ah == true){
+		std::cout <<"Vehicle ahead in " <<v_ahead.s - ego_vehicle.s << std::endl;
+		
+		ego_vehicle.lane=1;
+	}
+	Vehicle v_behind;
+	bool v_bh = ego_vehicle.get_vehicle_behind(vehicles_in_road,2,v_behind);
+	if (v_bh == true){
+		std::cout <<"Vehicle behind" <<v_behind.s<< std::endl;
+	}
 	
 	
 		
