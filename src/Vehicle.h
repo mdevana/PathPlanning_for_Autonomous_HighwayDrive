@@ -15,7 +15,7 @@ class Vehicle {
   Vehicle();
   Vehicle(int id, double x, double y,double s, double d, double vx, double vy,string state); // constructor for initialise Vehicles from Sensor Fusion 
   Vehicle(int lane, float s, float v, float a, string state="CS"); // 
-  Vehicle(double car_x, double car_y, double car_s, double car_d, double car_speed, double car_yaw, string state="CS",double max_velocity);// constructor for initialise Vehicles Ego Vehicle 
+  Vehicle(double car_x, double car_y, double car_s, double car_d, double car_speed, double car_yaw, string state="CS",double max_velocity = 22.22);// constructor for initialise Vehicles Ego Vehicle 
 
   // Destructor
   virtual ~Vehicle();
