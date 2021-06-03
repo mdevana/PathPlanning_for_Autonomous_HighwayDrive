@@ -332,14 +332,14 @@ vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions, doubl
        
        trajectory_for_state=generate_trajectory(*t,predictions,time_span);
        
-       cost_for_trajectory.push_back(calculate_cost(*this,predictions,trajectory_for_state));
+       //cost_for_trajectory.push_back(calculate_cost(*this,predictions,trajectory_for_state));
        final_trajectories.push_back(trajectory_for_state);
        
    }
    
-   vector<float>::iterator min_cost=std::min_element(cost_for_trajectory.begin(),cost_for_trajectory.end());
-   int best_index = std::distance(cost_for_trajectory.begin(),min_cost);
- 
+   //vector<float>::iterator min_cost=std::min_element(cost_for_trajectory.begin(),cost_for_trajectory.end());
+   //int best_index = std::distance(cost_for_trajectory.begin(),min_cost);
+   int best_index = 1;
 
   return final_trajectories[best_index];
 }
