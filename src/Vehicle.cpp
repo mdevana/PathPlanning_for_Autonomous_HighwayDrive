@@ -162,8 +162,8 @@ bool Vehicle::get_vehicle_behind(map<int, Vehicle> &predictions,
 }
 
 vector<Vehicle> Vehicle::lane_change_trajectory(string state, 
-                                                map<int, Vehicle> &predictions) {
-  double time_span=1;
+                                                map<int, Vehicle> &predictions, double time_span) {
+  
   // Generate a lane change trajectory.
   int new_lane = this->lane + lane_direction[state];
   vector<Vehicle> trajectory;
@@ -188,8 +188,8 @@ vector<Vehicle> Vehicle::lane_change_trajectory(string state,
 
 
 vector<Vehicle> Vehicle::prep_lane_change_trajectory(string state, 
-                                                     map<int, Vehicle> &predictions) {
-  double time_span;
+                                                     map<int, Vehicle> &predictions, double time_span) {
+  
   // Generate a trajectory preparing for a lane change.
   float new_s;
   float new_v;
@@ -250,7 +250,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
   // Gets next timestep kinematics (position, velocity, acceleration) 
   //   for a given lane. Tries to choose the maximum velocity and acceleration, 
   //   given other vehicle positions and accel/velocity constraints.
-  float max_velocity_accel_limit = this->max_acceleration + this->v;
+  float max_velocity_accel_limit = this->max_acceleration * time_span + this->v;
   float new_position;
   float new_velocity;
   float new_accel;
@@ -259,28 +259,29 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 
   if (get_vehicle_ahead(predictions, lane, vehicle_ahead)) {
     if (get_vehicle_behind(predictions, lane, vehicle_behind)) {
-      // must travel at the speed of traffic, regardless of preferred buffer
+      // Ego stuck between front and back. must travel at the speed of traffic, regardless of preferred buffer
       new_velocity = vehicle_ahead.v;
     } else {
-      float max_velocity_in_front = (vehicle_ahead.s - this->s 
-                                  - this->preferred_buffer) + vehicle_ahead.v 
+	  // Ego has vehicle only in front. reduce speed.	
+      float max_velocity_in_front = (vehicle_ahead.s - this->s - this->preferred_buffer) / time_span + vehicle_ahead.v 
                                   - 0.5 * (this->a);
       new_velocity = std::min(std::min(max_velocity_in_front, 
                                        max_velocity_accel_limit), 
                                        this->target_speed);
     }
   } else {
+	// follow target speed , if less then accelerate   
     new_velocity = std::min(max_velocity_accel_limit, this->target_speed);
   }
     
-  new_accel = new_velocity - this->v; // Equation: (v_1 - v_0)/t = acceleration
-  new_position = this->s + new_velocity + new_accel / 2.0;
+  new_accel = (new_velocity - this->v) / time_span; // Equation: (v_1 - v_0)/t = acceleration
+  new_position = this->s + new_velocity * time_span + new_accel * time_span * time_span / 2.0; // Equation: s = v *t + 0.5 * a * t * t
     
   return{new_position, new_velocity, new_accel};
 }
 
 vector<Vehicle> Vehicle::generate_trajectory(string state, 
-                                             map<int, Vehicle> &predictions) {
+                                             map<int, Vehicle> &predictions, double time_span) {
   // Given a possible next state, generate the appropriate trajectory to realize
   //   the next state.
   vector<Vehicle> trajectory;
@@ -289,9 +290,9 @@ vector<Vehicle> Vehicle::generate_trajectory(string state,
   } else if (state.compare("KL") == 0) {
     trajectory = keep_lane_trajectory(predictions);
   } else if (state.compare("LCL") == 0 || state.compare("LCR") == 0) {
-    trajectory = lane_change_trajectory(state, predictions);
+    trajectory = lane_change_trajectory(state, predictions, time_span);
   } else if (state.compare("PLCL") == 0 || state.compare("PLCR") == 0) {
-    trajectory = prep_lane_change_trajectory(state, predictions);
+    trajectory = prep_lane_change_trajectory(state, predictions, time_span);
   }
 
   return trajectory;
