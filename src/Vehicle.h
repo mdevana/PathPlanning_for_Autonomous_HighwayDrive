@@ -29,7 +29,7 @@ class Vehicle {
 
   vector<Vehicle> generate_trajectory(string state, map<int, Vehicle> &predictions);
 
-  vector<float> get_kinematics(map<int, Vehicle> &predictions, int lane);
+  vector<float> get_kinematics(map<int, Vehicle> &predictions, int lane,double time_span);
 
   vector<Vehicle> constant_speed_trajectory();
 
@@ -49,7 +49,7 @@ class Vehicle {
   bool get_vehicle_ahead(map<int, Vehicle> &predictions, int lane, 
                          Vehicle &rVehicle);
 
-  void generate_predictions(int time_horizon, double simulator_time_step);
+  void generate_predictions(double time_span);
 
   void realize_next_state(vector<Vehicle> &trajectory);
   
@@ -78,7 +78,8 @@ class Vehicle {
   double yaw;
   double vx,vy,v;
   double s,d;
-  double a;
+  double a=0;
+  
   
   string state;
   
