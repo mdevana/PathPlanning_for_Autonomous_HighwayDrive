@@ -35,9 +35,9 @@ class Vehicle {
 
   vector<Vehicle> keep_lane_trajectory(map<int, Vehicle> &predictions);
 
-  vector<Vehicle> lane_change_trajectory(string state, map<int, Vehicle> &predictions);
+  vector<Vehicle> lane_change_trajectory(string state, map<int, Vehicle> &predictions, double time_span);
 
-  vector<Vehicle> prep_lane_change_trajectory(string state, map<int, Vehicle> &predictions);
+  vector<Vehicle> prep_lane_change_trajectory(string state, map<int, Vehicle> &predictions, double time_span);
 
   void increment(int dt);
 
