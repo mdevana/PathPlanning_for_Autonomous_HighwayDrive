@@ -298,7 +298,7 @@ vector<Vehicle> Vehicle::generate_trajectory(string state,
   return trajectory;
 }
 
-vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions) {
+vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions, double time_span) {
   /**
    * Here you can implement the transition_function code from the Behavior 
    *   Planning Pseudocode classroom concept.
@@ -330,7 +330,7 @@ vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions) {
    
    for (vector<string>::iterator t=p_s_states.begin(); t!=p_s_states.end(); ++t) {
        
-       trajectory_for_state=generate_trajectory(*t,predictions);
+       trajectory_for_state=generate_trajectory(*t,predictions,time_span);
        
        //cost_for_trajectory.push_back(calculate_cost(*this,predictions,trajectory_for_state));
        //final_trajectories.push_back(trajectory_for_state);
