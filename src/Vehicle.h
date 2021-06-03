@@ -23,7 +23,7 @@ class Vehicle {
   // Vehicle functions
   
   
-  vector<Vehicle> choose_next_state(map<int, Vehicle> &predictions);
+  vector<Vehicle> choose_next_state(map<int, Vehicle> &predictions, double time_span);
 
   
 
