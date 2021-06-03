@@ -247,7 +247,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	Vehicle v_behind;
 	bool v_bh = ego_vehicle.get_vehicle_behind(vehicles_in_road,2,v_behind);
 	if (v_bh == true){
-		std::cout <<"Vehicle behind" <<v_behind.s<< std::endl;
+		std::cout <<"Vehicle behind" <<ego_vehicle.s - v_behind.s<< std::endl;
 	}
 	
 	
@@ -284,23 +284,11 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 			x_pt += dist_inc_x;
 			y_pt = highway_map.get_y_from_curve(x_pt);
 
-			
 			next_x_vals.push_back(ref_x + (x_pt * cos(ref_yaw)  - y_pt * sin(ref_yaw)));
 			next_y_vals.push_back(ref_y + (x_pt * sin(ref_yaw)  + y_pt * cos(ref_yaw)));
 
 			
 		}
-	
-	
-	
-	// step 3 : Make traffic Predictions
-	
-	
-	
-		
-	
-	
-	
 
 }
 
