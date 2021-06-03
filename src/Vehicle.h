@@ -55,7 +55,7 @@ class Vehicle {
   
   int getlanefrom_d(double d);
 
-  //void configure(vector<int> &road_data);
+  void configure(double max_speed,int lane_avail, double max_accl);
 
   // public Vehicle variables
   /*struct collider{

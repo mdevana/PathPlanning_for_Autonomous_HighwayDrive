@@ -332,8 +332,8 @@ vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions, doubl
        
        trajectory_for_state=generate_trajectory(*t,predictions,time_span);
        
-       //cost_for_trajectory.push_back(calculate_cost(*this,predictions,trajectory_for_state));
-       //final_trajectories.push_back(trajectory_for_state);
+       cost_for_trajectory.push_back(calculate_cost(*this,predictions,trajectory_for_state));
+       final_trajectories.push_back(trajectory_for_state);
        
    }
    
@@ -367,3 +367,13 @@ void Vehicle::generate_predictions(double time_span) {
   //   generation for the ego vehicle.
   this->s = this->s + (time_span * this->v);
 }
+
+void Vehicle::configure(double max_speed,int lane_avail, double max_accl) {
+  // Called by simulator before simulation begins. Sets various parameters which
+  //   will impact the ego vehicle.
+  target_speed = max_speed;
+  lanes_available = lane_avail;
+  
+  max_acceleration = max_accl;
+}
+
