@@ -233,7 +233,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	}
 	
 	
-	Vehicle ego_vehicle(ref_x,ref_y,end_s,end_d,ref_velocity,ref_yaw,"CS");
+	Vehicle ego_vehicle(ref_x,ref_y,end_s,end_d,ref_velocity,ref_yaw,"CS",max_velocity);
 	
 	make_traffic_predictions(sensor_fusion); 
 	
@@ -317,7 +317,7 @@ void PathGenerator::make_traffic_predictions(vector<vector<double>> sensor_fusio
 		if (d>0) {
 			Vehicle v(id,sensor_fusion[i][1],sensor_fusion[i][2],sensor_fusion[i][5],sensor_fusion[i][6],sensor_fusion[i][3],sensor_fusion[i][4],"CS");
 			//v.VehicleParamDisplay();
-			v.generate_predictions(path_size, simulator_time_step);	
+			v.generate_predictions(path_size * simulator_time_step);	
 			vehicles_in_road.insert(std::pair<int,Vehicle>(id,v));
 		}
 	    

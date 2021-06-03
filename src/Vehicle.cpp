@@ -38,7 +38,7 @@ Vehicle::Vehicle(int lane, float s, float v, float a, string state) {
   //max_acceleration = -1;
 }
 
-Vehicle::Vehicle(double car_x, double car_y, double car_s, double car_d, double car_speed, double car_yaw, string state){
+Vehicle::Vehicle(double car_x, double car_y, double car_s, double car_d, double car_speed, double car_yaw, string state, double max_velocity ){
 	
   this->ID = 1000;
   
@@ -53,6 +53,7 @@ Vehicle::Vehicle(double car_x, double car_y, double car_s, double car_d, double 
   this->y = car_y;
     
   this->state = state;
+  this->target_speed = max_velocity;
   
   //std::cout<< " car yaw "<<this->yaw<<std::endl;
   //std::cout<< " car X "<<this->x<<std::endl;
@@ -242,7 +243,7 @@ vector<Vehicle> Vehicle::keep_lane_trajectory(map<int, Vehicle> &predictions) {
 }
 
 vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions, 
-                                      int lane) {
+                                      int lane, double time_span) {
   // Gets next timestep kinematics (position, velocity, acceleration) 
   //   for a given lane. Tries to choose the maximum velocity and acceleration, 
   //   given other vehicle positions and accel/velocity constraints.
@@ -357,8 +358,8 @@ float Vehicle::position_at(int t) {
   return this->s + this->v*t + this->a*t*t/2.0;
 }
 
-void Vehicle::generate_predictions(int time_horizon, double simulator_time_step) {
+void Vehicle::generate_predictions(double time_span) {
   // Generates predictions for non-ego vehicles to be used in trajectory 
   //   generation for the ego vehicle.
-  this->s = this->s + ((double)time_horizon * simulator_time_step * this->v);
+  this->s = this->s + (time_span * this->v);
 }
