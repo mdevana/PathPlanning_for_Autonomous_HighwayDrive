@@ -264,7 +264,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
     } else {
 	  // Ego has vehicle only in front. reduce speed.	
       float max_velocity_in_front = (vehicle_ahead.s - this->s - this->preferred_buffer) / time_span + vehicle_ahead.v 
-                                  - 0.5 * (this->a);
+                                  - 0.5 * (this->a) * time-span;
       new_velocity = std::min(std::min(max_velocity_in_front, 
                                        max_velocity_accel_limit), 
                                        this->target_speed);
@@ -321,6 +321,19 @@ vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions, doubl
    *
    * TODO: Your solution here.
    */
+   
+   Vehicle v_ahead;
+	bool v_ah = this->get_vehicle_ahead(vehicles_in_road,2,v_ahead);
+	if (v_ah == true){
+		std::cout <<"Vehicle ahead in " <<v_ahead.s - this->s << std::endl;
+		
+		ego_vehicle.lane=1;
+	}
+	Vehicle v_behind;
+	bool v_bh = this->get_vehicle_behind(vehicles_in_road,2,v_behind);
+	if (v_bh == true){
+		std::cout <<"Vehicle behind" <<this->s - v_behind.s<< std::endl;
+	}
    
    vector<string> p_s_states =successor_states();
    
