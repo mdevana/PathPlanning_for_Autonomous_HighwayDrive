@@ -353,8 +353,8 @@ vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions, doubl
    /*vector<string> p_s_states =successor_states();
    
    vector<Vehicle> trajectory_for_state;
-   vector<float> cost_for_trajectory;
-   vector<vector<Vehicle>> final_trajectories;*/
+   vector<float> cost_for_trajectory;*/
+   vector<vector<Vehicle>> final_trajectories;
    
    /*for (vector<string>::iterator t=p_s_states.begin(); t!=p_s_states.end(); ++t) {
        
