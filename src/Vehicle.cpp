@@ -371,12 +371,16 @@ vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions, doubl
 
 void Vehicle::test_func(map<int, Vehicle> &predictions, double time_span){
 	
+	vector<Vehicle> trajectory_for_state;
+	
+	trajectory_for_state=keep_lane_trajectory();
+	
 	Vehicle v_ahead;
 	bool v_ah = this->get_vehicle_ahead(predictions,this->lane,v_ahead);
 	if (v_ah == true){
 		std::cout <<"Vehicle ahead in " <<v_ahead.s - this->s << std::endl;
 		
-		prep_lane_change_trajectory("PLCL",predictions,time_span);
+		trajectory_for_state=lane_change_trajectory("LCL",predictions,time_span);
 	}
 	Vehicle v_behind;
 	bool v_bh = this->get_vehicle_behind(predictions,this->lane,v_behind);
@@ -384,10 +388,13 @@ void Vehicle::test_func(map<int, Vehicle> &predictions, double time_span){
 		std::cout <<"Vehicle behind" <<this->s - v_behind.s<< std::endl;
 	}
 	
-	vector<float> kinematics = get_kinematics(predictions, this->lane, time_span);
-	this->s = kinematics[0];
-	this->v = kinematics[1];
-	this->a = kinematics[2];
+	//vector<float> kinematics = get_kinematics(predictions, this->lane, time_span);
+	//this->s = kinematics[0];
+	//this->v = kinematics[1];
+	//this->a = kinematics[2];
+	
+	realize_next_state(trajectory_for_state);
+	
 	std::cout <<"Changed Velocity is :" <<this->v << std::endl;
 	
 }
