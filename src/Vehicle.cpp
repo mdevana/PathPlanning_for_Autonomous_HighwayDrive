@@ -376,7 +376,7 @@ void Vehicle::test_func(map<int, Vehicle> &predictions, double time_span){
 	if (v_ah == true){
 		std::cout <<"Vehicle ahead in " <<v_ahead.s - this->s << std::endl;
 		
-		this->lane=1;
+		prep_lane_change_trajectory("PLCL",predictions,time_span);
 	}
 	Vehicle v_behind;
 	bool v_bh = this->get_vehicle_behind(predictions,this->lane,v_behind);
