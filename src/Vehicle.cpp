@@ -380,6 +380,7 @@ vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions, doubl
    int best_index = 1;
 
   return final_trajectories[best_index];
+  return v_bh;
 }
 
 void Vehicle::realize_next_state(vector<Vehicle> &trajectory) {
