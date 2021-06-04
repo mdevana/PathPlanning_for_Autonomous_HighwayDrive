@@ -395,7 +395,7 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	
 	//realize_next_state(trajectory_for_state);
 	
-	
+	return (trajectory_for_state);
 	
 }
 
