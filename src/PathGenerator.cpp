@@ -238,21 +238,8 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	ego_vehicle.configure(max_velocity,3,6);
 	ego_vehicle.choose_next_state(vehicles_in_road,path_size * simulator_time_step);
 	
-	
-	
-	
-	Vehicle v_ahead;
-	bool v_ah = ego_vehicle.get_vehicle_ahead(vehicles_in_road,2,v_ahead);
-	if (v_ah == true){
-		std::cout <<"Vehicle ahead in " <<v_ahead.s - ego_vehicle.s << std::endl;
 		
-		ego_vehicle.lane=1;
-	}
-	Vehicle v_behind;
-	bool v_bh = ego_vehicle.get_vehicle_behind(vehicles_in_road,2,v_behind);
-	if (v_bh == true){
-		std::cout <<"Vehicle behind" <<ego_vehicle.s - v_behind.s<< std::endl;
-	}
+	
 	
 	
 	//std::cout <<"Ref Velocity  =" <<ref_velocity<< std::endl;
