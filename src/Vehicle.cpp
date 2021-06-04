@@ -173,7 +173,9 @@ vector<Vehicle> Vehicle::lane_change_trajectory(string state,
   for (map<int, Vehicle>::iterator it = predictions.begin(); 
        it != predictions.end(); ++it) {
     next_lane_vehicle = it->second;
-    if (next_lane_vehicle.s == this->s && next_lane_vehicle.lane == new_lane) {
+	double forward_clearance = this->s + 10;
+	double backward_clearance = this->s - 10;
+    if ( (next_lane_vehicle.s  < forward_clearance) && (next_lane_vehicle.s > backward_clearance) && next_lane_vehicle.lane == new_lane) {
       // If lane change is not possible, return empty trajectory.
       return trajectory;
     }
@@ -340,14 +342,14 @@ vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions, doubl
    */
    
    Vehicle v_ahead;
-	bool v_ah = this->get_vehicle_ahead(predictions,2,v_ahead);
+	bool v_ah = this->get_vehicle_ahead(predictions,this->lane,v_ahead);
 	if (v_ah == true){
 		std::cout <<"Vehicle ahead in " <<v_ahead.s - this->s << std::endl;
 		
 		this->lane=1;
 	}
 	Vehicle v_behind;
-	bool v_bh = this->get_vehicle_behind(predictions,2,v_behind);
+	bool v_bh = this->get_vehicle_behind(predictions,this->lane,v_behind);
 	if (v_bh == true){
 		std::cout <<"Vehicle behind" <<this->s - v_behind.s<< std::endl;
 	}
@@ -364,14 +366,14 @@ vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions, doubl
    vector<float> cost_for_trajectory;
    vector<vector<Vehicle>> final_trajectories;
    
-   for (vector<string>::iterator t=p_s_states.begin(); t!=p_s_states.end(); ++t) {
+   /*for (vector<string>::iterator t=p_s_states.begin(); t!=p_s_states.end(); ++t) {
        
        trajectory_for_state=generate_trajectory(*t,predictions,time_span);
        
        //cost_for_trajectory.push_back(calculate_cost(*this,predictions,trajectory_for_state));
        final_trajectories.push_back(trajectory_for_state);
        
-   }
+   }*/
    
    //vector<float>::iterator min_cost=std::min_element(cost_for_trajectory.begin(),cost_for_trajectory.end());
    //int best_index = std::distance(cost_for_trajectory.begin(),min_cost);
@@ -408,8 +410,7 @@ void Vehicle::configure(double max_speed,int lane_avail, double max_accl) {
   // Called by simulator before simulation begins. Sets various parameters which
   //   will impact the ego vehicle.
   target_speed = max_speed;
-  lanes_available = lane_avail;
-  
+  lanes_available = lane_avail;  
   max_acceleration = max_accl;
 }
 
