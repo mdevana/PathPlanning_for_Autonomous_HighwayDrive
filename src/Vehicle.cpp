@@ -268,6 +268,11 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
       new_velocity = std::min(std::min(max_velocity_in_front, 
                                        max_velocity_accel_limit), 
                                        this->target_speed);
+	  std::cout <<"In getkinematics : max velocity in front " <<max_velocity_in_front<< std::endl;
+	  std::cout <<"In getkinematics : max_velocity_accel_limit " <<max_velocity_accel_limit<< std::endl;
+	  std::cout <<"In getkinematics : target speed " <<this->target_speed<< std::endl;
+	  std::cout <<"In getkinematics : choosen speed " <<new_velocity<< std::endl;
+	  
     }
   } else {
 	// follow target speed , if less then accelerate   
@@ -336,7 +341,9 @@ vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions, doubl
 	}
 	
 	vector<float> kinematics = get_kinematics(predictions, this->lane, time_span);
+	this->s = kinematics[0];
 	this->v = kinematics[1];
+	this->a = kinematics[2];
 	std::cout <<"Changed Velocity is :" <<this->v << std::endl;
    
    vector<string> p_s_states =successor_states();
