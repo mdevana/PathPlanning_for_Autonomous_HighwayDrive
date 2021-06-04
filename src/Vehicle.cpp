@@ -95,12 +95,8 @@ vector<string> Vehicle::successor_states(map<int, Vehicle> &predictions, double 
   //   instantaneously, so LCL and LCR can only transition back to KL.
   
   Vehicle v_ahead;
-	bool v_ah = this->get_vehicle_ahead(predictions,this->lane,v_ahead);
-	if (v_ah == true){
-		std::cout <<"Vehicle ahead in " <<v_ahead.s - this->s << std::endl;
-		
-		trajectory_for_state=prep_lane_change_trajectory("LCL",predictions,time_span);
-	}
+  bool v_ah = this->get_vehicle_ahead(predictions,this->lane,v_ahead);
+
   
   vector<string> states;
   states.push_back("KL");
@@ -108,7 +104,7 @@ vector<string> Vehicle::successor_states(map<int, Vehicle> &predictions, double 
   if(state.compare("KL") == 0) {
     states.push_back("PLCL");
     states.push_back("PLCR");
-  } else if (v_ah == true && this->v < max_velocity) {
+  } else if (v_ah == true && this->v < target_speed) {
 		if (this->lane != lanes_available) {
 		  states.push_back("PLCR");
 		  states.push_back("LCR");
@@ -354,11 +350,11 @@ vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions, doubl
    */
    
    
-   vector<string> p_s_states =successor_states();
+   /*vector<string> p_s_states =successor_states();
    
    vector<Vehicle> trajectory_for_state;
    vector<float> cost_for_trajectory;
-   vector<vector<Vehicle>> final_trajectories;
+   vector<vector<Vehicle>> final_trajectories;*/
    
    /*for (vector<string>::iterator t=p_s_states.begin(); t!=p_s_states.end(); ++t) {
        
