@@ -263,6 +263,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
     if (get_vehicle_behind(predictions, lane, vehicle_behind)) {
       // Ego stuck between front and back. must travel at the speed of traffic, regardless of preferred buffer
       new_velocity = vehicle_ahead.v;
+	  std::cout <<"In ego vehicle velocity bysandwich cars " <<vehicle_ahead.v<< std::endl;
     } else {
 	  // Ego has vehicle only in front. reduce speed.
 	  double allowed_gap_to_front_vehicle = std::min((vehicle_ahead.s - this->s - this->preferred_buffer), 0.0);	
@@ -342,24 +343,6 @@ vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions, doubl
    * TODO: Your solution here.
    */
    
-   Vehicle v_ahead;
-	bool v_ah = this->get_vehicle_ahead(predictions,this->lane,v_ahead);
-	if (v_ah == true){
-		std::cout <<"Vehicle ahead in " <<v_ahead.s - this->s << std::endl;
-		
-		this->lane=1;
-	}
-	Vehicle v_behind;
-	bool v_bh = this->get_vehicle_behind(predictions,this->lane,v_behind);
-	if (v_bh == true){
-		std::cout <<"Vehicle behind" <<this->s - v_behind.s<< std::endl;
-	}
-	
-	vector<float> kinematics = get_kinematics(predictions, this->lane, time_span);
-	this->s = kinematics[0];
-	this->v = kinematics[1];
-	this->a = kinematics[2];
-	std::cout <<"Changed Velocity is :" <<this->v << std::endl;
    
    vector<string> p_s_states =successor_states();
    
