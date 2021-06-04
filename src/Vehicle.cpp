@@ -393,9 +393,9 @@ void Vehicle::test_func(map<int, Vehicle> &predictions, double time_span){
 	//this->v = kinematics[1];
 	//this->a = kinematics[2];
 	
-	realize_next_state(trajectory_for_state);
+	//realize_next_state(trajectory_for_state);
 	
-	std::cout <<"Changed Velocity is :" <<this->v << std::endl;
+	
 	
 }
 
