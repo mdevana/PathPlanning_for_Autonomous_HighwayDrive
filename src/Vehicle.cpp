@@ -269,13 +269,13 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
                                        max_velocity_accel_limit), 
                                        this->target_speed);
 	  std::cout <<"In getkinematics : position of vehicle ahead in front " <<vehicle_ahead.s<< std::endl;									 
-	  std::cout <<"In getkinematics : position of vehicle ego " <<this.s<< std::endl;
+	  std::cout <<"In getkinematics : position of vehicle ego " <<this->s<< std::endl;
 	  std::cout <<"In getkinematics : preferred Buffer " <<this->preferred_buffer<< std::endl;									 	  
 	  
 	  std::cout <<"In getkinematics : Gap component  " <<(vehicle_ahead.s - this->s - this->preferred_buffer)<< std::endl;	
 	  std::cout <<"In getkinematics : current sped distance " <<((vehicle_ahead.v * time_span))<< std::endl;	
 	  std::cout <<"In getkinematics : current velocity " <<(( (vehicle_ahead.s - this->s - this->preferred_buffer) + (vehicle_ahead.v * time_span) ) / time_span)<< std::endl;		
-	  std::cout <<"In getkinematics : velocity addition due  to accl " <<1.0 * (this->a) * time_span<<endl;
+	  std::cout <<"In getkinematics : velocity addition due  to accl " <<1.0 * (this->a) * time_span<<std::endl;
 	  
 	  std::cout <<"In getkinematics : speed of vehicle in front " <<vehicle_ahead.v<< std::endl;
 	  std::cout <<"In getkinematics : current accl of ego vehicle " <<this->a<< std::endl;
