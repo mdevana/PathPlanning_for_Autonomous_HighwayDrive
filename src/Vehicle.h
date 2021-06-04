@@ -21,7 +21,7 @@ class Vehicle {
   virtual ~Vehicle();
 
   // Vehicle functions
-  
+  void test_func(map<int, Vehicle> &predictions, double time_span);
   
   vector<Vehicle> choose_next_state(map<int, Vehicle> &predictions, double time_span);
 

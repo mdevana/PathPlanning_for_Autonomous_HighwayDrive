@@ -364,7 +364,7 @@ vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions, doubl
    
    vector<Vehicle> trajectory_for_state;
    vector<float> cost_for_trajectory;
-   vector<vector<Vehicle>> final_trajectories = predictions[0];
+   vector<vector<Vehicle>> final_trajectories;
    
    /*for (vector<string>::iterator t=p_s_states.begin(); t!=p_s_states.end(); ++t) {
        
@@ -373,16 +373,41 @@ vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions, doubl
        //cost_for_trajectory.push_back(calculate_cost(*this,predictions,trajectory_for_state));
        final_trajectories.push_back(trajectory_for_state);
        
-   }*/
+   }
    
    //vector<float>::iterator min_cost=std::min_element(cost_for_trajectory.begin(),cost_for_trajectory.end());
    //int best_index = std::distance(cost_for_trajectory.begin(),min_cost);
-   int best_index = 1;
+   int best_index = 1;*/
+   
 
   return final_trajectories[0];
   
   
 }
+
+void Vehicle::test_func(map<int, Vehicle> &predictions, double time_span){
+	
+	Vehicle v_ahead;
+	bool v_ah = this->get_vehicle_ahead(predictions,this->lane,v_ahead);
+	if (v_ah == true){
+		std::cout <<"Vehicle ahead in " <<v_ahead.s - this->s << std::endl;
+		
+		this->lane=1;
+	}
+	Vehicle v_behind;
+	bool v_bh = this->get_vehicle_behind(predictions,this->lane,v_behind);
+	if (v_bh == true){
+		std::cout <<"Vehicle behind" <<this->s - v_behind.s<< std::endl;
+	}
+	
+	vector<float> kinematics = get_kinematics(predictions, this->lane, time_span);
+	this->s = kinematics[0];
+	this->v = kinematics[1];
+	this->a = kinematics[2];
+	std::cout <<"Changed Velocity is :" <<this->v << std::endl;
+	
+}
+
 
 void Vehicle::realize_next_state(vector<Vehicle> &trajectory) {
   // Sets state and kinematics for ego vehicle using the last state of the trajectory.
