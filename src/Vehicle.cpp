@@ -277,6 +277,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 	  std::cout <<"In getkinematics : current velocity " <<(( (vehicle_ahead.s - this->s - this->preferred_buffer) + (vehicle_ahead.v * time_span) ) / time_span)<< std::endl;		
 	  std::cout <<"In getkinematics : velocity addition due  to accl " <<1.0 * (this->a) * time_span<<std::endl;
 	  
+	  std::cout <<"In getkinematics : time span " <<time_span<< std::endl;
 	  std::cout <<"In getkinematics : speed of vehicle in front " <<vehicle_ahead.v<< std::endl;
 	  std::cout <<"In getkinematics : current accl of ego vehicle " <<this->a<< std::endl;
 	  std::cout <<"In getkinematics : max velocity in front " <<max_velocity_in_front<< std::endl;
