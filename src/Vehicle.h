@@ -63,7 +63,7 @@ class Vehicle {
     int  time; // time collision happens
   };*/
   //object functions
-  vector<string> successor_states();
+  vector<string> successor_states(map<int, Vehicle> &predictions, double time_span);
   
   void VehicleParamDisplay();
   

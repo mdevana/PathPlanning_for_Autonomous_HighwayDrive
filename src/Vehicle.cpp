@@ -89,26 +89,36 @@ void Vehicle::VehicleParamDisplay(){
 	//std::cout <<"v =" <<this->v << std::endl;
 }
 
-vector<string> Vehicle::successor_states() {
+vector<string> Vehicle::successor_states(map<int, Vehicle> &predictions, double time_span) {
   // Provides the possible next states given the current state for the FSM 
   //   discussed in the course, with the exception that lane changes happen 
   //   instantaneously, so LCL and LCR can only transition back to KL.
+  
+  Vehicle v_ahead;
+	bool v_ah = this->get_vehicle_ahead(predictions,this->lane,v_ahead);
+	if (v_ah == true){
+		std::cout <<"Vehicle ahead in " <<v_ahead.s - this->s << std::endl;
+		
+		trajectory_for_state=prep_lane_change_trajectory("LCL",predictions,time_span);
+	}
+  
   vector<string> states;
   states.push_back("KL");
   string state = this->state;
   if(state.compare("KL") == 0) {
     states.push_back("PLCL");
     states.push_back("PLCR");
-  } else if (state.compare("PLCL") == 0) {
-    if (lane != lanes_available - 1) {
-      states.push_back("PLCL");
-      states.push_back("LCL");
-    }
-  } else if (state.compare("PLCR") == 0) {
-    if (lane != 0) {
-      states.push_back("PLCR");
-      states.push_back("LCR");
-    }
+  } else if (v_ah == true && this->v < max_velocity) {
+		if (this->lane != lanes_available) {
+		  states.push_back("PLCR");
+		  states.push_back("LCR");
+		}
+	   else {
+			if (lane != 1) {
+				states.push_back("PLCL");
+				states.push_back("LCL");
+			}
+		}
   } 
     
   // If state is "LCL" or "LCR", then just return "KL": realised by pushing KL as first state
