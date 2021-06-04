@@ -394,6 +394,17 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 		std::cout <<"Vehicle behind" <<this->s - v_behind.s<< std::endl;
 	}
 	
+	vector<string> p_s_states =successor_states(predictions,time_span);
+	for (vector<string>::iterator t=p_s_states.begin(); t!=p_s_states.end(); ++t) {
+       
+       //trajectory_for_state=generate_trajectory(*t,predictions,time_span);
+       
+       //cost_for_trajectory.push_back(calculate_cost(*this,predictions,trajectory_for_state));
+       //final_trajectories.push_back(trajectory_for_state);
+	   
+	   std::cout <<"Vehicle states" <<*t<< std::endl;
+       
+   }
 	//vector<float> kinematics = get_kinematics(predictions, this->lane, time_span);
 	//this->s = kinematics[0];
 	//this->v = kinematics[1];
