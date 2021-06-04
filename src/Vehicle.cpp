@@ -380,7 +380,7 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	if (v_ah == true){
 		std::cout <<"Vehicle ahead in " <<v_ahead.s - this->s << std::endl;
 		
-		trajectory_for_state=lane_change_trajectory("LCL",predictions,time_span);
+		trajectory_for_state=prep_lane_change_trajectory("LCL",predictions,time_span);
 	}
 	Vehicle v_behind;
 	bool v_bh = this->get_vehicle_behind(predictions,this->lane,v_behind);
