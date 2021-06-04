@@ -264,8 +264,9 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
       // Ego stuck between front and back. must travel at the speed of traffic, regardless of preferred buffer
       new_velocity = vehicle_ahead.v;
     } else {
-	  // Ego has vehicle only in front. reduce speed.	
-      float max_velocity_in_front = ( (vehicle_ahead.s - this->s - this->preferred_buffer) + (vehicle_ahead.v * time_span) ) / time_span 
+	  // Ego has vehicle only in front. reduce speed.
+	  double allowed_gap_to_front_vehicle = std::min((vehicle_ahead.s - this->s - this->preferred_buffer), 0);	
+      float max_velocity_in_front = ( allowed_gap_to_front_vehicle + (vehicle_ahead.v * time_span) ) / time_span 
                                   + 1.0 * (this->a) * time_span;
       new_velocity = std::min(std::min(max_velocity_in_front, 
                                        max_velocity_accel_limit), 
@@ -274,7 +275,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 	  std::cout <<"In getkinematics : position of vehicle ego " <<this->s<< std::endl;
 	  std::cout <<"In getkinematics : preferred Buffer " <<this->preferred_buffer<< std::endl;									 	  
 	  
-	  std::cout <<"In getkinematics : Gap component  " <<(vehicle_ahead.s - this->s - this->preferred_buffer)<< std::endl;	
+	  std::cout <<"In getkinematics : Gap component  " <<allowed_gap_to_front_vehicle<< std::endl;	
 	  std::cout <<"In getkinematics : current sped distance " <<((vehicle_ahead.v * time_span))<< std::endl;	
 	  std::cout <<"In getkinematics : current velocity " <<(( (vehicle_ahead.s - this->s - this->preferred_buffer) + (vehicle_ahead.v * time_span) ) / time_span)<< std::endl;		
 	  std::cout <<"In getkinematics : velocity addition due  to accl " <<1.0 * (this->a) * time_span<<std::endl;
