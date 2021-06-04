@@ -263,12 +263,13 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
       new_velocity = vehicle_ahead.v;
     } else {
 	  // Ego has vehicle only in front. reduce speed.	
-      float max_velocity_in_front = (vehicle_ahead.s - this->s - this->preferred_buffer) / time_span + vehicle_ahead.v 
-                                  - 0.5 * (this->a) * time_span;
+      float max_velocity_in_front = ( (vehicle_ahead.s - this->s - this->preferred_buffer) + (vehicle_ahead.v * time_span) ) / time_span 
+                                  + 1.0 * (this->a) * time_span;
       new_velocity = std::min(std::min(max_velocity_in_front, 
                                        max_velocity_accel_limit), 
                                        this->target_speed);
 	  std::cout <<"In getkinematics : speed of vehicle in front " <<vehicle_ahead.v<< std::endl;
+	  std::cout <<"In getkinematics : current accl of ego vehicle " <<this->a<< std::endl;
 	  std::cout <<"In getkinematics : max velocity in front " <<max_velocity_in_front<< std::endl;
 	  std::cout <<"In getkinematics : max_velocity_accel_limit " <<max_velocity_accel_limit<< std::endl;
 	  std::cout <<"In getkinematics : target speed " <<this->target_speed<< std::endl;
