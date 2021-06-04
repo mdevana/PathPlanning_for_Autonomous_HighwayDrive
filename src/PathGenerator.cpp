@@ -236,7 +236,8 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	
 	Vehicle ego_vehicle(ref_x,ref_y,end_s,end_d,ref_velocity,ref_yaw,"KL");
 	ego_vehicle.configure(max_velocity,3,6);
-	ego_vehicle.test_func(vehicles_in_road,(50 - path_size) * simulator_time_step);
+	vector<Vehicle> trajectory_for_state = ego_vehicle.test_func(vehicles_in_road,(50 - path_size) * simulator_time_step);
+	ego_vehicle.realize_next_state(trajectory_for_state);
 	
 		
 	
