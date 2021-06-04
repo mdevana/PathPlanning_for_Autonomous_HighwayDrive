@@ -364,7 +364,7 @@ vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions, doubl
    
    vector<Vehicle> trajectory_for_state;
    vector<float> cost_for_trajectory;
-   vector<vector<Vehicle>> final_trajectories;
+   vector<vector<Vehicle>> final_trajectories = predictions[0];
    
    /*for (vector<string>::iterator t=p_s_states.begin(); t!=p_s_states.end(); ++t) {
        
@@ -379,8 +379,8 @@ vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions, doubl
    //int best_index = std::distance(cost_for_trajectory.begin(),min_cost);
    int best_index = 1;
 
-  //return final_trajectories[best_index];
-  return(*this);
+  return final_trajectories[0];
+  
   
 }
 
