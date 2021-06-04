@@ -379,8 +379,9 @@ vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions, doubl
    //int best_index = std::distance(cost_for_trajectory.begin(),min_cost);
    int best_index = 1;
 
-  return final_trajectories[best_index];
-  return v_bh;
+  //return final_trajectories[best_index];
+  return(0);
+  
 }
 
 void Vehicle::realize_next_state(vector<Vehicle> &trajectory) {
