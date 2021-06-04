@@ -263,8 +263,8 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	else 
 		ref_velocity = max_velocity;
 	
-	//ref_velocity = 	ego_vehicle.v;
-	//std::cout <<"Ref velocity updated " <<ref_velocity<< std::endl;
+	ref_velocity = 	ego_vehicle.v;
+	std::cout <<"Ref velocity updated " <<ref_velocity<< std::endl;
 		
 	double n_dist_inc = dist_estimate / (0.02*ref_velocity);
 	double dist_inc_x = x_estimate / n_dist_inc;
