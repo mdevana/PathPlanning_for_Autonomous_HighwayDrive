@@ -327,7 +327,7 @@ vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions, doubl
 	if (v_ah == true){
 		std::cout <<"Vehicle ahead in " <<v_ahead.s - this->s << std::endl;
 		
-		ego_vehicle.lane=1;
+		this->lane=1;
 	}
 	Vehicle v_behind;
 	bool v_bh = this->get_vehicle_behind(vehicles_in_road,2,v_behind);
