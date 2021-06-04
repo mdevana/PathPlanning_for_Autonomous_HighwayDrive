@@ -101,7 +101,7 @@ vector<string> Vehicle::successor_states(map<int, Vehicle> &predictions, double 
   vector<string> states;
   states.push_back("KL");
   string state = this->state;
-  if(state.compare("KL") == 0) {
+  if(this->v >= target_speed) {
     states.push_back("PLCL");
     states.push_back("PLCR");
   } else if (v_ah == true && this->v < target_speed) {
