@@ -268,6 +268,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
       new_velocity = std::min(std::min(max_velocity_in_front, 
                                        max_velocity_accel_limit), 
                                        this->target_speed);
+	  std::cout <<"In getkinematics : speed of vehicle in front " <<vehicle_ahead.v<< std::endl;
 	  std::cout <<"In getkinematics : max velocity in front " <<max_velocity_in_front<< std::endl;
 	  std::cout <<"In getkinematics : max_velocity_accel_limit " <<max_velocity_accel_limit<< std::endl;
 	  std::cout <<"In getkinematics : target speed " <<this->target_speed<< std::endl;
