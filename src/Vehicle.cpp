@@ -373,7 +373,7 @@ void Vehicle::test_func(map<int, Vehicle> &predictions, double time_span){
 	
 	vector<Vehicle> trajectory_for_state;
 	
-	trajectory_for_state=keep_lane_trajectory();
+	trajectory_for_state=keep_lane_trajectory(predictions);
 	
 	Vehicle v_ahead;
 	bool v_ah = this->get_vehicle_ahead(predictions,this->lane,v_ahead);
