@@ -334,6 +334,10 @@ vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions, doubl
 	if (v_bh == true){
 		std::cout <<"Vehicle behind" <<this->s - v_behind.s<< std::endl;
 	}
+	
+	vector<float> kinematics = get_kinematics(predictions, this->lane, time_span);
+	this->v = kinematics[1];
+	std::cout <<"Changed Velocity is :" <<this->v << std::endl;
    
    vector<string> p_s_states =successor_states();
    
