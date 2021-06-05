@@ -211,12 +211,13 @@ vector<Vehicle> Vehicle::prep_lane_change_trajectory(string state,
   float new_v;
   float new_a;
   Vehicle vehicle_behind;
+  vector<Vehicle> trajectory;
   int new_lane = this->lane + lane_direction[state];
   if (new_lane < 1 && new_lane >3)
 	return trajectory;
   
-  vector<Vehicle> trajectory = {Vehicle(this->lane, this->s, this->v, this->a, 
-                                        this->state)};
+  trajectory.push_back(Vehicle(this->lane, this->s, this->v, this->a, 
+                                        this->state);
   vector<float> curr_lane_new_kinematics = get_kinematics(predictions, this->lane, time_span);
 
   if (get_vehicle_behind(predictions, this->lane, vehicle_behind)) {
@@ -393,6 +394,7 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
     vector<vector<Vehicle>> final_trajectories;
 	
 	vector<string> p_s_states =successor_states(predictions,time_span);
+	float cost;
 	for (vector<string>::iterator t=p_s_states.begin(); t!=p_s_states.end(); ++t) {
        
 	   std::cout <<"Vehicle states" <<*t<< std::endl;
@@ -400,8 +402,8 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
        trajectory_for_state=generate_trajectory(*t,predictions,time_span);
 	   std::cout <<"number of vectors" <<trajectory_for_state.size()<< std::endl;
 	   
-       if (trajectory_for_state.size() ! = 0) {
-		float cost = calculate_cost(*this,predictions,trajectory_for_state);
+       if (trajectory_for_state.size() > 0) {
+		cost = calculate_cost(*this,predictions,trajectory_for_state);
 		cost_for_trajectory.push_back(cost);
 		final_trajectories.push_back(trajectory_for_state);
 	   }
