@@ -386,7 +386,7 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	vector<float> cost_for_trajectory;
     vector<vector<Vehicle>> final_trajectories;
 	
-	vector<string> p_s_states =successor_states(predictions,time_span);
+	/*vector<string> p_s_states =successor_states(predictions,time_span);
 	for (vector<string>::iterator t=p_s_states.begin(); t!=p_s_states.end(); ++t) {
        
        trajectory_for_state=generate_trajectory(*t,predictions,time_span);
@@ -401,7 +401,7 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	   
 	   
        
-   }
+   }*/
 	
 	
 	
