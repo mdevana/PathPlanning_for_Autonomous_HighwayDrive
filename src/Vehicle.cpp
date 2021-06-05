@@ -178,6 +178,9 @@ vector<Vehicle> Vehicle::lane_change_trajectory(string state,
   // Generate a lane change trajectory.
   int new_lane = this->lane + lane_direction[state];
   vector<Vehicle> trajectory;
+  if (new_lane < 1 && new_lane >3)
+  return trajectory;
+  
   Vehicle next_lane_vehicle;
   // Check if a lane change is possible (check if another vehicle occupies 
   //   that spot).
@@ -209,6 +212,9 @@ vector<Vehicle> Vehicle::prep_lane_change_trajectory(string state,
   float new_a;
   Vehicle vehicle_behind;
   int new_lane = this->lane + lane_direction[state];
+  if (new_lane < 1 && new_lane >3)
+	return trajectory;
+  
   vector<Vehicle> trajectory = {Vehicle(this->lane, this->s, this->v, this->a, 
                                         this->state)};
   vector<float> curr_lane_new_kinematics = get_kinematics(predictions, this->lane, time_span);
@@ -393,10 +399,12 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	   
        trajectory_for_state=generate_trajectory(*t,predictions,time_span);
 	   std::cout <<"number of vectors" <<trajectory_for_state.size()<< std::endl;
-       
-	   float cost = calculate_cost(*this,predictions,trajectory_for_state);
-       cost_for_trajectory.push_back(cost);
-       final_trajectories.push_back(trajectory_for_state);
+	   
+       if (trajectory_for_state.size() ! = 0) {
+		float cost = calculate_cost(*this,predictions,trajectory_for_state);
+		cost_for_trajectory.push_back(cost);
+		final_trajectories.push_back(trajectory_for_state);
+	   }
 	   
 	   
 	   std::cout <<"Vehicle state of trajectory initial" <<trajectory_for_state[0].state<< std::endl;
