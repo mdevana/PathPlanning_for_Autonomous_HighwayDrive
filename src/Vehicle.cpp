@@ -30,11 +30,12 @@ Vehicle::Vehicle(int id, double x, double y,double s, double d, double vx, doubl
 }
 
 Vehicle::Vehicle(int lane, float s, float v, float a, string state) {
-  // constructor to initisalise predicted vehicles
+  // constructor to initisalise predicted vehicles and trajectories
   this->lane = lane;
   this->s = s;
   this->v = v;
   this->a = a;
+  this->state=state;
   //max_acceleration = -1;
 }
 
@@ -261,6 +262,9 @@ vector<Vehicle> Vehicle::keep_lane_trajectory(map<int, Vehicle> &predictions) {
   float new_v = kinematics[1];
   float new_a = kinematics[2];
   trajectory.push_back(Vehicle(this->lane, new_s, new_v, new_a, "KL"));
+  
+  std::cout <<"in Keep Lane Trajectory : Vehicle state of trajectory initial : " <<trajectory[0].state<< std::endl;
+  std::cout <<"in Keep Lane Trajectory : Vehicle state of trajectory initial : " <<trajectory[1].state<< std::endl;
   
   return trajectory;
 }
