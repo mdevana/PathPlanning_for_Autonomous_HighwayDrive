@@ -333,7 +333,8 @@ vector<Vehicle> Vehicle::generate_trajectory(string state,
   } else if (state.compare("PLCL") == 0 || state.compare("PLCR") == 0) {
     trajectory = prep_lane_change_trajectory(state, predictions, time_span);
   }
-
+  std::cout <<"in generate Trajectory : Vehicle state of trajectory initial : " <<trajectory[0].state<< std::endl;
+  std::cout <<"in generate Trajectory : Vehicle state of trajectory initial : " <<trajectory[1].state<< std::endl;
   return trajectory;
 }
 
