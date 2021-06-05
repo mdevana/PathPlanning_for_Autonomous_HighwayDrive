@@ -389,6 +389,8 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	vector<string> p_s_states =successor_states(predictions,time_span);
 	for (vector<string>::iterator t=p_s_states.begin(); t!=p_s_states.end(); ++t) {
        
+	   std::cout <<"Vehicle states" <<*t<< std::endl;
+	   
        trajectory_for_state=generate_trajectory(*t,predictions,time_span);
 	   std::cout <<"number of vectors" <<trajectory_for_state.size()<< std::endl;
        
@@ -396,7 +398,7 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
        cost_for_trajectory.push_back(cost);
        final_trajectories.push_back(trajectory_for_state);
 	   
-	   std::cout <<"Vehicle states" <<*t<< std::endl;
+	   
 	   std::cout <<"Vehicle state of trajectory initial" <<trajectory_for_state[0].state<< std::endl;
 	   std::cout <<"Vehicle state of trajectory  Final" <<trajectory_for_state[1].state<< std::endl;
 	   std::cout <<"Legal Cost" <<cost<< std::endl;
