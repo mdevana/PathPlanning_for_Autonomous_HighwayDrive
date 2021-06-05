@@ -217,7 +217,7 @@ vector<Vehicle> Vehicle::prep_lane_change_trajectory(string state,
 	return trajectory;
   
   trajectory.push_back(Vehicle(this->lane, this->s, this->v, this->a, 
-                                        this->state);
+                                        this->state));
   vector<float> curr_lane_new_kinematics = get_kinematics(predictions, this->lane, time_span);
 
   if (get_vehicle_behind(predictions, this->lane, vehicle_behind)) {
