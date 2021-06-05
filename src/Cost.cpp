@@ -85,7 +85,7 @@ float legal_cost(const Vehicle &vehicle,
 
 
 
-float lane_speed(const map<int, vector<Vehicle>> &predictions, int lane) {
+float lane_speed(const map<int, Vehicle> &predictions, int lane) {
   // All non ego vehicles in a lane have the same speed, so to get the speed 
   //   limit for a lane, we can just find one vehicle in that lane.
   for (map<int, vector<Vehicle>>::const_iterator it = predictions.begin(); 
@@ -110,7 +110,7 @@ float calculate_cost(const Vehicle &vehicle,
 
   // Add additional cost functions here.
   vector<std::function<float(const Vehicle &, const vector<Vehicle> &, 
-                             const map<int, vector<Vehicle>> &, 
+                             const map<int, Vehicle> &, 
                              map<string, float> &)
     >> cf_list = {legal_cost, inefficiency_cost};
   vector<float> weight_list = {LEGAL, EFFICIENCY};
@@ -126,7 +126,7 @@ float calculate_cost(const Vehicle &vehicle,
 
 map<string, float> get_helper_data(const Vehicle &vehicle, 
                                    const vector<Vehicle> &trajectory, 
-                                   const map<int, vector<Vehicle>> &predictions) {
+                                   const map<int, Vehicle> &predictions) {
   // Generate helper data to use in cost functions:
   // intended_lane: the current lane +/- 1 if vehicle is planning or 
   //   executing a lane change.
