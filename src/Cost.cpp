@@ -88,10 +88,10 @@ float legal_cost(const Vehicle &vehicle,
 float lane_speed(const map<int, Vehicle> &predictions, int lane) {
   // All non ego vehicles in a lane have the same speed, so to get the speed 
   //   limit for a lane, we can just find one vehicle in that lane.
-  for (map<int, vector<Vehicle>>::const_iterator it = predictions.begin(); 
+  for (map<int, Vehicle>::const_iterator it = predictions.begin(); 
        it != predictions.end(); ++it) {
     int key = it->first;
-    Vehicle vehicle = it->second[0];
+    Vehicle vehicle = it->second;
     if (vehicle.lane == lane && key != -1) {
       return vehicle.vx;
     }
