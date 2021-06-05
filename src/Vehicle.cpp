@@ -262,6 +262,9 @@ vector<Vehicle> Vehicle::keep_lane_trajectory(map<int, Vehicle> &predictions) {
   float new_a = kinematics[2];
   trajectory.push_back(Vehicle(this->lane, new_s, new_v, new_a, "KL"));
   
+  std::cout <<"in Keep Lane Trajectory : Vehicle state of trajectory initial : " <<trajectory[0].state<< std::endl;
+  std::cout <<"in Keep Lane Trajectory : Vehicle state of trajectory initial : " <<trajectory[1].state<< std::endl;
+  
   return trajectory;
 }
 
