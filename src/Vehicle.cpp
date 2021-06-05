@@ -382,7 +382,7 @@ vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions, doubl
 
 vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_span){
 	
-	vector<Vehicle> trajectory_for_state;
+	/*vector<Vehicle> trajectory_for_state;
 	vector<float> cost_for_trajectory;
     vector<vector<Vehicle>> final_trajectories;
 	
@@ -402,7 +402,7 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	   
 	   
        
-   }
+   }*/
 	
 	
 	
