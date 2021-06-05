@@ -180,8 +180,9 @@ vector<Vehicle> Vehicle::lane_change_trajectory(string state,
   int new_lane = this->lane + lane_direction[state];
   vector<Vehicle> trajectory;
   if (new_lane < 1 && new_lane >3)
-  return trajectory;
+	return trajectory;
   
+  std::cout <<"Possible lane found to change" <<new_lane<< std::endl;
   Vehicle next_lane_vehicle;
   // Check if a lane change is possible (check if another vehicle occupies 
   //   that spot).
@@ -190,8 +191,12 @@ vector<Vehicle> Vehicle::lane_change_trajectory(string state,
     next_lane_vehicle = it->second;
 	double forward_clearance = this->s + 10;
 	double backward_clearance = this->s - 10;
+	std::cout <<"forward clearance : " <<forward_clearance<< std::endl;
+	std::cout <<"backward clearance : " <<backward_clearance<< std::endl;
+	
     if ( (next_lane_vehicle.s  < forward_clearance) && (next_lane_vehicle.s > backward_clearance) && next_lane_vehicle.lane == new_lane) {
       // If lane change is not possible, return empty trajectory.
+	  std::cout <<"Vehicle found in corridor , cant change lane : " <<backward_clearance<< std::endl;
       return trajectory;
     }
   }
@@ -262,9 +267,8 @@ vector<Vehicle> Vehicle::keep_lane_trajectory(map<int, Vehicle> &predictions) {
   float new_v = kinematics[1];
   float new_a = kinematics[2];
   trajectory.push_back(Vehicle(this->lane, new_s, new_v, new_a, "KL"));
-  
-  std::cout <<"in Keep Lane Trajectory : Vehicle state of trajectory initial : " <<trajectory[0].state<< std::endl;
-  std::cout <<"in Keep Lane Trajectory : Vehicle state of trajectory initial : " <<trajectory[1].state<< std::endl;
+
+
   
   return trajectory;
 }
@@ -337,8 +341,7 @@ vector<Vehicle> Vehicle::generate_trajectory(string state,
   } else if (state.compare("PLCL") == 0 || state.compare("PLCR") == 0) {
     trajectory = prep_lane_change_trajectory(state, predictions, time_span);
   }
-  std::cout <<"in generate Trajectory : Vehicle state of trajectory initial : " <<trajectory[0].state<< std::endl;
-  std::cout <<"in generate Trajectory : Vehicle state of trajectory initial : " <<trajectory[1].state<< std::endl;
+
   return trajectory;
 }
 
@@ -412,8 +415,8 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 		cost_for_trajectory.push_back(cost);
 		final_trajectories.push_back(trajectory_for_state);
 		
-		std::cout <<"Vehicle state of trajectory initial : " <<trajectory_for_state[0].lane<< std::endl;
-	    std::cout <<"Vehicle state of trajectory  Final : " <<trajectory_for_state[1].lane<< std::endl;
+		std::cout <<"Vehicle state of trajectory initial : " <<trajectory_for_state[0].lane<< " From " <<trajectory_for_state[0].lane<< std::endl;
+	    std::cout <<"Vehicle state of trajectory  Final : " <<trajectory_for_state[1].lane<<" to " <<trajectory_for_state[1].lane<< std::endl;
 	    std::cout <<"Legal Cost" <<cost<< std::endl;
 		
 	   }
