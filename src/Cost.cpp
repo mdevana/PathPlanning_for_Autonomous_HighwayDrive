@@ -13,7 +13,7 @@ using std::vector;
 /**
  * TODO: change weights for cost functions.
  */
-const float LEGAL = 0.01
+const float LEGAL = 1.0
 const float EFFICIENCY = 0.0;
 
 // Here we have provided two possible suggestions for cost functions, but feel 
@@ -24,7 +24,7 @@ const float EFFICIENCY = 0.0;
 
 float goal_distance_cost(const Vehicle &vehicle, 
                          const vector<Vehicle> &trajectory, 
-                         const map<int, vector<Vehicle>> &predictions, 
+                         const map<int, Vehicle> &predictions, 
                          map<string, float> &data) {
   // Cost increases based on distance of intended lane (for planning a lane 
   //   change) and final lane of trajectory.
@@ -46,7 +46,7 @@ float goal_distance_cost(const Vehicle &vehicle,
 
 float inefficiency_cost(const Vehicle &vehicle, 
                         const vector<Vehicle> &trajectory, 
-                        const map<int, vector<Vehicle>> &predictions, 
+                        const map<int, Vehicle> &predictions, 
                         map<string, float> &data) {
   // Cost becomes higher for trajectories with intended lane and final lane 
   //   that have traffic slower than vehicle's target speed.
@@ -71,7 +71,7 @@ float inefficiency_cost(const Vehicle &vehicle,
 
 float legal_cost(const Vehicle &vehicle, 
                         const vector<Vehicle> &trajectory, 
-                        const map<int, vector<Vehicle>> &predictions, 
+                        const map<int, Vehicle> &predictions, 
                         map<string, float> &data) {
 
 // cost is high if final lane is not within available lanes. This differentites whether to pick PLCL or PLCR / LCL or LCR
@@ -101,7 +101,7 @@ float lane_speed(const map<int, vector<Vehicle>> &predictions, int lane) {
 }
 
 float calculate_cost(const Vehicle &vehicle, 
-                     const map<int, vector<Vehicle>> &predictions, 
+                     const map<int, Vehicle> &predictions, 
                      const vector<Vehicle> &trajectory) {
   // Sum weighted cost functions to get total cost for trajectory.
   map<string, float> trajectory_data = get_helper_data(vehicle, trajectory, 
