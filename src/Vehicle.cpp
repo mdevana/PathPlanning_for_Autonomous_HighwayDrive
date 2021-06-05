@@ -406,7 +406,7 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	
 	
 	
-	trajectory_for_state_tmp=keep_lane_trajectory(predictions);
+	vector<Vehicle> trajectory_for_state_tmp=keep_lane_trajectory(predictions);
 	
 	Vehicle v_ahead;
 	bool v_ah = this->get_vehicle_ahead(predictions,this->lane,v_ahead);
