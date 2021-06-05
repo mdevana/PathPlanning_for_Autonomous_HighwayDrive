@@ -382,7 +382,7 @@ vector<Vehicle> Vehicle::choose_next_state(map<int, Vehicle> &predictions, doubl
 
 vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_span){
 	
-	/*vector<Vehicle> trajectory_for_state;
+	vector<Vehicle> trajectory_for_state;
 	vector<float> cost_for_trajectory;
     vector<vector<Vehicle>> final_trajectories;
 	
@@ -390,6 +390,7 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	for (vector<string>::iterator t=p_s_states.begin(); t!=p_s_states.end(); ++t) {
        
        trajectory_for_state=generate_trajectory(*t,predictions,time_span);
+	   std::cout <<"number of vectors" <<trajectory_for_state.size()<< std::endl;
        
 	   float cost = calculate_cost(*this,predictions,trajectory_for_state);
        cost_for_trajectory.push_back(cost);
@@ -402,7 +403,7 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	   
 	   
        
-   }*/
+   }
 	
 	
 	
