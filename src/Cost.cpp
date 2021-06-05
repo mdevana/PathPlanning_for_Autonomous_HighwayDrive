@@ -13,7 +13,7 @@ using std::vector;
 /**
  * TODO: change weights for cost functions.
  */
-const float LEGAL = 1.0
+const float LEGAL = 1.0;
 const float EFFICIENCY = 0.0;
 
 // Here we have provided two possible suggestions for cost functions, but feel 
