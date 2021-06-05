@@ -396,7 +396,8 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
        final_trajectories.push_back(trajectory_for_state);
 	   
 	   std::cout <<"Vehicle states" <<*t<< std::endl;
-	   std::cout <<"Vehicle state of trajectory" <<trajectory_for_state[1].state<< std::endl;
+	   std::cout <<"Vehicle state of trajectory initial" <<trajectory_for_state[0].state<< std::endl;
+	   std::cout <<"Vehicle state of trajectory  Final" <<trajectory_for_state[1].state<< std::endl;
 	   std::cout <<"Legal Cost" <<cost<< std::endl;
 	   
 	   
