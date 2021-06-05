@@ -75,12 +75,12 @@ float legal_cost(const Vehicle &vehicle,
                         map<string, float> &data) {
 
 // cost is high if final lane is not within available lanes. This differentites whether to pick PLCL or PLCR / LCL or LCR
-	if (data["final_lane"] >=1 && data["final_lane"] <=3){
+	if (data["final_lane"] >=1 && data["final_lane"] <=3)
 		return (0);
 	else
 		return (1);
 
-  return cost;
+
 }
 
 
