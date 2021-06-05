@@ -386,6 +386,26 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	vector<float> cost_for_trajectory;
     vector<vector<Vehicle>> final_trajectories;
 	
+	vector<string> p_s_states =successor_states(predictions,time_span);
+	for (vector<string>::iterator t=p_s_states.begin(); t!=p_s_states.end(); ++t) {
+       
+       trajectory_for_state=generate_trajectory(*t,predictions,time_span);
+       
+	   float cost = calculate_cost(*this,predictions,trajectory_for_state);
+       cost_for_trajectory.push_back(cost);
+       final_trajectories.push_back(trajectory_for_state);
+	   
+	   std::cout <<"Vehicle states" <<*t<< std::endl;
+	   std::cout <<"Vehicle state of trajectory" <<trajectory_for_state[1].state<< std::endl;
+	   std::cout <<"Legal Cost" <<cost<< std::endl;
+	   
+	   
+       
+   }
+	
+	
+	
+	
 	trajectory_for_state=keep_lane_trajectory(predictions);
 	
 	Vehicle v_ahead;
@@ -404,22 +424,7 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	
    
 	
-	vector<string> p_s_states =successor_states(predictions,time_span);
-	for (vector<string>::iterator t=p_s_states.begin(); t!=p_s_states.end(); ++t) {
-       
-       trajectory_for_state=generate_trajectory(*t,predictions,time_span);
-       
-	   float cost = calculate_cost(*this,predictions,trajectory_for_state);
-       cost_for_trajectory.push_back(cost);
-       final_trajectories.push_back(trajectory_for_state);
-	   
-	   std::cout <<"Vehicle states" <<*t<< std::endl;
-	   std::cout <<"Vehicle state of trajectory" <<trajectory_for_state[1].state<< std::endl;
-	   std::cout <<"Legal Cost" <<cost<< std::endl;
-	   
-	   
-       
-   }
+	
 	//vector<float> kinematics = get_kinematics(predictions, this->lane, time_span);
 	//this->s = kinematics[0];
 	//this->v = kinematics[1];
