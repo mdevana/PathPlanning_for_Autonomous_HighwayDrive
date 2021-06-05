@@ -386,7 +386,7 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	vector<float> cost_for_trajectory;
     vector<vector<Vehicle>> final_trajectories;
 	
-	/*vector<string> p_s_states =successor_states(predictions,time_span);
+	vector<string> p_s_states =successor_states(predictions,time_span);
 	for (vector<string>::iterator t=p_s_states.begin(); t!=p_s_states.end(); ++t) {
        
        trajectory_for_state=generate_trajectory(*t,predictions,time_span);
@@ -401,20 +401,20 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	   
 	   
        
-   }*/
+   }
 	
 	
 	
 	
-	trajectory_for_state=keep_lane_trajectory(predictions);
+	trajectory_for_state_tmp=keep_lane_trajectory(predictions);
 	
 	Vehicle v_ahead;
 	bool v_ah = this->get_vehicle_ahead(predictions,this->lane,v_ahead);
 	if (v_ah == true){
 		std::cout <<"Vehicle ahead in " <<v_ahead.s - this->s << std::endl;
 		
-		//trajectory_for_state=prep_lane_change_trajectory("LCL",predictions,time_span);
-		trajectory_for_state=lane_change_trajectory("LCL",predictions,time_span);
+		trajectory_for_state_tmp=prep_lane_change_trajectory("LCL",predictions,time_span);
+		//trajectory_for_state=lane_change_trajectory("LCL",predictions,time_span);
 	}
 	Vehicle v_behind;
 	bool v_bh = this->get_vehicle_behind(predictions,this->lane,v_behind);
@@ -433,7 +433,7 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	
 	//realize_next_state(trajectory_for_state);
 	
-	return (trajectory_for_state);
+	return (trajectory_for_state_tmp);
 	
 }
 
