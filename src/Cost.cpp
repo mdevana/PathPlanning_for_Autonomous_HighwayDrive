@@ -13,8 +13,8 @@ using std::vector;
 /**
  * TODO: change weights for cost functions.
  */
-const float REACH_GOAL = 0.1;
-const float EFFICIENCY = 0.9;
+const float LEGAL = 0.01
+const float EFFICIENCY = 0.0;
 
 // Here we have provided two possible suggestions for cost functions, but feel 
 //   free to use your own! The weighted cost over all cost functions is computed
@@ -69,6 +69,22 @@ float inefficiency_cost(const Vehicle &vehicle,
   return cost;
 }
 
+float legal_cost(const Vehicle &vehicle, 
+                        const vector<Vehicle> &trajectory, 
+                        const map<int, vector<Vehicle>> &predictions, 
+                        map<string, float> &data) {
+
+// cost is high if final lane is not within available lanes. This differentites whether to pick PLCL or PLCR / LCL or LCR
+	if (data["final_lane"] >=1 && data["final_lane"] <=3){
+		return (0);
+	else
+		return (1);
+
+  return cost;
+}
+
+
+
 float lane_speed(const map<int, vector<Vehicle>> &predictions, int lane) {
   // All non ego vehicles in a lane have the same speed, so to get the speed 
   //   limit for a lane, we can just find one vehicle in that lane.
@@ -96,8 +112,8 @@ float calculate_cost(const Vehicle &vehicle,
   vector<std::function<float(const Vehicle &, const vector<Vehicle> &, 
                              const map<int, vector<Vehicle>> &, 
                              map<string, float> &)
-    >> cf_list = {goal_distance_cost, inefficiency_cost};
-  vector<float> weight_list = {REACH_GOAL, EFFICIENCY};
+    >> cf_list = {legal_cost, inefficiency_cost};
+  vector<float> weight_list = {LEGAL, EFFICIENCY};
     
   for (int i = 0; i < cf_list.size(); ++i) {
     float new_cost = weight_list[i]*cf_list[i](vehicle, trajectory, predictions, 
@@ -125,9 +141,9 @@ map<string, float> get_helper_data(const Vehicle &vehicle,
   float intended_lane;
 
   if (trajectory_last.state.compare("PLCL") == 0) {
-    intended_lane = trajectory_last.lane + 1;
-  } else if (trajectory_last.state.compare("PLCR") == 0) {
     intended_lane = trajectory_last.lane - 1;
+  } else if (trajectory_last.state.compare("PLCR") == 0) {
+    intended_lane = trajectory_last.lane + 1;
   } else {
     intended_lane = trajectory_last.lane;
   }

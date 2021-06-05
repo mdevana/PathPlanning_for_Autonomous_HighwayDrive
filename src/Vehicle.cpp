@@ -94,13 +94,18 @@ vector<string> Vehicle::successor_states(map<int, Vehicle> &predictions, double 
   //   discussed in the course, with the exception that lane changes happen 
   //   instantaneously, so LCL and LCR can only transition back to KL.
   
-  Vehicle v_ahead;
-  bool v_ah = this->get_vehicle_ahead(predictions,this->lane,v_ahead);
+  //Vehicle v_ahead;
+  //bool v_ah = this->get_vehicle_ahead(predictions,this->lane,v_ahead);
 
   
   vector<string> states;
   states.push_back("KL");
-  string state = this->state;
+  states.push_back("PLCL");
+  states.push_back("PLCR");
+  states.push_back("LCR");
+  states.push_back("LCL");
+  
+  /*string state = this->state;
   if(this->v >= target_speed) {
     states.push_back("PLCL");
     states.push_back("PLCR");
@@ -115,7 +120,7 @@ vector<string> Vehicle::successor_states(map<int, Vehicle> &predictions, double 
 				states.push_back("LCL");
 			}
 		}
-  } 
+  } */
     
   // If state is "LCL" or "LCR", then just return "KL": realised by pushing KL as first state
   return states;
@@ -397,12 +402,17 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	vector<string> p_s_states =successor_states(predictions,time_span);
 	for (vector<string>::iterator t=p_s_states.begin(); t!=p_s_states.end(); ++t) {
        
-       //trajectory_for_state=generate_trajectory(*t,predictions,time_span);
+       trajectory_for_state=generate_trajectory(*t,predictions,time_span);
        
-       //cost_for_trajectory.push_back(calculate_cost(*this,predictions,trajectory_for_state));
-       //final_trajectories.push_back(trajectory_for_state);
+	   float cost = calculate_cost(*this,predictions,trajectory_for_state);
+       cost_for_trajectory.push_back(cost);
+       final_trajectories.push_back(trajectory_for_state);
 	   
 	   std::cout <<"Vehicle states" <<*t<< std::endl;
+	   std::cout <<"Vehicle state of trajectory" <<trajectory_for_state[1].state<< std::endl;
+	   std::cout <<"Legal Cost" <<cost<< std::endl;
+	   
+	   
        
    }
 	//vector<float> kinematics = get_kinematics(predictions, this->lane, time_span);
