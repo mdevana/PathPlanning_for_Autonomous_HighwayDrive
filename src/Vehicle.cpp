@@ -30,11 +30,12 @@ Vehicle::Vehicle(int id, double x, double y,double s, double d, double vx, doubl
 }
 
 Vehicle::Vehicle(int lane, float s, float v, float a, string state) {
-  // constructor to initisalise predicted vehicles
+  // constructor to initisalise predicted vehicles and trajectories
   this->lane = lane;
   this->s = s;
   this->v = v;
   this->a = a;
+  this->state=state;
   //max_acceleration = -1;
 }
 
