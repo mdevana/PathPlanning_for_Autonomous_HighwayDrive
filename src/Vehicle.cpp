@@ -408,7 +408,7 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	vector<float> cost_for_trajectory;
     vector<vector<Vehicle>> final_trajectories;
 	
-	vector<float> lane_speeds;
+	/*vector<float> lane_speeds;
 	for (int i  = 0 ; i < this-> lanes_available;i++){
 		
 		Vehicle v_front;
@@ -422,9 +422,9 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	}
 	
 	for (int j=0;j<lane_speeds.size();j++)
-		std::cout <<"Speed in lane  : " <<j<< " is :" <<lane_speeds[j]<< std::endl;
+		std::cout <<"Speed in lane  : " <<j<< " is :" <<lane_speeds[j]<< std::endl;*/
 	
-	/*vector<string> p_s_states =successor_states(predictions,time_span);
+	vector<string> p_s_states =successor_states(predictions,time_span);
 	float cost;
 	for (vector<string>::iterator t=p_s_states.begin(); t!=p_s_states.end(); ++t) {
        
@@ -449,7 +449,7 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	   
 	   
        
-   }*/
+   }
 	
 	
 	
