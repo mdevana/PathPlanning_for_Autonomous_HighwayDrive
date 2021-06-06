@@ -414,13 +414,13 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 		Vehicle v_front;
 	    bool is_v_front = this->get_vehicle_ahead(predictions,i+1,v_front);
 		if (is_v_front == true)
-			lanes_speeds.push_back(v_front.v);
+			lane_speeds.push_back(v_front.v);
 		else
-		    lanes_speeds.push_back(this->target_speed);
+		    lane_speeds.push_back(this->target_speed);
 	}
 	
-	for (j=0;j<lanes_speeds.size();i++)
-		std::cout <<"Speed in lane  : " <<i<< " is :" <<lanes_speed[i]<< std::endl;
+	for (int j=0;j<lanes_speeds.size();i++)
+		std::cout <<"Speed in lane  : " <<i<< " is :" <<lane_speed[j]<< std::endl;
 	
 	/*vector<string> p_s_states =successor_states(predictions,time_span);
 	float cost;
