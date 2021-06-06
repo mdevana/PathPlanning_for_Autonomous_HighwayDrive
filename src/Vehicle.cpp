@@ -259,8 +259,8 @@ vector<Vehicle> Vehicle::constant_speed_trajectory() {
   return trajectory;
 }
 
-vector<Vehicle> Vehicle::keep_lane_trajectory(map<int, Vehicle> &predictions) {
-  double time_span=1;
+vector<Vehicle> Vehicle::keep_lane_trajectory(map<int, Vehicle> &predictions, double time_span) {
+  
   // Generate a keep lane trajectory.
   vector<Vehicle> trajectory = {Vehicle(lane, this->s, this->v, this->a, state)};
   vector<float> kinematics = get_kinematics(predictions, this->lane, time_span);
