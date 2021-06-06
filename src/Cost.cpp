@@ -13,8 +13,8 @@ using std::vector;
 /**
  * TODO: change weights for cost functions.
  */
-const float LEGAL = 1.0;
-const float EFFICIENCY = 0.0;
+const float LEGAL = 0.0;
+const float EFFICIENCY = 1.0;
 
 // Here we have provided two possible suggestions for cost functions, but feel 
 //   free to use your own! The weighted cost over all cost functions is computed
@@ -53,15 +53,9 @@ float inefficiency_cost(const Vehicle &vehicle,
   // You can use the lane_speed function to determine the speed for a lane. 
   // This function is very similar to what you have already implemented in 
   //   the "Implement a Second Cost Function in C++" quiz.
-  float proposed_speed_intended = lane_speed(predictions, data["intended_lane"]);
-  if (proposed_speed_intended < 0) {
-    proposed_speed_intended = vehicle.target_speed;
-  }
+  float proposed_speed_intended = lane_speed(vehicle,predictions, data["intended_lane"]);
 
-  float proposed_speed_final = lane_speed(predictions, data["final_lane"]);
-  if (proposed_speed_final < 0) {
-    proposed_speed_final = vehicle.target_speed;
-  }
+  float proposed_speed_final = lane_speed(vehicle,predictions, data["final_lane"]);
     
   float cost = (2.0*vehicle.target_speed - proposed_speed_intended 
              - proposed_speed_final)/vehicle.target_speed;
@@ -85,19 +79,21 @@ float legal_cost(const Vehicle &vehicle,
 
 
 
-float lane_speed(const map<int, Vehicle> &predictions, int lane) {
+float lane_speed(const Vehicle &vehicle,const map<int, Vehicle> &predictions, int lane) {
   // All non ego vehicles in a lane have the same speed, so to get the speed 
   //   limit for a lane, we can just find one vehicle in that lane.
-  for (map<int, Vehicle>::const_iterator it = predictions.begin(); 
-       it != predictions.end(); ++it) {
-    int key = it->first;
-    Vehicle vehicle = it->second;
-    if (vehicle.lane == lane && key != -1) {
-      return vehicle.vx;
-    }
-  }
-  // Found no vehicle in the lane
-  return -1.0;
+  
+  Vehicle v_ahead;
+	bool v_ah = vehicle.get_vehicle_ahead(predictions,lane,v_ahead);
+	if (v_ah == true){
+		std::cout <<"lane _speed for cost Vehicle ahead in " <<v_ah.v << std::endl;
+		return v_ah.v;	
+		
+	}
+	return (vehicle.target_speed);
+	
+  
+  
 }
 
 float calculate_cost(const Vehicle &vehicle, 
@@ -113,7 +109,7 @@ float calculate_cost(const Vehicle &vehicle,
                              const map<int, Vehicle> &, 
                              map<string, float> &)
     >> cf_list = {legal_cost, inefficiency_cost};
-  vector<float> weight_list = {LEGAL, EFFICIENCY};
+  vector<float> weight_list = {EFFICIENCY};
     
   for (int i = 0; i < cf_list.size(); ++i) {
     float new_cost = weight_list[i]*cf_list[i](vehicle, trajectory, predictions, 
