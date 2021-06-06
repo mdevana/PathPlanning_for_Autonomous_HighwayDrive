@@ -342,7 +342,7 @@ vector<Vehicle> Vehicle::generate_trajectory(string state,
   if (state.compare("CS") == 0) {
     trajectory = constant_speed_trajectory();
   } else if (state.compare("KL") == 0) {
-    trajectory = keep_lane_trajectory(predictions);
+    trajectory = keep_lane_trajectory(predictions,time_span);
   } else if (state.compare("LCL") == 0 || state.compare("LCR") == 0) {
     trajectory = lane_change_trajectory(state, predictions, time_span);
   } else if (state.compare("PLCL") == 0 || state.compare("PLCR") == 0) {
