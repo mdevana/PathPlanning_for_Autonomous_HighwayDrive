@@ -11,7 +11,7 @@ float calculate_cost(const Vehicle &vehicle,
                      const map<int, Vehicle> &predictions, 
                      const vector<Vehicle> &trajectory);
 
-float goal_distance_cost(const Vehicle &vehicle,  
+float goal_lane_cost(const Vehicle &vehicle,  
                          const vector<Vehicle> &trajectory,  
                          const map<int, Vehicle> &predictions, 
                          map<string, float> &data);
