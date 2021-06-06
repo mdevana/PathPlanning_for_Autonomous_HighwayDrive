@@ -289,7 +289,8 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
   if (get_vehicle_ahead(predictions, lane, vehicle_ahead)) {
     if (get_vehicle_behind(predictions, lane, vehicle_behind)) {
       // Ego stuck between front and back. must travel at the speed of traffic, regardless of preferred buffer
-      new_velocity = vehicle_ahead.v;
+	  
+      new_velocity = std::min(this->v - this->max_acceleration * time_span, vehicle_ahead.v);
 	  std::cout <<"In ego vehicle velocity bysandwich cars " <<vehicle_ahead.v<< std::endl;
     } else {
 	  // Ego has vehicle only in front. reduce speed.
