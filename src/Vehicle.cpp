@@ -129,7 +129,7 @@ vector<string> Vehicle::successor_states(map<int, Vehicle> &predictions, double 
 }
 
 bool Vehicle::get_vehicle_ahead(map<int, Vehicle> &predictions, 
-                                int lane, Vehicle &rVehicle) {
+                                int in_lane, Vehicle &rVehicle) {
   // Returns a true if a vehicle is found ahead of the current vehicle, false 
   //   otherwise. The passed reference rVehicle is updated if a vehicle is found.
   double min_s = 100000;
@@ -140,7 +140,7 @@ bool Vehicle::get_vehicle_ahead(map<int, Vehicle> &predictions,
     temp_vehicle = it->second;
 //    if (temp_vehicle.lane == this->lane && temp_vehicle.s > this->s ) {
 	  
-	  if (temp_vehicle.lane == this->lane)
+	  if (temp_vehicle.lane == in_lane)
 	  if ( (temp_vehicle.s > this->s ) && (temp_vehicle.s - this->s < 50) ) {
 		min_s = temp_vehicle.s;
 		rVehicle = temp_vehicle;
