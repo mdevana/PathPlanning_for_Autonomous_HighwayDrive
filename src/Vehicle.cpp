@@ -410,7 +410,7 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	
 	vector<string> p_s_states =successor_states(predictions,time_span);
 	float cost;
-	/*for (vector<string>::iterator t=p_s_states.begin(); t!=p_s_states.end(); ++t) {
+	for (vector<string>::iterator t=p_s_states.begin(); t!=p_s_states.end(); ++t) {
        
 	   std::cout <<"Vehicle states" <<*t<< std::endl;
 	   
@@ -424,7 +424,7 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 		
 		//std::cout <<"Vehicle state of trajectory initial : " <<trajectory_for_state[0].lane<< " From " <<trajectory_for_state[0].lane<< std::endl;
 	    //std::cout <<"Vehicle state of trajectory  Final : " <<trajectory_for_state[1].lane<<" to " <<trajectory_for_state[1].lane<< std::endl;
-	    //std::cout <<"Legal Cost" <<cost<< std::endl;
+	    //std::cout <<"speed Cost" <<cost<< std::endl;
 		
 	   }
 	   
@@ -433,7 +433,7 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	   
 	   
        
-   }*/
+   }
 	
 	
 	
