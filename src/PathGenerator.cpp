@@ -232,7 +232,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 
 		ref_velocity = sqrt((pts_x[1]-pts_x[0] ) * (pts_x[1]-pts_x[0]) +  (pts_y[1]-pts_y[0]) * (pts_y[1]-pts_y[0])) / simulator_time_step;
 		std::cout <<"Car Speed  =" <<car_speed / 2.24 << std::endl;
-		//ref_accl = (ref_velocity - car_speed) / ((50 - path_size) * simulator_time_step);
+		ref_accl = (ref_velocity - (car_speed/2.24)) / ((50 - path_size) * simulator_time_step);
 	}
 	
 	make_traffic_predictions(sensor_fusion); 
