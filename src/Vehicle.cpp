@@ -413,8 +413,10 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 		
 		Vehicle v_front;
 	    bool is_v_front = this->get_vehicle_ahead(predictions,i+1,v_front);
-		if (is_v_front == true)
+		if (is_v_front == true){
+			std::cout <<"vehicle ahead in lane  : " <<(i+1)<< " is :" <<v_front.v<< std::endl;
 			lane_speeds.push_back(v_front.v);
+		}
 		else
 		    lane_speeds.push_back(this->target_speed);
 	}
