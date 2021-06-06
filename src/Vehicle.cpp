@@ -192,8 +192,8 @@ vector<Vehicle> Vehicle::lane_change_trajectory(string state,
     next_lane_vehicle = it->second;
 	double forward_clearance = this->s + 10;
 	double backward_clearance = this->s - 10;
-	std::cout <<"forward clearance : " <<forward_clearance<< std::endl;
-	std::cout <<"backward clearance : " <<backward_clearance<< std::endl;
+	//std::cout <<"forward clearance : " <<forward_clearance<< std::endl;
+	//std::cout <<"backward clearance : " <<backward_clearance<< std::endl;
 	
     if ( (next_lane_vehicle.s  < forward_clearance) && (next_lane_vehicle.s > backward_clearance) && next_lane_vehicle.lane == new_lane) {
       // If lane change is not possible, return empty trajectory.
@@ -320,10 +320,15 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
   } else {
 	// follow target speed , if less then accelerate   
     new_velocity = std::min(max_velocity_accel_limit, this->target_speed);
+	std::cout <<"In getkinematics Free drive : new velocity " <<new_velocity<< std::endl;
   }
     
   new_accel = (new_velocity - this->v) / time_span; // Equation: (v_1 - v_0)/t = acceleration
   new_position = this->s + new_velocity * time_span + new_accel * time_span * time_span / 2.0; // Equation: s = v *t + 0.5 * a * t * t
+  
+      std::cout <<"In getkinematics Final : new Position " <<new_position<< std::endl;
+	  std::cout <<"In getkinematics Final : new Velocity " <<new_velocity<< std::endl;
+	  std::cout <<"In getkinematics Final : new accl " <<new_accel<< std::endl;*/
     
   return{new_position, new_velocity, new_accel};
 }
@@ -416,9 +421,9 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 		cost_for_trajectory.push_back(cost);
 		final_trajectories.push_back(trajectory_for_state);
 		
-		std::cout <<"Vehicle state of trajectory initial : " <<trajectory_for_state[0].lane<< " From " <<trajectory_for_state[0].lane<< std::endl;
-	    std::cout <<"Vehicle state of trajectory  Final : " <<trajectory_for_state[1].lane<<" to " <<trajectory_for_state[1].lane<< std::endl;
-	    std::cout <<"Legal Cost" <<cost<< std::endl;
+		//std::cout <<"Vehicle state of trajectory initial : " <<trajectory_for_state[0].lane<< " From " <<trajectory_for_state[0].lane<< std::endl;
+	    //std::cout <<"Vehicle state of trajectory  Final : " <<trajectory_for_state[1].lane<<" to " <<trajectory_for_state[1].lane<< std::endl;
+	    //std::cout <<"Legal Cost" <<cost<< std::endl;
 		
 	   }
 	   
