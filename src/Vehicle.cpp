@@ -328,7 +328,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
   
       std::cout <<"In getkinematics Final : new Position " <<new_position<< std::endl;
 	  std::cout <<"In getkinematics Final : new Velocity " <<new_velocity<< std::endl;
-	  std::cout <<"In getkinematics Final : new accl " <<new_accel<< std::endl;*/
+	  std::cout <<"In getkinematics Final : new accl " <<new_accel<< std::endl;
     
   return{new_position, new_velocity, new_accel};
 }
