@@ -245,7 +245,8 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	
 	
 	
-	//std::cout <<"Ref Velocity  =" <<ref_velocity<< std::endl;
+	std::cout <<"Ref Velocity  =" <<ref_velocity<< std::endl;
+	std::cout <<"Ref accl  =" <<ref_accl<< std::endl;
 	//std::cout <<"End S  =" <<end_s << std::endl;
 	highway_map.calculate_map_XYspline_for_s(end_s, 6, pts_x, pts_y,ref_yaw,ego_vehicle.lane);
 		
