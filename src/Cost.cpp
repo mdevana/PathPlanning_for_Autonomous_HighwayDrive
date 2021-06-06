@@ -84,8 +84,9 @@ float lane_speed(const Vehicle &vehicle,const map<int, Vehicle> &predictions, in
   //   limit for a lane, we can just find one vehicle in that lane.
   
   Vehicle v_ahead;
+  Vehicle veh = vehicle;
   map<int, Vehicle> predictions2 = predictions;
-	bool v_ah = vehicle.get_vehicle_ahead(predictions2,lane,v_ahead);
+	bool v_ah = veh.get_vehicle_ahead(predictions2,lane,v_ahead);
 	if (v_ah == true){
 		std::cout <<"lane _speed for cost Vehicle ahead in " <<v_ahead.v << std::endl;
 		return v_ahead.v;	
