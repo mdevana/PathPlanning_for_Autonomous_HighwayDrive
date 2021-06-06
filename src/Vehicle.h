@@ -4,10 +4,12 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <iostream>
 
 using std::map;
 using std::string;
 using std::vector;
+using std::cout;
 
 class Vehicle {
  public:

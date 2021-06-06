@@ -21,7 +21,7 @@ float inefficiency_cost(const Vehicle &vehicle,
                         const map<int, Vehicle> &predictions, 
                         map<string, float> &data);
 
-float lane_speed(const map<int, Vehicle> &predictions, int lane);
+float lane_speed(const Vehicle &vehicle,const map<int, Vehicle> &predictions, int lane);
 
 map<string, float> get_helper_data(const Vehicle &vehicle, 
                                    const vector<Vehicle> &trajectory, 
