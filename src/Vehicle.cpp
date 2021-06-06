@@ -180,7 +180,7 @@ vector<Vehicle> Vehicle::lane_change_trajectory(string state,
   // Generate a lane change trajectory.
   int new_lane = this->lane + lane_direction[state];
   vector<Vehicle> trajectory;
-  if (new_lane < 1 && new_lane >3)
+  if (new_lane < 1 || new_lane >3)
 	return trajectory;
   
   std::cout <<"Possible lane found to change" <<new_lane<< std::endl;
@@ -220,7 +220,7 @@ vector<Vehicle> Vehicle::prep_lane_change_trajectory(string state,
   Vehicle vehicle_behind;
   vector<Vehicle> trajectory;
   int new_lane = this->lane + lane_direction[state];
-  if (new_lane < 1 && new_lane >3)
+  if (new_lane < 1 || new_lane >3)
 	return trajectory;
   
   trajectory.push_back(Vehicle(this->lane, this->s, this->v, this->a, 
