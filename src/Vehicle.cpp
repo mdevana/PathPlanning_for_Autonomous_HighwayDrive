@@ -417,16 +417,16 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	   std::cout <<"Vehicle states" <<*t<< std::endl;
 	   
        trajectory_for_state=generate_trajectory(*t,predictions,time_span);
-	   std::cout <<"number of vectors" <<trajectory_for_state.size()<< std::endl;
+	   
 	   
        if (trajectory_for_state.size() > 0) {
 		cost = calculate_cost(*this,predictions,trajectory_for_state);
 		cost_for_trajectory.push_back(cost);
 		final_trajectories.push_back(trajectory_for_state);
 		
-		std::cout <<"Vehicle state of trajectory initial : " <<trajectory_for_state[0].lane<< " From " <<trajectory_for_state[0].lane<< std::endl;
-	    std::cout <<"Vehicle state of trajectory  Final : " <<trajectory_for_state[1].lane<<" to " <<trajectory_for_state[1].lane<< std::endl;
-	    std::cout <<"speed Cost" <<cost<< std::endl;
+		//std::cout <<"Vehicle state of trajectory initial : " <<trajectory_for_state[0].lane<< " From " <<trajectory_for_state[0].lane<< std::endl;
+	    //std::cout <<"Vehicle state of trajectory  Final : " <<trajectory_for_state[1].lane<<" to " <<trajectory_for_state[1].lane<< std::endl;
+	    std::cout <<"Vehicle State :"<<*t<<" Final Cost " <<cost<< std::endl;
 		
 	   }
 
