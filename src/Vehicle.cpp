@@ -305,6 +305,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
       new_velocity = std::min(std::min(max_velocity_in_front, 
                                        max_velocity_accel_limit), 
                                        this->target_speed);
+	  std::cout <<"In getkinematics : current accl " <<(this->a)<<std::endl; 								   
 	  /*std::cout <<"In getkinematics : position of vehicle ahead in front " <<vehicle_ahead.s<< std::endl;									 
 	  std::cout <<"In getkinematics : position of vehicle ego " <<this->s<< std::endl;
 	  std::cout <<"In getkinematics : preferred Buffer " <<this->preferred_buffer<< std::endl;									 	  
