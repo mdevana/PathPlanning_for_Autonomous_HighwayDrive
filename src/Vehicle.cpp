@@ -305,23 +305,23 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
       new_velocity = std::min(std::min(max_velocity_in_front, 
                                        max_velocity_accel_limit), 
                                        this->target_speed);
-	  std::cout <<"In getkinematics : current accl " <<(this->a)<<std::endl; 								   
-	  /*std::cout <<"In getkinematics : position of vehicle ahead in front " <<vehicle_ahead.s<< std::endl;									 
-	  std::cout <<"In getkinematics : position of vehicle ego " <<this->s<< std::endl;
-	  std::cout <<"In getkinematics : preferred Buffer " <<this->preferred_buffer<< std::endl;									 	  
+	  std::cout <<"In getkinematics Ego vehicle front: current accl " <<(this->a)<<std::endl; 								   
+	  std::cout <<"In getkinematics Ego vehicle front: position of vehicle ahead in front " <<vehicle_ahead.s<< std::endl;									 
+	  std::cout <<"In getkinematics Ego vehicle front: position of vehicle ego " <<this->s<< std::endl;
+	  std::cout <<"In getkinematics Ego vehicle front: preferred Buffer " <<this->preferred_buffer<< std::endl;									 	  
 	  
-	  std::cout <<"In getkinematics : Gap component  " <<allowed_gap_to_front_vehicle<< std::endl;	
-	  std::cout <<"In getkinematics : current sped distance " <<((vehicle_ahead.v * time_span))<< std::endl;	
-	  std::cout <<"In getkinematics : current velocity " <<(( (vehicle_ahead.s - this->s - this->preferred_buffer) + (vehicle_ahead.v * time_span) ) / time_span)<< std::endl;		
-	  std::cout <<"In getkinematics : velocity addition due  to accl " <<1.0 * (this->a) * time_span<<std::endl;
+	  std::cout <<"In getkinematics Ego vehicle front: Gap component  " <<allowed_gap_to_front_vehicle<< std::endl;	
+	  std::cout <<"In getkinematics Ego vehicle front: current sped distance " <<((vehicle_ahead.v * time_span))<< std::endl;	
+	  std::cout <<"In getkinematics Ego vehicle front: current velocity " <<(( (vehicle_ahead.s - this->s - this->preferred_buffer) + (vehicle_ahead.v * time_span) ) / time_span)<< std::endl;		
+	  std::cout <<"In getkinematics Ego vehicle front: velocity addition due  to accl " <<1.0 * (this->a) * time_span<<std::endl;
 	  
-	  std::cout <<"In getkinematics : time span " <<time_span<< std::endl;
-	  std::cout <<"In getkinematics : speed of vehicle in front " <<vehicle_ahead.v<< std::endl;
-	  std::cout <<"In getkinematics : current accl of ego vehicle " <<this->a<< std::endl;
-	  std::cout <<"In getkinematics : max velocity in front " <<max_velocity_in_front<< std::endl;
-	  std::cout <<"In getkinematics : max_velocity_accel_limit " <<max_velocity_accel_limit<< std::endl;
-	  std::cout <<"In getkinematics : target speed " <<this->target_speed<< std::endl;
-	  std::cout <<"In getkinematics : choosen speed " <<new_velocity<< std::endl;*/
+	  std::cout <<"In getkinematics Ego vehicle front: time span " <<time_span<< std::endl;
+	  std::cout <<"In getkinematics Ego vehicle front: speed of vehicle in front " <<vehicle_ahead.v<< std::endl;
+	  std::cout <<"In getkinematics Ego vehicle front: current accl of ego vehicle " <<this->a<< std::endl;
+	  std::cout <<"In getkinematics Ego vehicle front: max velocity in front " <<max_velocity_in_front<< std::endl;
+	  std::cout <<"In getkinematics Ego vehicle front: max_velocity_accel_limit " <<max_velocity_accel_limit<< std::endl;
+	  std::cout <<"In getkinematics Ego vehicle front: target speed " <<this->target_speed<< std::endl;
+	  std::cout <<"In getkinematics Ego vehicle front: choosen speed " <<new_velocity<< std::endl;
 	  
     }
   } else {
