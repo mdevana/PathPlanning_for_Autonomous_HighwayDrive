@@ -13,8 +13,8 @@ using std::vector;
 /**
  * TODO: change weights for cost functions.
  */
-const float GOAL_LANE = 0.25;
-const float EFFICIENCY = 0.75;
+const float GOAL_LANE = 0.1;
+const float EFFICIENCY = 0.90;
 
 // Here we have provided two possible suggestions for cost functions, but feel 
 //   free to use your own! The weighted cost over all cost functions is computed
