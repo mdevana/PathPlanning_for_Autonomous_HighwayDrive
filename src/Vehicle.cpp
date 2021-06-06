@@ -290,8 +290,13 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
     if (get_vehicle_behind(predictions, lane, vehicle_behind)) {
       // Ego stuck between front and back. must travel at the speed of traffic, regardless of preferred buffer
 	  
+	  std::cout <<"In ego vehicle velocity by sandwich cars : Ahead " <<vehicle_ahead.v<< std::endl;
+	  std::cout <<"In ego vehicle velocity by sandwich cars : behind " <<vehicle_behind.v<< std::endl;
+	  std::cout <<"In ego vehicle velocity by sandwich cars : Existing velocity " <<this->v<< std::endl;
+	  std::cout <<"In ego vehicle velocity by sandwich cars : Maximum decleration velocity " <<(this->v - this->max_acceleration * time_span)<< std::endl;	
+	  
       new_velocity = std::min(this->v - this->max_acceleration * time_span, vehicle_ahead.v);
-	  std::cout <<"In ego vehicle velocity bysandwich cars " <<vehicle_ahead.v<< std::endl;
+	  
     } else {
 	  // Ego has vehicle only in front. reduce speed.
 	  double allowed_gap_to_front_vehicle = std::min((vehicle_ahead.s - this->s - this->preferred_buffer), 0.0);	
@@ -414,7 +419,7 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	float cost;
 	for (vector<string>::iterator t=p_s_states.begin(); t!=p_s_states.end(); ++t) {
        
-	   std::cout <<"Vehicle states" <<*t<< std::endl;
+	   //std::cout <<"Vehicle states" <<*t<< std::endl;
 	   
        trajectory_for_state=generate_trajectory(*t,predictions,time_span);
 	   
