@@ -294,9 +294,11 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 	  std::cout <<"In ego vehicle velocity by sandwich cars : behind " <<vehicle_behind.v<< std::endl;
 	  std::cout <<"In ego vehicle velocity by sandwich cars : Existing velocity " <<this->v<< std::endl;
 	  std::cout <<"In ego vehicle velocity by sandwich cars : Maximum decleration velocity " <<(this->v - this->max_acceleration * time_span)<< std::endl;	
-	  
-      new_velocity = std::min(this->v - this->max_acceleration * time_span, vehicle_ahead.v);
-	  
+	  if (vehicle_ahead.v > this->v)
+		new_velocity = std::min(this->v + this->max_acceleration * time_span, vehicle_ahead.v);
+	  else 
+	    new_velocity = std::min(this->v - this->max_acceleration * time_span, vehicle_ahead.v);
+		
     } else {
 	  // Ego has vehicle only in front. reduce speed.
 	  double allowed_gap_to_front_vehicle = std::max((vehicle_ahead.s - this->s - this->preferred_buffer), 0.0);	
