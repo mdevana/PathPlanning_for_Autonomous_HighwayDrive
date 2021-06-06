@@ -60,7 +60,7 @@ float inefficiency_cost(const Vehicle &vehicle,
     
   float cost = (2.0*vehicle.target_speed - proposed_speed_intended 
              - proposed_speed_final)/vehicle.target_speed;
-
+  std::cout <<"calculated cost : " <<cost<<std::endl;
   return cost;
 }
 
@@ -112,7 +112,7 @@ float calculate_cost(const Vehicle &vehicle,
   vector<std::function<float(const Vehicle &, const vector<Vehicle> &, 
                              const map<int, Vehicle> &, 
                              map<string, float> &)
-    >> cf_list = {legal_cost, inefficiency_cost};
+    >> cf_list = {inefficiency_cost};
   vector<float> weight_list = {EFFICIENCY};
     
   for (int i = 0; i < cf_list.size(); ++i) {
