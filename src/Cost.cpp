@@ -90,7 +90,7 @@ float lane_speed(const Vehicle &vehicle,const map<int, Vehicle> &predictions, in
   Vehicle v_ahead;
   Vehicle veh = vehicle;
   map<int, Vehicle> predictions2 = predictions;
-  std::cout <<"lane _speed for cost Vehicle ahead in lane : "<<lane<<std::endl;
+  
 	bool v_ah = veh.get_vehicle_ahead(predictions2,lane,v_ahead);
 	if (v_ah == true){
 		//std::cout <<"lane _speed " <<v_ahead.v <<lane<<std::endl;
