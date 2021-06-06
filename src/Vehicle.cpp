@@ -320,6 +320,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
   } else {
 	// follow target speed , if less then accelerate   
     new_velocity = std::min(max_velocity_accel_limit, this->target_speed);
+	std::cout <<"In getkinematics Free drive : time span " <<time_span<< std::endl;
 	std::cout <<"In getkinematics Free drive : new velocity " <<new_velocity<< std::endl;
   }
     
