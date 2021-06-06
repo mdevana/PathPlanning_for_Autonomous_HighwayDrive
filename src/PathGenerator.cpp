@@ -178,6 +178,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	double ref_y = car_y;
 	double ref_yaw; 
 	double ref_velocity;
+	double ref_accl;
 		
 	
 	
@@ -190,7 +191,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 		end_s = car_s;
 		end_d = car_d;
 		ref_yaw = (car_yaw) * M_PI / 180;
-		
+		ref_accl = 0;
 
 	}
 	
@@ -207,6 +208,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 		pts_y.push_back(car_y);
 		
 		ref_velocity = 0;
+		ref_accl=0;
 		
 	}
 	else {
@@ -229,12 +231,12 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 		pts_y.push_back(ref_y);
 
 		ref_velocity = sqrt((pts_x[1]-pts_x[0] ) * (pts_x[1]-pts_x[0]) +  (pts_y[1]-pts_y[0]) * (pts_y[1]-pts_y[0])) / simulator_time_step;
-		
+		ref_accl = (ref_velocity - car_speed) / ((50 - path_size) * simulator_time_step);
 	}
 	
 	make_traffic_predictions(sensor_fusion); 
 	
-	Vehicle ego_vehicle(ref_x,ref_y,end_s,end_d,ref_velocity,ref_yaw,"KL");
+	Vehicle ego_vehicle(ref_x,ref_y,end_s,end_d,ref_velocity,ref_accl,ref_yaw,"KL");
 	ego_vehicle.configure(max_velocity,3,6);
 	vector<Vehicle> trajectory_for_state = ego_vehicle.test_func(vehicles_in_road,(50 - path_size) * simulator_time_step);
 	ego_vehicle.realize_next_state(trajectory_for_state);

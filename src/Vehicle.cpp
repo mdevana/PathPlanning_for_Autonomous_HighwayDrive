@@ -39,7 +39,7 @@ Vehicle::Vehicle(int lane, float s, float v, float a, string state) {
   //max_acceleration = -1;
 }
 
-Vehicle::Vehicle(double car_x, double car_y, double car_s, double car_d, double car_speed, double car_yaw, string state, double max_velocity ){
+Vehicle::Vehicle(double car_x, double car_y, double car_s, double car_d, double car_speed, double car_accl, double car_yaw, string state, double max_velocity ){
 	
   this->ID = 1000;
   
@@ -55,6 +55,7 @@ Vehicle::Vehicle(double car_x, double car_y, double car_s, double car_d, double 
     
   this->state = state;
   this->target_speed = max_velocity;
+  this->a = car_accl;
   
   //std::cout<< " car yaw "<<this->yaw<<std::endl;
   //std::cout<< " car X "<<this->x<<std::endl;
