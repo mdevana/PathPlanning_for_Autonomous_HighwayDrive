@@ -419,7 +419,7 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 		    lane_speeds.push_back(this->target_speed);
 	}
 	
-	for (int j=0;j<lanes_speeds.size();i++)
+	for (int j=0;j<lane_speeds.size();j++)
 		std::cout <<"Speed in lane  : " <<i<< " is :" <<lane_speed[j]<< std::endl;
 	
 	/*vector<string> p_s_states =successor_states(predictions,time_span);
