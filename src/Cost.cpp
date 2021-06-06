@@ -13,8 +13,8 @@ using std::vector;
 /**
  * TODO: change weights for cost functions.
  */
-const float LEGAL = 0.0;
-const float EFFICIENCY = 1.0;
+const float GOAL_LANE = 0.25;
+const float EFFICIENCY = 0.75;
 
 // Here we have provided two possible suggestions for cost functions, but feel 
 //   free to use your own! The weighted cost over all cost functions is computed
@@ -22,7 +22,7 @@ const float EFFICIENCY = 1.0;
 //   your implementation of the cost functions below. Please see get_helper_data
 //   for details on how the helper data is computed.
 
-float goal_distance_cost(const Vehicle &vehicle, 
+float goal_lane_cost(const Vehicle &vehicle, 
                          const vector<Vehicle> &trajectory, 
                          const map<int, Vehicle> &predictions, 
                          map<string, float> &data) {
@@ -36,7 +36,7 @@ float goal_distance_cost(const Vehicle &vehicle,
   float distance = data["distance_to_goal"];
   if (distance > 0) {
     cost = 1 - 2*exp(-(abs(2.0*vehicle.goal_lane - data["intended_lane"] 
-         - data["final_lane"]) / distance));
+         - data["final_lane"])));
   } else {
     cost = 1;
   }
@@ -115,8 +115,8 @@ float calculate_cost(const Vehicle &vehicle,
   vector<std::function<float(const Vehicle &, const vector<Vehicle> &, 
                              const map<int, Vehicle> &, 
                              map<string, float> &)
-    >> cf_list = {inefficiency_cost};
-  vector<float> weight_list = {EFFICIENCY};
+    >> cf_list = {inefficiency_cost,goal_lane_cost};
+  vector<float> weight_list = {EFFICIENCY,GOAL_LANE};
     
   for (int i = 0; i < cf_list.size(); ++i) {
     float new_cost = weight_list[i]*cf_list[i](vehicle, trajectory, predictions, 
