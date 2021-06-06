@@ -409,7 +409,7 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	
 	vector<string> p_s_states =successor_states(predictions,time_span);
 	float cost;
-	for (vector<string>::iterator t=p_s_states.begin(); t!=p_s_states.end(); ++t) {
+	/*for (vector<string>::iterator t=p_s_states.begin(); t!=p_s_states.end(); ++t) {
        
 	   std::cout <<"Vehicle states" <<*t<< std::endl;
 	   
@@ -432,7 +432,7 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	   
 	   
        
-   }
+   }*/
 	
 	
 	
