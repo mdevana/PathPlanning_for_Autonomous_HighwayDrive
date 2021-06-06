@@ -408,21 +408,6 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	vector<float> cost_for_trajectory;
     vector<vector<Vehicle>> final_trajectories;
 	
-	/*vector<float> lane_speeds;
-	for (int i  = 0 ; i < this-> lanes_available;i++){
-		
-		Vehicle v_front;
-	    bool is_v_front = this->get_vehicle_ahead(predictions,i+1,v_front);
-		if (is_v_front == true){
-			std::cout <<"vehicle ahead in lane  : " <<(i+1)<< " is :" <<v_front.v<< std::endl;
-			lane_speeds.push_back(v_front.v);
-		}
-		else
-		    lane_speeds.push_back(this->target_speed);
-	}
-	
-	for (int j=0;j<lane_speeds.size();j++)
-		std::cout <<"Speed in lane  : " <<j<< " is :" <<lane_speeds[j]<< std::endl;*/
 	
 	vector<string> p_s_states =successor_states(predictions,time_span);
 	float cost;
@@ -443,14 +428,13 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	    std::cout <<"speed Cost" <<cost<< std::endl;
 		
 	   }
-	   
-	   
-	   
-	   
-	   
-       
+
    }
+   
+    vector<float>::iterator min_cost=std::min_element(cost_for_trajectory.begin(),cost_for_trajectory.end());
+    int best_index = std::distance(cost_for_trajectory.begin(),min_cost);
 	
+	return (final_trajectories[best_index]);
 	
 	
 	
