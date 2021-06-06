@@ -54,8 +54,9 @@ float inefficiency_cost(const Vehicle &vehicle,
   // This function is very similar to what you have already implemented in 
   //   the "Implement a Second Cost Function in C++" quiz.
   float proposed_speed_intended = lane_speed(vehicle,predictions, data["intended_lane"]);
-
+	std::cout <<"intended lane" <<data["intended_lane"]<< std::endl;
   float proposed_speed_final = lane_speed(vehicle,predictions, data["final_lane"]);
+    std::cout <<"final lane" <<data["final_lane"]<< std::endl;
     
   float cost = (2.0*vehicle.target_speed - proposed_speed_intended 
              - proposed_speed_final)/vehicle.target_speed;
