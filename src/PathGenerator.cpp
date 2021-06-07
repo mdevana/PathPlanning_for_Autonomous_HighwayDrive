@@ -258,7 +258,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	double y_estimate = highway_map.get_y_from_curve(x_estimate);
 	double dist_estimate = sqrt(x_estimate * x_estimate + y_estimate * y_estimate);
 	
-	double velocity_delta = 6 * simulator_time_step * (50 - path_size);
+	/*double velocity_delta = 6 * simulator_time_step * (50 - path_size);
 	
 	if( ref_velocity + velocity_delta < max_velocity ){
 		
@@ -266,7 +266,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 
 	}
 	else 
-		ref_velocity = max_velocity;
+		ref_velocity = max_velocity;*/
 	
 	ref_velocity = 	ego_vehicle.v;
 	std::cout <<"Path Generation : Ref velocity used " <<ego_vehicle.v<< std::endl;
