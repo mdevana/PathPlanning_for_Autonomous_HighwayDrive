@@ -14,7 +14,9 @@ using std::vector;
  * TODO: change weights for cost functions.
  */
 const float GOAL_LANE = 0.1;
-const float EFFICIENCY = 0.90;
+const float EFFICIENCY = 0.80;
+const float SAFE_LANE_CHANGE = 0.1;
+
 
 // Here we have provided two possible suggestions for cost functions, but feel 
 //   free to use your own! The weighted cost over all cost functions is computed
@@ -67,16 +69,17 @@ float inefficiency_cost(const Vehicle &vehicle,
   return cost;
 }
 
-float legal_cost(const Vehicle &vehicle, 
+float lane_change_safety_cost(const Vehicle &vehicle, 
                         const vector<Vehicle> &trajectory, 
                         const map<int, Vehicle> &predictions, 
                         map<string, float> &data) {
 
-// cost is high if final lane is not within available lanes. This differentites whether to pick PLCL or PLCR / LCL or LCR
-	if (data["final_lane"] >=1 && data["final_lane"] <=3)
-		return (0);
+// cost is high if speed difference between current lane and final lane is less than 3 
+    float speed_diff = abs(data["speed_final_lane"] - data["speed_current_lane"]);
+	if ( speed_diff < 7)
+		return (1 * (7-speed_diff)/7;
 	else
-		return (1);
+		return (0);
 
 
 }
@@ -115,8 +118,8 @@ float calculate_cost(const Vehicle &vehicle,
   vector<std::function<float(const Vehicle &, const vector<Vehicle> &, 
                              const map<int, Vehicle> &, 
                              map<string, float> &)
-    >> cf_list = {inefficiency_cost,goal_lane_cost};
-  vector<float> weight_list = {EFFICIENCY,GOAL_LANE};
+    >> cf_list = {inefficiency_cost,goal_lane_cost,lane_change_safety_cost};
+  vector<float> weight_list = {EFFICIENCY,GOAL_LANE,SAFE_LANE_CHANGE};
     
   for (int i = 0; i < cf_list.size(); ++i) {
     float new_cost = weight_list[i]*cf_list[i](vehicle, trajectory, predictions, 
@@ -156,6 +159,27 @@ map<string, float> get_helper_data(const Vehicle &vehicle,
   trajectory_data["intended_lane"] = intended_lane;
   trajectory_data["final_lane"] = final_lane;
   trajectory_data["distance_to_goal"] = distance_to_goal;
+  
+  Vehicle v_ahead;
+  Vehicle veh = vehicle;
+  map<int, Vehicle> predictions2 = predictions;
+  
+  trajectory_data["Speed_final_lane"] = vehicle.target_speed;
+  bool v_ah = veh.get_vehicle_ahead(predictions2,final_lane,v_ahead);
+	if (v_ah == true){
+		//std::cout <<"lane _speed " <<v_ahead.v <<lane<<std::endl;
+		 trajectory_data["Speed_final_lane"]=v_ahead.v;	
+		
+	}
+    
+  trajectory_data["Speed_current_lane"] = vehicle.target_speed;
+  bool v_ah = veh.get_vehicle_ahead(predictions2,trajectory[0].lane,v_ahead);
+	if (v_ah == true){
+		//std::cout <<"lane _speed " <<v_ahead.v <<lane<<std::endl;
+		 trajectory_data["Speed_current_lane"]=v_ahead.v;	
+		
+	}
+
     
   return trajectory_data;
 }

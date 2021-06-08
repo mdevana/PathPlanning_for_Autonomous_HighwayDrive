@@ -20,6 +20,10 @@ float inefficiency_cost(const Vehicle &vehicle,
                         const vector<Vehicle> &trajectory, 
                         const map<int, Vehicle> &predictions, 
                         map<string, float> &data);
+float lane_change_safety_cost(const Vehicle &vehicle, 
+                        const vector<Vehicle> &trajectory, 
+                        const map<int, Vehicle> &predictions, 
+                        map<string, float> &data);
 
 float lane_speed(const Vehicle &vehicle,const map<int, Vehicle> &predictions, int lane);
 
