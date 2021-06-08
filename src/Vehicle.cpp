@@ -190,8 +190,8 @@ vector<Vehicle> Vehicle::lane_change_trajectory(string state,
   for (map<int, Vehicle>::iterator it = predictions.begin(); 
        it != predictions.end(); ++it) {
     next_lane_vehicle = it->second;
-	double forward_clearance = this->s + 15;
-	double backward_clearance = this->s - 15;
+	double forward_clearance = this->s + 10;
+	double backward_clearance = this->s - 10;
 	//std::cout <<"forward clearance : " <<forward_clearance<< std::endl;
 	//std::cout <<"backward clearance : " <<backward_clearance<< std::endl;
 	
