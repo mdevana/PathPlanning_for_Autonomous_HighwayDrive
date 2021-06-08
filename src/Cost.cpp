@@ -77,7 +77,7 @@ float lane_change_safety_cost(const Vehicle &vehicle,
 // cost is high if speed difference between current lane and final lane is less than 3 
     float speed_diff = abs(data["speed_final_lane"] - data["speed_current_lane"]);
 	if ( speed_diff < 7)
-		return (1 * (7-speed_diff)/7;
+		return (1 * (7-speed_diff)/7);
 	else
 		return (0);
 
@@ -173,7 +173,7 @@ map<string, float> get_helper_data(const Vehicle &vehicle,
 	}
     
   trajectory_data["Speed_current_lane"] = vehicle.target_speed;
-  bool v_ah = veh.get_vehicle_ahead(predictions2,trajectory[0].lane,v_ahead);
+  v_ah = veh.get_vehicle_ahead(predictions2,trajectory[0].lane,v_ahead);
 	if (v_ah == true){
 		//std::cout <<"lane _speed " <<v_ahead.v <<lane<<std::endl;
 		 trajectory_data["Speed_current_lane"]=v_ahead.v;	
