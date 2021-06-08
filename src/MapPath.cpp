@@ -68,8 +68,8 @@ void MapPath::calculate_map_XYspline_for_s(double s_val, double d_val,vector<dou
 	 }
 	 
 	 vector<double>  XY_1 = getXY(s_val+50, 2 + 4 * (lane - 1) , s_vect, x_vect, y_vect);
-	 vector<double>  XY_2 = getXY(s_val+75, 2 + 4 * (lane - 1) , s_vect, x_vect, y_vect);
-	 vector<double>  XY_3 = getXY(s_val+100, 2 + 4 * (lane - 1) , s_vect, x_vect, y_vect);
+	 vector<double>  XY_2 = getXY(s_val+60, 2 + 4 * (lane - 1) , s_vect, x_vect, y_vect);
+	 vector<double>  XY_3 = getXY(s_val+70, 2 + 4 * (lane - 1) , s_vect, x_vect, y_vect);
 	 
 	 /*std::cout<< " pts_prev_x 0 ["<<prev_pts_x[0]<<std::endl;
 	 std::cout<< " pts_prev_x 1 ["<<prev_pts_x[1]<<std::endl;
