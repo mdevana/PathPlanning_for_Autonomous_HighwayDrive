@@ -281,6 +281,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
   //   for a given lane. Tries to choose the maximum velocity and acceleration, 
   //   given other vehicle positions and accel/velocity constraints.
   float max_velocity_accel_limit = this->max_acceleration * time_span + this->v;
+  float min_velocity_accel_limit = this->v - this->max_acceleration * time_span ;
   float new_position;
   float new_velocity;
   float new_accel;
@@ -306,7 +307,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
       float max_velocity_in_front = ( allowed_gap_to_front_vehicle + (vehicle_ahead.v * time_span) ) / time_span 
                                   - 1.0 * (this->a) * time_span;
       new_velocity = std::min(std::min(max_velocity_in_front, 
-                                       max_velocity_accel_limit), 
+                                       min_velocity_accel_limit), 
                                        this->target_speed);
 	  std::cout <<"In getkinematics Ego vehicle front: current accl " <<(this->a)<<std::endl; 								   
 	  std::cout <<"In getkinematics Ego vehicle front: position of vehicle ahead in front " <<vehicle_ahead.s<< std::endl;									 
