@@ -135,6 +135,7 @@ bool Vehicle::get_vehicle_ahead(map<int, Vehicle> &predictions,
   double min_s = 100000;
   bool found_vehicle = false;
   Vehicle temp_vehicle;
+  //s_max = this->preferred_buffer + this->v * time_span - 0.5 * this->max_acceleration * time_span * time_span;
   for (map<int, Vehicle>::iterator it = predictions.begin(); 
        it != predictions.end(); ++it) {
     temp_vehicle = it->second;
@@ -190,7 +191,7 @@ vector<Vehicle> Vehicle::lane_change_trajectory(string state,
   for (map<int, Vehicle>::iterator it = predictions.begin(); 
        it != predictions.end(); ++it) {
     next_lane_vehicle = it->second;
-	double forward_clearance = this->s + 10;
+	double forward_clearance = this->s + 20;
 	double backward_clearance = this->s - 10;
 	//std::cout <<"forward clearance : " <<forward_clearance<< std::endl;
 	//std::cout <<"backward clearance : " <<backward_clearance<< std::endl;
