@@ -299,7 +299,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 	  if (vehicle_ahead.v > this->v)
 		new_velocity = std::min(this->v + this->max_acceleration * time_span, vehicle_ahead.v);
 	  else 
-	    new_velocity = std::min(this->v - this->max_acceleration * time_span, vehicle_ahead.v);
+	    new_velocity = std::max(this->v - this->max_acceleration * time_span, vehicle_ahead.v);
 		
     } else {
 	  // Ego has vehicle only in front. reduce speed.
