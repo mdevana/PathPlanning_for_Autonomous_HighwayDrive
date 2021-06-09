@@ -67,7 +67,7 @@ void MapPath::calculate_map_XYspline_for_s(double s_val, int d_val,vector<double
 	  
 	 }
 	 
-	 if d_val !=0 ){
+	 if (d_val !=0 ){
 	 vector<double>  XY_1 = getXY(s_val+50, 2 + 4 * (lane - 1) , s_vect, x_vect, y_vect);
 	 vector<double>  XY_2 = getXY(s_val+65, 2 + 4 * (lane - 1) , s_vect, x_vect, y_vect);
 	 vector<double>  XY_3 = getXY(s_val+80, 2 + 4 * (lane - 1) , s_vect, x_vect, y_vect);
