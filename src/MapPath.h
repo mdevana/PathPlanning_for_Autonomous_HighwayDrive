@@ -28,7 +28,7 @@ class MapPath {
   
   WayPoint get_map_point_for_x(double x_val);
   
-  void calculate_map_XYspline_for_s(double s_val, double d_val,vector<double> &prev_pts_x, vector<double> &prev_pts_y, double ref_yaw, int lane);
+  void calculate_map_XYspline_for_s(double s_val, int d_val,vector<double> &prev_pts_x, vector<double> &prev_pts_y, double ref_yaw, int lane);
   
   double get_y_from_curve(double x);
 	

@@ -239,6 +239,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	
 	Vehicle ego_vehicle(ref_x,ref_y,end_s,end_d,ref_velocity,ref_accl,ref_yaw,"KL");
 	ego_vehicle.configure(max_velocity,3,2);
+	int old_lane = ego_vehicle.lane;
 	vector<Vehicle> trajectory_for_state = ego_vehicle.test_func(vehicles_in_road,(50 - path_size) * simulator_time_step);
 	ego_vehicle.realize_next_state(trajectory_for_state);
 	
@@ -249,7 +250,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	std::cout <<"Ref Velocity  =" <<ref_velocity<< std::endl;
 	std::cout <<"Ref accl  =" <<ref_accl<< std::endl;
 	//std::cout <<"End S  =" <<end_s << std::endl;
-	highway_map.calculate_map_XYspline_for_s(end_s, 6, pts_x, pts_y,ref_yaw,ego_vehicle.lane);
+	highway_map.calculate_map_XYspline_for_s(end_s, old_lane - ego_vehicle.lane, pts_x, pts_y,ref_yaw,ego_vehicle.lane);
 		
 	
 	
