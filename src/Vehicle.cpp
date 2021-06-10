@@ -312,7 +312,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 	  
       if (allowed_gap_to_front_vehicle > 0 ){	  
 		max_velocity_in_front = ( allowed_gap_to_front_vehicle + (vehicle_ahead.v * time_span) ) / time_span 
-                                  + 1.0 * (this->a) * time_span;
+                                  - 1.0 * (this->a) * time_span;
 		
 		if (max_velocity_in_front > vehicle_ahead.v )
 		   new_velocity = std::min(std::min(max_velocity_in_front,max_velocity_accel_limit), this->target_speed);
