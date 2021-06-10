@@ -290,21 +290,26 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
   Vehicle vehicle_behind;
 
   if (get_vehicle_ahead(predictions, lane, vehicle_ahead)) {
+	double allowed_gap_to_front_vehicle = (vehicle_ahead.s - this->s - this->preferred_buffer);  
     if (get_vehicle_behind(predictions, lane, vehicle_behind)) {
       // Ego stuck between front and back. must travel at the speed of traffic, regardless of preferred buffer
 	  
-	  std::cout <<"In ego vehicle velocity by sandwich cars : Ahead " <<vehicle_ahead.v<< std::endl;
+	  /*std::cout <<"In ego vehicle velocity by sandwich cars : Ahead " <<vehicle_ahead.v<< std::endl;
 	  std::cout <<"In ego vehicle velocity by sandwich cars : behind " <<vehicle_behind.v<< std::endl;
 	  std::cout <<"In ego vehicle velocity by sandwich cars : Existing velocity " <<this->v<< std::endl;
-	  std::cout <<"In ego vehicle velocity by sandwich cars : Maximum decleration velocity " <<(this->v - this->max_acceleration * time_span)<< std::endl;	
-	  if (vehicle_ahead.v > this->v)
+	  std::cout <<"In ego vehicle velocity by sandwich cars : Maximum decleration velocity " <<(this->v - this->max_acceleration * time_span)<< std::endl;	*/
+	  if (vehicle_ahead.v > this->v && allowed_gap_to_front_vehicle > 0)
 		new_velocity = std::min(this->v + this->max_acceleration * time_span, vehicle_ahead.v);
-	  else 
-	    new_velocity = std::max(this->v - this->max_acceleration * time_span, vehicle_ahead.v);
+	  else {
+		if (allowed_gap_to_front_vehicle < 0 && this->v >= vehicle_ahead.v)
+			new_velocity = this->v - this->max_acceleration * time_span;
+        else		
+			new_velocity = std::max(this->v - this->max_acceleration * time_span, vehicle_ahead.v);
+	  }
 		
     } else {
 	  // Ego has vehicle only in front. reduce speed.
-	  double allowed_gap_to_front_vehicle = (vehicle_ahead.s - this->s - this->preferred_buffer);
+	  
       if (allowed_gap_to_front_vehicle > 0 ){	  
 		max_velocity_in_front = ( allowed_gap_to_front_vehicle + (vehicle_ahead.v * time_span) ) / time_span 
                                   + 1.0 * (this->a) * time_span;
@@ -322,7 +327,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 		    // Gap is maintained as per preffered Buffer , then reduce speed to match forward vehicle
 		    new_velocity = std::max(this->v - this->max_acceleration * time_span, vehicle_ahead.v);
 	  }
-	  std::cout <<"In getkinematics Ego vehicle front: current accl " <<(this->a)<<std::endl; 								   
+	  /*std::cout <<"In getkinematics Ego vehicle front: current accl " <<(this->a)<<std::endl; 								   
 	  std::cout <<"In getkinematics Ego vehicle front: position of vehicle ahead in front " <<vehicle_ahead.s<< std::endl;									 
 	  std::cout <<"In getkinematics Ego vehicle front: position of vehicle ego " <<this->s<< std::endl;
 	  std::cout <<"In getkinematics Ego vehicle front: preferred Buffer " <<this->preferred_buffer<< std::endl;									 	  
@@ -338,7 +343,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 	  std::cout <<"In getkinematics Ego vehicle front: max velocity in front " <<max_velocity_in_front<< std::endl;
 	  std::cout <<"In getkinematics Ego vehicle front: max_velocity_accel_limit " <<max_velocity_accel_limit<< std::endl;
 	  std::cout <<"In getkinematics Ego vehicle front: target speed " <<this->target_speed<< std::endl;
-	  std::cout <<"In getkinematics Ego vehicle front: choosen speed " <<new_velocity<< std::endl;
+	  std::cout <<"In getkinematics Ego vehicle front: choosen speed " <<new_velocity<< std::endl;*/
 	  
     }
   } else {
