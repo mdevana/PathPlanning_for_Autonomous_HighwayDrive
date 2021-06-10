@@ -95,7 +95,7 @@ float lane_change_safe_dist_cost(const Vehicle &vehicle,
 	if (data["distance_to_front_car_final_lane"] <= 50 && data["distance_to_front_car_current_lane"] <= 50)
 		return (1 - distance_diff/50.0);
 	else 
-        return = 0; 
+        return 0; 
 
 
 }
