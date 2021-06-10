@@ -313,7 +313,12 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
                                        this->target_speed);
 	  }
 	  else {
-		  new_velocity = std::max(this->v - this->max_acceleration * time_span, vehicle_ahead.v);
+		  if (allowed_gap_to_front_vehicle < 0 && this->v >= vehicle_ahead.v)
+			// 	Gap is less than preferred buffer but the speed is same as forward vehicle , reduce speed till gap is maintained
+			new_velocity = this->v - this->max_acceleration * time_span;
+		  else 
+		    // Gap is maintained as per preffered Buffer , then reduce speed to match forward vehicle
+		    new_velocity = std::max(this->v - this->max_acceleration * time_span, vehicle_ahead.v);
 	  }
 	  std::cout <<"In getkinematics Ego vehicle front: current accl " <<(this->a)<<std::endl; 								   
 	  std::cout <<"In getkinematics Ego vehicle front: position of vehicle ahead in front " <<vehicle_ahead.s<< std::endl;									 
