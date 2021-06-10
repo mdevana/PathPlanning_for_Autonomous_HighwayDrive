@@ -13,10 +13,10 @@ using std::vector;
 /**
  * TODO: change weights for cost functions.
  */
-const float GOAL_LANE = 0.2;
-const float EFFICIENCY = 0.55;
-const float SAFE_LANE_CHANGE = 0.1;
-const float SAFE_DIST_CHANGE = 0.15;
+const float GOAL_LANE = 0.15;
+const float EFFICIENCY = 0.75;
+const float SAFE_LANE_CHANGE = 0.0;
+const float SAFE_DIST_CHANGE = 0.1;
 
 
 // Here we have provided two possible suggestions for cost functions, but feel 
