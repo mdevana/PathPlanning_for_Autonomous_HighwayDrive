@@ -312,7 +312,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
                                        this->target_speed);
 	  }
 	  else {
-		  new_velocity = std::min(std::max(min_velocity_in_front,vehicle_ahead.v));
+		  new_velocity = std::min(std::max(min_velocity_accel_limit,vehicle_ahead.v));
 	  }
 	  std::cout <<"In getkinematics Ego vehicle front: current accl " <<(this->a)<<std::endl; 								   
 	  std::cout <<"In getkinematics Ego vehicle front: position of vehicle ahead in front " <<vehicle_ahead.s<< std::endl;									 
