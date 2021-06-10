@@ -311,7 +311,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 		if (this->a > 0)
 			new_velocity = std::min(std::min(max_velocity_in_front,max_velocity_accel_limit), this->target_speed);
 		else 
-		    new_velocity = std::max(std::max(max_velocity_in_front,min_velocity_accel_limit), vehicle_ahead.v);
+		    new_velocity = std::max(std::max(max_velocity_in_front,min_velocity_accel_limit), (float)vehicle_ahead.v);
 		
 	  }
 	  else {
