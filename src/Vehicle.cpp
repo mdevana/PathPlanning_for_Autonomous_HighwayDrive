@@ -349,16 +349,16 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
   } else {
 	// follow target speed , if less then accelerate   
     new_velocity = std::min(max_velocity_accel_limit, this->target_speed);
-	std::cout <<"In getkinematics Free drive : time span " <<time_span<< std::endl;
-	std::cout <<"In getkinematics Free drive : new velocity " <<new_velocity<< std::endl;
+	//std::cout <<"In getkinematics Free drive : time span " <<time_span<< std::endl;
+	//std::cout <<"In getkinematics Free drive : new velocity " <<new_velocity<< std::endl;
   }
     
   new_accel = (new_velocity - this->v) / time_span; // Equation: (v_1 - v_0)/t = acceleration
   new_position = this->s + new_velocity * time_span + new_accel * time_span * time_span / 2.0; // Equation: s = v *t + 0.5 * a * t * t
   
-      std::cout <<"In getkinematics Final : new Position " <<new_position<< std::endl;
-	  std::cout <<"In getkinematics Final : new Velocity " <<new_velocity<< std::endl;
-	  std::cout <<"In getkinematics Final : new accl " <<new_accel<< std::endl;
+      //std::cout <<"In getkinematics Final : new Position " <<new_position<< std::endl;
+	  //std::cout <<"In getkinematics Final : new Velocity " <<new_velocity<< std::endl;
+	  //std::cout <<"In getkinematics Final : new accl " <<new_accel<< std::endl;
     
   return{new_position, new_velocity, new_accel};
 }
