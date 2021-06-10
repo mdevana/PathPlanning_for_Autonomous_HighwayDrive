@@ -303,12 +303,17 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 		
     } else {
 	  // Ego has vehicle only in front. reduce speed.
-	  double allowed_gap_to_front_vehicle = std::max((vehicle_ahead.s - this->s - this->preferred_buffer), 0.0);	
+	  double allowed_gap_to_front_vehicle = (vehicle_ahead.s - this->s - this->preferred_buffer);
+      if (allowed_gap_to_front_vehicle > 0 ){	  
       float max_velocity_in_front = ( allowed_gap_to_front_vehicle + (vehicle_ahead.v * time_span) ) / time_span 
                                   - 1.0 * (this->a) * time_span;
       new_velocity = std::min(std::min(max_velocity_in_front, 
-                                       min_velocity_accel_limit), 
+                                       max_velocity_accel_limit), 
                                        this->target_speed);
+	  }
+	  else {
+		  new_velocity = std::min(std::max(min_velocity_in_front,vehicle_ahead.v));
+	  }
 	  std::cout <<"In getkinematics Ego vehicle front: current accl " <<(this->a)<<std::endl; 								   
 	  std::cout <<"In getkinematics Ego vehicle front: position of vehicle ahead in front " <<vehicle_ahead.s<< std::endl;									 
 	  std::cout <<"In getkinematics Ego vehicle front: position of vehicle ego " <<this->s<< std::endl;
