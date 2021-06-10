@@ -314,14 +314,16 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 		max_velocity_in_front = ( allowed_gap_to_front_vehicle + (vehicle_ahead.v * time_span) ) / time_span 
                                   + 1.0 * (this->a) * time_span;
 		
-		//new_velocity = std::min(std::min(max_velocity_in_front,min_velocity_accel_limit), this->target_speed);
-		new_velocity = std::max(min_velocity_accel_limit, (float)vehicle_ahead.v);
+		if (max_velocity_in_front > vehicle_ahead.v )
+		   new_velocity = std::min(std::min(max_velocity_in_front,max_velocity_accel_limit), this->target_speed);
+		else
+		   new_velocity = std::max(min_velocity_accel_limit, (float)vehicle_ahead.v);
 		
 		
 	  }
 	  else {
 		  if (allowed_gap_to_front_vehicle < 0 && this->v >= vehicle_ahead.v)
-			// 	Gap is less than preferred buffer but the speed is same as forward vehicle , reduce speed till gap is maintained
+			// 	Unexpected lane change from other cars. Gap is less than preferred buffer but the speed is same as forward vehicle , reduce speed till gap is maintained
 			new_velocity = this->v - this->max_acceleration * time_span;
 		  else 
 		    // Gap is maintained as per preffered Buffer , then reduce speed to match forward vehicle
