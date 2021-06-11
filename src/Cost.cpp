@@ -11,8 +11,8 @@ using std::string;
 using std::vector;
 
 
-const float GOAL_LANE = 0.1;
-const float EFFICIENCY = 0.8;
+const float GOAL_LANE = 0.15;
+const float EFFICIENCY = 0.75;
 const float SAFE_LANE_CHANGE = 0.1;
 const float SAFE_DIST_CHANGE = 0.0;
 
