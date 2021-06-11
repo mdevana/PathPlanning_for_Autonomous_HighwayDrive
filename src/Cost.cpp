@@ -138,10 +138,10 @@ float calculate_cost(const Vehicle &vehicle,
   for (int i = 0; i < cf_list.size(); ++i) {
     float new_cost = weight_list[i]*cf_list[i](vehicle, trajectory, predictions, 
                                                trajectory_data);
-	if (i==3)
+	/*if (i==3)
 		std::cout <<"calculated lane distance cost : " <<cf_list[i](vehicle, trajectory, predictions, trajectory_data)<<std::endl;
 	if (i==2)
-		std::cout <<"calculated lane speed cost : " <<cf_list[i](vehicle, trajectory, predictions, trajectory_data)<<std::endl;
+		std::cout <<"calculated lane speed cost : " <<cf_list[i](vehicle, trajectory, predictions, trajectory_data)<<std::endl;*/
     cost += new_cost;
   }
 
