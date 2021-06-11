@@ -220,9 +220,9 @@ vector<Vehicle> Vehicle::prep_lane_change_trajectory(string state,
   return trajectory;
 }
 
-vector<Vehicle> Vehicle::constant_speed_trajectory() {
+vector<Vehicle> Vehicle::constant_speed_trajectory(double time_span) {
   // Generate a constant speed trajectory.
-  float next_pos = position_at(1);
+  float next_pos = this->s + this->v * time_span + 0.5 * this->a * time_span * time_span;
   vector<Vehicle> trajectory = {Vehicle(this->lane,this->s,this->v,this->a,this->state), 
                                 Vehicle(this->lane,next_pos,this->v,0,this->state)};
   return trajectory;
@@ -320,7 +320,7 @@ vector<Vehicle> Vehicle::generate_trajectory(string state,
   //   the next state.
   vector<Vehicle> trajectory;
   if (state.compare("CS") == 0) {
-    trajectory = constant_speed_trajectory();
+    trajectory = constant_speed_trajectory(time_span);
   } else if (state.compare("KL") == 0) {
     trajectory = keep_lane_trajectory(predictions,time_span);
   } else if (state.compare("LCL") == 0 || state.compare("LCR") == 0) {
