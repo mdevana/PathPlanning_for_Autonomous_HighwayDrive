@@ -290,7 +290,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 		// To clear traffic , vehicle can close the gap to minimum buffer and look for opportunity to overtake : CODE is not Activated 
 		
 		//new_velocity = std::min(std::min(max_velocity_in_front,max_velocity_accel_limit), this->target_speed);
-		if (max_velocity_in_front > this.v)
+		if (max_velocity_in_front > this->v)
 			new_velocity = std::min(max_velocity_accel_limit, this->target_speed);
 		else 
 		    new_velocity = std::max(min_velocity_accel_limit, (float)vehicle_ahead.v);
