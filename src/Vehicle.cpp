@@ -296,7 +296,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 		     new_velocity = std::max(min_velocity_accel_limit, (float)vehicle_ahead.v);
 		   else
 		     new_velocity = std::min(max_velocity_accel_limit, (float)vehicle_ahead.v);*/
-		std::cout<< " velocity choosen at front : "<<max_velocity_in_front<<std::endl; 
+		std::cout<< " velocity choosen at front : "<<new_velocity<<std::endl; 
 		
 	  }
 	  else {
