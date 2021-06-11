@@ -41,9 +41,6 @@ class Vehicle {
 
   vector<Vehicle> prep_lane_change_trajectory(string state, map<int, Vehicle> &predictions, double time_span);
 
-  void increment(int dt);
-
-  float position_at(int t);
 
   bool get_vehicle_behind(map<int, Vehicle> &predictions, int lane, 
                           Vehicle &rVehicle);
@@ -59,12 +56,6 @@ class Vehicle {
 
   void configure(double max_speed,int lane_avail, double max_accl);
 
-  // public Vehicle variables
-  /*struct collider{
-    bool collision; // is there a collision?
-    int  time; // time collision happens
-  };*/
-  //object functions
   vector<string> successor_states(map<int, Vehicle> &predictions, double time_span);
   
   void VehicleParamDisplay();
