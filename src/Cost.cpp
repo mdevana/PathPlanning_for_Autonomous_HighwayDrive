@@ -75,8 +75,8 @@ float lane_change_safety_cost(const Vehicle &vehicle,
 
 // cost is high if speed difference between current lane and final lane is less than 7 
     float speed_diff = abs(data["speed_final_lane"] - data["speed_current_lane"]);
-	if ( speed_diff < 11 && data["speed_final_lane"]!= vehicle.target_speed && data["speed_current_lane"]!= vehicle.target_speed )
-		return (1 * (11-speed_diff)/11);
+	if ( speed_diff < 7 && data["speed_final_lane"]!= vehicle.target_speed && data["speed_current_lane"]!= vehicle.target_speed )
+		return (1 * (7-speed_diff)/7);
 	else
 		return (0);
 

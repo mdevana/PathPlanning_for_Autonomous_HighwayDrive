@@ -281,7 +281,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
     } else {
 	  // Ego has vehicle only in front and no vehilce in rear. Adjust speed to follow the front vehicle
 	  
-      if (allowed_gap_to_front_vehicle > 0 ){	  
+      if (allowed_gap_to_front_vehicle > 0 && this->v >= vehicle_ahead.v){	  
 		max_velocity_in_front = ( allowed_gap_to_front_vehicle + (vehicle_ahead.v * time_span) ) / time_span 
                                   - 0.5 * (this->a) * time_span;
 		
@@ -289,7 +289,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 		/*if (max_velocity_in_front > vehicle_ahead.v )
 		   new_velocity = std::min(std::min(max_velocity_in_front,max_velocity_accel_limit), this->target_speed);
 		else*/
-		   new_velocity = std::min(max_velocity_accel_limit, (float)vehicle_ahead.v);// earlier set to min_velocity_accel_limit & max
+		   new_velocity = std::max(min_velocity_accel_limit, (float)vehicle_ahead.v);
 		
 		
 	  }
