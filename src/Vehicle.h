@@ -33,7 +33,7 @@ class Vehicle {
 
   vector<float> get_kinematics(map<int, Vehicle> &predictions, int lane,double time_span);
 
-  vector<Vehicle> constant_speed_trajectory();
+  vector<Vehicle> constant_speed_trajectory(double time_span);
 
   vector<Vehicle> keep_lane_trajectory(map<int, Vehicle> &predictions, double time_span);
 
