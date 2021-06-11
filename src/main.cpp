@@ -105,10 +105,7 @@ int main() {
           vector<double> next_x_vals;
           vector<double> next_y_vals;
 
-          /**
-           * TODO: define a path made up of (x,y) points that the car will visit
-           *   sequentially every .02 seconds
-           */
+
 		   
 		   MapPath highway;
 		   highway.set_map_path_data(map_waypoints_x,map_waypoints_y,map_waypoints_s,map_waypoints_dx,map_waypoints_dy);
@@ -118,12 +115,8 @@ int main() {
 		  current_path.Init(dist_inc,highway);
 		  current_path.set_localization_data(car_x,car_y,car_s,car_d,car_yaw,car_speed);
 		  current_path.set_previous_path_data(previous_path_x, previous_path_y,end_path_s,end_path_d);
-		  //current_path.generate_simple_path();
-		  //current_path.generate_circular_path();
-		  //current_path.generate_map_path();
-		  //current_path.generate_map_path_with_transform();
 		  current_path.generate_map_path_with_traffic(sensor_fusion);
-		  //current_path.generate_map_path_JMT();
+
 
           msgJson["next_x"] = current_path.get_x_vals();
           msgJson["next_y"] = current_path.get_y_vals();

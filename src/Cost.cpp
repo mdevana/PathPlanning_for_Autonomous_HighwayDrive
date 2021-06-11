@@ -10,19 +10,17 @@
 using std::string;
 using std::vector;
 
-/**
- * TODO: change weights for cost functions.
- */
+
 const float GOAL_LANE = 0.1;
 const float EFFICIENCY = 0.8;
 const float SAFE_LANE_CHANGE = 0.1;
 const float SAFE_DIST_CHANGE = 0.0;
 
 
-// Here we have provided two possible suggestions for cost functions, but feel 
-//   free to use your own! The weighted cost over all cost functions is computed
-//   in calculate_cost. The data from get_helper_data will be very useful in 
-//   your implementation of the cost functions below. Please see get_helper_data
+
+//   The weighted cost over all cost functions is computed
+//   in calculate_cost. The data from get_helper_data will be used in 
+//   the implementation of the cost functions below. Please see get_helper_data
 //   for details on how the helper data is computed.
 
 float goal_lane_cost(const Vehicle &vehicle, 
@@ -75,7 +73,7 @@ float lane_change_safety_cost(const Vehicle &vehicle,
                         const map<int, Vehicle> &predictions, 
                         map<string, float> &data) {
 
-// cost is high if speed difference between current lane and final lane is less than 3 
+// cost is high if speed difference between current lane and final lane is less than 7 
     float speed_diff = abs(data["speed_final_lane"] - data["speed_current_lane"]);
 	if ( speed_diff < 7 && data["speed_final_lane"]!= vehicle.target_speed && data["speed_current_lane"]!= vehicle.target_speed )
 		return (1 * (7-speed_diff)/7);
@@ -90,7 +88,8 @@ float lane_change_safe_dist_cost(const Vehicle &vehicle,
                         const map<int, Vehicle> &predictions, 
                         map<string, float> &data) {
 
-// cost is high if speed difference between current lane and final lane is less than 3 
+// cost is high if difference in distance with front vehicle between current lane and final lane is less than 50
+// This function is thought to prevent waggling of ego vehicle between lanes when front vehicle in adjacent lanes travel with same s and velocity
     float distance_diff = abs(data["distance_to_front_car_final_lane"] - data["distance_to_front_car_current_lane"]);
 	if (distance_diff<=50 && data["distance_to_front_car_final_lane"]<=50 && data["distance_to_front_car_current_lane"]<=50)
 		return (1 - distance_diff/50.0);
@@ -111,7 +110,7 @@ float lane_speed(const Vehicle &vehicle,const map<int, Vehicle> &predictions, in
   
 	bool v_ah = veh.get_vehicle_ahead(predictions2,lane,v_ahead);
 	if (v_ah == true){
-		//std::cout <<"lane _speed " <<v_ahead.v <<lane<<std::endl;
+		
 		return v_ahead.v;	
 		
 	}
