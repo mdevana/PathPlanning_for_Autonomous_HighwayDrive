@@ -269,7 +269,8 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 		new_velocity = std::min(this->v + this->max_acceleration * time_span, vehicle_ahead.v);
 	  else {
 		// Condition to check if a passing vehicle makes a sudden lane change   
-		if (allowed_gap_to_front_vehicle < 0 && this->v >= vehicle_ahead.v)
+		//if (allowed_gap_to_front_vehicle < 0 && this->v >= vehicle_ahead.v)
+		if (allowed_gap_to_front_vehicle < 0 )
 			// Reduce speed gradually until safe distance is created to front vehicle
 			new_velocity = this->v - this->max_acceleration * time_span;
         else
@@ -293,7 +294,8 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 		
 	  }
 	  else {
-		  if (allowed_gap_to_front_vehicle < 0 && this->v >= vehicle_ahead.v)
+		  //if (allowed_gap_to_front_vehicle < 0 && this->v >= vehicle_ahead.v)
+		  if (allowed_gap_to_front_vehicle < 0)
 			// 	Unexpected lane change from other cars. Gap is less than preferred buffer but the speed is same as forward vehicle , reduce speed till gap is maintained
 			new_velocity = this->v - this->max_acceleration * time_span;
 		  else 
