@@ -179,6 +179,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	double ref_yaw; 
 	double ref_velocity;
 	double ref_accl=0.0;
+	double max_accl = 3; // default value for this project
 		
 	
 	
@@ -209,6 +210,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 		
 		ref_velocity = 0;
 		ref_accl=0;
+		max_accl = 2;
 		
 	}
 	else {
@@ -238,7 +240,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	make_traffic_predictions(sensor_fusion); 
 	
 	Vehicle ego_vehicle(ref_x,ref_y,end_s,end_d,ref_velocity,ref_accl,ref_yaw,"KL");
-	ego_vehicle.configure(max_velocity,3,3);
+	ego_vehicle.configure(max_velocity,3,max_accl);
 	int old_lane = ego_vehicle.lane;
 	vector<Vehicle> trajectory_for_state = ego_vehicle.test_func(vehicles_in_road,(50 - path_size) * simulator_time_step);
 	ego_vehicle.realize_next_state(trajectory_for_state);
