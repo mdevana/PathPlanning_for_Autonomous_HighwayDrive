@@ -11,10 +11,10 @@ using std::string;
 using std::vector;
 
 
-const float GOAL_LANE = 0.2;
+const float GOAL_LANE = 0.1;
 const float EFFICIENCY = 0.8;
 const float SAFE_LANE_CHANGE = 0.0;
-const float SAFE_DIST_CHANGE = 0.0;
+const float SAFE_DIST_CHANGE = 0.1;
 
 
 
@@ -91,8 +91,8 @@ float lane_change_safe_dist_cost(const Vehicle &vehicle,
 // cost is high if difference in distance with front vehicle between current lane and final lane is less than 50
 // This function is thought to prevent waggling of ego vehicle between lanes when front vehicle in adjacent lanes travel with same s and velocity
     float distance_diff = abs(data["distance_to_front_car_final_lane"] - data["distance_to_front_car_current_lane"]);
-	if (distance_diff<=50 && data["distance_to_front_car_final_lane"]<=50 && data["distance_to_front_car_current_lane"]<=50)
-		return (1 - distance_diff/50.0);
+	if (distance_diff<=20 && data["distance_to_front_car_final_lane"]<=50 && data["distance_to_front_car_current_lane"]<=50)
+		return (20.0 - distance_diff/20.0);
 	else 
         return 0; 
 
@@ -189,7 +189,7 @@ map<string, float> get_helper_data(const Vehicle &vehicle,
 	if (v_ah == true){
 		//std::cout <<"lane _speed " <<v_ahead.v <<lane<<std::endl;
 		 trajectory_data["Speed_final_lane"]=v_ahead.v;	
-		 trajectory_data["distance_to_front_car_final_lane"] = abs(vehicle.s - v_ahead.s) ;
+		 trajectory_data["distance_to_front_car_final_lane"] = abs(v_ahead.s - vehicle.s) ;
 	}
     
   trajectory_data["Speed_current_lane"] = vehicle.target_speed;
@@ -197,7 +197,7 @@ map<string, float> get_helper_data(const Vehicle &vehicle,
 	if (v_ah == true){
 		//std::cout <<"lane _speed " <<v_ahead.v <<lane<<std::endl;
 		 trajectory_data["Speed_current_lane"]=v_ahead.v;
-		 trajectory_data["distance_to_front_car_current_lane"] = abs(vehicle.s - v_ahead.s) ;
+		 trajectory_data["distance_to_front_car_current_lane"] = abs(v_ahead.s - vehicle.s) ;
 		
 	}
 
