@@ -179,7 +179,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	double ref_yaw; 
 	double ref_velocity;
 	double ref_accl=0.0;
-	double max_accl = 4; // default value for this project
+	double max_accl = 3; // default value for this project
 		
 	
 	
