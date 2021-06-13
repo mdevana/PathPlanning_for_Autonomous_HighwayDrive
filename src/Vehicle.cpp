@@ -292,9 +292,15 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 		//new_velocity = std::min(std::min(max_velocity_in_front,max_velocity_accel_limit), this->target_speed);
 		double braking_dist = abs((vehicle_ahead.v * vehicle_ahead.v) - (this->v * this->v)) / (2 * this->max_acceleration) ;
 		std::cout<< " Braking distance "<<braking_dist<<std::endl; 
-		if (braking_dist >= allowed_gap_to_front_vehicle)
+		if (braking_dist >= allowed_gap_to_front_vehicle){
 		
-		    new_velocity = std::max(min_velocity_accel_limit, (float)vehicle_ahead.v);			
+		    //new_velocity = std::max(min_velocity_accel_limit, (float)vehicle_ahead.v);
+			if (min_velocity_accel_limit > vehicle_ahead.v)
+				new_velocity = min_velocity_accel_limit;
+			else
+				new_velocity = vehicle_ahead.v;
+			
+		}			
 		else {
 		    //new_velocity = std::min(max_velocity_accel_limit, this->target_speed);
 			if (max_velocity_accel_limit < this->target_speed)
