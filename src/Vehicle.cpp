@@ -259,7 +259,8 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 
   if (get_vehicle_ahead(predictions, lane, vehicle_ahead)) {
 	
-	double allowed_gap_to_front_vehicle = (vehicle_ahead.s - this->s - this->preferred_buffer);  
+	double allowed_gap_to_front_vehicle = (vehicle_ahead.s - this->s - this->preferred_buffer); 
+    std::cout<< " Gap maintained with vehicle id  "<<vehicle_ahead.ID<<std::endl; 	
     
 	if (get_vehicle_behind(predictions, lane, vehicle_behind)) {
       // Ego sandwiched between front and back vehicle. Must travel at the speed of traffic, regardless of preferred/minimum buffer distance
