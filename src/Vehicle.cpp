@@ -295,13 +295,13 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 		if (braking_dist >= allowed_gap_to_front_vehicle)
 		
 		    new_velocity = std::max(min_velocity_accel_limit, (float)vehicle_ahead.v);			
-		else 
+		else {
 		    //new_velocity = std::min(max_velocity_accel_limit, this->target_speed);
 			if (max_velocity_accel_limit < this->target_speed)
 				new_velocity = max_velocity_accel_limit;
 			else
 				new_velocity = this->target_speed;
-		
+		}
 		
 		
 		// Code to normal behaviour
@@ -318,9 +318,15 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 		  if (allowed_gap_to_front_vehicle < 0)
 			// 	Unexpected lane change from other cars. Gap is less than preferred buffer but the speed is same as forward vehicle , reduce speed till gap is maintained
 			new_velocity = this->v - this->max_acceleration * time_span;
-		  else 
+		  else{ 
 		    // Gap is maintained as per preffered Buffer , then reduce speed to match forward vehicle
-		    new_velocity = std::max(this->v - this->max_acceleration * time_span, vehicle_ahead.v);
+		  //new_velocity = std::max(this->v - this->max_acceleration * time_span, vehicle_ahead.v);
+		  if (min_velocity_accel_limit > vehicle_ahead.v)
+				new_velocity = min_velocity_accel_limit;
+			else
+				new_velocity = vehicle_ahead.v;
+		  }
+			
 	  }
 	  
     }
