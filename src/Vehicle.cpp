@@ -112,7 +112,7 @@ bool Vehicle::get_vehicle_ahead(map<int, Vehicle> &predictions,
     temp_vehicle = it->second;
 	  
 	  if (temp_vehicle.lane == in_lane)
-	  if ( (temp_vehicle.s > this->s ) && (temp_vehicle.s - this->s < 50) ) {
+	  if ( (temp_vehicle.s > this->s ) && (temp_vehicle.s - this->s < 50) && (temp_vehicle.s < min_s) ) {
 		min_s = temp_vehicle.s;
 		rVehicle = temp_vehicle;
 		found_vehicle = true;
