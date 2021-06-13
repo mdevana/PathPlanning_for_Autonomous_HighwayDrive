@@ -286,7 +286,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
                                   - 0.5 * (this->a) * time_span;
 		//std::cout<< " maximum velocity at front "<<max_velocity_in_front<<std::endl; 
 		//std::cout<< " max_velocity_accel_limit "<<max_velocity_accel_limit<<std::endl; 
-		//std::cout<< " speed of vehicle ahead:  "<<vehicle_ahead.v<<std::endl; 
+		std::cout<< " speed of vehicle ahead:  "<<vehicle_ahead.v<<std::endl; 
 		// To clear traffic , vehicle can close the gap to minimum buffer and look for opportunity to overtake : CODE is not Activated 
 		
 		//new_velocity = std::min(std::min(max_velocity_in_front,max_velocity_accel_limit), this->target_speed);
@@ -295,6 +295,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 		if (braking_dist >= allowed_gap_to_front_vehicle){
 		
 		    //new_velocity = std::max(min_velocity_accel_limit, (float)vehicle_ahead.v);
+			std::cout<< " Reducing speed to match vehcile ahead "<<max_velocity_accel_limit<<std::endl; 
 			if (min_velocity_accel_limit > vehicle_ahead.v)
 				new_velocity = min_velocity_accel_limit;
 			else
