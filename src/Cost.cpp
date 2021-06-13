@@ -92,7 +92,7 @@ float lane_change_safe_dist_cost(const Vehicle &vehicle,
 // This function is thought to prevent waggling of ego vehicle between lanes when front vehicle in adjacent lanes travel with same s and velocity
     float distance_diff = abs(data["distance_to_front_car_final_lane"] - data["distance_to_front_car_current_lane"]);
 	if (distance_diff<=20 && data["distance_to_front_car_final_lane"]<=50 && data["distance_to_front_car_current_lane"]<=50 && (data["distance_to_front_car_final_lane"] > data["distance_to_front_car_current_lane"]))
-		return (20.0 - distance_diff/20.0);
+		return ((20.0 - distance_diff)/20.0);
 	else 
         return 0; 
 
