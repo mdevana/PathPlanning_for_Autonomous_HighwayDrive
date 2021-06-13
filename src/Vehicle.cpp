@@ -295,7 +295,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 		if (braking_dist >= allowed_gap_to_front_vehicle){
 		
 		    //new_velocity = std::max(min_velocity_accel_limit, (float)vehicle_ahead.v);
-			std::cout<< " Reducing speed to match vehcile ahead "<<max_velocity_accel_limit<<std::endl; 
+			std::cout<< " Reducing speed to match vehcile ahead "<<min_velocity_accel_limit<<std::endl; 
 			if (min_velocity_accel_limit > vehicle_ahead.v)
 				new_velocity = min_velocity_accel_limit;
 			else
