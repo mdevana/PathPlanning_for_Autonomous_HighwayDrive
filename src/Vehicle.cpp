@@ -277,17 +277,17 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 	  else {
 		// Condition to check if a passing vehicle makes a sudden lane change   
 		//if (allowed_gap_to_front_vehicle < 0 && this->v >= vehicle_ahead.v)
-		if (allowed_gap_to_front_vehicle < 0 )
+		//if (allowed_gap_to_front_vehicle < 0 )
 			// Reduce speed gradually until safe distance is created to front vehicle
-			new_velocity = this->v - this->max_acceleration * time_span;
-        else{
+			//new_velocity = this->v - this->max_acceleration * time_span;
+        //else{
 			// just reduce speed to  match the speed of front vehicle
 			//new_velocity = std::max(this->v - this->max_acceleration * time_span, vehicle_ahead.v);
 			if (min_velocity_accel_limit > vehicle_ahead.v)
 				new_velocity = min_velocity_accel_limit;
 			else
 				new_velocity = vehicle_ahead.v;
-		}
+		//}
 	  }
 		
     } else {
@@ -335,17 +335,17 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 	  else {
 		  //if (allowed_gap_to_front_vehicle < 0 && this->v >= vehicle_ahead.v)
 		  std::cout<< " allowed_gap_to_front_vehicle should be negative"<<allowed_gap_to_front_vehicle<<std::endl; 
-		  if (allowed_gap_to_front_vehicle < 0)
+		  //if (allowed_gap_to_front_vehicle < 0)
 			// 	Unexpected lane change from other cars. Gap is less than preferred buffer but the speed is same as forward vehicle , reduce speed till gap is maintained
-			new_velocity = this->v - this->max_acceleration * time_span;
-		  else{ 
+			//new_velocity = this->v - this->max_acceleration * time_span;
+		  //else{ 
 		    // Gap is maintained as per preffered Buffer , then reduce speed to match forward vehicle
 		  //new_velocity = std::max(this->v - this->max_acceleration * time_span, vehicle_ahead.v);
 		  if (min_velocity_accel_limit > vehicle_ahead.v)
 				new_velocity = min_velocity_accel_limit;
 			else
 				new_velocity = vehicle_ahead.v;
-		  }
+		  //}
 			
 	  }
 	  
