@@ -265,18 +265,29 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 	if (get_vehicle_behind(predictions, lane, vehicle_behind)) {
       // Ego sandwiched between front and back vehicle. Must travel at the speed of traffic, regardless of preferred/minimum buffer distance
 	  	  
-	  if (vehicle_ahead.v > this->v && allowed_gap_to_front_vehicle > 0)
+	  if (vehicle_ahead.v > this->v && allowed_gap_to_front_vehicle > 0){
 		// increase Speed to that of front vehicle provided there is gap in front
-		new_velocity = std::min(this->v + this->max_acceleration * time_span, vehicle_ahead.v);
+		//new_velocity = std::min(this->v + this->max_acceleration * time_span, vehicle_ahead.v);
+		if (max_velocity_accel_limit < vehicle_ahead.v)
+				new_velocity = max_velocity_accel_limit;
+			else
+				new_velocity = this->target_speed;
+	  }
+		
 	  else {
 		// Condition to check if a passing vehicle makes a sudden lane change   
 		//if (allowed_gap_to_front_vehicle < 0 && this->v >= vehicle_ahead.v)
 		if (allowed_gap_to_front_vehicle < 0 )
 			// Reduce speed gradually until safe distance is created to front vehicle
 			new_velocity = this->v - this->max_acceleration * time_span;
-        else
+        else{
 			// just reduce speed to  match the speed of front vehicle
-			new_velocity = std::max(this->v - this->max_acceleration * time_span, vehicle_ahead.v);
+			//new_velocity = std::max(this->v - this->max_acceleration * time_span, vehicle_ahead.v);
+			if (min_velocity_accel_limit > vehicle_ahead.v)
+				new_velocity = min_velocity_accel_limit;
+			else
+				new_velocity = vehicle_ahead.v;
+		}
 	  }
 		
     } else {
