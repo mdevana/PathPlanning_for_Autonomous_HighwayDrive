@@ -271,7 +271,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 		if (max_velocity_accel_limit < vehicle_ahead.v)
 				new_velocity = max_velocity_accel_limit;
 			else
-				new_velocity = this->target_speed;
+				new_velocity = this->vehicle_ahead.v;
 	  }
 		
 	  else {
