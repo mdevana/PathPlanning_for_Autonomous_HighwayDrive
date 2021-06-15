@@ -1,10 +1,10 @@
-#include "vehicle.h"
+#include "Vehicle.h"
 #include <algorithm>
 #include <iterator>
 #include <map>
 #include <string>
 #include <vector>
-#include "cost.h"
+#include "Cost.h"
 #include <iostream>
 #include <math.h>
 
