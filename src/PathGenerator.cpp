@@ -166,7 +166,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	
 	
 	int path_size = previous_path_x.size();
-	std::cout<< " size of path "<<path_size;
+	
 	
 	
 	// step 1 : copy unexecuted Path
@@ -179,11 +179,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	double ref_yaw; 
 	double ref_velocity;
 	double ref_accl=0.0;
-	double max_accl = 3; // default value for this project
-		
-	
-	
-	
+	double max_accl = 3; // default acceleration value for this project	
 	
 	if (path_size ==0){
 		
@@ -200,7 +196,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	vector<double> pts_y;
 	
 	if ( path_size < 2){
-		
+		// Case when car is starting from zero velocity. Cold start parameters
 		// 2 points that makes path tangent to the car
 		pts_x.push_back(car_x - cos(car_yaw));
 		pts_y.push_back(car_y - sin(car_yaw));
@@ -237,42 +233,34 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 		ref_accl = (ref_velocity - (car_speed/2.24)) / (path_size * simulator_time_step);
 	}
 	
+	// make predictions for other vehicles on the road
 	make_traffic_predictions(sensor_fusion); 
 	
+	// Initialise Ego vehicle
 	Vehicle ego_vehicle(ref_x,ref_y,end_s,end_d,ref_velocity,ref_accl,ref_yaw,"KL");
 	ego_vehicle.configure(max_velocity,3,max_accl);
 	int old_lane = ego_vehicle.lane;
 	vector<Vehicle> trajectory_for_state = ego_vehicle.test_func(vehicles_in_road,(50 - path_size) * simulator_time_step);
 	ego_vehicle.realize_next_state(trajectory_for_state);
-	
-		
-	
-	
-	
-	//std::cout <<"Ref Velocity  =" <<ref_velocity<< std::endl;
-	//std::cout <<"Ref accl  =" <<ref_accl<< std::endl;
-	//std::cout <<"End S  =" <<end_s << std::endl;
+
+    // isolate spline for discretising based on reference velocity
 	highway_map.calculate_map_XYspline_for_s(end_s, old_lane - ego_vehicle.lane, pts_x, pts_y,ref_yaw,ego_vehicle.lane);
-		
-	
-	
-	
+
+	// Parameters to discretising the spline
 	double x_estimate = 30;
 	double y_estimate = highway_map.get_y_from_curve(x_estimate);
 	double dist_estimate = sqrt(x_estimate * x_estimate + y_estimate * y_estimate);
-	
-
-	
-	ref_velocity = 	ego_vehicle.v;
-	//std::cout <<"Path Generation : Ref velocity used " <<ego_vehicle.v<< std::endl;
 		
+	ref_velocity = 	ego_vehicle.v;
+	
+    	
 	double n_dist_inc = dist_estimate / (0.02*ref_velocity);
 	double dist_inc_x = x_estimate / n_dist_inc;
 	double x_pt = 0;
 	double y_pt;
 	
 		for(int i = 1; i<= 50 - path_size;i++){
-			
+			// retrive Y values for given X and transform back to Map coordinate system based on ref_x, ref_y, ref_yaw
 			x_pt += dist_inc_x;
 			y_pt = highway_map.get_y_from_curve(x_pt);
 
