@@ -57,9 +57,35 @@ include CMakeFiles/path_planning.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/path_planning.dir/flags.make
 
+CMakeFiles/path_planning.dir/src/Vehicle.cpp.o: CMakeFiles/path_planning.dir/flags.make
+CMakeFiles/path_planning.dir/src/Vehicle.cpp.o: ../src/Vehicle.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/MDEVANA/Documents/GitHub/PathPlanning_for_HighwayDrive/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/path_planning.dir/src/Vehicle.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/path_planning.dir/src/Vehicle.cpp.o -c /mnt/c/Users/MDEVANA/Documents/GitHub/PathPlanning_for_HighwayDrive/src/Vehicle.cpp
+
+CMakeFiles/path_planning.dir/src/Vehicle.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/path_planning.dir/src/Vehicle.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/MDEVANA/Documents/GitHub/PathPlanning_for_HighwayDrive/src/Vehicle.cpp > CMakeFiles/path_planning.dir/src/Vehicle.cpp.i
+
+CMakeFiles/path_planning.dir/src/Vehicle.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/path_planning.dir/src/Vehicle.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/MDEVANA/Documents/GitHub/PathPlanning_for_HighwayDrive/src/Vehicle.cpp -o CMakeFiles/path_planning.dir/src/Vehicle.cpp.s
+
+CMakeFiles/path_planning.dir/src/Cost.cpp.o: CMakeFiles/path_planning.dir/flags.make
+CMakeFiles/path_planning.dir/src/Cost.cpp.o: ../src/Cost.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/MDEVANA/Documents/GitHub/PathPlanning_for_HighwayDrive/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/path_planning.dir/src/Cost.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/path_planning.dir/src/Cost.cpp.o -c /mnt/c/Users/MDEVANA/Documents/GitHub/PathPlanning_for_HighwayDrive/src/Cost.cpp
+
+CMakeFiles/path_planning.dir/src/Cost.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/path_planning.dir/src/Cost.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/MDEVANA/Documents/GitHub/PathPlanning_for_HighwayDrive/src/Cost.cpp > CMakeFiles/path_planning.dir/src/Cost.cpp.i
+
+CMakeFiles/path_planning.dir/src/Cost.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/path_planning.dir/src/Cost.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/MDEVANA/Documents/GitHub/PathPlanning_for_HighwayDrive/src/Cost.cpp -o CMakeFiles/path_planning.dir/src/Cost.cpp.s
+
 CMakeFiles/path_planning.dir/src/WayPoint.cpp.o: CMakeFiles/path_planning.dir/flags.make
 CMakeFiles/path_planning.dir/src/WayPoint.cpp.o: ../src/WayPoint.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/MDEVANA/Documents/GitHub/PathPlanning_for_HighwayDrive/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/path_planning.dir/src/WayPoint.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/MDEVANA/Documents/GitHub/PathPlanning_for_HighwayDrive/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/path_planning.dir/src/WayPoint.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/path_planning.dir/src/WayPoint.cpp.o -c /mnt/c/Users/MDEVANA/Documents/GitHub/PathPlanning_for_HighwayDrive/src/WayPoint.cpp
 
 CMakeFiles/path_planning.dir/src/WayPoint.cpp.i: cmake_force
@@ -72,7 +98,7 @@ CMakeFiles/path_planning.dir/src/WayPoint.cpp.s: cmake_force
 
 CMakeFiles/path_planning.dir/src/PathGenerator.cpp.o: CMakeFiles/path_planning.dir/flags.make
 CMakeFiles/path_planning.dir/src/PathGenerator.cpp.o: ../src/PathGenerator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/MDEVANA/Documents/GitHub/PathPlanning_for_HighwayDrive/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/path_planning.dir/src/PathGenerator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/MDEVANA/Documents/GitHub/PathPlanning_for_HighwayDrive/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/path_planning.dir/src/PathGenerator.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/path_planning.dir/src/PathGenerator.cpp.o -c /mnt/c/Users/MDEVANA/Documents/GitHub/PathPlanning_for_HighwayDrive/src/PathGenerator.cpp
 
 CMakeFiles/path_planning.dir/src/PathGenerator.cpp.i: cmake_force
@@ -85,7 +111,7 @@ CMakeFiles/path_planning.dir/src/PathGenerator.cpp.s: cmake_force
 
 CMakeFiles/path_planning.dir/src/MapPath.cpp.o: CMakeFiles/path_planning.dir/flags.make
 CMakeFiles/path_planning.dir/src/MapPath.cpp.o: ../src/MapPath.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/MDEVANA/Documents/GitHub/PathPlanning_for_HighwayDrive/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/path_planning.dir/src/MapPath.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/MDEVANA/Documents/GitHub/PathPlanning_for_HighwayDrive/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/path_planning.dir/src/MapPath.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/path_planning.dir/src/MapPath.cpp.o -c /mnt/c/Users/MDEVANA/Documents/GitHub/PathPlanning_for_HighwayDrive/src/MapPath.cpp
 
 CMakeFiles/path_planning.dir/src/MapPath.cpp.i: cmake_force
@@ -98,7 +124,7 @@ CMakeFiles/path_planning.dir/src/MapPath.cpp.s: cmake_force
 
 CMakeFiles/path_planning.dir/src/main.cpp.o: CMakeFiles/path_planning.dir/flags.make
 CMakeFiles/path_planning.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/MDEVANA/Documents/GitHub/PathPlanning_for_HighwayDrive/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/path_planning.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/MDEVANA/Documents/GitHub/PathPlanning_for_HighwayDrive/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/path_planning.dir/src/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/path_planning.dir/src/main.cpp.o -c /mnt/c/Users/MDEVANA/Documents/GitHub/PathPlanning_for_HighwayDrive/src/main.cpp
 
 CMakeFiles/path_planning.dir/src/main.cpp.i: cmake_force
@@ -111,6 +137,8 @@ CMakeFiles/path_planning.dir/src/main.cpp.s: cmake_force
 
 # Object files for target path_planning
 path_planning_OBJECTS = \
+"CMakeFiles/path_planning.dir/src/Vehicle.cpp.o" \
+"CMakeFiles/path_planning.dir/src/Cost.cpp.o" \
 "CMakeFiles/path_planning.dir/src/WayPoint.cpp.o" \
 "CMakeFiles/path_planning.dir/src/PathGenerator.cpp.o" \
 "CMakeFiles/path_planning.dir/src/MapPath.cpp.o" \
@@ -119,13 +147,15 @@ path_planning_OBJECTS = \
 # External object files for target path_planning
 path_planning_EXTERNAL_OBJECTS =
 
+path_planning: CMakeFiles/path_planning.dir/src/Vehicle.cpp.o
+path_planning: CMakeFiles/path_planning.dir/src/Cost.cpp.o
 path_planning: CMakeFiles/path_planning.dir/src/WayPoint.cpp.o
 path_planning: CMakeFiles/path_planning.dir/src/PathGenerator.cpp.o
 path_planning: CMakeFiles/path_planning.dir/src/MapPath.cpp.o
 path_planning: CMakeFiles/path_planning.dir/src/main.cpp.o
 path_planning: CMakeFiles/path_planning.dir/build.make
 path_planning: CMakeFiles/path_planning.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/MDEVANA/Documents/GitHub/PathPlanning_for_HighwayDrive/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable path_planning"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/MDEVANA/Documents/GitHub/PathPlanning_for_HighwayDrive/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable path_planning"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/path_planning.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -123,6 +123,33 @@ path_planning/fast:
 	$(MAKE) -f CMakeFiles/path_planning.dir/build.make CMakeFiles/path_planning.dir/build
 .PHONY : path_planning/fast
 
+src/Cost.o: src/Cost.cpp.o
+
+.PHONY : src/Cost.o
+
+# target to build an object file
+src/Cost.cpp.o:
+	$(MAKE) -f CMakeFiles/path_planning.dir/build.make CMakeFiles/path_planning.dir/src/Cost.cpp.o
+.PHONY : src/Cost.cpp.o
+
+src/Cost.i: src/Cost.cpp.i
+
+.PHONY : src/Cost.i
+
+# target to preprocess a source file
+src/Cost.cpp.i:
+	$(MAKE) -f CMakeFiles/path_planning.dir/build.make CMakeFiles/path_planning.dir/src/Cost.cpp.i
+.PHONY : src/Cost.cpp.i
+
+src/Cost.s: src/Cost.cpp.s
+
+.PHONY : src/Cost.s
+
+# target to generate assembly for a file
+src/Cost.cpp.s:
+	$(MAKE) -f CMakeFiles/path_planning.dir/build.make CMakeFiles/path_planning.dir/src/Cost.cpp.s
+.PHONY : src/Cost.cpp.s
+
 src/MapPath.o: src/MapPath.cpp.o
 
 .PHONY : src/MapPath.o
@@ -176,6 +203,33 @@ src/PathGenerator.s: src/PathGenerator.cpp.s
 src/PathGenerator.cpp.s:
 	$(MAKE) -f CMakeFiles/path_planning.dir/build.make CMakeFiles/path_planning.dir/src/PathGenerator.cpp.s
 .PHONY : src/PathGenerator.cpp.s
+
+src/Vehicle.o: src/Vehicle.cpp.o
+
+.PHONY : src/Vehicle.o
+
+# target to build an object file
+src/Vehicle.cpp.o:
+	$(MAKE) -f CMakeFiles/path_planning.dir/build.make CMakeFiles/path_planning.dir/src/Vehicle.cpp.o
+.PHONY : src/Vehicle.cpp.o
+
+src/Vehicle.i: src/Vehicle.cpp.i
+
+.PHONY : src/Vehicle.i
+
+# target to preprocess a source file
+src/Vehicle.cpp.i:
+	$(MAKE) -f CMakeFiles/path_planning.dir/build.make CMakeFiles/path_planning.dir/src/Vehicle.cpp.i
+.PHONY : src/Vehicle.cpp.i
+
+src/Vehicle.s: src/Vehicle.cpp.s
+
+.PHONY : src/Vehicle.s
+
+# target to generate assembly for a file
+src/Vehicle.cpp.s:
+	$(MAKE) -f CMakeFiles/path_planning.dir/build.make CMakeFiles/path_planning.dir/src/Vehicle.cpp.s
+.PHONY : src/Vehicle.cpp.s
 
 src/WayPoint.o: src/WayPoint.cpp.o
 
@@ -240,12 +294,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... path_planning"
+	@echo "... src/Cost.o"
+	@echo "... src/Cost.i"
+	@echo "... src/Cost.s"
 	@echo "... src/MapPath.o"
 	@echo "... src/MapPath.i"
 	@echo "... src/MapPath.s"
 	@echo "... src/PathGenerator.o"
 	@echo "... src/PathGenerator.i"
 	@echo "... src/PathGenerator.s"
+	@echo "... src/Vehicle.o"
+	@echo "... src/Vehicle.i"
+	@echo "... src/Vehicle.s"
 	@echo "... src/WayPoint.o"
 	@echo "... src/WayPoint.i"
 	@echo "... src/WayPoint.s"
