@@ -67,7 +67,7 @@ void PathGenerator::generate_simple_path(){
 }
 
 void PathGenerator::generate_circular_path(){
-	/*
+	/*// Function  to generate straight line Path
 	double pos_x;
 	double pos_y;
 	double angle;
@@ -115,7 +115,7 @@ void PathGenerator::generate_map_path(){
 
 void PathGenerator::Execute_lane_change_with_JMT(){
 	
-	
+		// generate Jerk optimised trajectory with Quintic Polynomials. Deprecated !
 		double final_s = end_s + dist_inc * (200);
 		
 		std::cout <<"Distance to Predict to next set: " <<dist_inc * (200)<< std::endl;
@@ -163,7 +163,9 @@ void PathGenerator::Execute_lane_change_with_JMT(){
 }
 
 void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor_fusion){
-	
+	// The Integrating function that responsible to create points that follows the rules of this project
+	// The function reads the previous existing points, calculates reference velocities for creating paths, process sensor fusion data , calls ego vehicle to decide on right path
+    	
 	
 	int path_size = previous_path_x.size();
 	
@@ -273,7 +275,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 }
 
 void PathGenerator::copy_unexecuted_path(){
-	
+	// Function to just copy remainding unexecuted path into next_x_vals , next_y_vals
 	for(int i=0;i< previous_path_x.size();i++){
 		
 		next_x_vals.push_back(previous_path_x[i]);
@@ -283,7 +285,7 @@ void PathGenerator::copy_unexecuted_path(){
 }
 
 void PathGenerator::make_traffic_predictions(vector<vector<double>> sensor_fusion){
-	
+	// Function that makes predictions for other vehicles in traffic based on bicycle model
 	std::cout <<"Size =" <<sensor_fusion.size() << std::endl;
 	
 	int path_size = previous_path_x.size();
@@ -316,7 +318,7 @@ void PathGenerator::make_traffic_predictions(vector<vector<double>> sensor_fusio
 }
 
 void PathGenerator::generate_map_path_with_transform(){
-	
+	// This function is deprecated. This is older version of path creation.
 	
 	lanecode followlane = middle;
 	int lane_change = 0;

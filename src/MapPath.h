@@ -37,11 +37,6 @@ class MapPath {
 
   vector<WayPoint> points_group;
   
-  //spline x_spline;
-  //spline y_spline;
-  //spline dx_spline;
-  //spline dy_spline;
-  
   spline xy_curve;
   
   

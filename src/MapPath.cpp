@@ -33,7 +33,7 @@ void MapPath::Init_from_cloudpoints(MapPath map_points) {
 
 void MapPath::set_map_path_data(vector<double> x,vector<double> y,vector<double> s,vector<double> dx, vector<double> dy ) {
   
-    
+// store the map data in a object variable  points_group  
   
   for (int i = 0; i < x.size(); ++i) {
 	  
@@ -45,13 +45,11 @@ void MapPath::set_map_path_data(vector<double> x,vector<double> y,vector<double>
   
 }
 
- 
-
-
-
-
 
 void MapPath::calculate_map_XYspline_for_s(double s_val, int d_val,vector<double> &prev_pts_x, vector<double> &prev_pts_y, double ref_yaw,int lane){
+	 
+	 // This function isolates a part of the map starting from current position of car to about 90 m.
+     // When lane change is detected , it starts farther from the current position of car to allow smooth lane change interpolation	 
 	 
 	 vector<double> x_vect;
 	 vector<double> y_vect;
@@ -82,11 +80,6 @@ void MapPath::calculate_map_XYspline_for_s(double s_val, int d_val,vector<double
 		  XY_3 = getXY(s_val+90, 2 + 4 * (lane - 1) , s_vect, x_vect, y_vect);
 	 }
 	 
-	 /*std::cout<< " pts_prev_x 0 ["<<prev_pts_x[0]<<std::endl;
-	 std::cout<< " pts_prev_x 1 ["<<prev_pts_x[1]<<std::endl;
-	 std::cout<< " pts_prev_XY_1 0 ["<<XY_1[0]<<std::endl;
-	 std::cout<< " pts_prev_XY_1 0 ["<<XY_2[0]<<std::endl;
-	 std::cout<< " pts_prev_XY_1 0 ["<<XY_3[0]<<std::endl;*/
 	 
 	 vector<double> pts_x;
 	 vector<double> pts_y;
@@ -104,11 +97,6 @@ void MapPath::calculate_map_XYspline_for_s(double s_val, int d_val,vector<double
 	 pts_y.push_back(XY_2[1]);
 	 pts_y.push_back(XY_3[1]);
 	 
-	 /*for(int j=0; j< pts_x.size(); j++){
-		 std::cout<< " pts_x ["<<j<<"] = "<<pts_x[j]<<std::endl;
-		 std::cout<< " pts_y ["<<j<<"] = "<<pts_y[j]<<std::endl;
-		 
-	 }*/
 	 
 	 double ref_x = prev_pts_x[1];
 	 double ref_y = prev_pts_y[1];
@@ -120,23 +108,15 @@ void MapPath::calculate_map_XYspline_for_s(double s_val, int d_val,vector<double
 		 
 		 shift_x = pts_x[i]-ref_x;
 		 shift_y = pts_y[i]-ref_y;
-		 
-		 /*std::cout<< " shift_x ["<<i<<"] = "<<shift_x<<std::endl;
-		 std::cout<< " shift_y ["<<i<<"] = "<<shift_y<<std::endl;*/
+ 
 		 
 		 pts_x[i] = ( shift_x * cos(0-ref_yaw) - shift_y * sin(0-ref_yaw) );
 		 pts_y[i] = ( shift_x * sin(0-ref_yaw) + shift_y * cos(0-ref_yaw) );
 		 
 		 
 	 }
-	 
-	 for(int j=0; j< pts_x.size(); j++){
-		 /*std::cout<< "transformed pts_x ["<<j<<"] = "<<pts_x[j]<<std::endl;
-		 std::cout<< "transformed pts_x ["<<j<<"] = "<<pts_y[j]<<std::endl;*/
-		 //std::cout<< " pts_y ["<<j<<"] = "<<pts_x[0];
-		 
-	 }
-	 
+
+	 // set the points to spline
 	 xy_curve.set_points(pts_x,pts_y);
 	 
 	 
