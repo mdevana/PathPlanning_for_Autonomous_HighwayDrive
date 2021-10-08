@@ -80,9 +80,9 @@ class Vehicle {
 
   int preferred_buffer = 15; // impacts "keep lane" behavior.
 
-  int lane, goal_lane = 2, goal_s, lanes_available;
+  int lane, goal_lane = 2, goal_s, lanes_available; // Goal lane here is most preferred lane
 
-  float target_speed = 22.22, max_acceleration = 9;
+  float target_speed = 22.22, max_acceleration = 9; // Default target speed is 22.22 m/s and max accl 9 m/s2
 
   
 };

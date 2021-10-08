@@ -67,7 +67,7 @@ void PathGenerator::generate_simple_path(){
 }
 
 void PathGenerator::generate_circular_path(){
-	/*// Function  to generate straight line Path
+	/*// Function  to generate straight line or circular Path
 	double pos_x;
 	double pos_y;
 	double angle;
@@ -104,7 +104,7 @@ void PathGenerator::generate_circular_path(){
 
 
 void PathGenerator::generate_map_path(){
-	
+	/*test function to check size of path*/
 	int path_size = previous_path_x.size();
 	int i;
 	
@@ -355,10 +355,6 @@ void PathGenerator::generate_map_path_with_transform(){
 	if (path_size ==0){
 		
 
-		
-		
-		
-		
 		double end_x_coor;
 		double end_y_coor;
 		
@@ -388,9 +384,6 @@ void PathGenerator::generate_map_path_with_transform(){
 			prev_y_coor = end_y_coor;
 		}
 
-		// S needs to be above 121 to merge into the path
-
-		
 	}
 	
 	

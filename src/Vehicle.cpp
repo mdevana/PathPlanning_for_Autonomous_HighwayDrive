@@ -16,6 +16,7 @@ using std::cout;
 Vehicle::Vehicle(){}
 
 Vehicle::Vehicle(int id, double x, double y,double s, double d, double vx, double vy, string state) {
+  // Constructor for general initialisation of a vehicle
   this->ID = id;
   this->x = x;
   this->y = y;
@@ -40,7 +41,7 @@ Vehicle::Vehicle(int lane, float s, float v, float a, string state) {
 }
 
 Vehicle::Vehicle(double car_x, double car_y, double car_s, double car_d, double car_speed, double car_accl, double car_yaw, string state, double max_velocity ){
-  // constructor to initisalise ego vehicle	
+  // constructor to initialise ego vehicle	
   this->ID = 1000;
   
   this->lane = getlanefrom_d(car_d);
@@ -64,6 +65,7 @@ Vehicle::~Vehicle() {}
 
 
 int Vehicle::getlanefrom_d(double d){
+	// caluclate lane number from d coordinate value
 	if (d>0 && d<=4)
 		return (1);
 	else if (d > 4 && d<=8)
@@ -261,34 +263,28 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
   if (get_vehicle_ahead(predictions, lane, vehicle_ahead)) {
 	
 	double allowed_gap_to_front_vehicle = (vehicle_ahead.s - this->s - this->preferred_buffer); 
-    std::cout<< " Gap maintained with vehicle id  "<<vehicle_ahead.ID<<std::endl; 	
+    //std::cout<< " Gap maintained with vehicle id  "<<vehicle_ahead.ID<<std::endl; 	
     
 	if (get_vehicle_behind(predictions, lane, vehicle_behind)) {
-      // Ego sandwiched between front and back vehicle. Must travel at the speed of traffic, regardless of preferred/minimum buffer distance
+      // Ego vehcile sandwiched between front and back vehicle. Must travel at the speed of traffic, regardless of preferred/minimum buffer distance
 	  	  
 	  if (vehicle_ahead.v > this->v && allowed_gap_to_front_vehicle > 0){
 		// increase Speed to that of front vehicle provided there is gap in front
 		
 		if (max_velocity_accel_limit < vehicle_ahead.v)
 				new_velocity = max_velocity_accel_limit;
-			else
+		else
 				new_velocity = vehicle_ahead.v;
 	  }
 		
-	  else {
-		// Condition to check if a passing vehicle makes a sudden lane change   
-		//if (allowed_gap_to_front_vehicle < 0 && this->v >= vehicle_ahead.v)
-		//if (allowed_gap_to_front_vehicle < 0 )
-			// Reduce speed gradually until safe distance is created to front vehicle
-			//new_velocity = this->v - this->max_acceleration * time_span;
-        //else{
-			// just reduce speed to  match the speed of front vehicle
-			// Set speed to follow the vehicle ahead
+	else {
+		// No vehicle is behind. follow the front vehicle with minimum velocity or vehicle ahead  
+
 			if (min_velocity_accel_limit > vehicle_ahead.v)
 				new_velocity = min_velocity_accel_limit;
 			else
 				new_velocity = vehicle_ahead.v;
-		//}
+
 	  }
 		
     } else {
@@ -310,7 +306,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 				new_velocity = min_velocity_accel_limit;
 			else
 				new_velocity = vehicle_ahead.v;
-			std::cout<< " speed set in module "<<new_velocity<<std::endl; 
+			//std::cout<< " speed set in module "<<new_velocity<<std::endl; 
 			
 		}			
 		else {
@@ -321,29 +317,14 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 				new_velocity = this->target_speed;
 		}
 		
-		
-		// Code let ego vehicle drive with maximum speed of vehicle ahead without closing gap. Safe behaviour. Not active 
-		   /*if (this->v >= vehicle_ahead.v)
-		     new_velocity = std::max(min_velocity_accel_limit, (float)vehicle_ahead.v);
-		   else
-		     new_velocity = std::min(max_velocity_accel_limit, (float)vehicle_ahead.v);*/
-		
-		
 	  }
 	  else {
-		  //if (allowed_gap_to_front_vehicle < 0 && this->v >= vehicle_ahead.v)
-		  std::cout<< " allowed_gap_to_front_vehicle should be negative"<<allowed_gap_to_front_vehicle<<std::endl; 
-		  //if (allowed_gap_to_front_vehicle < 0)
-			// 	Unexpected lane change from other cars. Gap is less than preferred buffer but the speed is same as forward vehicle , reduce speed till gap is maintained
-			//new_velocity = this->v - this->max_acceleration * time_span;
-		  //else{ 
-		    // Gap is maintained as per preffered Buffer , then reduce speed to match forward vehicle
-		  //new_velocity = std::max(this->v - this->max_acceleration * time_span, vehicle_ahead.v);
+		  // if allowed gap tp front vehicle is critical then reduce speed or follow front vehicle
+
 		  if (min_velocity_accel_limit > vehicle_ahead.v)
 				new_velocity = min_velocity_accel_limit;
 			else
 				new_velocity = vehicle_ahead.v;
-		  //}
 			
 	  }
 	  
@@ -381,7 +362,7 @@ vector<Vehicle> Vehicle::generate_trajectory(string state,
 vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_span){
 
   /**
-   * Here you can implement the transition_function code from the Behavior 
+   * Here the code for  transition_function  is implemented from the Behavior 
    *   Planning Pseudocode classroom concept.
    *
    * @param A predictions map. This is a map of vehicle id keys with predicted
@@ -406,7 +387,7 @@ vector<Vehicle> Vehicle::test_func(map<int, Vehicle> &predictions, double time_s
 	vector<float> cost_for_trajectory;
     vector<vector<Vehicle>> final_trajectories;
 	
-	
+	// Loop through all trajectories, evaluate them and find the trajectory with lowest cost
 	vector<string> p_s_states =successor_states(predictions,time_span);
 	float cost;
 	for (vector<string>::iterator t=p_s_states.begin(); t!=p_s_states.end(); ++t) {
@@ -442,6 +423,7 @@ void Vehicle::realize_next_state(vector<Vehicle> &trajectory) {
 
 void Vehicle::generate_predictions(double time_span) {
   // Generates predictions for non-ego vehicles in the given time span to be used in trajectory predictions
+  // Uses a linear point model
   this->s = this->s + (time_span * this->v);
 }
 

@@ -31,8 +31,7 @@ float goal_lane_cost(const Vehicle &vehicle,
   //   change) and final lane of trajectory.
   // Cost of being out of goal lane also becomes larger as vehicle approaches 
   //   goal distance.
-  // This function is very similar to what you have already implemented in the 
-  //   "Implement a Cost Function in C++" quiz.
+
   float cost;
   float distance = data["distance_to_goal"];
   if (distance > 0) {
@@ -60,10 +59,6 @@ float inefficiency_cost(const Vehicle &vehicle,
     
   float cost = (2.0*vehicle.target_speed - proposed_speed_intended 
              - proposed_speed_final)/vehicle.target_speed;
-  
-  /*std::cout <<"Vehicle target Speed : " <<vehicle.target_speed<<std::endl;
-  std::cout <<"proposed_speed_intended : " <<proposed_speed_intended<<std::endl;
-  std::cout <<"proposed_speed_final : " <<proposed_speed_final<<std::endl;*/
   
   return cost;
 }
@@ -139,10 +134,7 @@ float calculate_cost(const Vehicle &vehicle,
   for (int i = 0; i < cf_list.size(); ++i) {
     float new_cost = weight_list[i]*cf_list[i](vehicle, trajectory, predictions, 
                                                trajectory_data);
-	/*if (i==3)
-		std::cout <<"calculated lane distance cost : " <<cf_list[i](vehicle, trajectory, predictions, trajectory_data)<<std::endl;
-	if (i==2)
-		std::cout <<"calculated lane speed cost : " <<cf_list[i](vehicle, trajectory, predictions, trajectory_data)<<std::endl;*/
+
     cost += new_cost;
   }
 
@@ -164,7 +156,8 @@ map<string, float> get_helper_data(const Vehicle &vehicle,
   map<string, float> trajectory_data;
   Vehicle trajectory_last = trajectory[1];
   float intended_lane;
-
+  
+  // Calculate intended lane
   if (trajectory_last.state.compare("PLCL") == 0) {
     intended_lane = trajectory_last.lane - 1;
   } else if (trajectory_last.state.compare("PLCR") == 0) {
@@ -172,7 +165,9 @@ map<string, float> get_helper_data(const Vehicle &vehicle,
   } else {
     intended_lane = trajectory_last.lane;
   }
-
+  
+  // Calculate distance and velocity parameters for ego vehicle to be used in cost functions
+  
   float distance_to_goal = vehicle.goal_s - trajectory_last.s;
   float final_lane = trajectory_last.lane;
   trajectory_data["intended_lane"] = intended_lane;
@@ -188,7 +183,7 @@ map<string, float> get_helper_data(const Vehicle &vehicle,
   trajectory_data["Speed_final_lane"] = vehicle.target_speed;
   bool v_ah = veh.get_vehicle_ahead(predictions2,final_lane,v_ahead);
 	if (v_ah == true){
-		//std::cout <<"lane _speed " <<v_ahead.v <<lane<<std::endl;
+		
 		 trajectory_data["Speed_final_lane"]=v_ahead.v;	
 		 trajectory_data["distance_to_front_car_final_lane"] = abs(v_ahead.s - vehicle.s) ;
 	}
@@ -196,12 +191,11 @@ map<string, float> get_helper_data(const Vehicle &vehicle,
   trajectory_data["Speed_current_lane"] = vehicle.target_speed;
   v_ah = veh.get_vehicle_ahead(predictions2,trajectory[0].lane,v_ahead);
 	if (v_ah == true){
-		//std::cout <<"lane _speed " <<v_ahead.v <<lane<<std::endl;
+		
 		 trajectory_data["Speed_current_lane"]=v_ahead.v;
 		 trajectory_data["distance_to_front_car_current_lane"] = abs(v_ahead.s - vehicle.s) ;
 		
 	}
 
-    
   return trajectory_data;
 }

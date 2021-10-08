@@ -70,11 +70,13 @@ void MapPath::calculate_map_XYspline_for_s(double s_val, int d_val,vector<double
 	 vector<double>  XY_3;
 	 
 	 if (d_val !=0 ){
+	  // Case : Lane change is observed. Start spline at 50 m from current position	 
 	  XY_1 = getXY(s_val+50, 2 + 4 * (lane - 1) , s_vect, x_vect, y_vect);
 	  XY_2 = getXY(s_val+65, 2 + 4 * (lane - 1) , s_vect, x_vect, y_vect);
 	  XY_3 = getXY(s_val+80, 2 + 4 * (lane - 1) , s_vect, x_vect, y_vect);
 	 }
 	 else {
+		 // Case : No Lane change. Start spline at 30 m from current position till 90 m
 		  XY_1 = getXY(s_val+30, 2 + 4 * (lane - 1) , s_vect, x_vect, y_vect);
 		  XY_2 = getXY(s_val+60, 2 + 4 * (lane - 1) , s_vect, x_vect, y_vect);
 		  XY_3 = getXY(s_val+90, 2 + 4 * (lane - 1) , s_vect, x_vect, y_vect);
@@ -104,6 +106,7 @@ void MapPath::calculate_map_XYspline_for_s(double s_val, int d_val,vector<double
 	 double shift_x;
 	 double shift_y;
 	 
+	 // Transform the points to appropriate lane
 	 for(int i = 0;i< pts_x.size();i++){
 		 
 		 shift_x = pts_x[i]-ref_x;
@@ -125,14 +128,14 @@ void MapPath::calculate_map_XYspline_for_s(double s_val, int d_val,vector<double
 }
 
 double MapPath::get_y_from_curve(double x){
-	
+	// return the y value from spline stored in xy_curve
 	return xy_curve(x);
 }
 
 
 
 WayPoint MapPath::get_map_convertedS_for_XY(double x_val, double y_val, double theta) {
-	 
+	/* Return s,d value for a X ,Y.This function is not used */ 
 	 vector<double> x_vect;
 	 vector<double> y_vect;
 
@@ -151,7 +154,7 @@ WayPoint MapPath::get_map_convertedS_for_XY(double x_val, double y_val, double t
 }
 
 vector<WayPoint> MapPath::get_map_convertedSD_for_XY_jerk_optimised(vector<double> &s_start,vector<double> &s_end, vector<double> &d_start, vector<double> &d_end, double start_time, double end_time, double inc) {
-	 
+	 /* this function calculates Jerk optimised trajectory on s - d coordinates. Not used */
 	 vector<double> x_vect;
 	 vector<double> y_vect;
 	 vector<double> s_vect;
@@ -234,7 +237,7 @@ vector<double> MapPath::JMT(vector<double> &start, vector<double> &end, double T
 }
 
 double MapPath::Poly_eval_JMT(vector<double> coeff, double t){
-	
+	/* return coefficient of polynomial*/
 	return (coeff[0] + coeff[1] * t + coeff[2] * pow(t,2) + coeff[3] * pow(t,3) + coeff[4] * pow(t,4) + coeff[5] * pow(t,5));
 	
 }

@@ -2,7 +2,7 @@
 #include <math.h>
 #include "WayPoint.h"
 #include <string>
-
+/* This class models a point in X,Y and s d coordinate*/
 
 WayPoint::WayPoint() {}
 
