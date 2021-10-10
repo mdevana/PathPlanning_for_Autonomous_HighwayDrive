@@ -270,16 +270,17 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 	  	  
 	  if (vehicle_ahead.v > this->v && allowed_gap_to_front_vehicle > 0){
 		// increase Speed to that of front vehicle provided there is gap in front
-		
+		    
 		if (max_velocity_accel_limit < vehicle_ahead.v)
-				new_velocity = max_velocity_accel_limit;
+			new_velocity = max_velocity_accel_limit;
 		else
-				new_velocity = vehicle_ahead.v;
+			new_velocity = vehicle_ahead.v;
 	  }
 		
 	else {
-		// No vehicle is behind. follow the front vehicle with minimum velocity or vehicle ahead  
-
+		//either gap is critical or vehicle is going slow than 
+			if (allowed_gap_to_front_vehicle <= 0)
+				new_velocity = this->v - 4 * time_span;
 			if (min_velocity_accel_limit > vehicle_ahead.v)
 				new_velocity = min_velocity_accel_limit;
 			else
