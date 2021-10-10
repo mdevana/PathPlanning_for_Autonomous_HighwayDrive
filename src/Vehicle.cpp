@@ -268,7 +268,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 	if (get_vehicle_behind(predictions, lane, vehicle_behind)) {
       // Ego vehcile sandwiched between front and back vehicle. Must travel at the speed of traffic, regardless of preferred/minimum buffer distance
 	  	  
-	  if (vehicle_ahead.v > this->v && allowed_gap_to_front_vehicle > 0){
+	  if (allowed_gap_to_front_vehicle > 0){
 		// increase Speed to that of front vehicle provided there is gap in front
 		    
 		if (max_velocity_accel_limit < vehicle_ahead.v)
@@ -279,8 +279,8 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 		
 	else {
 		//either gap is critical or vehicle is going slow than 
-			if (allowed_gap_to_front_vehicle <= 0)
-				new_velocity = this->v - 4 * time_span;
+			
+			//new_velocity = this->v - 4 * time_span;
 			if (min_velocity_accel_limit > vehicle_ahead.v)
 				new_velocity = min_velocity_accel_limit;
 			else
