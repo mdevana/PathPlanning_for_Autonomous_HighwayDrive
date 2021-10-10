@@ -310,7 +310,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 			
 		}			
 		else {
-		    
+		    std::cout<< " Recovering from ful brakes "<<allowed_gap_to_front_vehicle<<std::endl; 	
 			if (max_velocity_accel_limit < this->target_speed)
 				new_velocity = max_velocity_accel_limit;
 			else
