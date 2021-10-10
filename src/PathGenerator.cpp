@@ -231,7 +231,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 		pts_y.push_back(ref_y);
 
 		ref_velocity = sqrt((pts_x[1]-pts_x[0] ) * (pts_x[1]-pts_x[0]) +  (pts_y[1]-pts_y[0]) * (pts_y[1]-pts_y[0])) / simulator_time_step;
-		std::cout <<"Car Speed  =" <<car_speed / 2.24 << std::endl;
+		//std::cout <<"Car Speed  =" <<car_speed / 2.24 << std::endl;
 		ref_accl = (ref_velocity - (car_speed/2.24)) / (path_size * simulator_time_step);
 	}
 	
@@ -286,7 +286,7 @@ void PathGenerator::copy_unexecuted_path(){
 
 void PathGenerator::make_traffic_predictions(vector<vector<double>> sensor_fusion){
 	// Function that makes predictions for other vehicles in traffic based on bicycle model
-	std::cout <<"Size =" <<sensor_fusion.size() << std::endl;
+	//std::cout <<"Size =" <<sensor_fusion.size() << std::endl;
 	
 	int path_size = previous_path_x.size();
 	
