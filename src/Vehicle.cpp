@@ -321,10 +321,10 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 	  }
 	  else {
 		  // if allowed gap tp front vehicle is critical then reduce speed or follow front vehicle
-		  std::cout<< " allowed_gap_to_front_vehicle negative "<<allowed_gap_to_front_vehicle<<std::endl; 	
+		  //std::cout<< " allowed_gap_to_front_vehicle negative "<<allowed_gap_to_front_vehicle<<std::endl; 	
 		  if (min_velocity_accel_limit < vehicle_ahead.v){
 				new_velocity = min_velocity_accel_limit;
-			    std::cout<< " Full slamming of brakes "<<new_velocity<<std::endl;
+			    //std::cout<< " Full slamming of brakes "<<new_velocity<<std::endl;
 		  }
 			else
 				new_velocity = vehicle_ahead.v;
@@ -421,6 +421,11 @@ void Vehicle::realize_next_state(vector<Vehicle> &trajectory) {
   this->s = next_state.s;
   this->v = next_state.v;
   this->a = next_state.a;
+  
+  std::cout<< " new Velocity : "<<this->v<<std::endl;
+  std::cout<< " new accl : "<<this->a<<std::endl;
+  
+  
 }
 
 
