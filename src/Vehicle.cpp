@@ -285,9 +285,13 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 		//either gap is critical or vehicle is going slow than 
 			
 			//new_velocity = this->v - 4 * time_span;
-			new_velocity = min_velocity_accel_limit;
-			if (min_velocity_accel_limit < vehicle_ahead.v)
-				new_velocity = vehicle_ahead.v;
+			if (this->v > vehicle_ahead.v){ 
+				new_velocity = min_velocity_accel_limit;
+				if (min_velocity_accel_limit < vehicle_ahead.v)
+					new_velocity = vehicle_ahead.v;
+			}
+			else 
+				new_velocity = this->v;
 
 
 	  }
