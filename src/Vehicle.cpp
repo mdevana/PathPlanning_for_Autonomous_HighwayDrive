@@ -288,7 +288,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 			if (this->v > vehicle_ahead.v){ 
 				new_velocity = min_velocity_accel_limit;
 				if (min_velocity_accel_limit < vehicle_ahead.v)
-					new_velocity = vehicle_ahead.v;
+					new_velocity = getVelocityChecked(vehicle_ahead.v,this->v,time_span,min_velocity_accel_limit);
 			}
 			else 
 				new_velocity = this->v;
@@ -312,7 +312,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 		    
 			new_velocity = min_velocity_accel_limit;
 			if (min_velocity_accel_limit < vehicle_ahead.v)
-				new_velocity = vehicle_ahead.v;
+				new_velocity = getVelocityChecked(vehicle_ahead.v,this->v,time_span,min_velocity_accel_limit);
 			//std::cout<< " speed set in module "<<new_velocity<<std::endl; 
 			
 		}			
@@ -330,7 +330,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 		  if (this->v > vehicle_ahead.v){
 			  new_velocity = min_velocity_accel_limit;
 			if (min_velocity_accel_limit < vehicle_ahead.v)
-				new_velocity = vehicle_ahead.v;
+				new_velocity = getVelocityChecked(vehicle_ahead.v,this->v,time_span,min_velocity_accel_limit);
 		  }
 		  else
 			  new_velocity = this->v;
@@ -449,4 +449,16 @@ void Vehicle::configure(double max_speed,int lane_avail, double max_accl) {
   lanes_available = lane_avail;  
   max_acceleration = max_accl;
 }
+
+double getVelocityChecked(double vel_to_reach,double current_velocity,double time_span,double next_step_velocity){
+	double safe_accl_value = 9;
+	accl = (vel_to_reach - current_velocity) / time_span;
+	if (std::abs(accl) > safe_accl_value )
+		return next_step_velocity;
+	else
+		return vel_to_reach;
+		
+	
+}
+
 

@@ -60,6 +60,8 @@ class Vehicle {
   
   void VehicleParamDisplay();
   
+  double getVelocityChecked(double,double);
+  
   
   
   
