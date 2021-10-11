@@ -250,7 +250,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
                                       int lane, double time_span) {
   // Gets next timestep kinematics (position, velocity, acceleration) 
   //   for a given lane. Tries to choose the maximum velocity and acceleration, 
-  //   given other vehicle positions and accel/velocity constraints.
+  //   given other vehicle positions and accel/velocity constraints.051080k
   float max_velocity_accel_limit = this->max_acceleration * time_span + this->v;
   float min_velocity_accel_limit = this->v - this->max_acceleration * time_span ;
   float max_velocity_in_front;
@@ -327,9 +327,14 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 	  else {
 		  // if allowed gap tp front vehicle is critical then reduce speed or follow front vehicle
 		  //std::cout<< " allowed_gap_to_front_vehicle negative "<<allowed_gap_to_front_vehicle<<std::endl;
-		  new_velocity = min_velocity_accel_limit;
-		  if (min_velocity_accel_limit < vehicle_ahead.v)
+		  if (this->v > vehicle_ahead.v){
+			  new_velocity = min_velocity_accel_limit;
+			if (min_velocity_accel_limit < vehicle_ahead.v)
 				new_velocity = vehicle_ahead.v;
+		  }
+		  else
+			  new_velocity = this->v;
+		  
 			
 	  }
 	  
