@@ -181,7 +181,7 @@ void PathGenerator::generate_map_path_with_traffic(vector<vector<double>> sensor
 	double ref_yaw; 
 	double ref_velocity;
 	double ref_accl=0.0;
-	double max_accl = 5; // default acceleration value for this project	
+	double max_accl = 3; // default acceleration value for this project	
 	
 	if (path_size ==0){
 		
