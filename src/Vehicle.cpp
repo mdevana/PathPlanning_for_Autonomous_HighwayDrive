@@ -302,31 +302,25 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 		if (braking_dist >= allowed_gap_to_front_vehicle){
 		
 		    
-			
+			new_velocity = min_velocity_accel_limit;
 			if (min_velocity_accel_limit > vehicle_ahead.v)
-				new_velocity = min_velocity_accel_limit;
-			else
 				new_velocity = vehicle_ahead.v;
 			//std::cout<< " speed set in module "<<new_velocity<<std::endl; 
 			
 		}			
 		else {
-		    std::cout<< " Recovering from ful brakes "<<allowed_gap_to_front_vehicle<<std::endl; 	
-			if (max_velocity_accel_limit < this->target_speed)
-				new_velocity = max_velocity_accel_limit;
-			else
+		    std::cout<< " Recovering from ful brakes "<<allowed_gap_to_front_vehicle<<std::endl;
+			new_velocity = max_velocity_accel_limit;	
+			if (max_velocity_accel_limit > this->target_speed)
 				new_velocity = this->target_speed;
 		}
 		
 	  }
 	  else {
 		  // if allowed gap tp front vehicle is critical then reduce speed or follow front vehicle
-		  //std::cout<< " allowed_gap_to_front_vehicle negative "<<allowed_gap_to_front_vehicle<<std::endl; 	
-		  if (min_velocity_accel_limit < vehicle_ahead.v){
-				new_velocity = min_velocity_accel_limit;
-			    //std::cout<< " Full slamming of brakes "<<new_velocity<<std::endl;
-		  }
-			else
+		  //std::cout<< " allowed_gap_to_front_vehicle negative "<<allowed_gap_to_front_vehicle<<std::endl;
+		  new_velocity = min_velocity_accel_limit;
+		  if (min_velocity_accel_limit > vehicle_ahead.v){
 				new_velocity = vehicle_ahead.v;
 			
 	  }
