@@ -417,7 +417,8 @@ void Vehicle::realize_next_state(vector<Vehicle> &trajectory) {
   this->a = next_state.a;
   
   std::cout<< " new Velocity : "<<this->v<<std::endl;
-  //std::cout<< " new accl : "<<this->a<<std::endl;
+  if (std::abs(this->a) > 9)
+	std::cout<< " new accl : "<<this->a<<std::endl;
   
   
 }
