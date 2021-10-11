@@ -450,7 +450,7 @@ void Vehicle::configure(double max_speed,int lane_avail, double max_accl) {
   max_acceleration = max_accl;
 }
 
-double getVelocityChecked(double vel_to_reach,double current_velocity,double time_span,double next_step_velocity){
+double Vehicle::getVelocityChecked(double vel_to_reach,double current_velocity,double time_span,double next_step_velocity){
 	double safe_accl_value = 9;
 	double accl = (vel_to_reach - current_velocity) / time_span;
 	if (std::abs(accl) > safe_accl_value )
