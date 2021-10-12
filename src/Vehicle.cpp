@@ -284,7 +284,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 	else {
 		//either gap is critical or vehicle is going slow than 
 			
-			min_velocity_accel_limit = this->v - 4 * time_span;
+			//min_velocity_accel_limit = this->v - 4 * time_span;
 			if (this->v > vehicle_ahead.v){ 
 				new_velocity = min_velocity_accel_limit;
 				if (min_velocity_accel_limit < vehicle_ahead.v)
@@ -298,7 +298,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 		
     } else {
 	  // Ego has vehicle only in front and no vehilce in rear. Adjust speed to follow the front vehicle by either closing gap or follow vehicle ahead speed
-	  //std::cout<< " allowed_gap_to_front_vehicle "<<allowed_gap_to_front_vehicle<<std::endl;
+	  
       	  
       if (allowed_gap_to_front_vehicle > 0 ){	  
 		 
@@ -316,11 +316,11 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 			}
 			else
 				new_velocity = this->v;
-			//std::cout<< " speed set in module "<<new_velocity<<std::endl; 
+			 
 			
 		}			
 		else {
-		    //std::cout<< " Recovering from ful brakes "<<allowed_gap_to_front_vehicle<<std::endl;
+		    
 			new_velocity = max_velocity_accel_limit;	
 			if (max_velocity_accel_limit > this->target_speed)
 				new_velocity = this->target_speed;
@@ -328,9 +328,9 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 		
 	  }
 	  else {
-		  // if allowed gap tp front vehicle is critical then reduce speed or follow front vehicle
-		  //std::cout<< " allowed_gap_to_front_vehicle negative "<<allowed_gap_to_front_vehicle<<std::endl;
-		  min_velocity_accel_limit = this->v - 6 * time_span;
+		  // if allowed gap to front vehicle is critical then reduce speed or follow front vehicle
+		  
+		  //min_velocity_accel_limit = this->v - 6 * time_span;
 		  if (this->v > vehicle_ahead.v){
 			  new_velocity = min_velocity_accel_limit;
 			if (min_velocity_accel_limit < vehicle_ahead.v)
