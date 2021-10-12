@@ -284,7 +284,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 	else {
 		//either gap is critical or vehicle is going slow than 
 			
-			//new_velocity = this->v - 4 * time_span;
+			min_velocity_accel_limit = this->v - 4 * time_span;
 			if (this->v > vehicle_ahead.v){ 
 				new_velocity = min_velocity_accel_limit;
 				if (min_velocity_accel_limit < vehicle_ahead.v)
@@ -330,6 +330,7 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
 	  else {
 		  // if allowed gap tp front vehicle is critical then reduce speed or follow front vehicle
 		  //std::cout<< " allowed_gap_to_front_vehicle negative "<<allowed_gap_to_front_vehicle<<std::endl;
+		  min_velocity_accel_limit = this->v - 6 * time_span;
 		  if (this->v > vehicle_ahead.v){
 			  new_velocity = min_velocity_accel_limit;
 			if (min_velocity_accel_limit < vehicle_ahead.v)
