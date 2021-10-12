@@ -162,6 +162,7 @@ vector<Vehicle> Vehicle::lane_change_trajectory(string state,
   // Check if a lane change is possible (check if another vehicle occupies 
   //   that corridor in a given lane.
   double vehicleahead_clearance=0;
+  Vehicle vehicle_ahead;
   if (get_vehicle_ahead(predictions, this->lane, vehicle_ahead))
 	   vehicleahead_clearance = vehicle_ahead.s - this->s;
 	  
