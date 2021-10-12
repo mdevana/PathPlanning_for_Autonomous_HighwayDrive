@@ -166,7 +166,7 @@ vector<Vehicle> Vehicle::lane_change_trajectory(string state,
   if (get_vehicle_ahead(predictions, this->lane, vehicle_ahead))
 	   vehicleahead_clearance = vehicle_ahead.s - this->s;
    
-  if (vehicleahead_clearance < this->preferred_buffer)
+  if (vehicleahead_clearance < this->preferred_buffer - 2)
 	  return trajectory;
 	  
   for (map<int, Vehicle>::iterator it = predictions.begin(); 
