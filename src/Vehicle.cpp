@@ -303,16 +303,19 @@ vector<float> Vehicle::get_kinematics(map<int, Vehicle> &predictions,
       if (allowed_gap_to_front_vehicle > 0 ){	  
 		 
 		
-		// To clear traffic , vehicle can close the gap to minimum buffer and look for opportunity to overtake : CODE is not Activated 
+		// To clear traffic , vehicle can close the gap to minimum buffer and look for opportunity to overtake : 
 				
 		double braking_dist = abs((vehicle_ahead.v * vehicle_ahead.v) - (this->v * this->v)) / (2 * this->max_acceleration) ; // Equation v*v -u*u / 2 * a * s
 		
 		if (braking_dist >= allowed_gap_to_front_vehicle){
 		
-		    
-			new_velocity = min_velocity_accel_limit;
-			if (min_velocity_accel_limit < vehicle_ahead.v)
-				new_velocity = getVelocityChecked(vehicle_ahead.v,this->v,time_span,min_velocity_accel_limit);
+		    if (this->v > vehicle_ahead.v){ 
+				new_velocity = min_velocity_accel_limit;
+				if (min_velocity_accel_limit < vehicle_ahead.v)
+					new_velocity = getVelocityChecked(vehicle_ahead.v,this->v,time_span,min_velocity_accel_limit);
+			}
+			else
+				new_velocity = this->v;
 			//std::cout<< " speed set in module "<<new_velocity<<std::endl; 
 			
 		}			
