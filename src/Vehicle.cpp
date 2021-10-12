@@ -161,13 +161,17 @@ vector<Vehicle> Vehicle::lane_change_trajectory(string state,
   Vehicle next_lane_vehicle;
   // Check if a lane change is possible (check if another vehicle occupies 
   //   that corridor in a given lane.
+  double vehicleahead_clearance=0;
+  if (get_vehicle_ahead(predictions, this->lane, vehicle_ahead))
+	   vehicleahead_clearance = vehicle_ahead.s - this->s;
+	  
   for (map<int, Vehicle>::iterator it = predictions.begin(); 
        it != predictions.end(); ++it) {
     next_lane_vehicle = it->second;
 	double forward_clearance = this->s + 20;
 	double backward_clearance = this->s - 10;
 	
-    if ( (next_lane_vehicle.s  < forward_clearance) && (next_lane_vehicle.s > backward_clearance) && next_lane_vehicle.lane == new_lane) {
+    if ( (next_lane_vehicle.s  < forward_clearance) && (next_lane_vehicle.s > backward_clearance) && (next_lane_vehicle.lane == new_lane) && (vehicleahead_clearance > this->preferred_buffer)) {
       // If lane change is not possible, return empty trajectory.
 	  
       return trajectory;
