@@ -1,6 +1,8 @@
 # CarND-Path-Planning-Project
 Self-Driving Car Engineer Nanodegree Program
 
+https://youtu.be/YxSm1g_Cf8M
+
 
 ### Goal of the project
 The goal of the project to make a ego car drive around a virtual highway in dense traffic by adhering to following constraints for minimum 4.32 Miles.
